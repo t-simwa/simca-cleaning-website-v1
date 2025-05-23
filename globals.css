@@ -1,0 +1,9 @@
+/* Fix: Prevent Leaflet maps and popups from appearing above the header */
+.leaflet-container,
+.leaflet-pane,
+.leaflet-control,
+.leaflet-popup,
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 1 !important;
+} 
