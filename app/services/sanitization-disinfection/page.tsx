@@ -613,12 +613,12 @@ export default function SanitizationDisinfectionPage() {
                         }}
                       >
                         <h3 className="text-xl font-semibold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
-                          {pkg.name}
-                        </h3>
+                      {pkg.name}
+                    </h3>
                       </motion.div>
                       
                       <div className="text-2xl font-bold text-add8e6 mb-4">
-                        {pkg.price}
+                      {pkg.price}
                       </div>
                       
                       <ul className="space-y-2 flex-grow mb-6">
@@ -633,16 +633,16 @@ export default function SanitizationDisinfectionPage() {
                             <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2 flex-shrink-0" />
                             {feature}
                           </motion.li>
-                        ))}
-                      </ul>
+                      ))}
+                    </ul>
                       
-                      <Link
-                        href="/contact"
+                    <Link
+                      href="/contact"
                         className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-3 rounded-full font-semibold hover:bg-add8e6/90 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 text-center"
-                      >
+                    >
                         Get a Quote
                         <ArrowRight className="w-4 h-4" />
-                      </Link>
+                    </Link>
                     </div>
                   </motion.div>
                 ))}
@@ -678,7 +678,7 @@ export default function SanitizationDisinfectionPage() {
               >
                 {/* Section Header */}
                 <div className="mb-8 md:mb-12">
-                  <motion.div 
+                  <motion.div
                     className="inline-block mb-3 sm:mb-4 md:mb-6 mt-0 !mt-0"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -716,7 +716,7 @@ export default function SanitizationDisinfectionPage() {
                   >
                     {sanitizationDisinfectionService.whyChooseUs.description}
                   </motion.p>
-                </div>
+                    </div>
 
                 <ul className="space-y-3">
                   {sanitizationDisinfectionService.whyChooseUs.points.map((point, index) => (
@@ -736,7 +736,7 @@ export default function SanitizationDisinfectionPage() {
                         }}
                       >
                         <CheckCircle2 className="w-5 h-5 text-add8e6" />
-                      </motion.div>
+                  </motion.div>
                       {point}
                     </motion.li>
                   ))}
@@ -759,7 +759,7 @@ export default function SanitizationDisinfectionPage() {
                 {/* Placeholder image - replace with actual sanitization image */}
                 <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 group-hover:scale-105 transition-transform duration-500">
                   <SprayCan className="w-24 h-24" />
-                </div>
+              </div>
               </motion.div>
             </div>
           </ScrollAnimation>
@@ -794,7 +794,7 @@ export default function SanitizationDisinfectionPage() {
                 >
                   <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
                     <MapPin className="w-4 h-4" />
-                    Service Areas
+                  Service Areas
                   </span>
                 </motion.div>
                 <motion.h2 
