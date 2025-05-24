@@ -372,11 +372,10 @@ export default function ServicesPage() {
                     >
                       {getCurrentCards().map((service) => (
                         <Link
-                    key={service.id}
-                          href={`#${service.id}`}
-                          onClick={(e) => handleScrollToSection(e, service.id)}
+                          key={service.id}
+                          href={`/services/${service.id}`}
                           className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden"
-                  >
+                        >
                           {/* Glassmorphism effect */}
                           <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
                           

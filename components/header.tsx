@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, Phone, Moon, Sun, Sparkles, Mail } from "lucide-react"
+import { Menu, X, Phone, Moon, Sun, Sparkles, Mail, ChevronDown } from "lucide-react"
 import Logo from "./logo"
 import { useTheme } from "next-themes"
 import SocialIcons from "./social-icons"
@@ -11,6 +11,8 @@ import LanguageToggle from "./language-toggle"
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false)
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -30,12 +32,43 @@ export default function Header() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
+    // Close mobile services dropdown when main menu is closed
+    if (isMenuOpen) {
+      setIsMobileServicesOpen(false)
+    }
+  }
+
+  const toggleServicesDropdown = () => {
+    setIsServicesDropdownOpen(!isServicesDropdownOpen)
+  }
+
+  const toggleMobileServices = () => {
+    setIsMobileServicesOpen(!isMobileServicesOpen)
   }
 
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
+    {
+      name: "Services",
+      href: "/services",
+      subNav: [
+        { name: "Residential Cleaning", href: "/services/residential" },
+        { name: "Commercial Cleaning", href: "/services/commercial" },
+        { name: "Post-construction Cleaning", href: "/services/post-construction" },
+        { name: "Carpet & Upholstery Cleaning", href: "/services/carpet-upholstery" },
+        { name: "Sanitization & Disinfection", href: "/services/sanitization-disinfection" },
+        { name: "Specialized Cleaning", href: "/services/specialized" },
+        { name: "Office Cleaning", href: "/services/office" },
+        { name: "Steam Cleaning", href: "/services/steam" },
+        { name: "Sanitary Bins Services", href: "/services/sanitary-bins" },
+        { name: "Garbage Collection Services", href: "/services/garbage-collection" },
+        { name: "Mattress Cleaning Services", href: "/services/mattress" },
+        { name: "Vehicle Interior Cleaning Services", href: "/services/vehicle-interior" },
+        { name: "Window Cleaning", href: "/services/window" },
+        { name: "Sofa Set Cleaning", href: "/services/sofa-set" },
+      ],
+    },
     { name: "Locations", href: "/locations" },
     { name: "Gallery", href: "/gallery" },
     { name: "Blog", href: "/blog" },
@@ -117,13 +150,43 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)]"
-              >
-                {item.name}
-              </Link>
+              <div key={item.name} className="relative group">
+                {item.subNav ? (
+                  <button
+                    className="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 flex items-center gap-1 focus:outline-none"
+                    onClick={toggleServicesDropdown}
+                  >
+                    {item.name}
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isServicesDropdownOpen ? "rotate-180" : ""}`} />
+                  </button>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)]"
+                  >
+                    {item.name}
+                  </Link>
+                )}
+
+                {item.subNav && isServicesDropdownOpen && (
+                  <div
+                    className="absolute top-full left-0 mt-2 w-60 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  >
+                    <div className="py-1">
+                      {item.subNav.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:text-add8e6 dark:hover:text-add8e6 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)]"
+                          onClick={() => setIsServicesDropdownOpen(false)}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
 
@@ -188,15 +251,43 @@ export default function Header() {
               <nav className="flex-1 overflow-y-auto">
                 <div className="px-4 py-3 space-y-1">
                   {navItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="flex items-center justify-between py-3 px-4 text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <span>{item.name}</span>
-                      <span className="w-1.5 h-1.5 bg-add8e6/50 rounded-full group-hover:scale-150 transition-transform" />
-                    </Link>
+                    <div key={item.name}>
+                      {item.subNav ? (
+                        <button
+                          className="flex items-center justify-between w-full py-3 px-4 text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                          onClick={toggleMobileServices}
+                        >
+                          <span>{item.name}</span>
+                          <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isMobileServicesOpen ? "rotate-180" : ""}`} />
+                        </button>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="flex items-center justify-between py-3 px-4 text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          <span>{item.name}</span>
+                          <span className="w-1.5 h-1.5 bg-add8e6/50 rounded-full group-hover:scale-150 transition-transform" />
+                        </Link>
+                      )}
+                      {item.subNav && isMobileServicesOpen && (
+                        <div className="pl-8 pr-4 py-1 space-y-1 bg-gray-50 dark:bg-gray-800">
+                          {item.subNav.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              href={subItem.href}
+                              className="block py-2 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                              onClick={() => {
+                                setIsMenuOpen(false)
+                                setIsMobileServicesOpen(false)
+                              }}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   ))}
                 </div>
 
