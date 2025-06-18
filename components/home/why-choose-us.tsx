@@ -145,7 +145,7 @@ export default function WhyChooseUs() {
         >
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6/20 to-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-sm font-medium mb-4 md:mb-6 backdrop-blur-sm">
             <Sparkles className="w-4 h-4" />
-            Why Choose Simca Cleaning
+            Why Choose Simca Agencies
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide">
             Transform Your Space with{" "}

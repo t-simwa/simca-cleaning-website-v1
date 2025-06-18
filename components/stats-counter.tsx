@@ -130,7 +130,7 @@ export default function StatsCounter() {
             </span>
           </h2>
           <p className="text-base md:text-xl text-gray-600 dark:text-gray-300">
-            Join thousands of satisfied clients who trust Simca Cleaning for their cleaning needs
+            Join thousands of satisfied clients who trust Simca Agencies for their cleaning needs
           </p>
         </div>
 

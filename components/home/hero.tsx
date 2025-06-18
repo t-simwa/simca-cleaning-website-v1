@@ -218,7 +218,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-base md:text-xl text-gray-600 dark:text-gray-300 tracking-wide mb-4 max-w-sm sm:max-w-lg mx-auto lg:mx-0"
             >
-              Simca Cleaning delivers more than just cleanliness. Save valuable time, enjoy a healthier environment, and reduce costs with our eco-friendly solutions. Trusted by busy professionals and businesses across Kenya for exceptional results.
+              Simca Agencies delivers more than just cleanliness. Save valuable time, enjoy a healthier environment, and reduce costs with our eco-friendly solutions. Trusted by busy professionals and businesses across Kenya for exceptional results.
             </motion.p>
 
             {/* Quick stats with enhanced micro-interactions */}

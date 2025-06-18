@@ -47,7 +47,7 @@ export default function Testimonials() {
       role: "Property Manager, Eldoret",
       image: "/sarah-njoroge.jpg?height=200&width=200",
       quote:
-        "Managing 15 properties requires reliable partners, and Simca Cleaning has proven to be just that. Their specialized post-construction cleaning service transformed our newly renovated apartments.",
+        "Managing 15 properties requires reliable partners, and Simca Agencies has proven to be just that. Their specialized post-construction cleaning service transformed our newly renovated apartments.",
       category: "industrial",
       highlights: ["Post-Construction", "Eco-Friendly"],
       location: "Eldoret",

@@ -37,7 +37,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 md:gap-4">
               <Logo className="h-12 w-auto md:h-14" variant="white" />
               <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Simca Cleaning
+                Simca Agencies
               </span>
             </div>
             <p className="text-gray-400 leading-relaxed text-sm md:text-base">
@@ -174,7 +174,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
           <p className="text-gray-400 text-xs md:text-sm text-center md:text-left">
-            &copy; {currentYear} Simca Cleaning Company. All rights reserved.
+            &copy; {currentYear} Simca Agencies Company. All rights reserved.
           </p>
           <div className="flex gap-6 md:gap-8">
             <Link

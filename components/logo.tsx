@@ -11,9 +11,9 @@ export default function Logo({ className, variant = "default", ...props }: LogoP
     <div className={className} {...props}>
       <Image
         src="/simca-logo.png"
-        alt="Simca Cleaning Logo"
-        width={40}
-        height={40}
+        alt="Simca Agencies Logo"
+        width={64}
+        height={64}
         className={`w-full h-full object-contain ${variant === "white" ? "brightness-0 invert" : ""}`}
       />
     </div>

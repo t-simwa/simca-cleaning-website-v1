@@ -139,12 +139,9 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center group">
             <Logo 
-              className="h-8 w-auto md:h-10 transition-transform duration-300 group-hover:scale-105" 
+              className="h-12 w-auto md:h-16 transition-transform duration-300 group-hover:scale-105" 
               variant={theme === "dark" ? "white" : "default"} 
             />
-            <span className="ml-2 md:ml-3 text-lg md:text-xl font-bold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
-              Simca Cleaning
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -234,7 +231,7 @@ export default function Header() {
                   variant={theme === "dark" ? "white" : "default"} 
                 />
                 <span className="ml-2 text-lg font-bold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
-                  Simca Cleaning
+                  Simca Agencies
                 </span>
               </Link>
               <button

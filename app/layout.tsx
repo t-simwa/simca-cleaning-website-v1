@@ -10,9 +10,9 @@ import { PageTransition } from "@/components/ui/page-transition"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Simca Cleaning Company | Professional Cleaning Services in Kenya",
+  title: "Simca Agencies Company | Professional Cleaning Services in Kenya",
   description:
-    "Simca Cleaning Company offers professional cleaning services across Kenya including Nairobi, Mombasa, Kaimosi, and Eldoret. Residential, commercial, and specialized cleaning services.",
+    "Simca Agencies Company offers professional cleaning services across Kenya including Nairobi, Mombasa, Kaimosi, and Eldoret. Residential, commercial, and specialized cleaning services.",
   icons: {
     icon: "/favicon.ico",
   },

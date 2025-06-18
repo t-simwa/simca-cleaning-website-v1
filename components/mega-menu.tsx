@@ -142,7 +142,7 @@ export default function MegaMenu({ type, onClose }: MegaMenuProps) {
   } else if (type === "about") {
     menuItems = aboutMenu
     title = "About Us"
-    description = "Learn more about Simca Cleaning Company"
+    description = "Learn more about Simca Agencies Company"
     allLink = "/about"
   }
 

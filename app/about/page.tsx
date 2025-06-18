@@ -95,7 +95,7 @@ export default function AboutPage() {
               <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
                 About{" "}
                 <span className="text-add8e6 relative">
-                  Simca Cleaning
+                  Simca Agencies
                   <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
                 </span>
               </h1>
@@ -933,7 +933,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
             <Image
               src="/service-location.png?height=800&width=600"
-              alt="Map of Kenya showing Simca Cleaning locations"
+              alt="Map of Kenya showing Simca Agencies locations"
               fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
@@ -1167,7 +1167,7 @@ export default function AboutPage() {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
               <Image
                       src="/ceo.jpg?height=800&width=600"
-                      alt="David Simwa - Founder & CEO of Simca Cleaning"
+                      alt="David Simwa - Founder & CEO of Simca Agencies"
                 fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
@@ -1194,7 +1194,7 @@ export default function AboutPage() {
                     >
                       <div className="absolute -left-4 top-0 bottom-0 w-1 bg-add8e6/20 rounded-full" />
                       <div className="pl-4">
-                        With over a decade of experience in the cleaning industry, I've witnessed firsthand how exceptional cleaning services can transform spaces and enhance lives. At Simca Cleaning, we've built our reputation on three core principles: innovation in cleaning solutions, unwavering commitment to quality, and personalized service excellence. Our ISO 9001:2015 certification and 98% client satisfaction rate reflect our dedication to setting new standards in the industry. As we expand across Kenya, we remain committed to delivering the same level of excellence that has earned us the "Best Cleaning Service Provider 2023" award.
+                        With over a decade of experience in the cleaning industry, I've witnessed firsthand how exceptional cleaning services can transform spaces and enhance lives. At Simca Agencies, we've built our reputation on three core principles: innovation in cleaning solutions, unwavering commitment to quality, and personalized service excellence. Our ISO 9001:2015 certification and 98% client satisfaction rate reflect our dedication to setting new standards in the industry. As we expand across Kenya, we remain committed to delivering the same level of excellence that has earned us the "Best Cleaning Service Provider 2023" award.
                       </div>
                     </motion.blockquote>
 

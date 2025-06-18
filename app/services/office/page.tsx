@@ -120,7 +120,7 @@ const officeService: ServiceDetail = {
     ]
   },
   whatsIncluded: {
-    title: "What Our Office Cleaning Includes",
+    title: "What's Included in Our",
     description: "Our typical office cleaning service covers essential areas to keep your workspace clean and tidy.",
     items: [
       "Dusting and wiping surfaces",
@@ -156,26 +156,57 @@ export default function OfficeCleaningPage() {
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-block mb-4 md:mb-6">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium flex items-center gap-2">
-                  {officeService.icon}
+                  <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
                   Office
                 </span>
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
-                {officeService.title}
+                {officeService.title}{" "}
+                <span className="text-add8e6 relative">
+                  Services
+                  <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
+                </span>
               </h1>
               <p className="text-base md:text-xl text-gray-600 dark:text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
                 {officeService.description}
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-add8e6 text-white px-6 py-3 rounded-full hover:bg-add8e6/90 transition-colors">
-                  Get a Free Quote
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link href="#pricing" className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-add8e6 px-6 py-3 rounded-full hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-                  View Pricing
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+
+              {/* Quick stats */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8">
+                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <Shield className="w-4 h-4 text-add8e6" />
+                    <span className="group-hover:scale-110 transition-transform duration-300">100%</span>
+                  </div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                    Quality Assurance
+                  </div>
+                </div>
+                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <Building2 className="w-4 h-4 text-add8e6" />
+                    <span className="group-hover:scale-110 transition-transform duration-300">200+</span>
+                  </div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                    Offices Cleaned
+                  </div>
+                </div>
+                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <Star className="w-4 h-4 text-add8e6" />
+                    <span className="group-hover:scale-110 transition-transform duration-300">4.8</span>
+                  </div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                    Average Rating
+                  </div>
+                </div>
               </div>
+
+              {/* CTA Button */}
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-add8e6 hover:bg-add8e6/90 text-white px-6 py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                Get a Free Quote
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </ScrollAnimation>
         </div>
@@ -185,18 +216,64 @@ export default function OfficeCleaningPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* What's Included Section */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-24">
+      <div className="relative py-16 md:py-24">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
+        </div>
+        
+        {/* Floating decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        </div>
+
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4">
-                  {officeService.whatsIncluded.title}
-                </h2>
-                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <div className="max-w-6xl mx-auto">
+              {/* Section Header */}
+              <div className="text-center mb-8 md:mb-16">
+                <motion.div 
+                  className="inline-block mb-3 sm:mb-4 md:mb-6 mt-0 !mt-0"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
+                    <CheckCircle2 className="w-4 h-4" />
+                    What's Included
+                  </span>
+                </motion.div>
+                <motion.h2 
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
+                >
+                  {officeService.whatsIncluded.title}{" "}
+                  <motion.span 
+                    className="text-add8e6 relative inline-block tracking-wider"
+                    style={{
+                      textShadow: "0 2px 4px rgba(173,216,230,0.3)",
+                      WebkitTextStroke: "0.5px rgba(173,216,230,0.3)"
+                    }}
+                  >
+                    Service
+                    <motion.span 
+                      className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                    />
+                  </motion.span>
+                </motion.h2>
+                <motion.p 
+                  className="text-base md:text-xl text-gray-600 dark:text-gray-300 tracking-wide mb-4 max-w-2xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
                   {officeService.whatsIncluded.description}
-                </p>
+                </motion.p>
               </div>
+
+              {/* Items Grid */}
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {officeService.whatsIncluded.items.map((item, index) => (
                   <motion.div
@@ -204,11 +281,35 @@ export default function OfficeCleaningPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden"
                   >
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-add8e6 flex-shrink-0" />
-                      <p className="text-gray-700 dark:text-gray-300">{item}</p>
+                    {/* Glassmorphism effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
+                    
+                    {/* Subtle pattern overlay */}
+                    <div className="absolute inset-0 opacity-5">
+                      <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
+                    </div>
+                    
+                    <div className="flex flex-col h-full relative z-10">
+                      <motion.div 
+                        className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-6"
+                        whileHover={{ 
+                          scale: 1.15,
+                          rotate: [0, -5, 5, 0],
+                          transition: { duration: 0.5 }
+                        }}
+                      >
+                        <CheckCircle2 className="w-5 h-5 text-add8e6" />
+                      </motion.div>
+                      
+                      <motion.p 
+                        className="text-gray-700 dark:text-gray-300 text-base md:text-lg"
+                        whileHover={{ x: 4 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {item}
+                      </motion.p>
                     </div>
                   </motion.div>
                 ))}
@@ -263,18 +364,63 @@ export default function OfficeCleaningPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Key Features Section */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-24">
+      <div className="relative py-16 md:py-24">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
+        </div>
+        
+        {/* Floating decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        </div>
+
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4">
-                  Key Features of Our Office Cleaning
-                </h2>
-                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <div className="max-w-6xl mx-auto">
+              {/* Section Header */}
+              <div className="text-center mb-8 md:mb-16">
+                <motion.div 
+                  className="inline-block mb-3 sm:mb-4 md:mb-6 mt-0 !mt-0"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
+                    <Sparkles className="w-4 h-4" />
+                    Key Features
+                  </span>
+                </motion.div>
+                <motion.h2 
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
+                >
+                  Key Features of Our{" "}
+                  <motion.span 
+                    className="text-add8e6 relative inline-block tracking-wider"
+                    style={{
+                      textShadow: "0 2px 4px rgba(173,216,230,0.3)",
+                      WebkitTextStroke: "0.5px rgba(173,216,230,0.3)"
+                    }}
+                  >
+                    Office Cleaning
+                    <motion.span 
+                      className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                    />
+                  </motion.span>
+                </motion.h2>
+                <motion.p 
+                  className="text-base md:text-xl text-gray-600 dark:text-gray-300 tracking-wide mb-4 max-w-2xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
                   Discover what makes our office cleaning services stand out.
-                </p>
+                </motion.p>
               </div>
+
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {officeService.features.map((feature, index) => (
                   <motion.div
@@ -282,10 +428,36 @@ export default function OfficeCleaningPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start gap-3"
+                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-add8e6 flex-shrink-0" />
-                    <p className="text-gray-700 dark:text-gray-300">{feature}</p>
+                    {/* Glassmorphism effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
+                    
+                    {/* Subtle pattern overlay */}
+                    <div className="absolute inset-0 opacity-5">
+                      <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
+                    </div>
+
+                    <div className="flex flex-col h-full relative z-10">
+                      <motion.div 
+                        className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-6"
+                        whileHover={{ 
+                          scale: 1.15,
+                          rotate: [0, -5, 5, 0],
+                          transition: { duration: 0.5 }
+                        }}
+                      >
+                        <CheckCircle2 className="w-5 h-5 text-add8e6" />
+                      </motion.div>
+                      
+                      <motion.p 
+                        className="text-gray-700 dark:text-gray-300 text-base md:text-lg"
+                        whileHover={{ x: 4 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {feature}
+                      </motion.p>
+                    </div>
                   </motion.div>
                 ))}
               </div>
