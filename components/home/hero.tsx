@@ -218,7 +218,8 @@ export default function Hero() {
                 <motion.span
                   className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                   initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 1, ease: 'easeOut' }}
                   style={{ display: 'block' }}
                 />

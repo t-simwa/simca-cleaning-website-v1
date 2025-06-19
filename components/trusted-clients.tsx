@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { Building2, Award, Star, ArrowUpRight, CheckCircle2, Loader2, Trophy, Medal, Shield, Clock, TrendingUp, DollarSign, ChevronLeft, ChevronRight } from "lucide-react"
+import Link from "next/link"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -209,19 +210,6 @@ export default function TrustedClients() {
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
         </div>
 
-        {/* Floating badges */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 animate-float-slow">
-            <Trophy className="w-8 h-8 text-add8e6/20 dark:text-add8e6/10" />
-          </div>
-          <div className="absolute top-1/3 right-1/4 animate-float-delayed">
-            <Medal className="w-8 h-8 text-add8e6/20 dark:text-add8e6/10" />
-          </div>
-          <div className="absolute bottom-1/4 left-1/3 animate-float-slow-delayed">
-            <Shield className="w-8 h-8 text-add8e6/20 dark:text-add8e6/10" />
-          </div>
-        </div>
-        
         <div className="container mx-auto px-4 relative">
           <div className="text-center max-w-3xl mx-auto mb-4 md:mb-16">
             <motion.div 
@@ -231,17 +219,22 @@ export default function TrustedClients() {
             >
               <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-sm">
                 <Award className="w-4 h-4" />
-                Trusted by Industry Leaders
+                Our Trusted Partners
               </span>
             </motion.div>
 
             <motion.h2 
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide"
             >
-              Trusted by Kenya's Most Demanding{" "}
-              <span className="text-add8e6 relative inline-block">
-                Institutions
-                <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
+              Proud to Care for Kenya's Leading <span className="text-add8e6 relative inline-block">Organizations
+                <motion.span
+                  className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, ease: 'easeOut' }}
+                  style={{ display: 'block' }}
+                />
               </span>
             </motion.h2>
 
@@ -251,7 +244,7 @@ export default function TrustedClients() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              Setting the standard in professional cleaning services for Kenya's critical facilities
+              We're honored to be the cleaning partner of choice for organizations that value care, trust, and a spotless result—every time. Our clients aren't just names on a list; they're part of the Simca family, and we treat their spaces as if they were our own.
             </motion.p>
 
             <motion.p 
@@ -260,28 +253,11 @@ export default function TrustedClients() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              When cleanliness is non-negotiable, leading organizations choose Simca
+              Discover how we build lasting relationships—one clean, cared-for space at a time.
             </motion.p>
           </div>
 
-          <div className="relative max-w-6xl mx-auto">
-            {/* Navigation Buttons - Hidden on mobile */}
-            <button
-              onClick={prevPage}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
-              aria-label="Previous clients"
-            >
-              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
-            </button>
-
-            <button
-              onClick={nextPage}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
-              aria-label="Next clients"
-            >
-              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
-            </button>
-
+          <div className="relative max-w-full mx-auto px-4 md:px-12">
             {/* Carousel Container */}
             <div className="overflow-hidden">
               <AnimatePresence mode="wait">
@@ -291,7 +267,7 @@ export default function TrustedClients() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: isMobile ? -100 : 0 }}
                   transition={{ duration: 0.5 }}
-                  className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
                 >
                   {getCurrentCards().map((client, index) => (
                     <motion.a
@@ -299,7 +275,7 @@ export default function TrustedClients() {
                       href={client.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 relative overflow-hidden"
+                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 w-full overflow-hidden"
                       aria-label={`Visit ${client.name} website`}
                       onMouseEnter={() => setHoveredClient(index)}
                       onMouseLeave={() => setHoveredClient(null)}
@@ -307,7 +283,7 @@ export default function TrustedClients() {
                       whileTap={{ scale: 0.98 }}
                     >
                       {/* Glassmorphism effect */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50 rounded-xl" />
                       
                       <div className="flex flex-col h-full relative z-10">
                         {/* Client Logo Section */}
@@ -343,14 +319,34 @@ export default function TrustedClients() {
                             {client.name}
                           </h3>
                           <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 md:mb-6">
-                            {client.description}
+                            {/* Rewrite description for warmth and partnership */}
+                            {(() => {
+                              switch (client.name) {
+                                case "Kenya Revenue Authority":
+                                  return "A valued partner who trusts us to keep their offices spotless, secure, and welcoming for every visitor and staff member.";
+                                case "Nairobi Hospital":
+                                  return "We're proud to help create a safe, healing environment for patients and staff, supporting their mission of care with every clean.";
+                                case "Safaricom":
+                                  return "A forward-thinking team that relies on us to keep their spaces and sensitive equipment clean, so they can focus on connecting Kenya.";
+                                case "Kempinski Hotel":
+                                  return "A luxury destination where we help ensure every guest feels special, with sparkling suites and flawless public spaces.";
+                                case "Standard Chartered Bank":
+                                  return "A trusted financial institution that counts on us for secure, reliable cleaning—so their team and clients always feel at ease.";
+                                case "Kenya Ports Authority":
+                                  return "A vital hub for trade, where we help maintain high standards of cleanliness and safety for all who pass through.";
+                                case "NHIF":
+                                  return "A national leader in health, where we support a clean, healthy workplace for staff and visitors alike.";
+                                default:
+                                  return client.description;
+                              }
+                            })()}
                           </p>
                         </div>
 
                         {/* Services */}
                         <div className="mb-4 md:mb-6">
                           <h4 className="text-sm md:text-sm font-semibold text-gray-800 dark:text-white mb-2 md:mb-3 uppercase tracking-wide">
-                            Services
+                            How We Help
                           </h4>
                           <div className="space-y-1.5 md:space-y-2">
                             {client.services.primary.map((service, i) => (
@@ -376,7 +372,51 @@ export default function TrustedClients() {
                                 >
                                   <CheckCircle2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6 flex-shrink-0" />
                                 </motion.div>
-                                {service}
+                                {/* Rewrite service for warmth and clarity */}
+                                {(() => {
+                                  switch (service) {
+                                    case "Office Cleaning":
+                                      return "Caring for every corner of your workspace";
+                                    case "Sanitization":
+                                      return "Creating a healthy, safe environment";
+                                    case "Waste Management":
+                                      return "Keeping spaces tidy and stress-free";
+                                    case "Healthcare Cleaning":
+                                      return "Supporting patient safety with every clean";
+                                    case "Biohazard Management":
+                                      return "Handling sensitive areas with care and expertise";
+                                    case "Sterilization Support":
+                                      return "Ensuring the highest standards of hygiene";
+                                    case "Corporate Cleaning":
+                                      return "Helping your team shine in a spotless office";
+                                    case "Data Center Maintenance":
+                                      return "Protecting your technology with gentle, expert care";
+                                    case "Specialized Equipment Cleaning":
+                                      return "Safeguarding your valuable assets";
+                                    case "Hotel Cleaning":
+                                      return "Making every guest feel at home";
+                                    case "Luxury Suite Maintenance":
+                                      return "Delivering a touch of luxury, every day";
+                                    case "Public Area Management":
+                                      return "Welcoming everyone with clean, inviting spaces";
+                                    case "Bank Cleaning":
+                                      return "Building trust with a spotless environment";
+                                    case "Secure Area Maintenance":
+                                      return "Respecting your security while we clean";
+                                    case "Cash Handling Area Cleaning":
+                                      return "Keeping sensitive spaces safe and clean";
+                                    case "Port Facility Cleaning":
+                                      return "Supporting smooth operations with reliable cleaning";
+                                    case "Industrial Area Maintenance":
+                                      return "Caring for complex, high-traffic areas";
+                                    case "Healthcare Facility Cleaning":
+                                      return "Promoting health and comfort for all";
+                                    case "Office Maintenance":
+                                      return "Ensuring a welcoming, productive workplace";
+                                    default:
+                                      return service;
+                                  }
+                                })()}
                               </motion.div>
                             ))}
                           </div>
@@ -385,7 +425,27 @@ export default function TrustedClients() {
                         {/* Testimonial */}
                         <div className="mb-4 md:mb-6 bg-white/50 dark:bg-gray-700/30 rounded-lg p-4 backdrop-blur-sm">
                           <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 italic">
-                            "{client.testimonial}"
+                            {/* Rewrite testimonial for warmth and partnership */}
+                            {(() => {
+                              switch (client.name) {
+                                case "Kenya Revenue Authority":
+                                  return "Simca's team always goes the extra mile to keep our offices secure and sparkling. We feel truly cared for.";
+                                case "Nairobi Hospital":
+                                  return "Simca's attention to detail and commitment to our patients' safety gives us peace of mind every day.";
+                                case "Safaricom":
+                                  return "We trust Simca to keep our spaces and equipment spotless, so we can focus on what matters most—our customers.";
+                                case "Kempinski Hotel":
+                                  return "Every guest experience is elevated by Simca's care and dedication. They're part of our hospitality family.";
+                                case "Standard Chartered Bank":
+                                  return "Simca's respect for our security and their friendly, reliable service make them a true partner.";
+                                case "Kenya Ports Authority":
+                                  return "Our port runs smoother and feels safer thanks to Simca's hardworking, attentive team.";
+                                case "NHIF":
+                                  return "Simca's cleaning team helps us create a healthy, welcoming space for everyone who walks through our doors.";
+                                default:
+                                  return client.testimonial;
+                              }
+                            })()}
                           </p>
                         </div>
 
@@ -405,27 +465,8 @@ export default function TrustedClients() {
               </AnimatePresence>
             </div>
 
-            {/* Mobile Navigation - Enhanced for better UX */}
+            {/* Hide mobile carousel dots and only show navigation buttons on mobile */}
             <div className="flex flex-col items-center gap-4 mt-8 md:hidden">
-              {/* Mobile Pagination Dots - More prominent and touch-friendly */}
-              <div className="flex items-center gap-3">
-                {Array.from({ length: clients.length }).map((_, index) => (
-                  <motion.button
-                    key={index}
-                    onClick={() => setCurrentPage(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                      currentPage === index
-                        ? 'bg-add8e6 w-6'
-                        : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
-                    }`}
-                    aria-label={`Go to client ${index + 1}`}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                  />
-                ))}
-              </div>
-
-              {/* Mobile Navigation Buttons */}
               <div className="flex items-center gap-4">
                 <motion.button
                   onClick={prevPage}
@@ -436,11 +477,9 @@ export default function TrustedClients() {
                 >
                   <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
                 </motion.button>
-                
                 <span className="text-sm text-gray-600 dark:text-gray-400">
                   {currentPage + 1} of {clients.length}
                 </span>
-
                 <motion.button
                   onClick={nextPage}
                   className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
@@ -453,22 +492,36 @@ export default function TrustedClients() {
               </div>
             </div>
 
-            {/* Desktop Navigation - Only visible on desktop */}
-            <div className="hidden md:flex justify-center items-center gap-2 mt-8">
-              {Array.from({ length: totalPages }).map((_, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => setCurrentPage(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                    currentPage === index
-                      ? 'bg-add8e6 w-4'
-                      : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
-                  }`}
-                  aria-label={`Go to page ${index + 1}`}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                />
-              ))}
+            {/* Desktop Navigation - Match services-overview */}
+            <div className="hidden md:flex flex-row items-center justify-center gap-4 mt-8">
+              <motion.button
+                onClick={prevPage}
+                className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
+                aria-label="Previous clients"
+              >
+                <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+              </motion.button>
+              <div className="flex items-center gap-2">
+                {Array.from({ length: totalPages }).map((_, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => setCurrentPage(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      currentPage === index
+                        ? 'bg-add8e6 w-4'
+                        : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
+                    }`}
+                    aria-label={`Go to page ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <motion.button
+                onClick={nextPage}
+                className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
+                aria-label="Next clients"
+              >
+                <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+              </motion.button>
             </div>
           </div>
 
@@ -512,7 +565,7 @@ export default function TrustedClients() {
                     <motion.h3 
                       className="text-base md:text-xl font-bold text-gray-800 dark:text-white mb-2 md:mb-3"
                     >
-                      Join Kenya's Leading Organizations
+                      Ready to Experience the Simca Difference?
                     </motion.h3>
                     <motion.p 
                       className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 md:mb-6"
@@ -520,61 +573,20 @@ export default function TrustedClients() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
                     >
-                      Experience the same level of excellence in cleaning services
+                      Join a community of organizations who trust us to care for their spaces with heart, skill, and a personal touch.
                     </motion.p>
                   </div>
-                  
-                  {/* Benefits List */}
-                  <div className="space-y-1.5 md:space-y-2">
-                    {[
-                      "Customized cleaning solutions",
-                      "Industry-specific protocols",
-                      "24/7 emergency response",
-                      "Certified cleaning experts"
-                    ].map((benefit, i) => (
-                      <motion.div 
-                        key={i}
-                        className="flex items-center gap-2 text-sm md:text-sm text-gray-600 dark:text-gray-300 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.3 + i * 0.1 }}
-                        whileHover={{ x: 4 }}
-                      >
-                        <CheckCircle2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6 flex-shrink-0" />
-                        <span>{benefit}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* Case Study Preview */}
-                  <motion.div 
-                    className="bg-add8e6/5 dark:bg-add8e6/10 rounded-lg p-4 text-left backdrop-blur-sm mb-4 md:mb-6"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 }}
-                  >
-                    <div className="flex items-center gap-2 mb-2">
-                      <Trophy className="w-4 h-4 md:w-4 md:h-4 text-add8e6" />
-                      <span className="text-sm md:text-sm font-semibold text-gray-800 dark:text-white">Success Story</span>
-                    </div>
-                    <p className="text-sm md:text-sm text-gray-600 dark:text-gray-300">
-                      "Simca transformed our facility's cleanliness standards, achieving a 40% improvement in cleanliness ratings and 30% reduction in cleaning costs."
-                    </p>
-                    <div className="mt-2 flex items-center gap-2">
-                      <Building2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6" />
-                      <span className="text-sm md:text-sm text-gray-500 dark:text-gray-400">Nairobi Hospital</span>
-                    </div>
-                  </motion.div>
-
                   {/* CTA Button */}
-                  <motion.button 
-                    className="inline-flex items-center gap-2 bg-add8e6 text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-add8e6/90 transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 mb-16"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Become a Client
-                    <ArrowUpRight className="w-4 h-4" />
-                  </motion.button>
+                  <Link href="/contact" passHref legacyBehavior>
+                    <motion.a
+                      className="inline-flex items-center gap-2 bg-add8e6 text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-add8e6/90 transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 mb-16"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Let's Get Started
+                      <ArrowUpRight className="w-4 h-4" />
+                    </motion.a>
+                  </Link>
                 </div>
               </motion.div>
             </div>
