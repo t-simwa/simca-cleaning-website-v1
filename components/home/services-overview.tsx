@@ -354,23 +354,6 @@ export default function ServicesOverview() {
 
         {/* Service Cards */}
         <div className="relative max-w-full mx-auto px-4 md:px-12">
-          {/* Navigation Buttons - Hidden on mobile */}
-          <motion.button
-            onClick={prevPage}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
-            aria-label="Previous services"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-          </motion.button>
-
-          <motion.button
-            onClick={nextPage}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
-            aria-label="Next services"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-          </motion.button>
-
           {/* Carousel Container */}
           <div className="overflow-visible">
             <AnimatePresence mode="wait">
@@ -400,7 +383,7 @@ export default function ServicesOverview() {
 
                     <div className="flex flex-col h-full relative z-10">
                       {/* Service Image */}
-                      <div className="relative w-full h-60 mb-6 rounded-lg overflow-hidden">
+                      <div className="relative w-full h-80 md:h-96 lg:h-[22rem] mb-10 rounded-lg overflow-hidden">
                         <Image
                           src={service.image}
                           alt={service.title}
@@ -493,7 +476,7 @@ export default function ServicesOverview() {
           {/* Mobile Navigation */}
           <div className="flex flex-col items-center gap-4 mt-8 md:hidden">
             {/* Mobile Pagination Dots */}
-            <div className="flex items-center gap-3">
+            <div className="hidden">
               {Array.from({ length: filteredServices.length }).map((_, index) => (
                 <motion.button
                   key={index}
@@ -533,19 +516,35 @@ export default function ServicesOverview() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex justify-center items-center gap-2 mt-8">
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <motion.button
-                key={index}
-                onClick={() => setCurrentPage(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                  currentPage === index
-                    ? 'bg-add8e6 w-4'
-                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
-                }`}
-                aria-label={`Go to page ${index + 1}`}
-              />
-            ))}
+          <div className="hidden md:flex flex-row items-center justify-center gap-4 mt-8">
+            <motion.button
+              onClick={prevPage}
+              className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
+              aria-label="Previous services"
+            >
+              <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+            </motion.button>
+            <div className="flex items-center gap-2">
+              {Array.from({ length: totalPages }).map((_, index) => (
+                <motion.button
+                  key={index}
+                  onClick={() => setCurrentPage(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                    currentPage === index
+                      ? 'bg-add8e6 w-4'
+                      : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
+                  }`}
+                  aria-label={`Go to page ${index + 1}`}
+                />
+              ))}
+            </div>
+            <motion.button
+              onClick={nextPage}
+              className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
+              aria-label="Next services"
+            >
+              <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+            </motion.button>
           </div>
         </div>
 
