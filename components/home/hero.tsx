@@ -163,6 +163,12 @@ export default function Hero() {
     }
   }
 
+  // Remove carousel logic and use only the first image
+  const heroImage = {
+    src: "/home-hero/cleaner-home.jpg",
+    alt: "Professional cleaning services in Kenya"
+  }
+
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       {/* Animated gradient background */}
@@ -200,17 +206,22 @@ export default function Hero() {
               variants={itemVariants}
               className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide"
             >
-              Transform Your Space with{" "}
+              Experience a Cleaner, Healthier Space with
               <motion.span 
                 className="relative inline-block tracking-wider"
                 variants={itemVariants}
               >
-                Kenya's Most Trusted
+                Simca Agencies - Kenya's Trusted
               </motion.span>
-              {" "}
-              <span className="text-add8e6 relative">
+              <span className="text-add8e6 relative inline-block">
                 Cleaning Experts
-                <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
+                <motion.span
+                  className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 1, ease: 'easeOut' }}
+                  style={{ display: 'block' }}
+                />
               </span>
             </motion.h1>
 
@@ -218,7 +229,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-base md:text-xl text-gray-600 dark:text-gray-300 tracking-wide mb-4 max-w-sm sm:max-w-lg mx-auto lg:mx-0"
             >
-              Simca Agencies delivers more than just cleanliness. Save valuable time, enjoy a healthier environment, and reduce costs with our eco-friendly solutions. Trusted by busy professionals and businesses across Kenya for exceptional results.
+              Enjoy peace of mind with our professional, fully customized cleaning services for homes and businesses across Kenya. No contracts, no hassle—just sparkling results, flexible scheduling, and a 100% satisfaction guarantee. Discover why families and companies trust Simca Agencies for quality, affordability, and care.
             </motion.p>
 
             {/* Quick stats with enhanced micro-interactions */}
@@ -285,126 +296,22 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right side - Image carousel with NO scroll-based transforms */}
+          {/* Right side - Image (static, no carousel, no overlay text) */}
           <motion.div
             className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] rounded-2xl overflow-hidden shadow-2xl order-1 lg:order-2 mb-4 sm:mb-0"
           >
-            <AnimatePresence mode="wait">
-              {images.map((image, index) => (
-                currentImage === index && (
-                  <motion.div
-                    key={index}
-                    className="absolute inset-0"
-                    initial={{ opacity: 0, scale: 1.1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <motion.div
-                      className="relative w-full h-full"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        fill
-                        className="object-cover object-center transition-transform duration-700"
-                        priority={index === 0}
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
-                      />
-                      
-                      {/* Enhanced vignette effect */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
-                      
-                      {/* Improved image caption overlay for mobile */}
-                      <motion.div 
-                        className="absolute inset-0 flex items-center justify-center p-3 sm:p-4 md:p-6 lg:p-8 text-white"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                      >
-                        <motion.div
-                          className="max-w-[85%] sm:max-w-xs md:max-w-sm text-center"
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.4 }}
-                        >
-                          <span className="inline-block px-2 py-1 bg-add8e6/20 backdrop-blur-sm rounded-full text-[10px] sm:text-xs md:text-sm font-medium mb-1 sm:mb-2">
-                            {image.category}
-                          </span>
-                          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2">
-                            {image.caption}
-                          </h3>
-                          <p className="text-xs sm:text-sm md:text-base text-white/90 leading-relaxed">
-                            {image.description}
-                          </p>
-                        </motion.div>
-                      </motion.div>
-                    </motion.div>
-                  </motion.div>
-                )
-              ))}
-            </AnimatePresence>
-
-            {/* Enhanced mobile-friendly carousel controls */}
-            <div className="absolute bottom-3 sm:bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2 z-20">
-              {images.map((_, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => setCurrentImage(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                    currentImage === index
-                      ? 'bg-gradient-to-r from-add8e6 to-add8e6/80 w-6'
-                      : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                />
-              ))}
-            </div>
-
-            {/* Enhanced mobile-friendly navigation arrows */}
-            <motion.button
-              onClick={prevImage}
-              className="absolute left-2 sm:left-3 md:left-4 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-2 md:p-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-20 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-add8e6/50"
-              whileHover={{ scale: 1.1, x: -2 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Previous slide"
-            >
-              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-600 dark:text-gray-300" />
-            </motion.button>
-            <motion.button
-              onClick={nextImage}
-              className="absolute right-2 sm:right-3 md:right-4 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-2 md:p-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-20 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-add8e6/50"
-              whileHover={{ scale: 1.1, x: 2 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Next slide"
-            >
-              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-600 dark:text-gray-300" />
-            </motion.button>
-
-            {/* Mobile-optimized category indicators */}
-            <div className="absolute top-2 sm:top-3 md:top-4 left-2 sm:left-3 md:left-4 flex gap-1.5 sm:gap-2 z-20">
-              {images.map((image, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => setCurrentImage(index)}
-                  className={`px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium backdrop-blur-sm transition-all duration-300 ${
-                    currentImage === index
-                      ? "bg-add8e6/80 text-white"
-                      : "bg-white/20 text-white/80 hover:bg-white/30"
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {image.category}
-                </motion.button>
-              ))}
-            </div>
+            <Image
+              src={heroImage.src}
+              alt={heroImage.alt}
+              fill
+              className="object-cover object-center transition-transform duration-700"
+              priority
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+            />
+            {/* Enhanced vignette effect */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
           </motion.div>
         </div>
       </div>

@@ -92,22 +92,33 @@ export default function Header() {
       <div className="bg-gradient-to-r from-add8e6/10 via-gray-50 to-add8e6/10 dark:from-add8e6/5 dark:via-gray-800/50 dark:to-add8e6/5 border-b border-gray-100 dark:border-gray-800 hidden md:block">
         <div className="container mx-auto px-3 md:px-4">
           <div className="flex justify-between items-center h-12 md:h-14">
-            {/* Left Section - Tagline */}
+            {/* Left Section - Call */}
             <div className="flex items-center">
-              <div className="flex items-center text-sm md:text-base text-gray-600 dark:text-gray-300">
-                <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-add8e6 mr-2 md:mr-2.5 animate-pulse" />
-                <span className="hidden md:inline font-medium">Professional Cleaning Services Across Kenya</span>
-              </div>
-            </div>
-
-            {/* Center Section - Phone Number */}
-            <div className="hidden md:flex items-center">
               <a
                 href="tel:+25472356800"
                 className="flex items-center text-sm md:text-base font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
                 <Phone className="h-4 w-4 md:h-5 md:w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                <span>Call +254 72356800</span>
+                <span>Call Us: +254 72356800</span>
+              </a>
+              <span className="mx-2 text-gray-300 dark:text-gray-600 font-bold">|</span>
+              <a
+                href="tel:+254712345678"
+                className="flex items-center text-sm md:text-base font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+              >
+                <Phone className="h-4 w-4 md:h-5 md:w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                <span>+254 712345678</span>
+              </a>
+            </div>
+
+            {/* Center Section - Email */}
+            <div className="hidden md:flex items-center">
+              <a
+                href="mailto:info@simcaagencies.co.ke"
+                className="flex items-center text-sm md:text-base font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+              >
+                <Mail className="h-4 w-4 md:h-5 md:w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                <span>Email Us: info@simcaagencies.co.ke</span>
               </a>
             </div>
 
