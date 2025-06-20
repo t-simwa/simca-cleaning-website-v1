@@ -29,11 +29,11 @@ export default function WhyChooseUs() {
           className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
           style={{ opacity, scale }}
         >
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6/20 to-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-sm font-medium mb-4 md:mb-6 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6/20 to-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-4 md:mb-6 backdrop-blur-sm">
             <Sparkles className="w-4 h-4" />
             Why Choose Simca Agencies
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-3 md:mb-5 leading-tight tracking-wide">
             <span className="block mb-1">Why Choose Simca?</span>
             <span className="inline-block block mb-1 ml-2">
               Cleaning You Can <span className="text-add8e6 relative inline-block">Trust
@@ -48,11 +48,11 @@ export default function WhyChooseUs() {
               </span>
             </span>
           </h2>
-          <p className="text-base md:text-xl text-gray-600 dark:text-gray-300 tracking-wide">
+          <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide">
             We care for your space like it's our own. Friendly service, fair prices, and a spotless result—every time.
           </p>
         </motion.div>
-        <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-sm sm:text-base md:text-lg font-normal">
+        <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-xs sm:text-sm md:text-base font-normal">
           {[
             {
               title: "Personalized Cleaning, Every Time:",
@@ -95,7 +95,7 @@ export default function WhyChooseUs() {
               >
               <span className="flex items-center gap-2 mb-1">
                 {para.icon}
-                <span className="font-bold text-add8e6">{para.title}</span>
+                <span className="font-bold text-add8e6 text-xs md:text-sm">{para.title}</span>
               </span>
               <span>{para.text}</span>
             </motion.div>

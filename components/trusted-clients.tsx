@@ -217,14 +217,14 @@ export default function TrustedClients() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-sm">
+              <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm">
                 <Award className="w-4 h-4" />
                 Our Trusted Partners
               </span>
             </motion.div>
 
             <motion.h2 
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-3 md:mb-5 leading-tight tracking-wide"
             >
               Proud to Care for Kenya's Leading <span className="text-add8e6 relative inline-block">Organizations
                 <motion.span
@@ -239,7 +239,7 @@ export default function TrustedClients() {
             </motion.h2>
 
             <motion.p 
-              className="text-base md:text-xl text-gray-600 dark:text-gray-300 tracking-wide mb-4"
+              className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -248,7 +248,7 @@ export default function TrustedClients() {
             </motion.p>
 
             <motion.p 
-              className="text-sm md:text-base text-add8e6 dark:text-add8e6/90 font-medium tracking-wide"
+              className="text-xs md:text-sm text-add8e6 dark:text-add8e6/90 font-medium tracking-wide"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -315,10 +315,10 @@ export default function TrustedClients() {
 
                         {/* Client Info */}
                         <div className="mb-6">
-                          <h3 className="text-base md:text-xl font-bold text-gray-800 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors">
+                          <h3 className="text-sm md:text-lg font-bold text-gray-800 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors">
                             {client.name}
                           </h3>
-                          <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 md:mb-6">
+                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mb-3 md:mb-5">
                             {/* Rewrite description for warmth and partnership */}
                             {(() => {
                               switch (client.name) {
@@ -345,14 +345,14 @@ export default function TrustedClients() {
 
                         {/* Services */}
                         <div className="mb-4 md:mb-6">
-                          <h4 className="text-sm md:text-sm font-semibold text-gray-800 dark:text-white mb-2 md:mb-3 uppercase tracking-wide">
+                          <h4 className="text-xs md:text-sm font-semibold text-gray-800 dark:text-white mb-2 md:mb-3 uppercase tracking-wide">
                             How We Help
                           </h4>
                           <div className="space-y-1.5 md:space-y-2">
                             {client.services.primary.map((service, i) => (
                               <motion.div 
                                 key={i} 
-                                className="flex items-center gap-2 text-sm md:text-sm text-gray-600 dark:text-gray-300 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
+                                className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-300 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
                                 whileHover={{ 
                                   x: 4,
                                   scale: 1.02,
@@ -424,7 +424,7 @@ export default function TrustedClients() {
 
                         {/* Testimonial */}
                         <div className="mb-4 md:mb-6 bg-white/50 dark:bg-gray-700/30 rounded-lg p-4 backdrop-blur-sm">
-                          <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 italic">
+                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 italic">
                             {/* Rewrite testimonial for warmth and partnership */}
                             {(() => {
                               switch (client.name) {
@@ -453,7 +453,7 @@ export default function TrustedClients() {
                         <div className="flex items-center justify-between pt-3 md:pt-4 border-t border-gray-100 dark:border-gray-700">
                           <div className="flex items-center gap-2">
                             <Building2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6" />
-                            <span className="text-sm md:text-sm text-gray-500 dark:text-gray-400">
+                            <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
                               {client.years} Years
                             </span>
                           </div>
@@ -477,7 +477,7 @@ export default function TrustedClients() {
                 >
                   <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
                 </motion.button>
-                <span className="text-sm text-gray-600 dark:text-gray-400">
+                <span className="text-xs text-gray-600 dark:text-gray-400">
                   {currentPage + 1} of {clients.length}
                 </span>
                 <motion.button
@@ -563,12 +563,12 @@ export default function TrustedClients() {
                 <div className="space-y-6">
                   <div>
                     <motion.h3 
-                      className="text-base md:text-xl font-bold text-gray-800 dark:text-white mb-2 md:mb-3"
+                      className="text-sm md:text-lg font-bold text-gray-800 dark:text-white mb-2 md:mb-3"
                     >
                       Ready to Experience the Simca Difference?
                     </motion.h3>
                     <motion.p 
-                      className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 md:mb-6"
+                      className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mb-3 md:mb-5"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
@@ -579,7 +579,7 @@ export default function TrustedClients() {
                   {/* CTA Button */}
                   <Link href="/contact" passHref legacyBehavior>
                     <motion.a
-                      className="inline-flex items-center gap-2 bg-add8e6 text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-add8e6/90 transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 mb-16"
+                      className="inline-flex items-center gap-2 bg-add8e6 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-add8e6/90 transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 mb-16"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >

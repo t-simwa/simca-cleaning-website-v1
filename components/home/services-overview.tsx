@@ -318,14 +318,14 @@ export default function ServicesOverview() {
             whileHover={undefined}
             whileTap={undefined}
           >
-            <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
+            <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
               <CheckCircle2 className="w-4 h-4" />
               Our Services
             </span>
           </motion.div>
 
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-3 md:mb-5 leading-tight tracking-wide mt-0 !mt-0"
           >
             <span className="block mb-1">Affordable, Professional</span>
             <span className="text-add8e6 relative inline-block block mb-1 ml-2">
@@ -343,7 +343,7 @@ export default function ServicesOverview() {
           </motion.h2>
 
           <motion.p 
-            className="text-base md:text-xl text-gray-600 dark:text-gray-300 tracking-wide mb-4"
+            className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -405,13 +405,13 @@ export default function ServicesOverview() {
                       </div>
                       
                       <motion.h3 
-                        className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
+                        className="text-xs md:text-base font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
                       >
                         {service.title}
                       </motion.h3>
                       
                       <motion.p 
-                        className="text-sm md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-6"
+                        className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-3 md:mb-5"
                       >
                         {service.description}
                       </motion.p>
@@ -421,7 +421,7 @@ export default function ServicesOverview() {
                         {service.features.map((feature, i) => (
                           <motion.div 
                             key={i} 
-                            className="flex items-center gap-2 text-sm md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
+                            className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
                             whileHover={{ 
                               x: 4,
                               scale: 1.02,
@@ -452,7 +452,7 @@ export default function ServicesOverview() {
                       >
                         <div className="flex flex-col gap-2">
                           <motion.span 
-                            className="text-add8e6 font-medium group-hover:underline flex items-center gap-1 md:gap-2 text-sm md:text-sm"
+                            className="text-add8e6 font-medium group-hover:underline flex items-center gap-1 md:gap-2 text-xs md:text-sm"
                           >
                             Learn more
                             <motion.div>
@@ -460,7 +460,7 @@ export default function ServicesOverview() {
                             </motion.div>
                           </motion.span>
                           <motion.span 
-                            className="text-sm md:text-sm text-gray-500 dark:text-gray-400"
+                            className="text-xs md:text-sm text-gray-500 dark:text-gray-400"
                           >
                             {service.availability}
                           </motion.span>
@@ -555,7 +555,7 @@ export default function ServicesOverview() {
           >
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/80 text-white px-8 py-4 rounded-xl font-medium hover:from-add8e6/90 hover:to-add8e6/70 transition-all duration-300 hover:shadow-lg hover:shadow-add8e6/20 hover:scale-105 transform group text-center text-sm sm:text-base relative overflow-hidden"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/80 text-white px-8 py-4 rounded-xl font-medium hover:from-add8e6/90 hover:to-add8e6/70 transition-all duration-300 hover:shadow-lg hover:shadow-add8e6/20 hover:scale-105 transform group text-center text-xs sm:text-sm relative overflow-hidden"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 View All Services

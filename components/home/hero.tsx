@@ -196,7 +196,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-sm">
+              <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm">
                 <CheckCircle2 className="w-4 h-4" />
                 Kenya's Trusted Cleaning Partner
               </span>
@@ -204,7 +204,7 @@ export default function Hero() {
 
             <motion.h1 
               variants={itemVariants}
-              className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide"
+              className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-3 md:mb-5 leading-tight tracking-wide"
             >
               Experience a Cleaner, Healthier Space with
               <motion.span 
@@ -228,7 +228,7 @@ export default function Hero() {
 
             <motion.p 
               variants={itemVariants}
-              className="text-base md:text-xl text-gray-600 dark:text-gray-300 tracking-wide mb-4 max-w-sm sm:max-w-lg mx-auto lg:mx-0"
+              className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-3 max-w-sm sm:max-w-lg mx-auto lg:mx-0"
             >
               Enjoy peace of mind with our professional, fully customized cleaning services for homes and businesses across Kenya. No contracts, no hassle—just sparkling results, flexible scheduling, and a 100% satisfaction guarantee. Discover why families and companies trust Simca Agencies for quality, affordability, and care.
             </motion.p>
@@ -262,7 +262,7 @@ export default function Hero() {
                   whileTap="tap"
                   className="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                 >
-                  <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
+                  <div className="text-xl md:text-2xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
                     {stat.icon}
                     <span className="group-hover:scale-110 transition-transform duration-300">
                       <CountUp end={stat.value} duration={1.2} />
@@ -282,14 +282,14 @@ export default function Hero() {
             >
               <Link 
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-center text-sm sm:text-base"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-center text-xs sm:text-sm"
               >
                 Get Started
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link 
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 bg-white/80 dark:bg-gray-800/80 text-add8e6 border border-add8e6 px-6 md:px-8 py-3 md:py-4 rounded-xl font-medium hover:bg-add8e6/10 transition-all duration-300 hover:shadow-lg group text-center text-sm sm:text-base backdrop-blur-sm"
+                className="inline-flex items-center justify-center gap-2 bg-white/80 dark:bg-gray-800/80 text-add8e6 border border-add8e6 px-6 md:px-8 py-3 md:py-4 rounded-xl font-medium hover:bg-add8e6/10 transition-all duration-300 hover:shadow-lg group text-center text-xs sm:text-sm backdrop-blur-sm"
               >
                 Explore Services
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />

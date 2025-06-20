@@ -96,7 +96,7 @@ export default function Header() {
             <div className="flex items-center">
               <a
                 href="tel:+25472356800"
-                className="flex items-center text-sm md:text-base font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+                className="flex items-center text-xs md:text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
                 <Phone className="h-4 w-4 md:h-5 md:w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
                 <span>Call Us: +254 72356800</span>
@@ -104,7 +104,7 @@ export default function Header() {
               <span className="mx-2 text-gray-300 dark:text-gray-600 font-bold">|</span>
               <a
                 href="tel:+254712345678"
-                className="flex items-center text-sm md:text-base font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+                className="flex items-center text-xs md:text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
                 <Phone className="h-4 w-4 md:h-5 md:w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
                 <span>+254 712345678</span>
@@ -115,7 +115,7 @@ export default function Header() {
             <div className="hidden md:flex items-center">
               <a
                 href="mailto:info@simcaagencies.co.ke"
-                className="flex items-center text-sm md:text-base font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+                className="flex items-center text-xs md:text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
                 <Mail className="h-4 w-4 md:h-5 md:w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
                 <span>Email Us: info@simcaagencies.co.ke</span>
@@ -150,7 +150,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center group">
             <Logo 
-              className="h-12 w-auto md:h-16 transition-transform duration-300 group-hover:scale-105" 
+              className="w-32 h-12 md:w-48 md:h-30 transition-transform duration-300 group-hover:scale-105" 
               variant={theme === "dark" ? "white" : "default"} 
             />
           </Link>
@@ -161,7 +161,7 @@ export default function Header() {
               <div key={item.name} className="relative group">
                 {item.subNav ? (
                   <button
-                    className="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 flex items-center gap-1 focus:outline-none"
+                    className="text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 flex items-center gap-1 focus:outline-none"
                     onClick={toggleServicesDropdown}
                   >
                     {item.name}
@@ -170,7 +170,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)]"
+                    className="text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)]"
                   >
                     {item.name}
                   </Link>
@@ -185,7 +185,7 @@ export default function Header() {
                         <Link
                           key={subItem.name}
                           href={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:text-add8e6 dark:hover:text-add8e6 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)]"
+                          className="block px-4 py-2 text-xs text-gray-700 dark:text-gray-200 hover:text-add8e6 dark:hover:text-add8e6 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)]"
                           onClick={() => setIsServicesDropdownOpen(false)}
                         >
                           {subItem.name}
@@ -202,7 +202,7 @@ export default function Header() {
           <div className="hidden md:flex items-center">
             <a
               href="tel:+25472356800"
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-medium hover:shadow-lg hover:shadow-add8e6/20 transition-all duration-300 group text-center text-sm sm:text-base relative overflow-hidden"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl font-medium hover:shadow-lg hover:shadow-add8e6/20 transition-all duration-300 group text-center text-xs sm:text-sm relative overflow-hidden"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></span>
               <Phone className="h-4 w-4 md:h-5 md:w-5" />
@@ -238,10 +238,10 @@ export default function Header() {
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
               <Link href="/" className="flex items-center group" onClick={() => setIsMenuOpen(false)}>
                 <Logo 
-                  className="h-8 w-auto transition-transform duration-300 group-hover:scale-105" 
+                  className="w-32 h-12 md:w-48 md:h-16 transition-transform duration-300 group-hover:scale-105" 
                   variant={theme === "dark" ? "white" : "default"} 
                 />
-                <span className="ml-2 text-lg font-bold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
+                <span className="ml-2 text-base font-bold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
                   Simca Agencies
                 </span>
               </Link>
@@ -262,7 +262,7 @@ export default function Header() {
                     <div key={item.name}>
                       {item.subNav ? (
                         <button
-                          className="flex items-center justify-between w-full py-3 px-4 text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                          className="flex items-center justify-between w-full py-3 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
                           onClick={toggleMobileServices}
                         >
                           <span>{item.name}</span>
@@ -271,7 +271,7 @@ export default function Header() {
                       ) : (
                         <Link
                           href={item.href}
-                          className="flex items-center justify-between py-3 px-4 text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                          className="flex items-center justify-between py-3 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           <span>{item.name}</span>
@@ -284,7 +284,7 @@ export default function Header() {
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="block py-2 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                              className="block py-2 px-4 text-xs text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
                               onClick={() => {
                                 setIsMenuOpen(false)
                                 setIsMobileServicesOpen(false)
@@ -301,31 +301,31 @@ export default function Header() {
 
                 {/* Quick Actions */}
                 <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
-                  <h3 className="text-sm md:text-base font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
+                  <h3 className="text-xs md:text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
                     Quick Actions
                   </h3>
                   <div className="space-y-2">
                     <a
                       href="tel:+25472356800"
-                      className="flex items-center justify-between py-3 px-4 text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      className="flex items-center justify-between py-3 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="flex items-center">
                         <Phone className="h-4 w-4 md:h-5 md:w-5 mr-2" />
                         Call Us
                       </span>
-                      <span className="text-sm md:text-base text-gray-500">+254 72356800</span>
+                      <span className="text-xs md:text-sm text-gray-500">+254 72356800</span>
                     </a>
                     <Link
                       href="/contact"
-                      className="flex items-center justify-between py-3 px-4 text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      className="flex items-center justify-between py-3 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="flex items-center">
                         <Mail className="h-4 w-4 md:h-5 md:w-5 mr-2" />
                         Email Us
                       </span>
-                      <span className="text-sm md:text-base text-gray-500">info@simcacleaning.co.ke</span>
+                      <span className="text-xs md:text-sm text-gray-500">info@simcacleaning.co.ke</span>
                     </Link>
                   </div>
                 </div>

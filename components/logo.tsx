@@ -8,13 +8,12 @@ interface LogoProps extends HTMLAttributes<HTMLDivElement> {
 
 export default function Logo({ className, variant = "default", ...props }: LogoProps) {
   return (
-    <div className={className} {...props}>
+    <div className={`relative ${className}`} {...props}>
       <Image
         src="/simca-logo.png"
         alt="Simca Agencies Logo"
-        width={64}
-        height={64}
-        className={`w-full h-full object-contain ${variant === "white" ? "brightness-0 invert" : ""}`}
+        fill
+        className={`object-contain ${variant === "white" ? "brightness-0 invert" : ""}`}
       />
     </div>
   )
