@@ -198,7 +198,7 @@ export default function TrustedClients() {
 
   return (
     <ScrollAnimation>
-      <section className="relative py-16 md:py-24">
+      <section className="relative py-12 md:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -213,7 +213,7 @@ export default function TrustedClients() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center max-w-3xl mx-auto mb-4 md:mb-16">
             <motion.div 
-              className="inline-block mb-4 sm:mb-4 md:mb-6"
+              className="inline-block mb-6 sm:mb-4 md:mb-6"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -224,7 +224,7 @@ export default function TrustedClients() {
             </motion.div>
 
             <motion.h2 
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-3 md:mb-5 leading-tight tracking-wide"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-5 leading-tight tracking-wide"
             >
               Proud to Care for Kenya's Leading <span className="text-add8e6 relative inline-block">Organizations
                 <motion.span
@@ -239,7 +239,7 @@ export default function TrustedClients() {
             </motion.h2>
 
             <motion.p 
-              className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-3"
+              className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -248,7 +248,7 @@ export default function TrustedClients() {
             </motion.p>
 
             <motion.p 
-              className="text-xs md:text-sm text-add8e6 dark:text-add8e6/90 font-medium tracking-wide"
+              className="text-xs md:text-sm text-add8e6 dark:text-add8e6/90 font-medium tracking-wide mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}

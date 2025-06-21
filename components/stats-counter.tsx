@@ -104,7 +104,7 @@ export default function StatsCounter() {
   }
 
   return (
-    <section className="relative py-16 md:py-24">
+    <section className="relative py-12 md:py-20">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -118,11 +118,11 @@ export default function StatsCounter() {
 
       <div className="container mx-auto px-4 relative">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-4 md:mb-6">
+          <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6">
             <Sparkles className="w-4 h-4" />
             By the Numbers
           </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-3 md:mb-5 leading-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight">
             Our Story in{' '}
             <span className="text-add8e6 relative inline-block">
               Numbers

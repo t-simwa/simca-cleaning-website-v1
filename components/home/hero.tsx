@@ -6,6 +6,8 @@ import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Clock, Users, Star
 import { useEffect, useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
+const MotionImage = motion(Image)
+
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false)
   useEffect(() => {
@@ -170,33 +172,38 @@ export default function Hero() {
   }
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-      </div>
-      
-      {/* Floating decorative elements - more subtle */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
-      </div>
-      <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 py-8 sm:py-10 md:py-16 lg:py-20 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-14 md:gap-16 lg:gap-20 items-center">
-          {/* Left side - Content with improved mobile spacing */}
+    <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+      {/* Background Image */}
+      <MotionImage
+        src={heroImage.src}
+        alt={heroImage.alt}
+        fill
+        className="object-cover object-center"
+        priority
+        sizes="100vw"
+        initial={{ scale: 1 }}
+        animate={{ scale: 1.05 }}
+        transition={{ duration: 10, ease: "easeOut" }}
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60" />
+
+      <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-24 lg:py-32 relative flex-grow flex flex-col justify-center">
+        <div className="flex flex-col items-center">
+          {/* Centered Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-center lg:text-left order-2 lg:order-1"
+            className="text-center"
           >
             <motion.div 
               variants={itemVariants}
-              className="inline-block mb-0 sm:mb-4 md:mb-6"
+              className="inline-block mb-6 sm:mb-4 md:mb-6"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm">
+              <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4" />
                 Kenya's Trusted Cleaning Partner
               </span>
@@ -204,31 +211,25 @@ export default function Hero() {
 
             <motion.h1 
               variants={itemVariants}
-              className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-3 md:mb-5 leading-tight tracking-wide"
+              className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-5 leading-tight tracking-wide"
             >
-              Experience a Cleaner, Healthier Space with
-              <motion.span 
-                className="relative inline-block tracking-wider"
-                variants={itemVariants}
-              >
-                Simca Agencies - Kenya's Trusted
-              </motion.span>
-              <span className="text-add8e6 relative inline-block">
-                Cleaning Experts
+              Experience a Cleaner, Healthier Space with{" "}
+              <span className="text-fff relative inline-block">
+                Simca Agencies
                 <motion.span
                   className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, ease: 'easeOut' }}
-                  style={{ display: 'block' }}
                 />
-              </span>
+              </span>{" "}
+              - Kenya's Trusted Cleaning Experts
             </motion.h1>
 
             <motion.p 
               variants={itemVariants}
-              className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-3 max-w-sm sm:max-w-lg mx-auto lg:mx-0"
+              className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
             >
               Enjoy peace of mind with our professional, fully customized cleaning services for homes and businesses across Kenya. No contracts, no hassle—just sparkling results, flexible scheduling, and a 100% satisfaction guarantee. Discover why families and companies trust Simca Agencies for quality, affordability, and care.
             </motion.p>
@@ -242,17 +243,17 @@ export default function Hero() {
                 { 
                   value: "98%", 
                   label: "Client Satisfaction", 
-                  icon: <Star className="w-4 h-4 text-add8e6" />,
+                  icon: <Star className="w-4 h-4 text-white" />,
                 },
                 { 
                   value: "50+", 
                   label: "Corporate Offices", 
-                  icon: <Building2 className="w-4 h-4 text-add8e6" />,
+                  icon: <Building2 className="w-4 h-4 text-white" />,
                 },
                 { 
                   value: "15+", 
                   label: "Years Experience", 
-                  icon: <Clock className="w-4 h-4 text-add8e6" />,
+                  icon: <Clock className="w-4 h-4 text-white" />,
                 }
               ].map((stat, index) => (
                 <motion.div
@@ -260,15 +261,15 @@ export default function Hero() {
                   variants={statsVariants}
                   whileHover="hover"
                   whileTap="tap"
-                  className="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                 >
-                  <div className="text-xl md:text-2xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
+                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                     {stat.icon}
                     <span className="group-hover:scale-110 transition-transform duration-300">
                       <CountUp end={stat.value} duration={1.2} />
                     </span>
                   </div>
-                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                  <div className="text-xs md:text-sm text-white">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -278,41 +279,16 @@ export default function Hero() {
             {/* CTA Buttons */}
             <motion.div 
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start mb-6"
+              className="flex justify-center mb-6"
             >
               <Link 
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-center text-xs sm:text-sm"
               >
-                Get Started
-                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-              <Link 
-                href="/services"
-                className="inline-flex items-center justify-center gap-2 bg-white/80 dark:bg-gray-800/80 text-add8e6 border border-add8e6 px-6 md:px-8 py-3 md:py-4 rounded-xl font-medium hover:bg-add8e6/10 transition-all duration-300 hover:shadow-lg group text-center text-xs sm:text-sm backdrop-blur-sm"
-              >
-                Explore Services
+                GET A FREE QUOTE
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </motion.div>
-          </motion.div>
-
-          {/* Right side - Image (static, no carousel, no overlay text) */}
-          <motion.div
-            className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] rounded-2xl overflow-hidden shadow-2xl order-1 lg:order-2 mb-4 sm:mb-0"
-          >
-            <Image
-              src={heroImage.src}
-              alt={heroImage.alt}
-              fill
-              className="object-cover object-center transition-transform duration-700"
-              priority
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
-            />
-            {/* Enhanced vignette effect */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
           </motion.div>
         </div>
       </div>
