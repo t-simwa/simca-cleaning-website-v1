@@ -19,38 +19,38 @@ export default function StatsCounter() {
     {
       icon: <Award className="h-10 w-10 text-add8e6" />,
       value: 8,
-      label: "Years of Local Service",
+      label: "Years Serving Our Community",
       suffix: "+",
       trend: "+12%",
-      description: "From last year",
-      highlight: "Certified Professionals",
+      description: "Trusted by local families and businesses year after year.",
+      highlight: "Experience you can rely on for a spotless, worry-free clean."
     },
     {
       icon: <Users className="h-10 w-10 text-add8e6" />,
       value: 1500,
-      label: "Happy Clients",
+      label: "Happy Clients & Counting",
       suffix: "+",
       trend: "+25%",
-      description: "Client growth",
-      highlight: "98% Customer Satisfaction",
+      description: "Thousands of clients who feel at home with our service.",
+      highlight: "We treat your space like our own—your satisfaction is our promise."
     },
     {
       icon: <Home className="h-10 w-10 text-add8e6" />,
       value: 12,
-      label: "Communities Served",
+      label: "Communities Cared For",
       suffix: "",
       trend: "+3",
-      description: "New locations",
-      highlight: "Local Team Members",
+      description: "Expanding our reach to serve more neighborhoods every year.",
+      highlight: "Wherever you are, we bring a personal touch to every clean."
     },
     {
       icon: <Building2 className="h-10 w-10 text-add8e6" />,
       value: 100,
-      label: "Team Members",
+      label: "Dedicated Team Members",
       suffix: "+",
       trend: "+15%",
-      description: "Team expansion",
-      highlight: "Residential & Commercial",
+      description: "A growing family of friendly, background-checked professionals.",
+      highlight: "You'll see familiar faces who care about your comfort and safety."
     },
     {
       icon: <Clock className="h-10 w-10 text-add8e6" />,
@@ -58,17 +58,17 @@ export default function StatsCounter() {
       label: "Average Response Time",
       suffix: " Hours",
       trend: "-30%",
-      description: "Faster than last year",
-      highlight: "Quick Service",
+      description: "We're there when you need us—fast, flexible, and reliable.",
+      highlight: "Quick help, no waiting, and always on your schedule."
     },
     {
       icon: <Leaf className="h-10 w-10 text-add8e6" />,
       value: 100,
-      label: "Eco-Friendly Products",
+      label: "Eco-Friendly Cleaning",
       suffix: "%",
       trend: "100%",
-      description: "Sustainable cleaning",
-      highlight: "Green Certified",
+      description: "Safe for your family, pets, and the planet—every single visit.",
+      highlight: "Enjoy a sparkling clean home with a gentle, green approach."
     },
   ]
 
@@ -118,23 +118,30 @@ export default function StatsCounter() {
 
       <div className="container mx-auto px-4 relative">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-sm font-medium mb-4 md:mb-6">
+          <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-4 md:mb-6">
             <Sparkles className="w-4 h-4" />
-            Growing Stronger Every Day
+            By the Numbers
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
-            Our Impact in{" "}
-            <span className="text-add8e6 relative">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-3 md:mb-5 leading-tight">
+            Our Story in{' '}
+            <span className="text-add8e6 relative inline-block">
               Numbers
-              <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
+              <motion.span
+                className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: 'easeOut' }}
+                style={{ display: 'block' }}
+              />
             </span>
           </h2>
-          <p className="text-base md:text-xl text-gray-600 dark:text-gray-300">
-            Join thousands of satisfied clients who trust Simca Agencies for their cleaning needs
+          <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300">
+            Every number tells a story of trust, care, and sparkling spaces. Discover how we make a difference for families and businesses across our community—one clean at a time.
           </p>
         </div>
 
-        <div className="relative max-w-6xl mx-auto">
+        <div className="relative max-w-7xl mx-auto">
           {/* Navigation Buttons - Hidden on mobile */}
           <button
             onClick={prevPage}
@@ -184,8 +191,8 @@ export default function StatsCounter() {
 
           {/* Mobile Navigation */}
           <div className="flex flex-col items-center gap-4 mt-8 md:hidden">
-            {/* Mobile Pagination Dots */}
-            <div className="flex items-center gap-3">
+            {/* Mobile Pagination Dots - removed as per request */}
+            {/* <div className="flex items-center gap-3">
               {Array.from({ length: stats.length }).map((_, index) => (
                 <motion.button
                   key={index}
@@ -200,7 +207,7 @@ export default function StatsCounter() {
                   whileTap={{ scale: 0.9 }}
                 />
               ))}
-            </div>
+            </div> */}
 
             {/* Mobile Navigation Buttons */}
             <div className="flex items-center gap-4">
@@ -230,7 +237,7 @@ export default function StatsCounter() {
             </div>
           </div>
 
-          {/* Desktop Navigation Dots */}
+          {/* Only show on md and up */}
           <div className="hidden md:flex justify-center items-center gap-2 mt-8">
             {Array.from({ length: totalPages }).map((_, index) => (
               <motion.button
@@ -299,7 +306,7 @@ function StatItem({ icon, value, label, suffix, trend, description, highlight, a
 
   return (
     <motion.div 
-      className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-xl md:rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group border border-gray-100/50 dark:border-gray-700/50"
+      className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-xl md:rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group border border-gray-200 dark:border-gray-700 flex flex-col items-center justify-center h-full"
       style={{
         opacity: animate ? 1 : 0,
         transform: animate ? 'translateY(0)' : 'translateY(20px)',
@@ -308,22 +315,19 @@ function StatItem({ icon, value, label, suffix, trend, description, highlight, a
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      <div className="flex flex-col h-full">
-        <div className="flex items-center justify-between mb-6">
-          <motion.div 
-            className="p-2 md:p-3 bg-gradient-to-br from-add8e6/20 to-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 border border-add8e6/20"
-            whileHover={{ 
-              scale: 1.15,
-              rotate: [0, -5, 5, 0],
-              transition: { duration: 0.5 }
-            }}
-          >
-            {React.cloneElement(icon as React.ReactElement<any>, { className: 'h-7 w-7 md:h-8 md:w-8 text-add8e6' })}
-          </motion.div>
-        </div>
-        
+      <div className="flex flex-col items-center justify-center h-full w-full">
         <motion.div 
-          className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 tracking-tight"
+          className="p-2 md:p-3 bg-gradient-to-br from-add8e6/20 to-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 border border-add8e6/20 flex items-center justify-center mb-4"
+          whileHover={{ 
+            scale: 1.15,
+            rotate: [0, -5, 5, 0],
+            transition: { duration: 0.5 }
+          }}
+        >
+          {React.cloneElement(icon as React.ReactElement<any>, { className: 'h-7 w-7 md:h-8 md:w-8 text-add8e6' })}
+        </motion.div>
+        <motion.div 
+          className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 tracking-tight text-center"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
         >
@@ -332,32 +336,30 @@ function StatItem({ icon, value, label, suffix, trend, description, highlight, a
             {suffix}
           </span>
         </motion.div>
-        
+      </div>
+      <motion.div 
+        className="text-xs md:text-sm text-gray-600 dark:text-gray-400 font-medium mb-2 md:mb-3 tracking-wide text-center"
+        whileHover={{ x: 4 }}
+        transition={{ duration: 0.2 }}
+      >
+        {label}
+      </motion.div>
+      <motion.div 
+        className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-3 md:mb-5 text-center"
+        whileHover={{ x: 4 }}
+        transition={{ duration: 0.2 }}
+      >
+        {description}
+      </motion.div>
+      <div className="mt-auto pt-3 md:pt-4 border-t border-gray-100 dark:border-gray-700 w-full">
         <motion.div 
-          className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium mb-2 md:mb-3 tracking-wide"
+          className="flex items-center gap-2 text-add8e6 justify-center"
           whileHover={{ x: 4 }}
           transition={{ duration: 0.2 }}
         >
-          {label}
+          <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
+          <span className="text-xs md:text-sm font-medium tracking-wide">{highlight}</span>
         </motion.div>
-        <motion.div 
-          className="text-sm md:text-sm text-gray-500 dark:text-gray-400 mb-4 md:mb-6"
-          whileHover={{ x: 4 }}
-          transition={{ duration: 0.2 }}
-        >
-          {description}
-        </motion.div>
-        
-        <div className="mt-auto pt-3 md:pt-4 border-t border-gray-100 dark:border-gray-700">
-          <motion.div 
-            className="flex items-center gap-2 text-add8e6"
-            whileHover={{ x: 4 }}
-            transition={{ duration: 0.2 }}
-          >
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
-            <span className="text-sm md:text-sm font-medium tracking-wide">{highlight}</span>
-          </motion.div>
-        </div>
       </div>
     </motion.div>
   )

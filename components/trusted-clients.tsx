@@ -257,7 +257,22 @@ export default function TrustedClients() {
             </motion.p>
           </div>
 
-          <div className="relative max-w-full mx-auto px-4 md:px-12">
+          <div className="relative max-w-7xl mx-auto">
+            {/* Navigation Buttons - Hidden on mobile */}
+            <button
+              onClick={prevPage}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
+              aria-label="Previous client"
+            >
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
+            </button>
+            <button
+              onClick={nextPage}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
+              aria-label="Next client"
+            >
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
+            </button>
             {/* Carousel Container */}
             <div className="overflow-hidden">
               <AnimatePresence mode="wait">
@@ -275,7 +290,7 @@ export default function TrustedClients() {
                       href={client.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 w-full overflow-hidden"
+                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 w-full overflow-hidden border border-gray-200 dark:border-gray-700"
                       aria-label={`Visit ${client.name} website`}
                       onMouseEnter={() => setHoveredClient(index)}
                       onMouseLeave={() => setHoveredClient(null)}
@@ -465,7 +480,7 @@ export default function TrustedClients() {
               </AnimatePresence>
             </div>
 
-            {/* Hide mobile carousel dots and only show navigation buttons on mobile */}
+            {/* Mobile Navigation */}
             <div className="flex flex-col items-center gap-4 mt-8 md:hidden">
               <div className="flex items-center gap-4">
                 <motion.button
@@ -477,7 +492,7 @@ export default function TrustedClients() {
                 >
                   <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
                 </motion.button>
-                <span className="text-xs text-gray-600 dark:text-gray-400">
+                <span className="text-sm text-gray-600 dark:text-gray-400">
                   {currentPage + 1} of {clients.length}
                 </span>
                 <motion.button
@@ -494,13 +509,13 @@ export default function TrustedClients() {
 
             {/* Desktop Navigation - Match services-overview */}
             <div className="hidden md:flex flex-row items-center justify-center gap-4 mt-8">
-              <motion.button
+              {/* <motion.button
                 onClick={prevPage}
                 className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
                 aria-label="Previous clients"
               >
                 <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-              </motion.button>
+              </motion.button> */}
               <div className="flex items-center gap-2">
                 {Array.from({ length: totalPages }).map((_, index) => (
                   <motion.button
@@ -515,13 +530,13 @@ export default function TrustedClients() {
                   />
                 ))}
               </div>
-              <motion.button
+              {/* <motion.button
                 onClick={nextPage}
                 className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
                 aria-label="Next clients"
               >
                 <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-              </motion.button>
+              </motion.button> */}
             </div>
           </div>
 
