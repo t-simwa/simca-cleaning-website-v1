@@ -594,7 +594,7 @@ export default function TrustedClients() {
                   {/* CTA Button */}
                   <Link href="/contact" passHref legacyBehavior>
                     <motion.a
-                      className="inline-flex items-center gap-2 bg-add8e6 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-add8e6/90 transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 mb-16"
+                      className="inline-flex items-center gap-2 bg-add8e6 text-white px-8 py-4 rounded-lg text-xs sm:text-sm font-medium hover:bg-add8e6/90 transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 mb-16"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >

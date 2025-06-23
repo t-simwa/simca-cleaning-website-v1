@@ -73,7 +73,7 @@ export default function TikTokFeed() {
   }, [])
 
   return (
-    <section className="relative py-16 md:py-24">
+    <section className="relative py-12 md:py-20">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -87,19 +87,26 @@ export default function TikTokFeed() {
 
       <div className="container mx-auto px-4 relative">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-sm font-medium mb-4 md:mb-6">
+          <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6">
             <Sparkles className="w-4 h-4" />
-            TikTok Content
+            Tiktok Content
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
-            Follow Our{" "}
-            <span className="text-add8e6 relative">
-              Journey
-              <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight">
+            See Simca in Action on{' '}
+            <span className="text-add8e6 relative inline-block">
+              TikTok
+              <motion.span
+                className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: 'easeOut' }}
+                style={{ display: 'block' }}
+              />
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
-            Discover our latest cleaning projects, behind-the-scenes content, and expert tips on TikTok.
+          <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300">
+            Get a closer look at how we care for your spaces, meet the team, and pick up simple tips to keep your home or business shining. We're proud to share our work and moments with you on TikTok—because your trust means everything to us.
           </p>
         </div>
 
@@ -109,7 +116,7 @@ export default function TikTokFeed() {
             <motion.button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`group flex items-center gap-2 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 ${
+              className={`group flex items-center gap-2 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs md:text-xs font-medium transition-all duration-300 ${
                 activeCategory === category.id
                   ? "bg-gradient-to-r from-add8e6 to-add8e6/90 text-white shadow-lg shadow-add8e6/20"
                   : "bg-white/80 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 backdrop-blur-sm"
@@ -208,7 +215,7 @@ export default function TikTokFeed() {
               >
                 <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
               </motion.button>
-              <span className="text-sm text-gray-600 dark:text-gray-400">
+              <span className="text-xs text-gray-600 dark:text-gray-400">
                 {currentPage + 1} of {filteredVideos.length}
               </span>
               <motion.button
@@ -247,7 +254,7 @@ export default function TikTokFeed() {
             href="https://www.tiktok.com/@simcacleaningcompany"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-add8e6 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-medium hover:bg-add8e6/90 transition-all duration-300 hover:shadow-lg hover:scale-105 transform group"
+            className="inline-flex items-center gap-2 bg-add8e6 text-white px-8 py-4 rounded-xl font-medium hover:bg-add8e6/90 transition-all duration-300 hover:shadow-lg hover:scale-105 transform group text-xs sm:text-sm"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

@@ -52,10 +52,10 @@ export default function ServicesOverview() {
       link: "/services/residential",
       image: "/images/services/residential-cleaning.jpg",
       features: [
-        "We clean your home your way—just tell us your priorities.",
-        "Book or cancel anytime, no contracts or hidden fees.",
-        "We use safe, eco-friendly products for your family's health.",
-        "If you're not satisfied, we'll come back and make it right—guaranteed."
+        "Kitchen cleaning (counters, appliances, sinks, cabinets)",
+        "Bathroom sanitization (toilets, showers, mirrors, floors)",
+        "Living areas (dusting, vacuuming, mopping, surfaces)",
+        "Bedroom cleaning (beds, furniture, floors, windows)"
       ],
       category: "residential",
       rating: 4.9,
@@ -69,10 +69,10 @@ export default function ServicesOverview() {
       link: "/services/commercial",
       image: "/images/services/commercial-cleaning.jpg",
       features: [
-        "We clean after-hours or weekends to fit your business schedule.",
-        "Custom cleaning plans for your unique workspace needs.",
-        "Fully insured, vetted staff for your peace of mind.",
-        "No long-term contracts—flexible, affordable service."
+        "Office spaces (desks, floors, common areas, kitchens)",
+        "Restroom sanitization and maintenance",
+        "Reception and lobby cleaning",
+        "Break room and kitchen area cleaning"
       ],
       category: "commercial",
       rating: 4.8,
@@ -86,10 +86,10 @@ export default function ServicesOverview() {
       link: "/services/post-construction",
       image: "/images/services/post-construction-cleaning.jpg",
       features: [
-        "We remove all dust and debris, so you can move in faster.",
-        "We protect your new surfaces from scratches and stains.",
-        "Every job ends with a final inspection for your peace of mind.",
-        "Book cleaning when it suits your project—no rigid schedules."
+        "Construction dust removal from all surfaces",
+        "Window and glass cleaning (interior/exterior)",
+        "Floor cleaning (hardwood, tile, carpet)",
+        "Cabinet and appliance cleaning"
       ],
       category: "specialized",
       rating: 4.9,
@@ -103,10 +103,10 @@ export default function ServicesOverview() {
       link: "/services/carpet-upholstery",
       image: "/images/services/carpet-upholstery.jpg",
       features: [
-        "We always start with a deep vacuum before stain removal.",
-        "Gentle, eco-friendly cleaning for all fabrics and fibers.",
-        "Quick drying—your space is ready to use in hours, not days.",
-        "If you're not happy, we'll reclean for free—guaranteed."
+        "Deep carpet cleaning and stain removal",
+        "Sofa and chair upholstery cleaning",
+        "Area rug cleaning and treatment",
+        "Odor elimination and fabric protection"
       ],
       category: "specialized",
       rating: 4.7,
@@ -120,10 +120,10 @@ export default function ServicesOverview() {
       link: "/services/sanitization-disinfection",
       image: "/images/services/sanitization.jpg",
       features: [
-        "We use EPA-approved disinfectants for your safety.",
-        "Certified protocols to eliminate germs and viruses.",
-        "Focus on high-touch points for maximum protection.",
-        "Flexible scheduling—book when you need us most."
+        "High-touch surface disinfection",
+        "Air purification and treatment",
+        "Restroom and kitchen sanitization",
+        "Electrostatic spraying technology"
       ],
       category: "specialized",
       rating: 4.9,
@@ -137,10 +137,10 @@ export default function ServicesOverview() {
       link: "/services/specialized",
       image: "/images/services/specialized-cleaning.jpg",
       features: [
-        "Custom cleaning plans for your industry or facility.",
-        "Experienced, vetted staff for sensitive environments.",
-        "We use specialized equipment for every job.",
-        "Satisfaction guaranteed—if you're not happy, we'll fix it."
+        "Healthcare facility cleaning protocols",
+        "Hotel and hospitality cleaning",
+        "Bank and financial institution cleaning",
+        "Industrial and warehouse cleaning"
       ],
       category: "specialized",
       rating: 4.8,
@@ -154,10 +154,10 @@ export default function ServicesOverview() {
       link: "/services/window",
       image: "/images/services/window-cleaning.jpg",
       features: [
-        "We clean all window types, from skylights to high-rise.",
-        "Streak-free results with eco-friendly cleaning solutions.",
-        "Regular maintenance plans to keep your windows spotless.",
-        "If you see any streaks, we'll reclean—guaranteed."
+        "Interior and exterior window cleaning",
+        "Window frame and sill cleaning",
+        "Screen cleaning and maintenance",
+        "Skylight and high-rise window cleaning"
       ],
       category: "specialized",
       rating: 4.8,
@@ -171,10 +171,10 @@ export default function ServicesOverview() {
       link: "/services/vehicle-interior",
       image: "/images/services/vehicle-interior-cleaning.jpg",
       features: [
-        "Deep cleaning of all interior surfaces and fabrics.",
-        "Odor removal and air freshening treatment included.",
-        "Stain removal from carpets, seats, and upholstery.",
-        "Mobile service—we come to your location."
+        "Dashboard and console cleaning",
+        "Seat and upholstery deep cleaning",
+        "Carpet and floor mat cleaning",
+        "Air vent and interior sanitization"
       ],
       category: "specialized",
       rating: 4.9,
@@ -188,10 +188,10 @@ export default function ServicesOverview() {
       link: "/services/mattress",
       image: "/images/services/mattress-cleaning.jpg",
       features: [
-        "Deep cleaning removes dust mites and allergens.",
-        "Stain removal and sanitization included.",
-        "Quick drying process—ready to use same day.",
-        "Extends mattress life and improves sleep quality."
+        "Deep mattress vacuuming and cleaning",
+        "Stain removal and treatment",
+        "Dust mite and allergen elimination",
+        "Mattress sanitization and deodorizing"
       ],
       category: "specialized",
       rating: 4.9,
@@ -205,10 +205,10 @@ export default function ServicesOverview() {
       link: "/services/garbage-collection",
       image: "/images/services/garbage-collection.jpg",
       features: [
-        "Regular collection schedules to suit your needs.",
-        "Proper waste segregation and recycling.",
-        "Environmentally responsible disposal methods.",
-        "Flexible plans for homes and businesses."
+        "Regular waste collection schedules",
+        "Recycling and waste segregation",
+        "Large item and bulk waste removal",
+        "Environmentally responsible disposal"
       ],
       category: "commercial",
       rating: 4.7,
@@ -222,10 +222,10 @@ export default function ServicesOverview() {
       link: "/services/sanitary-bins",
       image: "/images/services/sanitary-bins.jpg",
       features: [
-        "Regular collection and replacement service.",
-        "Discrete, hygienic disposal methods.",
-        "Compliant with health and safety regulations.",
-        "Flexible service schedules to suit your needs."
+        "Sanitary bin supply and installation",
+        "Regular collection and replacement",
+        "Hygienic disposal and treatment",
+        "Compliance with health regulations"
       ],
       category: "commercial",
       rating: 4.8,
@@ -239,10 +239,10 @@ export default function ServicesOverview() {
       link: "/services/steam",
       image: "/images/services/steam-cleaning.jpg",
       features: [
-        "High-temperature steam kills bacteria and dust mites.",
-        "Chemical-free cleaning for sensitive areas.",
-        "Effective on carpets, upholstery, and hard surfaces.",
-        "Eco-friendly and safe for children and pets."
+        "High-temperature steam sanitization",
+        "Carpet and upholstery steam cleaning",
+        "Hard surface steam cleaning",
+        "Chemical-free deep cleaning"
       ],
       category: "specialized",
       rating: 4.9,
@@ -256,10 +256,10 @@ export default function ServicesOverview() {
       link: "/services/sofa-set",
       image: "/images/services/sofa-set-cleaning.jpg",
       features: [
-        "Deep cleaning for all fabric types and materials.",
-        "Stain removal and odor elimination.",
-        "Quick drying process—ready to use same day.",
-        "Extends furniture life and improves appearance."
+        "Fabric type-specific cleaning methods",
+        "Stain removal and spot treatment",
+        "Odor elimination and freshening",
+        "Fabric protection and conditioning"
       ],
       category: "specialized",
       rating: 4.8,
@@ -420,7 +420,7 @@ export default function ServicesOverview() {
                       </div>
                       
                       <motion.h3 
-                        className="text-xs md:text-base font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
+                        className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
                       >
                         {service.title}
                       </motion.h3>
@@ -433,6 +433,14 @@ export default function ServicesOverview() {
 
                       {/* Features list */}
                       <div className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
+                        <motion.h4 
+                          className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-4s"
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.1 }}
+                        >
+                          Our Services Include:
+                        </motion.h4>
                         {service.features.map((feature, i) => (
                           <motion.div 
                             key={i} 

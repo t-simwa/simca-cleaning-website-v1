@@ -12,14 +12,12 @@ export default function Footer() {
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative">
       <WhatsAppWidget />
 
-      {/* Newsletter Section */}
-      <div className="relative bg-gradient-to-br from-add8e6/20 to-add8e6/10 dark:from-add8e6/10 dark:to-add8e6/5 py-16">
-        {/* Background Pattern */}
+      {/* Newsletter Section - Temporarily hidden */}
+      {/* <div className="relative bg-gradient-to-br from-add8e6/20 to-add8e6/10 dark:from-add8e6/10 dark:to-add8e6/5 py-12">
         <div className="absolute inset-0 opacity-5 dark:opacity-10">
           <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px] animate-pulse" />
         </div>
         
-        {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-add8e6/10 rounded-full blur-3xl animate-float" />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-add8e6/10 rounded-full blur-3xl animate-float-delayed" />
@@ -28,19 +26,19 @@ export default function Footer() {
         <div className="container mx-auto px-4 relative">
           <NewsletterSignup />
         </div>
-      </div>
+      </div> */}
 
-      <div className="container mx-auto px-4 py-12 md:py-16">
+      <div className="container mx-auto px-4 py-8 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Company Info */}
-          <div className="space-y-6 md:space-y-8">
+          <div className="space-y-4 md:space-y-6">
             <div className="flex items-center gap-3 md:gap-4">
               <Logo className="h-12 w-auto md:h-14" variant="white" />
-              <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              <span className="text-lg md:text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                 Simca Agencies
               </span>
             </div>
-            <p className="text-gray-400 leading-relaxed text-sm md:text-base">
+            <p className="text-gray-400 leading-relaxed text-xs md:text-sm">
               Professional cleaning services across Kenya. We provide residential, commercial, and specialized cleaning
               solutions to meet all your needs.
             </p>
@@ -55,7 +53,7 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
-                  className="bg-gray-800 hover:bg-add8e6/20 p-2.5 md:p-3 rounded-xl text-gray-400 hover:text-add8e6 transition-all duration-300 hover:scale-110 transform group"
+                  className="bg-gray-800 hover:bg-add8e6/20 p-2 md:p-2.5 rounded-xl text-gray-400 hover:text-add8e6 transition-all duration-300 hover:scale-110 transform group"
                   aria-label={social.label}
                 >
                   <social.icon className="h-4 w-4 md:h-5 md:w-5 group-hover:rotate-12 transition-transform" />
@@ -65,12 +63,12 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-6 md:space-y-8">
-            <h3 className="text-xl font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-add8e6" />
+          <div className="space-y-4 md:space-y-6">
+            <h3 className="text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
+              <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-add8e6" />
               Quick Links
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {[
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About Us" },
@@ -83,7 +81,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-add8e6 transition-all duration-300 flex items-center gap-2 group"
+                    className="text-gray-400 hover:text-add8e6 transition-all duration-300 flex items-center gap-2 group text-xs md:text-sm"
                   >
                     <span className="w-1.5 h-1.5 bg-add8e6/50 rounded-full group-hover:scale-150 transition-transform" />
                     {link.label}
@@ -94,24 +92,32 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div className="space-y-6 md:space-y-8">
-            <h3 className="text-xl font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-add8e6" />
+          <div className="space-y-4 md:space-y-6">
+            <h3 className="text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
+              <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-add8e6" />
               Our Services
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {[
-                { href: "/services#residential", label: "Residential Cleaning" },
-                { href: "/services#commercial", label: "Commercial Cleaning" },
-                { href: "/services#construction", label: "Post-construction Cleaning" },
-                { href: "/services#carpet", label: "Carpet & Upholstery Cleaning" },
-                { href: "/services#sanitization", label: "Sanitization & Disinfection" },
-                { href: "/services#specialized", label: "Specialized Cleaning" },
+                { href: "/services/residential", label: "Residential Cleaning" },
+                { href: "/services/commercial", label: "Commercial Cleaning" },
+                { href: "/services/post-construction", label: "Post-construction Cleaning" },
+                { href: "/services/carpet-upholstery", label: "Carpet & Upholstery Cleaning" },
+                { href: "/services/sanitization-disinfection", label: "Sanitization & Disinfection" },
+                { href: "/services/specialized", label: "Specialized Cleaning" },
+                { href: "/services/window", label: "Window Cleaning" },
+                { href: "/services/vehicle-interior", label: "Vehicle Interior Cleaning" },
+                { href: "/services/mattress", label: "Mattress Cleaning" },
+                { href: "/services/garbage-collection", label: "Garbage Collection" },
+                { href: "/services/sanitary-bins", label: "Sanitary Bins Service" },
+                { href: "/services/steam", label: "Steam Cleaning" },
+                { href: "/services/sofa-set", label: "Sofa Set Cleaning" },
+                { href: "/services/office", label: "Office Cleaning" },
               ].map((service) => (
                 <li key={service.href}>
                   <Link
                     href={service.href}
-                    className="text-gray-400 hover:text-add8e6 transition-all duration-300 flex items-center gap-2 group"
+                    className="text-gray-400 hover:text-add8e6 transition-all duration-300 flex items-center gap-2 group text-xs md:text-sm"
                   >
                     <span className="w-1.5 h-1.5 bg-add8e6/50 rounded-full group-hover:scale-150 transition-transform" />
                     {service.label}
@@ -122,47 +128,47 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-6 md:space-y-8">
-            <h3 className="text-xl font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-add8e6" />
+          <div className="space-y-4 md:space-y-6">
+            <h3 className="text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
+              <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-add8e6" />
               Contact Us
             </h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-4 group">
-                <div className="bg-gray-800 p-3 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
-                  <MapPin className="h-5 w-5 text-add8e6" />
+            <ul className="space-y-3">
+              <li className="flex items-center gap-3 md:gap-4 group">
+                <div className="bg-gray-800 p-2.5 md:p-3 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+                  <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
                 </div>
-                <span className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                <span className="text-gray-400 group-hover:text-gray-300 transition-colors text-xs md:text-sm">
                   Kimathi Street, CBD, Nairobi, Kenya
                 </span>
               </li>
-              <li className="flex items-start gap-4 group">
-                <div className="bg-gray-800 p-3 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
-                  <Phone className="h-5 w-5 text-add8e6" />
+              <li className="flex items-center gap-3 md:gap-4 group">
+                <div className="bg-gray-800 p-2.5 md:p-3 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+                  <Phone className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
                 </div>
                 <a
                   href="tel:+254700123456"
-                  className="text-gray-400 hover:text-add8e6 transition-colors"
+                  className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm"
                 >
                   +254 700 123 456
                 </a>
               </li>
-              <li className="flex items-start gap-4 group">
-                <div className="bg-gray-800 p-3 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
-                  <Mail className="h-5 w-5 text-add8e6" />
+              <li className="flex items-center gap-3 md:gap-4 group">
+                <div className="bg-gray-800 p-2.5 md:p-3 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+                  <Mail className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
                 </div>
                 <a
                   href="mailto:info@simcacleaning.co.ke"
-                  className="text-gray-400 hover:text-add8e6 transition-colors"
+                  className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm"
                 >
                   info@simcacleaning.co.ke
                 </a>
               </li>
-              <li className="flex items-start gap-4 group">
-                <div className="bg-gray-800 p-3 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
-                  <Clock className="h-5 w-5 text-add8e6" />
+              <li className="flex items-center gap-3 md:gap-4 group">
+                <div className="bg-gray-800 p-2.5 md:p-3 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+                  <Clock className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
                 </div>
-                <span className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                <span className="text-gray-400 group-hover:text-gray-300 transition-colors text-xs md:text-sm">
                   Mon-Fri: 8am-5pm, Sat: 9am-1pm
                 </span>
               </li>
@@ -170,26 +176,23 @@ export default function Footer() {
           </div>
         </div>
 
-        <hr className="border-gray-800 my-8 md:my-12" />
+        <hr className="border-gray-800 my-6 md:my-8" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
-          <p className="text-gray-400 text-xs md:text-sm text-center md:text-left">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 relative">
+          <p className="text-gray-400 text-xs text-center md:text-left">
             &copy; {currentYear} Simca Agencies Company. All rights reserved.
           </p>
-          <div className="flex gap-6 md:gap-8">
-            <Link
-              href="/privacy-policy"
-              className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm"
+          <p className="text-gray-400 text-sm text-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+            Proudly powered by{" "}
+            <a
+              href="https://tedsimwa.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-add8e6 hover:text-white transition-colors font-medium"
             >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms-of-service"
-              className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm"
-            >
-              Terms of Service
-            </Link>
-          </div>
+              Ted Simwa
+            </a>
+          </p>
         </div>
       </div>
 

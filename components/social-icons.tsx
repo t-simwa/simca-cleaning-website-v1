@@ -4,7 +4,7 @@ interface SocialIconsProps {
   className?: string
 }
 
-export default function SocialIcons({ className = "h-5 w-5" }: SocialIconsProps) {
+export default function SocialIcons({ className = "h-4 w-4" }: SocialIconsProps) {
   return (
     <div className="flex space-x-4">
       <a

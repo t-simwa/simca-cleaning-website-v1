@@ -79,14 +79,14 @@ export default function Home() {
       </ScrollAnimation>
 
       {/* Service Areas - Light gray with dots */}
-      <ScrollAnimation>
+      {/* <ScrollAnimation>
         <div className="relative bg-gray-50 dark:bg-gray-800/50">
           <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px] opacity-5" />
-          <ServiceAreas />
+          <ServiceAreas /> */}
           {/* Section Divider */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
+          {/* <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
         </div>
-      </ScrollAnimation>
+      </ScrollAnimation> */}
 
       {/* FAQ Section - Styled to match other sections */}
       <ScrollAnimation>
@@ -113,6 +113,8 @@ export default function Home() {
         <div className="relative bg-white dark:bg-gray-900">
           <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
           <ContactForm />
+          {/* Section Divider */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
         </div>
       </ScrollAnimation>
     </div>

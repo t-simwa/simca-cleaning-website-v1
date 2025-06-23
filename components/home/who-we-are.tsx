@@ -1,6 +1,8 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function WhoWeAre() {
   return (
@@ -28,7 +30,14 @@ export default function WhoWeAre() {
               <span className="mb-1">Who Are</span>
               <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                 We?
-                <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block" />
+                <motion.span
+                  className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, ease: 'easeOut' }}
+                  style={{ display: 'block' }}
+                />
               </span>
             </h2>
             {/* Mobile image below heading, above paragraphs */}
@@ -58,9 +67,9 @@ export default function WhoWeAre() {
             <div className="mt-6">
               <Link 
                 href="/about"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-xs sm:text-sm"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-8 py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-xs sm:text-sm"
               >
-                READ MORE
+                Read More
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>

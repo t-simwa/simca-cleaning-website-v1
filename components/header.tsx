@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, Phone, Moon, Sun, Sparkles, Mail, ChevronDown } from "lucide-react"
+import { Menu, X, Phone, Moon, Sun, Sparkles, Mail, ChevronDown, ArrowRight } from "lucide-react"
 import Logo from "./logo"
 import { useTheme } from "next-themes"
 import SocialIcons from "./social-icons"
@@ -200,14 +200,13 @@ export default function Header() {
 
           {/* Contact Button */}
           <div className="hidden md:flex items-center">
-            <a
-              href="tel:+25472356800"
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl font-medium hover:shadow-lg hover:shadow-add8e6/20 transition-all duration-300 group text-center text-xs sm:text-sm relative overflow-hidden"
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-8 py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-center text-xs sm:text-sm"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></span>
-              <Phone className="h-4 w-4 md:h-5 md:w-5" />
-              <span>Call Us</span>
-            </a>
+              Get Your Free Quote
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
