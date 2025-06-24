@@ -199,7 +199,7 @@ export default function Hero() {
           >
             <motion.div 
               variants={itemVariants}
-              className="inline-block mb-6 sm:mb-4 md:mb-6"
+              className="inline-block mb-6 sm:mb-4 md:mb-12"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -211,7 +211,7 @@ export default function Hero() {
 
             <motion.h1 
               variants={itemVariants}
-              className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-5 leading-tight tracking-wide"
+              className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
             >
               Experience a Cleaner, Healthier Space with{" "}
               <span className="text-fff relative inline-block">
@@ -237,7 +237,7 @@ export default function Hero() {
             {/* Quick stats with enhanced micro-interactions */}
             <motion.div 
               variants={itemVariants}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-12"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-16"
             >
               {[
                 { 

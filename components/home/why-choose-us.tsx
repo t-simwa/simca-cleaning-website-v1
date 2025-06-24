@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
             We care for your space like it's our own. Friendly service, fair prices, and a spotless result—every time.
           </p>
         </motion.div>
-        <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-xs sm:text-sm md:text-base font-normal">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-xs sm:text-sm md:text-base font-normal">
           {[
             {
               title: "Personalized Cleaning, Every Time:",
