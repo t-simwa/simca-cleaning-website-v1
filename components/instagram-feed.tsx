@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Sparkles, TrendingUp, SprayCanIcon, Users, ChevronLeft, ChevronRight } from "lucide-react"
+import { Sparkles, TrendingUp, SprayCanIcon, Users, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 export default function TikTokFeed() {
@@ -126,6 +126,7 @@ export default function TikTokFeed() {
             >
               {category.icon}
               {category.label}
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </motion.button>
           ))}
         </div>
@@ -259,6 +260,7 @@ export default function TikTokFeed() {
             whileTap={{ scale: 0.95 }}
           >
             Follow Us on TikTok
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
           </motion.a>
         </div>
       </div>
