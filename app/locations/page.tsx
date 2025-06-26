@@ -6,6 +6,7 @@ import { MapPin, Phone, Clock, Users, CheckCircle2, ArrowRight } from "lucide-re
 import OpenStreetMap from "@/components/openstreet-map"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion } from "framer-motion"
+import ContactForm from "@/components/home/contact-form"
 
 export default function LocationsPage() {
   const locations = [
@@ -320,7 +321,7 @@ export default function LocationsPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Kenya Map Overview */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-24">
+      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -338,28 +339,27 @@ export default function LocationsPage() {
           <ScrollAnimation>
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12 md:mb-16">
-                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-2 mb-4 md:mb-6 shadow-sm">
+                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-2 mb-6 md:mb-6 shadow-sm">
                   <MapPin className="w-3 h-3 md:w-4 md:h-4" />
                   Our Presence
                 </span>
-                <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide"
-                  style={{
-                    textShadow: "0 2px 4px rgba(0,0,0,0.1)",
-                    WebkitTextStroke: "0.5px rgba(0,0,0,0.1)"
-                  }}
+                <motion.h2 
+                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
                 >
-                  Nationwide{" "}
-                  <span className="text-add8e6 relative inline-block tracking-wider"
-                    style={{
-                      textShadow: "0 2px 4px rgba(173,216,230,0.3)",
-                      WebkitTextStroke: "0.5px rgba(173,216,230,0.3)"
-                    }}
-                  >
+                  <span className="block md:inline md:mb-0 mb-1">Nationwide</span>
+                  <span className="text-add8e6 relative inline-block md:inline md:ml-2 block mb-1 md:mb-0">
                     Cleaning Excellence
-                    <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
+                    <motion.span
+                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: 'easeOut' }}
+                      style={{ display: 'block' }}
+                    />
                   </span>
-                </h2>
-                <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                </motion.h2>
+                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
                   Wherever you call home or do business, Simca Agencies is right there with you—bringing a caring, local touch to every city we serve. Our teams are part of your community, ready to listen, adapt, and deliver the spotless results you deserve. We believe in building real relationships, so you always know who to trust for a cleaner, healthier space.
                 </p>
               </div>
@@ -379,14 +379,14 @@ export default function LocationsPage() {
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between gap-2">
-                              <h3 className="font-semibold text-xs md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
+                              <h3 className="font-semibold text-sm md:text-base text-gray-900 dark:text-white group-hover:text-add8e6 transition-colors mb-2 md:mb-3">
                                 {location.name}
                               </h3>
-                              <span className="text-xs bg-add8e6/10 text-add8e6 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">
+                              <span className="text-xs md:text-xs bg-add8e6/10 text-add8e6 px-2 py-1 rounded-full whitespace-nowrap flex-shrink-0">
                                 24/7
                               </span>
                             </div>
-                            <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 line-clamp-2 md:line-clamp-none">
+                            <p className="text-xs md:text-xs text-gray-600 dark:text-gray-400 line-clamp-2 md:line-clamp-none">
                               {(() => {
                                 switch (location.name) {
                                   case "Nairobi":
@@ -473,7 +473,7 @@ export default function LocationsPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Individual Location Sections */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-24">
+      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20 ">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -489,11 +489,11 @@ export default function LocationsPage() {
           <ScrollAnimation>
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-8 md:mb-16">
-                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 mb-3 md:mb-4">
+                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 mb-6 md:mb-6">
                   <MapPin className="w-3 h-3 md:w-4 md:h-4" />
                   Local Expertise
                 </span>
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0" >
                   Our Service{" "}
                   <span className="text-add8e6 relative">
                     Locations
@@ -545,11 +545,11 @@ export default function LocationsPage() {
                                 >
                                   <MapPin className="h-12 w-12 text-add8e6" />
                                 </motion.div>
-                                <h2 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white">
+                                <h2 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3">
                                   {location.name}
                                 </h2>
                               </div>
-                              <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-6 md:mb-8">
+                              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-6">
                                 {location.description}
                               </p>
 
@@ -560,13 +560,13 @@ export default function LocationsPage() {
                                   viewport={{ once: true }}
                                   transition={{ duration: 0.5, delay: 0.1 }}
                                 >
-                                  <h3 className="text-base md:text-lg font-semibold text-gray-800 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 flex items-center gap-2">
                                     <span className="w-1.5 h-1.5 bg-add8e6 rounded-full"></span>
                                     Contact Information
                                   </h3>
                                   <div className="space-y-3">
                                     <motion.div 
-                                      className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300 bg-white/50 dark:bg-gray-700/30 rounded-lg p-3 backdrop-blur-sm"
+                                      className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
                                       whileHover={{ 
                                         x: 4,
                                         backgroundColor: 'rgba(173, 216, 230, 0.1)',
@@ -577,7 +577,7 @@ export default function LocationsPage() {
                                       {location.address}
                                     </motion.div>
                                     <motion.div 
-                                      className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300 bg-white/50 dark:bg-gray-700/30 rounded-lg p-3 backdrop-blur-sm"
+                                      className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
                                       whileHover={{ 
                                         x: 4,
                                         backgroundColor: 'rgba(173, 216, 230, 0.1)',
@@ -588,7 +588,7 @@ export default function LocationsPage() {
                                       {location.phone}
                                     </motion.div>
                                     <motion.div 
-                                      className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300 bg-white/50 dark:bg-gray-700/30 rounded-lg p-3 backdrop-blur-sm"
+                                      className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
                                       whileHover={{ 
                                         x: 4,
                                         backgroundColor: 'rgba(173, 216, 230, 0.1)',
@@ -607,7 +607,7 @@ export default function LocationsPage() {
                                   viewport={{ once: true }}
                                   transition={{ duration: 0.5, delay: 0.2 }}
                                 >
-                                  <h3 className="text-base md:text-lg font-semibold text-gray-800 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 flex items-center gap-2">
                                     <span className="w-1.5 h-1.5 bg-add8e6 rounded-full"></span>
                                     Special Services
                                   </h3>
@@ -615,7 +615,7 @@ export default function LocationsPage() {
                                     {location.specialServices.map((service, i) => (
                                       <motion.li 
                                         key={i} 
-                                        className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300 bg-white/50 dark:bg-gray-700/30 rounded-lg p-3 backdrop-blur-sm"
+                                        className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
                                         initial={{ opacity: 0, x: -20 }}
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
@@ -626,7 +626,7 @@ export default function LocationsPage() {
                                           transition: { duration: 0.2 }
                                         }}
                                       >
-                                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2 flex-shrink-0" />
+                                        <CheckCircle2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6 mr-2 flex-shrink-0" />
                                         {service}
                                       </motion.li>
                                     ))}
@@ -639,7 +639,7 @@ export default function LocationsPage() {
                                   viewport={{ once: true }}
                                   transition={{ duration: 0.5, delay: 0.3 }}
                                 >
-                                  <h3 className="text-base md:text-lg font-semibold text-gray-800 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 flex items-center gap-2">
                                     <span className="w-1.5 h-1.5 bg-add8e6 rounded-full"></span>
                                     Certifications & Expertise
                                   </h3>
@@ -655,7 +655,7 @@ export default function LocationsPage() {
                                     ))}
                                   </div>
                                   <motion.p 
-                                    className="text-xs md:text-sm text-gray-600 dark:text-gray-300 p-2 rounded-lg bg-white/50 dark:bg-gray-700/30 backdrop-blur-sm"
+                                    className="text-xs md:text-sm text-gray-600 dark:text-gray-400 p-2 rounded-lg bg-white/50 dark:bg-gray-700/30 backdrop-blur-sm"
                                     whileHover={{ 
                                       x: 4,
                                       backgroundColor: 'rgba(173, 216, 230, 0.1)',
@@ -692,7 +692,7 @@ export default function LocationsPage() {
                                 transition={{ duration: 0.5, delay: 0.4 }}
                               >
                                 <div className="flex items-center justify-between">
-                                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                                     {location.valueProposition}
                                   </p>
                                   <span className="text-xs md:text-sm text-add8e6 font-medium">
@@ -715,59 +715,7 @@ export default function LocationsPage() {
       {/* Section Divider */}
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
-      {/* CTA Section */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-24">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
-        </div>
-
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-block mb-4 md:mb-6">
-                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium flex items-center gap-2 shadow-sm">
-                  <MapPin className="w-3 h-3 md:w-4 md:h-4" />
-                  Service Coverage
-                </span>
-              </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide"
-                style={{
-                  textShadow: "0 2px 4px rgba(0,0,0,0.1)",
-                  WebkitTextStroke: "0.5px rgba(0,0,0,0.1)"
-                }}
-              >
-                Not in Our{" "}
-                <span className="text-add8e6 relative inline-block tracking-wider"
-                  style={{
-                    textShadow: "0 2px 4px rgba(173,216,230,0.3)",
-                    WebkitTextStroke: "0.5px rgba(173,216,230,0.3)"
-                  }}
-                >
-                  Listed Areas?
-                  <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
-                </span>
-              </h2>
-              <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 md:mb-6 max-w-2xl mx-auto leading-relaxed">
-                We serve many other areas across Kenya. Contact us to inquire about service availability in your location.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-8 py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-center text-xs sm:text-sm"
-              >
-                Check Service Availability
-                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </div>
+      <ContactForm />
     </div>
   )
 }
