@@ -153,70 +153,118 @@ const BlogPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative py-16 md:py-24">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
-        </div>
+      <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+        {/* Background Image */}
+        <motion.img
+          src="/blog/spring-cleaning.jpg"
+          alt="Expert cleaning tips and insights"
+          className="object-cover object-center w-full h-full absolute inset-0"
+          style={{ zIndex: 0 }}
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.05 }}
+          transition={{ duration: 10, ease: 'easeOut' }}
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60 z-10" />
 
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-block mb-4 md:mb-6">
-                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium flex items-center gap-2">
-                  <BookOpen className="w-3 h-3 md:w-4 md:h-4" />
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center z-20">
+          <div className="flex flex-col items-center">
+            {/* Centered Content */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+                },
+              }}
+              initial="hidden"
+              animate="visible"
+              className="text-center"
+            >
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+                className="inline-block mb-6 sm:mb-4 md:mb-10"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
+                  <BookOpen className="w-4 h-4" />
                   Expert Insights
                 </span>
-              </div>
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
-                Cleaning Tips &{" "}
-                <span className="text-add8e6 relative">
-                  Insights
-                  <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
-                </span>
-              </h1>
-              <p className="text-base md:text-xl text-gray-600 dark:text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
-                Discover expert cleaning techniques, industry insights, and practical tips to maintain pristine spaces. From residential deep cleaning to commercial maintenance, our comprehensive guides help you achieve professional-grade results.
-              </p>
+              </motion.div>
 
-              {/* Quick stats */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8">
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
-                    <BookOpen className="w-4 h-4 text-add8e6" />
+              <motion.h1
+                variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+                className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+              >
+                Cleaning Tips &{' '}
+                <span className="text-fff relative inline-block">
+                  Insights
+                  <motion.span
+                    className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: 'easeOut' }}
+                  />
+                </span>
+              </motion.h1>
+
+              <motion.p
+                variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+                className="text-base md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed"
+              >
+                Our blog delivers expert cleaning insights, proven techniques, and practical solutions you can trust. Every article is crafted by professionals to help you achieve spotless, healthy spaces—at home or at work—with confidence and ease.
+              </motion.p>
+
+              {/* Quick stats (now exactly like about page) */}
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-16"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05, boxShadow: '0 10px 30px -10px rgba(0,0,0,0.2)' }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                >
+                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <BookOpen className="w-4 h-4 text-white" />
                     <span className="group-hover:scale-110 transition-transform duration-300">50+</span>
                   </div>
-                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                  <div className="text-xs md:text-sm text-white">
                     Expert Articles
                   </div>
-                </div>
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
-                    <List className="w-4 h-4 text-add8e6" />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05, boxShadow: '0 10px 30px -10px rgba(0,0,0,0.2)' }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                >
+                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <List className="w-4 h-4 text-white" />
                     <span className="group-hover:scale-110 transition-transform duration-300">6</span>
                   </div>
-                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                  <div className="text-xs md:text-sm text-white">
                     Categories
                   </div>
-                </div>
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
-                    <Users className="w-4 h-4 text-add8e6" />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05, boxShadow: '0 10px 30px -10px rgba(0,0,0,0.2)' }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                >
+                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <Users className="w-4 h-4 text-white" />
                     <span className="group-hover:scale-110 transition-transform duration-300">10k+</span>
                   </div>
-                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                  <div className="text-xs md:text-sm text-white">
                     Monthly Readers
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
             </div>
-          </ScrollAnimation>
         </div>
       </div>
 
@@ -224,7 +272,7 @@ const BlogPage = () => {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Featured Post */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-24">
+      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -245,17 +293,27 @@ const BlogPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium inline-flex items-center gap-2 mb-3 md:mb-4 shadow-sm">
+                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium inline-flex items-center gap-2 mb-3 md:mb-6 shadow-sm">
                   <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
                   Featured Article
                 </span>
-                <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
                   Latest{" "}
                   <span className="text-add8e6 relative inline-block tracking-wider">
                     Insights
-                    <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
+                    <motion.span
+                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: 'easeOut' }}
+                      style={{ display: 'block' }}
+                    />
                   </span>
                 </h2>
+                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-6">
+                  We deliver expert cleaning insights and proven techniques that transform your approach to maintaining pristine spaces. Every article is crafted by professionals to help you achieve professional-grade results with confidence and efficiency.
+                </p>
               </motion.div>
 
               <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
@@ -296,7 +354,7 @@ const BlogPage = () => {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <span className="bg-add8e6/20 text-add8e6 px-4 py-2 rounded-full text-sm font-medium">
+                    <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-4 py-2 rounded-full text-sm font-medium">
                       {blogPosts[0].category}
                     </span>
                   </motion.div>
@@ -314,15 +372,15 @@ const BlogPage = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 }}
                     >
-                      <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide">
+                      <h3 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors">
                         {blogPosts[0].title}
-                      </h2>
-                      <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-                        {blogPosts[0].excerpt}
+                      </h3>
+                      <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-6">
+                        Unlock actionable strategies and expert tips designed to make your cleaning routine more effective and stress-free. Start transforming your space with advice you can trust.
                       </p>
                     </motion.div>
                     <motion.div 
-                      className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-300"
+                      className="flex items-center gap-4 text-xs md:text-sm text-gray-600 dark:text-gray-400"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.6 }}
@@ -343,7 +401,7 @@ const BlogPage = () => {
                     >
                       <Link
                         href={`/blog/${blogPosts[0].id}`}
-                        className="inline-flex items-center text-add8e6 hover:text-add8e6/80 transition-colors duration-300 group"
+                        className="inline-flex items-center text-add8e6 hover:text-add8e6/80 transition-colors duration-300 group text-xs md:text-sm font-medium"
                       >
                         Read More
                         <motion.svg
@@ -374,7 +432,7 @@ const BlogPage = () => {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Blog Posts Grid */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-24">
+      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -396,19 +454,26 @@ const BlogPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium inline-flex items-center gap-2 mb-3 md:mb-4">
+                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium inline-flex items-center gap-2 mb-3 md:mb-6">
                   <BookOpen className="w-3 h-3 md:w-4 md:h-4" />
                   Latest Articles
                 </span>
-                <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
                   Explore Our{" "}
-                  <span className="text-add8e6 relative">
+                  <span className="text-add8e6 relative inline-block tracking-wider">
                     Articles
-                    <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
+                    <motion.span
+                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: 'easeOut' }}
+                      style={{ display: 'block' }}
+                    />
                   </span>
                 </h2>
-                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                  Discover expert insights, tips, and industry trends in our latest articles
+                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-6">
+                  We deliver expert cleaning insights and proven techniques that transform your approach to maintaining pristine spaces. Every article is crafted by professionals to help you achieve professional-grade results with confidence and efficiency.
                 </p>
               </motion.div>
 
@@ -490,7 +555,7 @@ const BlogPage = () => {
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ duration: 0.2 }}
                                   >
-                                    <span className="bg-add8e6/20 text-add8e6 px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
+                                    <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium backdrop-blur-sm">
                                       {post.category}
                                     </span>
                                   </motion.div>
@@ -502,15 +567,19 @@ const BlogPage = () => {
                                       <span>{post.date}</span>
                                     </div>
                                   </div>
-                                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-add8e6 transition-colors duration-300 line-clamp-2">
+                                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors">
                                     {post.title}
                                   </h3>
-                                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
+                                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-6">
                                     {post.excerpt}
                                   </p>
+                                  <div className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-2">
+                                    <Calendar className="w-4 h-4" />
+                                    <span>{post.date}</span>
+                                  </div>
                                   <Link
                                     href={`/blog/${post.id}`}
-                                    className="inline-flex items-center text-add8e6 hover:text-add8e6/80 transition-colors duration-300 group"
+                                    className="inline-flex items-center text-xs md:text-sm font-medium text-add8e6 hover:text-add8e6/80 transition-colors group"
                                   >
                                     Read More
                                     <motion.svg
@@ -593,7 +662,7 @@ const BlogPage = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 flex items-center gap-2">
+                    <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white mb-4 md:mb-6 flex items-center gap-2">
                       <BookOpen className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
                       Categories
                     </h3>
@@ -618,7 +687,7 @@ const BlogPage = () => {
                             </span>
                           </div>
                           <motion.span 
-                            className="bg-add8e6/10 text-add8e6 px-3 py-1 rounded-full text-sm font-medium"
+                            className="bg-add8e6/10 text-add8e6 px-3 py-1 rounded-full text-xs md:text-sm font-medium"
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.2 }}
                           >
@@ -648,7 +717,7 @@ const BlogPage = () => {
                               </span>
                             </div>
                             <motion.span 
-                              className="bg-add8e6/10 text-add8e6 px-3 py-1 rounded-full text-sm font-medium"
+                              className="bg-add8e6/10 text-add8e6 px-3 py-1 rounded-full text-xs md:text-sm font-medium"
                               whileHover={{ scale: 1.05 }}
                               transition={{ duration: 0.2 }}
                             >
@@ -668,13 +737,13 @@ const BlogPage = () => {
                     transition={{ duration: 0.5, delay: 0.4 }}
                   >
                     <div className="flex items-center justify-between mb-4 md:mb-6">
-                      <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                      <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white flex items-center gap-2">
                         <Clock className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
                         Recent Posts
                       </h3>
                       <Link
                         href="/blog"
-                        className="text-sm text-add8e6 hover:text-add8e6/80 transition-colors flex items-center gap-1 group"
+                        className="text-xs md:text-sm text-add8e6 hover:text-add8e6/80 transition-colors flex items-center gap-1 group"
                       >
                         View All
                         <motion.svg
@@ -716,11 +785,11 @@ const BlogPage = () => {
                               </div>
                               <div className="flex-1 min-w-0">
                                 <div className="flex flex-wrap items-center gap-2 mb-1 md:mb-2">
-                                  <span className="bg-add8e6/10 text-add8e6 px-2 py-1 rounded-full text-xs font-medium">
+                                  <span className="bg-add8e6/10 text-add8e6 px-2 py-1 rounded-full text-xs md:text-sm font-medium">
                                     {post.category}
                                   </span>
                                 </div>
-                                <h4 className="font-medium text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors line-clamp-2 mb-1">
+                                <h4 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors line-clamp-2 mb-1">
                                   {post.title}
                                 </h4>
                                 <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 line-clamp-2">
