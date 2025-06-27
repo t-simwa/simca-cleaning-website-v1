@@ -1,9 +1,9 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 
 import { useState, useRef, useEffect } from "react"
-import { Send, ChevronDown, Phone, Mail, Clock, MessageCircle, ShieldCheck, Loader2 } from "lucide-react"
+import { Send, ChevronDown, Phone, Mail, Clock, MessageCircle, ShieldCheck, Loader2, Home, Building2, HardHat, Sofa, SprayCan, Sparkles, SquareStack, Car, Bed, Trash2, Package, Droplets } from "lucide-react"
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -21,12 +21,20 @@ export default function ContactForm() {
   const [focusedField, setFocusedField] = useState<string | null>(null)
 
   const services = [
-    { value: "residential", label: "Residential Cleaning" },
-    { value: "commercial", label: "Commercial Cleaning" },
-    { value: "construction", label: "Post-construction Cleaning" },
-    { value: "carpet", label: "Carpet & Upholstery Cleaning" },
-    { value: "sanitization", label: "Sanitization & Disinfection" },
-    { value: "specialized", label: "Specialized Cleaning" },
+    { value: "Residential Cleaning", label: "Residential Cleaning", icon: Home },
+    { value: "Commercial Cleaning", label: "Commercial Cleaning", icon: Building2 },
+    { value: "Post-construction Cleaning", label: "Post-construction Cleaning", icon: HardHat },
+    { value: "Carpet & Upholstery Cleaning", label: "Carpet & Upholstery Cleaning", icon: Sofa },
+    { value: "Sanitization & Disinfection", label: "Sanitization & Disinfection", icon: SprayCan },
+    { value: "Specialized Cleaning", label: "Specialized Cleaning", icon: Sparkles },
+    { value: "Window Cleaning", label: "Window Cleaning", icon: SquareStack },
+    { value: "Vehicle Interior Cleaning", label: "Vehicle Interior Cleaning", icon: Car },
+    { value: "Mattress Cleaning", label: "Mattress Cleaning", icon: Bed },
+    { value: "Garbage Collection Services", label: "Garbage Collection Services", icon: Trash2 },
+    { value: "Sanitary Bins Services", label: "Sanitary Bins Services", icon: Package },
+    { value: "Steam Cleaning", label: "Steam Cleaning", icon: Droplets },
+    { value: "Sofa Set Cleaning", label: "Sofa Set Cleaning", icon: Sofa },
+    { value: "Office Cleaning", label: "Office Cleaning", icon: Building2 },
   ]
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -143,51 +151,50 @@ export default function ContactForm() {
             />
           </div>
           <div className="relative group" ref={serviceDropdownRef}>
-            <label htmlFor="service" className={`block text-sm font-medium mb-1.5 transition-colors duration-200 ${focusedField === 'service' || isServiceDropdownOpen ? 'text-add8e6' : 'text-gray-700 dark:text-gray-300'}`}>
-              Service Interested In
-            </label>
-            {/* Custom Select Input */}
+            <label htmlFor="service" className={`block text-sm font-medium mb-1.5 transition-colors duration-200 ${focusedField === 'service' || isServiceDropdownOpen ? 'text-add8e6' : 'text-gray-700 dark:text-gray-300'}`}>Service Interested In</label>
             <button
               type="button"
               id="service"
               aria-haspopup="listbox"
               aria-expanded={isServiceDropdownOpen}
-              className={`w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 text-left flex items-center justify-between ${isServiceDropdownOpen ? 'ring-2 ring-add8e6 border-transparent' : ''}`}
-              onClick={() => {
-                setIsServiceDropdownOpen(!isServiceDropdownOpen)
-                setFocusedField(isServiceDropdownOpen ? null : 'service')
-              }}
-              onBlur={() => setTimeout(() => setFocusedField(null), 100)}
+              className={`w-full flex items-center justify-between px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 text-left placeholder-gray-400 dark:placeholder-gray-500 ${isServiceDropdownOpen ? 'ring-2 ring-add8e6 border-transparent' : ''}`}
+              onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
+              onBlur={() => setTimeout(() => setIsServiceDropdownOpen(false), 100)}
             >
-              {selectedServiceLabel}
-              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServiceDropdownOpen ? 'rotate-180' : 'rotate-0'}`} />
+              {formData.service ? (
+                <span className="flex items-center gap-2 text-sm md:text-base">
+                  {services.find(s => s.value === formData.service)?.icon &&
+                    React.createElement(services.find(s => s.value === formData.service)?.icon!, { className: "w-5 h-5 text-add8e6" })
+                  }
+                  {services.find(s => s.value === formData.service)?.label}
+                </span>
+              ) : (
+                <span className="text-gray-400 dark:text-gray-500 text-sm md:text-base">Select a service</span>
+              )}
+              <svg className="w-4 h-4 ml-2 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
             </button>
-
-            {/* Custom Select Dropdown List */}
             {isServiceDropdownOpen && (
-              <div className="absolute z-10 mt-2 w-full rounded-md bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none animate-fade-in-up origin-top max-h-60 overflow-y-auto">
-                <ul role="listbox" aria-labelledby="service">
-                  {/* Default 'Select a service' option */}
+              <ul
+                tabIndex={-1}
+                role="listbox"
+                className="absolute z-10 mt-2 w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-1 max-h-60 overflow-auto"
+              >
+                {services.map((service) => (
                   <li
-                    className="text-gray-500 dark:text-gray-400 cursor-default select-none relative py-2 px-4 hover:bg-add8e6/20 transition-colors"
-                    onClick={() => handleServiceSelect("")}
+                    key={service.value}
+                    role="option"
+                    aria-selected={formData.service === service.value}
+                    className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm md:text-base hover:bg-add8e6/10 dark:hover:bg-add8e6/20 transition-colors ${formData.service === service.value ? 'bg-add8e6/10 dark:bg-add8e6/20 text-add8e6 font-medium' : 'text-gray-900 dark:text-white'}`}
+                    onClick={() => {
+                      setFormData(prev => ({ ...prev, service: service.value }));
+                      setIsServiceDropdownOpen(false);
+                    }}
                   >
-                    Select a service
+                    {React.createElement(service.icon, { className: "w-5 h-5 text-add8e6 flex-shrink-0" })}
+                    {service.label}
                   </li>
-                  {/* Service options */}
-                  {services.map((service) => (
-                    <li
-                      key={service.value}
-                      className={`text-gray-900 dark:text-white cursor-pointer select-none relative py-2 px-4 hover:bg-add8e6/20 transition-colors ${formData.service === service.value ? 'bg-add8e6/20 font-semibold' : ''}`}
-                      onClick={() => handleServiceSelect(service.value)}
-                      role="option"
-                      aria-selected={formData.service === service.value}
-                    >
-                      {service.label}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                ))}
+              </ul>
             )}
           </div>
           <div className="md:col-span-2 group">

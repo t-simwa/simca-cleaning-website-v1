@@ -87,77 +87,128 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative py-16 md:py-24">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
-        </div>
+      <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+        {/* Background Image */}
+        <motion.img
+          src="/home-hero/cleaner-home.jpg"
+          alt="Professional cleaning services in Kenya"
+          className="object-cover object-center w-full h-full absolute inset-0 z-0"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.05 }}
+          transition={{ duration: 10, ease: "easeOut" }}
+          style={{ pointerEvents: 'none' }}
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60 z-10" />
 
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-block mb-4 md:mb-6">
-                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium flex items-center gap-2">
-                  <MessageCircle className="w-3 h-3 md:w-4 md:h-4" />
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center z-20">
+          <div className="flex flex-col items-center">
+            {/* Centered Content */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.3,
+                  },
+                },
+              }}
+              className="text-center"
+            >
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+                className="inline-block mb-6 sm:mb-4 md:mb-10"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
+                  <MessageCircle className="w-4 h-4" />
                   Get in Touch
                 </span>
-              </div>
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
-                Contact{" "}
-                <span className="text-add8e6 relative">
-                  Us
-                  <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
-                </span>
-              </h1>
-              <p className="text-base md:text-xl text-gray-600 dark:text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
-                Get in touch with our team for professional cleaning services across Kenya. We're here to help you maintain a clean and healthy environment.
-              </p>
+              </motion.div>
 
-              {/* Quick stats */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8">
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
-                    <MapPin className="w-4 h-4 text-add8e6" />
+              <motion.h1
+                variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+                className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+              >
+                Contact{' '}
+                <span className="text-fff relative inline-block">
+                  Us
+                  <motion.span
+                    className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: 'easeOut' }}
+                  />
+                </span>
+              </motion.h1>
+
+              <motion.p
+                variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+                className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+              >
+                We're here to make connecting with us easy and welcoming—no matter your cleaning needs or questions. Whether you're looking for a one-time service or ongoing support, our friendly team is always ready to listen, offer honest advice, and create a solution that fits your unique space. Reach out today and experience the personal care, attention, and reliability that set Simca Agencies apart.
+              </motion.p>
+
+              {/* Quick stats with enhanced micro-interactions */}
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-16"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                >
+                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <MapPin className="w-4 h-4 text-white" />
                     <span className="group-hover:scale-110 transition-transform duration-300">4</span>
                   </div>
-                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                  <div className="text-xs md:text-sm text-white">
                     Locations
                   </div>
-                </div>
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
-                    <Clock className="w-4 h-4 text-add8e6" />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                >
+                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <Clock className="w-4 h-4 text-white" />
                     <span className="group-hover:scale-110 transition-transform duration-300">24/7</span>
                   </div>
-                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                  <div className="text-xs md:text-sm text-white">
                     Support
                   </div>
-                </div>
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
-                    <Sparkles className="w-4 h-4 text-add8e6" />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                >
+                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <Sparkles className="w-4 h-4 text-white" />
                     <span className="group-hover:scale-110 transition-transform duration-300">1hr</span>
                   </div>
-                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                  <div className="text-xs md:text-sm text-white">
                     Response Time
                   </div>
-                </div>
-              </div>
-            </div>
-          </ScrollAnimation>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
       {/* Section Divider */}
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Contact Form and Info */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16">
+      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -173,29 +224,30 @@ export default function ContactPage() {
           <ScrollAnimation>
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 md:mb-16">
-                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium inline-flex items-center gap-2 mb-3 md:mb-4 shadow-sm">
-                  <MessageCircle className="w-3 h-3 md:w-4 md:h-4" />
+                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm mb-6">
+                  <MessageCircle className="w-4 h-4" />
                   Reach Out
                 </span>
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide"
-                  style={{
-                    textShadow: "0 2px 4px rgba(0,0,0,0.1)",
-                    WebkitTextStroke: "0.5px rgba(0,0,0,0.1)"
-                  }}
+                <motion.h2 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
                 >
-                  Get in{" "}
-                  <span className="text-add8e6 relative inline-block tracking-wider"
-                    style={{
-                      textShadow: "0 2px 4px rgba(173,216,230,0.3)",
-                      WebkitTextStroke: "0.5px rgba(173,216,230,0.3)"
-                    }}
-                  >
+                  Get in{' '}
+                  <span className="text-add8e6 relative inline-block tracking-wider">
                     Touch
-                    <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
+                    <motion.span
+                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: 'easeOut' }}
+                    />
                   </span>
-                </h2>
-                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                  Experience our premium cleaning services. Get a free quote and schedule your service today.
+                </motion.h2>
+                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
+                  We're here to make your experience easy and personal—whether you have a quick question or need a custom cleaning plan. Reach out and let us know what matters most to you. We'll listen, guide you honestly, and make sure you always feel valued and cared for.
                 </p>
               </div>
 
@@ -203,12 +255,12 @@ export default function ContactPage() {
                 {/* Contact Form Section */}
                 <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-6 md:p-8">
                   <div className="mb-6 md:mb-8">
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                    <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white mb-6 md:mb-10 flex items-center gap-2">
                       <MessageCircle className="h-5 w-5 md:h-6 md:w-6 text-add8e6" />
                       Send Us a Message
                     </h3>
-                    <p className="text-sm md:text-base text-gray-600 dark:text-gray-300">
-                      Get a free quote within 1 hour. Your data is secure and will never be shared.
+                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                      Tell us what you need—no request is too big or too small. We'll listen, offer honest advice, and respond quickly with a quote that fits your needs. Your privacy and trust are always respected.
                     </p>
                   </div>
                   <ContactForm />
@@ -216,22 +268,25 @@ export default function ContactPage() {
 
                 {/* Contact Information Section */}
                 <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-6 md:p-8 flex flex-col">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 flex items-center gap-2">
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white mb-6 md:mb-10 flex items-center gap-2">
                     <Phone className="h-5 w-5 md:h-6 md:w-6 text-add8e6" />
                     Quick Contact
                   </h3>
-                  <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-6 md:mb-8">
-                    Available 24/7 for emergency cleaning services. Serving all major cities in Kenya.
+                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mb-6 md:mb-10">
+                    Need help fast, or just want to talk to a real person? Our friendly team is here for you 24/7—whether it's an urgent cleaning or a simple question. We serve all major cities in Kenya and always put your needs first.
                   </p>
                   <div className="space-y-4 flex-grow">
                     <div className="flex items-start group/item p-3 -m-3 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
                       <div className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg mr-3 group-hover/item:scale-110 transition-transform duration-300">
                         <Phone className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
                       </div>
-                      <div>
-                        <p className="text-sm md:text-base text-gray-600 dark:text-gray-300">Emergency Line</p>
-                        <a href="tel:+254700123456" className="text-sm md:text-base text-gray-800 dark:text-white hover:text-add8e6 transition-colors">
-                          +254 700 123 456
+                      <div className="md:mb-4">
+                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Emergency Line</p>
+                        <a href="tel:+25472356800" className="text-xs md:text-sm text-gray-800 dark:text-white hover:text-add8e6 transition-colors block">
+                          Call us anytime—day or night: +254 72356800
+                        </a>
+                        <a href="tel:+254712345678" className="text-xs md:text-sm text-gray-800 dark:text-white hover:text-add8e6 transition-colors block">
+                          Or reach us on: +254 712345678
                         </a>
                       </div>
                     </div>
@@ -239,10 +294,10 @@ export default function ContactPage() {
                       <div className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg mr-3 group-hover/item:scale-110 transition-transform duration-300">
                         <Mail className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
                       </div>
-                      <div>
-                        <p className="text-sm md:text-base text-gray-600 dark:text-gray-300">Email Us</p>
-                        <a href="mailto:info@simcacleaning.co.ke" className="text-sm md:text-base text-gray-800 dark:text-white hover:text-add8e6 transition-colors">
-                          info@simcacleaning.co.ke
+                      <div className="md:mb-4">
+                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Email Us</p>
+                        <a href="mailto:info@simcacleaning.co.ke" className="text-xs md:text-sm text-gray-800 dark:text-white hover:text-add8e6 transition-colors">
+                          We reply quickly: info@simcacleaning.co.ke
                         </a>
                       </div>
                     </div>
@@ -251,24 +306,24 @@ export default function ContactPage() {
                         <Clock className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
                       </div>
                       <div>
-                        <p className="text-sm md:text-base text-gray-600 dark:text-gray-300">Service Hours</p>
-                        <p className="text-sm md:text-base text-gray-800 dark:text-white">
+                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Service Hours</p>
+                        <p className="text-xs md:text-sm text-gray-800 dark:text-white">
                           Mon-Fri: 8am-5pm, Sat: 9am-1pm
                         </p>
                         <p className="text-xs md:text-sm text-add8e6 mt-1">
-                          After-hours support available
+                          After-hours? We're still here for you.
                         </p>
                       </div>
                     </div>
                   </div>
                   {/* Additional Info to fill space */}
                   <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-gray-200 dark:border-gray-700">
-                    <h4 className="text-sm md:text-base font-medium text-gray-800 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                    <h4 className="text-xs md:text-sm font-semibold text-gray-800 dark:text-white mb-2 md:mb-3 flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 md:w-5 md:h-5 text-add8e6" />
                       Our Commitment
                     </h4>
-                    <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                      We are committed to providing exceptional cleaning services with a focus on quality, reliability, and customer satisfaction. Get in touch today for a sparkling clean space.
+                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                      We treat every client like family and every space like our own. If you're ever less than thrilled with our service, just let us know—we'll make it right, no questions asked. Your happiness and peace of mind are our promise, every single time.
                     </p>
                   </div>
                 </div>
@@ -281,7 +336,7 @@ export default function ContactPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Map Section */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-24">
+      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -297,29 +352,25 @@ export default function ContactPage() {
           <ScrollAnimation>
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 md:mb-16">
-                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium inline-flex items-center gap-2 mb-3 md:mb-4 shadow-sm">
+                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 mb-3 md:mb-4 shadow-sm">
                   <MapPin className="w-3 h-3 md:w-4 md:h-4" />
                   Find Us
                 </span>
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide"
-                  style={{
-                    textShadow: "0 2px 4px rgba(0,0,0,0.1)",
-                    WebkitTextStroke: "0.5px rgba(0,0,0,0.1)"
-                  }}
-                >
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide">
                   Our{" "}
-                  <span className="text-add8e6 relative inline-block tracking-wider"
-                    style={{
-                      textShadow: "0 2px 4px rgba(173,216,230,0.3)",
-                      WebkitTextStroke: "0.5px rgba(173,216,230,0.3)"
-                    }}
-                  >
+                  <span className="text-add8e6 relative inline-block tracking-wider">
                     Locations
-                    <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
+                    <motion.span
+                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: 'easeOut' }}
+                    />
                   </span>
                 </h2>
-                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                  Visit any of our branches across Kenya. Our friendly team is ready to assist you with your cleaning needs.
+                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                  Wherever you are in Kenya, you're never far from a Simca team that cares. Drop by any of our branches or reach out—our friendly experts are always ready to listen, answer your questions, and help you find the perfect cleaning solution for your space.
                 </p>
               </div>
 
@@ -335,30 +386,30 @@ export default function ContactPage() {
                         <div className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
                           <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
                         </div>
-                        <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors flex-grow">
+                        <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors flex-grow">
                           {location.name}
                         </h3>
                       </div>
                       <div className="space-y-3 md:space-y-4 flex-grow mb-4">
                         <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
                           <MapPin className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 break-words w-full">{location.address}</p>
+                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 break-words w-full">{location.address}</p>
                         </div>
                         <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
                           <Phone className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <a href={`tel:${location.phone}`} className="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 transition-colors break-words w-full">
+                          <a href={`tel:${location.phone}`} className="text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 transition-colors break-words w-full">
                             {location.phone}
                           </a>
                         </div>
                         <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
                           <Mail className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <a href={`mailto:${location.email}`} className="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 transition-colors break-words w-full">
+                          <a href={`mailto:${location.email}`} className="text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 transition-colors break-words w-full">
                             {location.email}
                           </a>
                         </div>
                         <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
                           <Clock className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 break-words w-full">{location.hours}</p>
+                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 break-words w-full">{location.hours}</p>
                         </div>
                       </div>
                     </div>
@@ -380,30 +431,30 @@ export default function ContactPage() {
                         <div className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
                           <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
                         </div>
-                        <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors flex-grow">
+                        <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors flex-grow">
                           {currentMobileCard.name}
                         </h3>
                       </div>
                       <div className="space-y-3 md:space-y-4 flex-grow mb-4">
                         <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
                           <MapPin className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 break-words w-full">{currentMobileCard.address}</p>
+                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 break-words w-full">{currentMobileCard.address}</p>
                         </div>
                         <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
                           <Phone className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <a href={`tel:${currentMobileCard.phone}`} className="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 transition-colors break-words w-full">
+                          <a href={`tel:${currentMobileCard.phone}`} className="text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 transition-colors break-words w-full">
                             {currentMobileCard.phone}
                           </a>
                         </div>
                         <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
                           <Mail className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <a href={`mailto:${currentMobileCard.email}`} className="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-add8e6 transition-colors break-words w-full">
+                          <a href={`mailto:${currentMobileCard.email}`} className="text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 transition-colors break-words w-full">
                             {currentMobileCard.email}
                           </a>
                         </div>
                         <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
                           <Clock className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 break-words w-full">{currentMobileCard.hours}</p>
+                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 break-words w-full">{currentMobileCard.hours}</p>
                         </div>
                       </div>
                     </div>
