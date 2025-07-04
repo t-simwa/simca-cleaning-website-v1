@@ -390,22 +390,22 @@ export default function SteamCleaningPage() {
             <div className="w-full md:w-1/2 max-w-3xl md:pl-14 flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-6 w-full flex justify-center md:justify-start">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm">
-                  <CheckCircle2 className="w-4 h-4" />
+                    <CheckCircle2 className="w-4 h-4" />
                   Why Choose Us
                 </span>
-              </div>
+                </div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
                 <span className="mb-1">Why Choose Our</span>
                 <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                   Steam
-                  <motion.span
+                  <motion.span 
                     className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
-                    initial={{ scaleX: 0 }}
+                      initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, ease: 'easeOut' }}
                     style={{ display: 'block' }}
-                  />
+                    />
                 </span>{" "}
                 <span>Cleaning Services?</span>
               </h2>
@@ -450,6 +450,7 @@ export default function SteamCleaningPage() {
 
       {/* Section Divider */}
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
+
 
       {/* Benefits of Our Steam Cleaning Services Section */}
       <section className="relative py-12 md:py-20">

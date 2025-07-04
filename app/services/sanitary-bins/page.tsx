@@ -2,9 +2,40 @@
 
 import { Package, CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock, Sparkles, Shield, Users, Calendar, Star, Leaf } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+
+const MotionImage = motion(Image)
+
+// CountUp component for animated numbers
+function CountUp({ end, duration = 1.5, suffix = "" }: { end: string | number, duration?: number, suffix?: string }) {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    const isPercent = typeof end === 'string' && end.includes('%');
+    const isPlus = typeof end === 'string' && end.includes('+');
+    const numericEnd = typeof end === 'number' ? end : parseInt(end);
+    const startTime = performance.now();
+    function animate(now: number) {
+      const elapsed = (now - startTime) / 1000;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.floor(progress * numericEnd);
+      setCount(value);
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setCount(numericEnd);
+      }
+    }
+    requestAnimationFrame(animate);
+    return () => {};
+  }, [end, duration]);
+  let display: string | number = count;
+  if (typeof end === 'string' && end.includes('%')) display = `${count}%`;
+  if (typeof end === 'string' && end.includes('+')) display = `${count}+`;
+  return <span>{display}{suffix}</span>;
+}
 
 // Define the structure for a service, similar to what's used in the services page
 interface ServiceDetail {
@@ -123,300 +154,192 @@ const sanitaryBinsService: ServiceDetail = {
 };
 
 export default function SanitaryBinsPage() {
+  // Animation variants for the hero section
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+      },
+    },
+  }
+
+  // Stats animation variants with enhanced micro-interactions
+  const statsVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 20
+      }
+    },
+    hover: {
+      scale: 1.05,
+      boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)",
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 10
+      }
+    },
+    tap: {
+      scale: 0.95,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 10
+      }
+    }
+  }
+
+  const heroImage = {
+    src: "/home-hero/cleaner-home.jpg",
+    alt: "Professional sanitary bins services in Kenya",
+  }
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative py-16 md:py-24">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
+      <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+        {/* Background Image */}
+        <MotionImage
+          src={heroImage.src}
+          alt={heroImage.alt}
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.05 }}
+          transition={{ duration: 10, ease: "easeOut" }}
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
 
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
-        </div>
-
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-block mb-4 md:mb-6">
-                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium flex items-center gap-2">
-                  {sanitaryBinsService.icon}
-                  Sanitary Bins
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center">
+          <div className="flex flex-col items-center">
+            {/* Centered Content */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="text-center"
+            >
+              <motion.div
+                variants={itemVariants}
+                className="inline-block mb-6 sm:mb-4 md:mb-10"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4" />
+                  Sanitary Bins Services
                 </span>
-              </div>
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
-                {sanitaryBinsService.title}
-              </h1>
-              <p className="text-base md:text-xl text-gray-600 dark:text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
-                {sanitaryBinsService.description}
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-add8e6 text-white px-6 py-3 rounded-full hover:bg-add8e6/90 transition-colors">
-                  Get a Free Quote
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link href="#pricing" className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-add8e6 px-6 py-3 rounded-full hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-                  View Pricing
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </div>
-
-      {/* Section Divider */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
-
-      {/* What's Included Section */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-24">
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4">
-                  {sanitaryBinsService.whatsIncluded.title}
-                </h2>
-                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                  {sanitaryBinsService.whatsIncluded.description}
-                </p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {sanitaryBinsService.whatsIncluded.items.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-                  >
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-add8e6 flex-shrink-0" />
-                      <p className="text-gray-700 dark:text-gray-300">{item}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </div>
-
-      {/* Section Divider */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
-
-      {/* Our Process Section */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-24">
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4">
-                  {sanitaryBinsService.process.title}
-                </h2>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {sanitaryBinsService.process.steps.map((step, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-                  >
-                    <div className="flex flex-col items-center text-center">
-                      <div className="flex items-center justify-center w-12 h-12 rounded-full bg-add8e6/10 text-add8e6 font-bold mb-4">
-                        {index + 1}
-                      </div>
-                      <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">
-                        {step.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </div>
-
-      {/* Section Divider */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
-
-      {/* Key Features Section */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-24">
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4">
-                  Key Features of Our Sanitary Bins Services
-                </h2>
-                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                  Discover what makes our sanitary bins services stand out.
-                </p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {sanitaryBinsService.features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start gap-3"
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-add8e6 flex-shrink-0" />
-                    <p className="text-gray-700 dark:text-gray-300">{feature}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </div>
-
-      {/* Section Divider */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
-
-      {/* Why Choose Us Section */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-24">
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4">
-                  {sanitaryBinsService.whyChooseUs.title}
-                </h2>
-                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6">
-                  {sanitaryBinsService.whyChooseUs.description}
-                </p>
-                <ul className="space-y-3">
-                  {sanitaryBinsService.whyChooseUs.points.map((point, index) => (
-                    <motion.li
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      className="flex items-center text-gray-700 dark:text-gray-300"
-                    >
-                      <CheckCircle2 className="w-5 h-5 text-add8e6 mr-3 flex-shrink-0" />
-                      {point}
-                    </motion.li>
-                  ))}
-                </ul>
               </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="relative h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden shadow-xl"
+
+              <motion.h1
+                variants={itemVariants}
+                className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
               >
-                {/* Placeholder image - replace with actual sanitary bins image */}
-                <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400">
-                  <Package className="w-24 h-24" />
-                </div>
-              </motion.div>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </div>
-
-      {/* Section Divider */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
-
-      {/* Pricing Section */}
-      <div id="pricing" className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-24 scroll-mt-24">
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4">
-                  {sanitaryBinsService.pricing.title}
-                </h2>
-                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                  Find the perfect service package for your sanitary bin needs. Contact us for a custom quote based on the number of units and service frequency.
-                </p>
-              </div>
-              <div className="grid md:grid-cols-2 gap-8">
-                {sanitaryBinsService.pricing.packages.map((pkg, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col"
-                  >
-                    <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">
-                      {pkg.name}
-                    </h3>
-                    <div className="text-2xl font-bold text-add8e6 mb-4">
-                      {pkg.price}
-                    </div>
-                    <ul className="space-y-2 flex-grow mb-6">
-                      {pkg.features.map((feature, i) => (
-                        <li key={i} className="flex items-center text-gray-700 dark:text-gray-300 text-sm">
-                          <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link
-                      href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-3 rounded-full hover:bg-add8e6/90 transition-colors text-center"
-                    >
-                      Get a Quote
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </div>
-
-      {/* Section Divider */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
-
-      {/* Service Areas Section */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-24">
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-7xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4">
-                Service Areas
-              </h2>
-              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-                We proudly offer sanitary bins services in the following areas.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                {sanitaryBinsService.serviceAreas.map((area, index) => (
+                Professional{" "}
+                <span className="text-fff relative inline-block">
+                  Sanitary Bins
                   <motion.span
+                    className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: 'easeOut' }}
+                  />
+                </span>{" "}
+                Services
+              </motion.h1>
+
+              <motion.p
+                variants={itemVariants}
+                className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+              >
+                Ensure a hygienic and discreet disposal of sanitary waste with our professional sanitary bins services. We provide scheduled collection and disposal that maintains the highest standards of cleanliness and compliance with health regulations.
+              </motion.p>
+
+              {/* Quick stats with enhanced micro-interactions */}
+              <motion.div 
+                variants={itemVariants}
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-16"
+              >
+                {[
+                  { 
+                    value: "100%", 
+                    label: "Hygiene Compliant", 
+                    icon: <Shield className="w-4 h-4 text-white" />,
+                  },
+                  { 
+                    value: "300+", 
+                    label: "Businesses Served", 
+                    icon: <Users className="w-4 h-4 text-white" />,
+                  },
+                  { 
+                    value: "4.8", 
+                    label: "Average Rating", 
+                    icon: <Star className="w-4 h-4 text-white" />,
+                  }
+                ].map((stat, index) => (
+                  <motion.div
                     key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.05 }}
-                    className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-4 py-2 rounded-full text-sm font-medium"
+                    variants={statsVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                   >
-                    <MapPin className="w-4 h-4" />
-                    {area}
-                  </motion.span>
+                    <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                      {stat.icon}
+                      <span className="group-hover:scale-110 transition-transform duration-300">
+                        <CountUp end={stat.value} duration={1.2} />
+                      </span>
+                    </div>
+                    <div className="text-xs md:text-sm text-white">
+                      {stat.label}
+                    </div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
-          </ScrollAnimation>
+              </motion.div>
+
+              {/* CTA Button */}
+              <motion.div 
+                variants={itemVariants}
+                className="flex justify-center mb-6"
+              >
+                <Link 
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-8 py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-center text-xs sm:text-sm"
+                >
+                  Get Your Free Quote
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
+
 
       {/* Section Divider */}
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />

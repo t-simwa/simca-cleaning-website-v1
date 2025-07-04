@@ -112,7 +112,6 @@ export default function Footer() {
                 { href: "/services/sanitary-bins", label: "Sanitary Bins Service" },
                 { href: "/services/steam", label: "Steam Cleaning" },
                 { href: "/services/sofa-set", label: "Sofa Set Cleaning" },
-                { href: "/services/office", label: "Office Cleaning" },
               ].map((service) => (
                 <li key={service.href}>
                   <Link

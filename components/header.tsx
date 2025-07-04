@@ -59,7 +59,6 @@ export default function Header() {
         { name: "Carpet & Upholstery Cleaning", href: "/services/carpet-upholstery" },
         { name: "Sanitization & Disinfection", href: "/services/sanitization-disinfection" },
         { name: "Specialized Cleaning", href: "/services/specialized" },
-        { name: "Office Cleaning", href: "/services/office" },
         { name: "Steam Cleaning", href: "/services/steam" },
         { name: "Sanitary Bins Services", href: "/services/sanitary-bins" },
         { name: "Garbage Collection Services", href: "/services/garbage-collection" },
