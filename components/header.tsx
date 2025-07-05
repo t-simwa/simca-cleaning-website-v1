@@ -149,9 +149,12 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center group">
             <Logo 
-              className="w-32 h-12 md:w-48 md:h-30 transition-transform duration-300 group-hover:scale-105" 
+              className="w-60 h-12 md:w-60 md:h-30 transition-transform duration-300 group-hover:scale-105" 
               variant={theme === "dark" ? "white" : "default"} 
             />
+            {/* <span className="ml-1 text-sm md:text-lg font-medium text-gray-600 dark:text-gray-300 group-hover:text-add8e6 transition-colors">
+              SIMCA AGENCIES LIMITED
+            </span> */}
           </Link>
 
           {/* Desktop Navigation */}
@@ -233,15 +236,12 @@ export default function Header() {
             }`}
           >
             {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
-              <Link href="/" className="flex items-center group" onClick={() => setIsMenuOpen(false)}>
+            <div className="flex items-center justify-center px-4 py-3 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
+              <Link href="/" className="flex items-center group justify-center w-full" onClick={() => setIsMenuOpen(false)}>
                 <Logo 
-                  className="w-32 h-12 md:w-48 md:h-16 transition-transform duration-300 group-hover:scale-105" 
+                  className="w-60 h-12 md:w-60 md:h-30 transition-transform duration-300 group-hover:scale-105" 
                   variant={theme === "dark" ? "white" : "default"} 
                 />
-                <span className="ml-2 text-base font-bold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
-                  Simca Agencies
-                </span>
               </Link>
               <button
                 className="text-gray-600 dark:text-gray-300 p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"

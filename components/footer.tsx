@@ -33,10 +33,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4 md:space-y-6">
             <div className="flex items-center gap-3 md:gap-4">
-              <Logo className="h-12 w-auto md:h-14" variant="white" />
-              <span className="text-lg md:text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Simca Agencies
-              </span>
+              <Logo className="w-60 h-12 md:w-60 md:h-30 transition-transform duration-300 group-hover:scale-105" variant="white" />
             </div>
             <p className="text-gray-400 leading-relaxed text-xs md:text-sm">
               Professional cleaning services across Kenya. We provide residential, commercial, and specialized cleaning

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Simca Agencies Company offers professional cleaning services across Kenya including Nairobi, Mombasa, Kaimosi, and Eldoret. Residential, commercial, and specialized cleaning services.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/simca-logo.png",
   },
     generator: 'v0.dev'
 }

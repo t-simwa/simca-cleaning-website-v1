@@ -10,10 +10,10 @@ export default function Logo({ className, variant = "default", ...props }: LogoP
   return (
     <div className={`relative ${className}`} {...props}>
       <Image
-        src="/simca-logo.png"
+        src="/simca-logo-full.png"
         alt="Simca Agencies Logo"
         fill
-        className={`object-contain ${variant === "white" ? "brightness-0 invert" : ""}`}
+        className={`object-fit ${variant === "white" ? "brightness-0 invert" : ""}`}
       />
     </div>
   )
