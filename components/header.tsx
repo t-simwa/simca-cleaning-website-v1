@@ -163,7 +163,7 @@ export default function Header() {
               <div key={item.name} className="relative group">
                 {item.subNav ? (
                   <button
-                    className="text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 flex items-center gap-1 focus:outline-none"
+                    className="inline-flex items-center gap-1 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)] appearance-none bg-transparent border-none"
                     onClick={toggleServicesDropdown}
                   >
                     {item.name}
