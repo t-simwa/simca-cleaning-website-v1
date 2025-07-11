@@ -23,7 +23,7 @@ export default function Testimonials() {
     {
       name: "Jane Mwangi",
       role: "Homeowner, Nairobi",
-      image: "/jane-mwangi.jpg?height=200&width=200",
+      image: "/home-testimonials/jane-mwangi.jpg?height=200&width=200",
       quote:
         "Coming home used to mean sneezing fits, but since Simca started cleaning, it finally feels fresh and breathable. They listened to our concerns about allergies and now, our home is our sanctuary again. It's not just clean, it's a healthier, happier space for my family.",
       category: "residential",
@@ -34,7 +34,7 @@ export default function Testimonials() {
     {
       name: "David Ochieng",
       role: "Office Manager, Mombasa",
-      image: "/david-ochieng.jpg?height=200&width=200",
+      image: "/home-testimonials/david-ochieng.jpg?height=200&width=200",
       quote:
         "We had a minor flood and panic set in. I called Simca, and they were here in what felt like minutes. They handled everything with such calm and professionalism, turning a potential disaster into a minor hiccup. Their team is reliable, fast, and incredibly reassuring.",
       category: "commercial",
@@ -45,7 +45,7 @@ export default function Testimonials() {
     {
       name: "Amina Hussein",
       role: "Restaurant Owner, Nairobi",
-      image: "/amina-hussein.jpg?height=200&width=200",
+      image: "/home-testimonials/amina-hussein.png?height=200&width=200",
       quote:
         "In the restaurant business, clean isn't just about appearances—it's about health and safety. Simca gets that. Their team is meticulous, and I can always count on them to leave our kitchen and dining areas spotless. Our customers notice, and so do the health inspectors!",
       category: "commercial",
@@ -56,7 +56,7 @@ export default function Testimonials() {
     {
       name: "Sarah Njoroge",
       role: "Property Manager, Eldoret",
-      image: "/sarah-njoroge.jpg?height=200&width=200",
+      image: "/home-testimonials/sarah-njoroge.jpg?height=200&width=200",
       quote:
         "Juggling multiple properties is tough, but Simca makes my job easier. Their post-construction cleaning is flawless, and they handle move-in/move-out cleans without a fuss. They're more than a vendor; they're a partner I can rely on. They just get it done right, every time.",
       category: "industrial",
@@ -67,7 +67,7 @@ export default function Testimonials() {
     {
       name: "Michael Kimani",
       role: "Factory Supervisor, Thika",
-      image: "/michael-kimani.jpg?height=200&width=200",
+      image: "/home-testimonials/michael-kimani.png?height=200&width=200",
       quote:
         "Our factory floor has never been safer or cleaner. Simca's industrial cleaning team understands the unique challenges we face, from machine grease to dust control. They work around our schedule and have made a huge difference in our workplace environment.",
       category: "industrial",
@@ -78,7 +78,7 @@ export default function Testimonials() {
     {
       name: "The Patel Family",
       role: "Kisumu",
-      image: "/patel-family.jpg?height=200&width=200",
+      image: "/home-testimonials/patel-family.png?height=200&width=200",
       quote:
         "We needed our carpets and upholstery deep-cleaned before a family celebration, and Simca did a phenomenal job. Stains we thought were permanent are gone! They were so careful with our furniture and the results were just stunning. Our home felt brand new.",
       category: "residential",

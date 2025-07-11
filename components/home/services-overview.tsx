@@ -50,7 +50,7 @@ export default function ServicesOverview() {
       description: "Enjoy a sparkling home, your way. We tailor every clean to your schedule and preferences, using safe, eco-friendly products. No contracts—just reliable, flexible service and a healthier home for your family.",
       icon: Home,
       link: "/services/residential",
-      image: "/images/services/residential-cleaning.jpg",
+      image: "/services/residential-cleaning.png",
       features: [
         "Kitchen cleaning (counters, appliances, sinks, cabinets)",
         "Bathroom sanitization (toilets, showers, mirrors, floors)",
@@ -67,7 +67,7 @@ export default function ServicesOverview() {
       description: "Keep your business spotless and productive. We work around your hours to minimize disruption, with trained staff and custom plans for offices, shops, schools, and more. Affordable rates, no long-term contracts, and a cleaner, safer workplace.",
       icon: Building2,
       link: "/services/commercial",
-      image: "/images/services/commercial-cleaning.jpg",
+      image: "/services/commercial-service.png",
       features: [
         "Office spaces (desks, floors, common areas, kitchens)",
         "Restroom sanitization and maintenance",
@@ -84,7 +84,7 @@ export default function ServicesOverview() {
       description: "Move in faster with our expert post-construction cleaning. We remove dust, debris, and builder's mess—leaving your new space fresh, safe, and ready to use. Fast, thorough, and satisfaction guaranteed.",
       icon: HardHat,
       link: "/services/post-construction",
-      image: "/images/services/post-construction-cleaning.jpg",
+      image: "/services/post-construction.png",
       features: [
         "Construction dust removal from all surfaces",
         "Window and glass cleaning (interior/exterior)",
@@ -101,7 +101,7 @@ export default function ServicesOverview() {
       description: "Breathe new life into your carpets and furniture. We use advanced stain removal and gentle, deep-cleaning methods to protect your fabrics and leave everything fresh, clean, and safe for your family or staff.",
       icon: Sofa,
       link: "/services/carpet-upholstery",
-      image: "/images/services/carpet-upholstery.jpg",
+      image: "/services/carpet-cleaning.png",
       features: [
         "Deep carpet cleaning and stain removal",
         "Sofa and chair upholstery cleaning",
@@ -118,7 +118,7 @@ export default function ServicesOverview() {
       description: "Protect your space with hospital-grade sanitization. Our certified team uses EPA-approved products and proven protocols to eliminate germs and viruses—ideal for homes, offices, and high-traffic areas.",
       icon: Spray,
       link: "/services/sanitization-disinfection",
-      image: "/images/services/sanitization.jpg",
+      image: "/services/sanitization.jpg",
       features: [
         "High-touch surface disinfection",
         "Air purification and treatment",
@@ -135,7 +135,7 @@ export default function ServicesOverview() {
       description: "Have unique cleaning needs? We offer custom solutions for every industry—banks, hotels, healthcare, and more. Our experienced team follows strict standards to deliver spotless results, every time.",
       icon: ShieldCheck,
       link: "/services/specialized",
-      image: "/images/services/specialized-cleaning.jpg",
+      image: "/services/specialized-cleaning.png",
       features: [
         "Healthcare facility cleaning protocols",
         "Hotel and hospitality cleaning",
@@ -152,7 +152,7 @@ export default function ServicesOverview() {
       description: "Experience crystal-clear views with our expert window cleaning service. We use eco-friendly solutions and specialized tools to remove dirt, grime, and streaks—leaving your windows spotless and your space brighter.",
       icon: Sun,
       link: "/services/window",
-      image: "/images/services/window-cleaning.jpg",
+      image: "/services/window-cleaning.png",
       features: [
         "Interior and exterior window cleaning",
         "Window frame and sill cleaning",
@@ -169,7 +169,7 @@ export default function ServicesOverview() {
       description: "Restore your vehicle's interior to showroom condition. Our detailed cleaning service removes stains, odors, and dirt from all surfaces—leaving your car fresh, clean, and smelling great. Satisfaction guaranteed.",
       icon: Car,
       link: "/services/vehicle-interior",
-      image: "/images/services/vehicle-interior-cleaning.jpg",
+      image: "/services/interior-cleaning.png",
       features: [
         "Dashboard and console cleaning",
         "Seat and upholstery deep cleaning",
@@ -186,7 +186,7 @@ export default function ServicesOverview() {
       description: "Sleep better with our professional mattress cleaning service. We remove dust mites, allergens, and stains using advanced cleaning technology—ensuring a healthier sleep environment for you and your family.",
       icon: Bed,
       link: "/services/mattress",
-      image: "/images/services/mattress-cleaning.jpg",
+      image: "/services/mattress-cleaning.png",
       features: [
         "Deep mattress vacuuming and cleaning",
         "Stain removal and treatment",
@@ -203,7 +203,7 @@ export default function ServicesOverview() {
       description: "Keep your space clean with our reliable waste management service. We offer regular collection schedules, proper waste segregation, and environmentally responsible disposal—making waste management hassle-free.",
       icon: Trash2,
       link: "/services/garbage-collection",
-      image: "/images/services/garbage-collection.jpg",
+      image: "/services/garbage-collection.png",
       features: [
         "Regular waste collection schedules",
         "Recycling and waste segregation",
@@ -220,7 +220,7 @@ export default function ServicesOverview() {
       description: "Maintain a clean, hygienic environment with our professional sanitary bin service. We provide, maintain, and regularly service sanitary bins—ensuring compliance with health and safety regulations.",
       icon: Container,
       link: "/services/sanitary-bins",
-      image: "/images/services/sanitary-bins.jpg",
+      image: "/services/sanitary-bins.png",
       features: [
         "Sanitary bin supply and installation",
         "Regular collection and replacement",
@@ -237,7 +237,7 @@ export default function ServicesOverview() {
       description: "Deep clean and sanitize with our powerful steam cleaning service. Using high-temperature steam, we effectively remove dirt, bacteria, and allergens—leaving your surfaces fresh, clean, and hygienic.",
       icon: Droplets,
       link: "/services/steam",
-      image: "/images/services/steam-cleaning.jpg",
+      image: "/services/steam-cleaning.png",
       features: [
         "High-temperature steam sanitization",
         "Carpet and upholstery steam cleaning",
@@ -254,7 +254,7 @@ export default function ServicesOverview() {
       description: "Revitalize your furniture with our professional sofa cleaning service. We use advanced cleaning techniques to remove stains, odors, and dirt—leaving your sofas looking and smelling fresh, like new.",
       icon: Sofa,
       link: "/services/sofa-set",
-      image: "/images/services/sofa-set-cleaning.jpg",
+      image: "/services/sofa-cleaning.png",
       features: [
         "Fabric type-specific cleaning methods",
         "Stain removal and spot treatment",
@@ -354,221 +354,293 @@ export default function ServicesOverview() {
 
         {/* Service Cards */}
         <div className="relative max-w-7xl mx-auto">
-          {/* Navigation Buttons - Hidden on mobile */}
-          <button
-            onClick={prevPage}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
-            aria-label="Previous service"
-          >
-            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
-          </button>
-          <button
-            onClick={nextPage}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
-            aria-label="Next service"
-          >
-            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
-          </button>
-          {/* Carousel Container */}
-          <div className="overflow-visible">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentPage}
-                initial={{ opacity: 0, x: isMobile ? 100 : 0 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: isMobile ? -100 : 0 }}
-                transition={{ duration: 0.5 }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
-              >
-                {getCurrentCards().map((service, index) => (
-                  <Link
-                    key={`${currentPage}-${index}`}
-                    href={service.link}
-                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 w-full overflow-hidden border border-gray-200 dark:border-gray-700"
-                    onMouseEnter={() => setHoveredService(index)}
-                    onMouseLeave={() => setHoveredService(null)}
-                  >
-                    {/* Glassmorphism effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50 rounded-xl" />
-                    
-                    {/* Subtle pattern overlay */}
-                    <div className="absolute inset-0 opacity-5 rounded-xl">
-                      <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
+          {/* Desktop: Show all cards, no carousel or navigation */}
+          {!isMobile && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              {filteredServices.map((service, index) => (
+                <Link
+                  key={index}
+                  href={service.link}
+                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 w-full overflow-hidden border border-gray-200 dark:border-gray-700"
+                  onMouseEnter={() => setHoveredService(index)}
+                  onMouseLeave={() => setHoveredService(null)}
+                >
+                  {/* Glassmorphism effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50 rounded-xl" />
+                  {/* Subtle pattern overlay */}
+                  <div className="absolute inset-0 opacity-5 rounded-xl">
+                    <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
+                  </div>
+                  <div className="flex flex-col h-full relative z-10">
+                    {/* Service Image */}
+                    <div className="relative w-full h-80 md:h-96 lg:h-[22rem] mb-10 rounded-lg overflow-hidden">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                     </div>
-
-                    <div className="flex flex-col h-full relative z-10">
-                      {/* Service Image */}
-                      <div className="relative w-full h-80 md:h-96 lg:h-[22rem] mb-10 rounded-lg overflow-hidden">
-                        <Image
-                          src={service.image}
-                          alt={service.title}
-                          fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                      </div>
-
-                      <div className="flex items-center justify-between mb-6">
-                        <motion.div 
-                          className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl transition-transform duration-500"
-                        >
-                          {React.createElement(service.icon, { 
-                            className: 'h-7 w-7 md:h-8 md:w-8 text-add8e6'
-                          })}
-                        </motion.div>
-                      </div>
-                      
-                      <motion.h3 
-                        className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
-                      >
-                        {service.title}
-                      </motion.h3>
-                      
-                      <motion.p 
-                        className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-3 md:mb-5"
-                      >
-                        {service.description}
-                      </motion.p>
-
-                      {/* Features list */}
-                      <div className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
-                        <motion.h4 
-                          className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-4s"
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.1 }}
-                        >
-                          Our Services Include:
-                        </motion.h4>
-                        {service.features.map((feature, i) => (
-                          <motion.div 
-                            key={i} 
-                            className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
-                            whileHover={{ 
-                              x: 4,
-                              scale: 1.02,
-                              backgroundColor: 'rgba(173, 216, 230, 0.1)',
-                              transition: { duration: 0.2 }
-                            }}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                          >
-                            <motion.div
-                              whileHover={{ 
-                                scale: 1.2,
-                                rotate: 360,
-                                transition: { duration: 0.5 }
-                              }}
-                            >
-                              <CheckCircle2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6 flex-shrink-0" />
-                            </motion.div>
-                            {feature}
-                          </motion.div>
-                        ))}
-                      </div>
-
-                      {/* Availability */}
+                    <div className="flex items-center justify-between mb-6">
                       <motion.div 
-                        className="mt-auto pt-3 md:pt-4 border-t border-gray-100 dark:border-gray-700"
+                        className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl transition-transform duration-500"
                       >
-                        <div className="flex flex-col gap-2">
-                          <motion.span 
-                            className="text-add8e6 font-medium group-hover:underline flex items-center gap-1 md:gap-2 text-xs md:text-sm"
-                          >
-                            Learn more
-                            <motion.div>
-                              <ArrowRight className="w-4 h-4 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                            </motion.div>
-                          </motion.span>
-                          <motion.span 
-                            className="text-xs md:text-sm text-gray-500 dark:text-gray-400"
-                          >
-                            {service.availability}
-                          </motion.span>
-                        </div>
+                        {React.createElement(service.icon, { 
+                          className: 'h-7 w-7 md:h-8 md:w-8 text-add8e6'
+                        })}
                       </motion.div>
                     </div>
-                  </Link>
-                ))}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="flex flex-col items-center gap-4 mt-8 md:hidden">
-            {/* Mobile Pagination Dots */}
-            <div className="hidden">
-              {Array.from({ length: filteredServices.length }).map((_, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => setCurrentPage(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                    currentPage === index
-                      ? 'bg-add8e6 w-6'
-                      : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
-                  }`}
-                  aria-label={`Go to service ${index + 1}`}
-                />
+                    <motion.h3 
+                      className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
+                    >
+                      {service.title}
+                    </motion.h3>
+                    <motion.p 
+                      className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-3 md:mb-5"
+                    >
+                      {service.description}
+                    </motion.p>
+                    {/* Features list */}
+                    <div className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
+                      <motion.h4 
+                        className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-4s"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                      >
+                        Our Services Include:
+                      </motion.h4>
+                      {service.features.map((feature, i) => (
+                        <motion.div 
+                          key={i} 
+                          className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
+                          whileHover={{ 
+                            x: 4,
+                            scale: 1.02,
+                            backgroundColor: 'rgba(173, 216, 230, 0.1)',
+                            transition: { duration: 0.2 }
+                          }}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.1 }}
+                        >
+                          <motion.div
+                            whileHover={{ 
+                              scale: 1.2,
+                              rotate: 360,
+                              transition: { duration: 0.5 }
+                            }}
+                          >
+                            <CheckCircle2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6 flex-shrink-0" />
+                          </motion.div>
+                          {feature}
+                        </motion.div>
+                      ))}
+                    </div>
+                    {/* Availability */}
+                    <motion.div 
+                      className="mt-auto pt-3 md:pt-4 border-t border-gray-100 dark:border-gray-700"
+                    >
+                      <div className="flex flex-col gap-2">
+                        <motion.span 
+                          className="text-add8e6 font-medium group-hover:underline flex items-center gap-1 md:gap-2 text-xs md:text-sm"
+                        >
+                          Learn more
+                          <motion.div>
+                            <ArrowRight className="w-4 h-4 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                          </motion.div>
+                        </motion.span>
+                        <motion.span 
+                          className="text-xs md:text-sm text-gray-500 dark:text-gray-400"
+                        >
+                          {service.availability}
+                        </motion.span>
+                      </div>
+                    </motion.div>
+                  </div>
+                </Link>
               ))}
             </div>
-
-            {/* Mobile Navigation Buttons */}
-            <div className="flex items-center gap-4">
-              <motion.button
+          )}
+          {/* Mobile: Keep carousel and navigation */}
+          {isMobile && (
+            <>
+              {/* Navigation Buttons - Hidden on mobile */}
+              <button
                 onClick={prevPage}
-                className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
                 aria-label="Previous service"
               >
-                <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-              </motion.button>
-              
-              <span className="text-sm text-gray-600 dark:text-gray-400">
-                {currentPage + 1} of {filteredServices.length}
-              </span>
-
-              <motion.button
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
+              </button>
+              <button
                 onClick={nextPage}
-                className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
                 aria-label="Next service"
               >
-                <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-              </motion.button>
-            </div>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex flex-row items-center justify-center gap-4 mt-8">
-            {/* <motion.button
-              onClick={prevPage}
-              className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
-              aria-label="Previous services"
-            >
-              <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-            </motion.button> */}
-            <div className="flex items-center gap-2">
-              {Array.from({ length: totalPages }).map((_, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => setCurrentPage(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                    currentPage === index
-                      ? 'bg-add8e6 w-4'
-                      : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
-                  }`}
-                  aria-label={`Go to page ${index + 1}`}
-                />
-              ))}
-            </div>
-            {/* <motion.button
-              onClick={nextPage}
-              className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
-              aria-label="Next services"
-            >
-              <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-            </motion.button> */}
-          </div>
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
+              </button>
+              {/* Carousel Container */}
+              <div className="overflow-visible">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentPage}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -100 }}
+                    transition={{ duration: 0.5 }}
+                    className="grid grid-cols-1 gap-4"
+                  >
+                    {getCurrentCards().map((service, index) => (
+                      <Link
+                        key={`${currentPage}-${index}`}
+                        href={service.link}
+                        className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 w-full overflow-hidden border border-gray-200 dark:border-gray-700"
+                        onMouseEnter={() => setHoveredService(index)}
+                        onMouseLeave={() => setHoveredService(null)}
+                      >
+                        {/* Glassmorphism effect */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50 rounded-xl" />
+                        {/* Subtle pattern overlay */}
+                        <div className="absolute inset-0 opacity-5 rounded-xl">
+                          <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
+                        </div>
+                        <div className="flex flex-col h-full relative z-10">
+                          {/* Service Image */}
+                          <div className="relative w-full h-80 mb-10 rounded-lg overflow-hidden">
+                            <Image
+                              src={service.image}
+                              alt={service.title}
+                              fill
+                              className="object-cover transition-transform duration-300 group-hover:scale-105"
+                              sizes="100vw"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                          </div>
+                          <div className="flex items-center justify-between mb-6">
+                            <motion.div 
+                              className="p-2 bg-add8e6/10 rounded-lg transition-transform duration-500"
+                            >
+                              {React.createElement(service.icon, { 
+                                className: 'h-7 w-7 text-add8e6'
+                              })}
+                            </motion.div>
+                          </div>
+                          <motion.h3 
+                            className="text-sm font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-add8e6 transition-colors"
+                          >
+                            {service.title}
+                          </motion.h3>
+                          <motion.p 
+                            className="text-xs text-gray-600 dark:text-gray-400 mb-3"
+                          >
+                            {service.description}
+                          </motion.p>
+                          {/* Features list */}
+                          <div className="space-y-1.5 mb-4">
+                            <motion.h4 
+                              className="text-xs font-semibold text-gray-800 dark:text-gray-200 mb-4s"
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.1 }}
+                            >
+                              Our Services Include:
+                            </motion.h4>
+                            {service.features.map((feature, i) => (
+                              <motion.div 
+                                key={i} 
+                                className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
+                                whileHover={{ 
+                                  x: 4,
+                                  scale: 1.02,
+                                  backgroundColor: 'rgba(173, 216, 230, 0.1)',
+                                  transition: { duration: 0.2 }
+                                }}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: i * 0.1 }}
+                              >
+                                <motion.div
+                                  whileHover={{ 
+                                    scale: 1.2,
+                                    rotate: 360,
+                                    transition: { duration: 0.5 }
+                                  }}
+                                >
+                                  <CheckCircle2 className="w-4 h-4 text-add8e6 flex-shrink-0" />
+                                </motion.div>
+                                {feature}
+                              </motion.div>
+                            ))}
+                          </div>
+                          {/* Availability */}
+                          <motion.div 
+                            className="mt-auto pt-3 border-t border-gray-100 dark:border-gray-700"
+                          >
+                            <div className="flex flex-col gap-2">
+                              <motion.span 
+                                className="text-add8e6 font-medium group-hover:underline flex items-center gap-1 text-xs"
+                              >
+                                Learn more
+                                <motion.div>
+                                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                                </motion.div>
+                              </motion.span>
+                              <motion.span 
+                                className="text-xs text-gray-500 dark:text-gray-400"
+                              >
+                                {service.availability}
+                              </motion.span>
+                            </div>
+                          </motion.div>
+                        </div>
+                      </Link>
+                    ))}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+              {/* Mobile Navigation */}
+              <div className="flex flex-col items-center gap-4 mt-8 md:hidden">
+                {/* Mobile Pagination Dots */}
+                <div className="hidden">
+                  {Array.from({ length: filteredServices.length }).map((_, index) => (
+                    <motion.button
+                      key={index}
+                      onClick={() => setCurrentPage(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                        currentPage === index
+                          ? 'bg-add8e6 w-6'
+                          : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
+                      }`}
+                      aria-label={`Go to service ${index + 1}`}
+                    />
+                  ))}
+                </div>
+                {/* Mobile Navigation Buttons */}
+                <div className="flex items-center gap-4">
+                  <motion.button
+                    onClick={prevPage}
+                    className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
+                    aria-label="Previous service"
+                  >
+                    <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+                  </motion.button>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                    {currentPage + 1} of {filteredServices.length}
+                  </span>
+                  <motion.button
+                    onClick={nextPage}
+                    className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
+                    aria-label="Next service"
+                  >
+                    <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+                  </motion.button>
+                </div>
+              </div>
+            </>
+          )}
         </div>
 
         <div className="text-center mt-12 md:mt-16">

@@ -44,8 +44,8 @@ export default function WhoWeAre() {
             <div className="w-full mb-6 md:hidden">
               <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[20rem] xs:h-[24rem] sm:h-[28rem] mx-auto">
                 <Image
-                  src="/placeholder-team.jpg"
-                  alt="Simca Agencies Team"
+                  src="/home-hero/who-we-are.jpg"
+                  alt="Simca Agencies cleaning team at work"
                   width={800}
                   height={600}
                   className="object-cover w-full h-full"
@@ -78,7 +78,7 @@ export default function WhoWeAre() {
           <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
             <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
               <Image
-                src="/placeholder-team.jpg"
+                src="/home-hero/who-we-are.jpg"
                 alt="Simca Agencies Team"
                 width={800}
                 height={600}
