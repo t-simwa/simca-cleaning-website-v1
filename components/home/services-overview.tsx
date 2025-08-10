@@ -130,23 +130,7 @@ export default function ServicesOverview() {
       reviews: 89,
       availability: "Certified sanitization specialists"
     },
-    {
-      title: "Specialized Cleaning",
-      description: "Have unique cleaning needs? We offer custom solutions for every industry—banks, hotels, healthcare, and more. Our experienced team follows strict standards to deliver spotless results, every time.",
-      icon: ShieldCheck,
-      link: "/services/specialized",
-      image: "/services/specialized-cleaning.png",
-      features: [
-        "Healthcare facility cleaning protocols",
-        "Hotel and hospitality cleaning",
-        "Bank and financial institution cleaning",
-        "Industrial and warehouse cleaning"
-      ],
-      category: "specialized",
-      rating: 4.8,
-      reviews: 64,
-      availability: "Tailored to your industry standards"
-    },
+
     {
       title: "Window Cleaning",
       description: "Experience crystal-clear views with our expert window cleaning service. We use eco-friendly solutions and specialized tools to remove dirt, grime, and streaks—leaving your windows spotless and your space brighter.",
@@ -198,57 +182,9 @@ export default function ServicesOverview() {
       reviews: 65,
       availability: "Same-day service available"
     },
-    {
-      title: "Garbage Collection",
-      description: "Keep your space clean with our reliable waste management service. We offer regular collection schedules, proper waste segregation, and environmentally responsible disposal—making waste management hassle-free.",
-      icon: Trash2,
-      link: "/services/garbage-collection",
-      image: "/services/garbage-collection.png",
-      features: [
-        "Regular waste collection schedules",
-        "Recycling and waste segregation",
-        "Large item and bulk waste removal",
-        "Environmentally responsible disposal"
-      ],
-      category: "commercial",
-      rating: 4.7,
-      reviews: 88,
-      availability: "Daily, weekly, or monthly schedules"
-    },
-    {
-      title: "Sanitary Bins",
-      description: "Maintain a clean, hygienic environment with our professional sanitary bin service. We provide, maintain, and regularly service sanitary bins—ensuring compliance with health and safety regulations.",
-      icon: Container,
-      link: "/services/sanitary-bins",
-      image: "/services/sanitary-bins.png",
-      features: [
-        "Sanitary bin supply and installation",
-        "Regular collection and replacement",
-        "Hygienic disposal and treatment",
-        "Compliance with health regulations"
-      ],
-      category: "commercial",
-      rating: 4.8,
-      reviews: 72,
-      availability: "Weekly or monthly service"
-    },
-    {
-      title: "Steam Cleaning",
-      description: "Deep clean and sanitize with our powerful steam cleaning service. Using high-temperature steam, we effectively remove dirt, bacteria, and allergens—leaving your surfaces fresh, clean, and hygienic.",
-      icon: Droplets,
-      link: "/services/steam",
-      image: "/services/steam-cleaning.png",
-      features: [
-        "High-temperature steam sanitization",
-        "Carpet and upholstery steam cleaning",
-        "Hard surface steam cleaning",
-        "Chemical-free deep cleaning"
-      ],
-      category: "specialized",
-      rating: 4.9,
-      reviews: 83,
-      availability: "Available for all surfaces"
-    },
+
+
+
     {
       title: "Sofa Set Cleaning",
       description: "Revitalize your furniture with our professional sofa cleaning service. We use advanced cleaning techniques to remove stains, odors, and dirt—leaving your sofas looking and smelling fresh, like new.",

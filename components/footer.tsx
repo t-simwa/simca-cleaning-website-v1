@@ -36,7 +36,7 @@ export default function Footer() {
               <Logo className="w-60 h-12 md:w-60 md:h-30 transition-transform duration-300 group-hover:scale-105" variant="white" />
             </div>
             <p className="text-gray-400 leading-relaxed text-xs md:text-sm">
-              Professional cleaning services across Kenya. We provide residential, commercial, and specialized cleaning
+              Professional cleaning services across Kenya. We provide residential, commercial, and professional cleaning
               solutions to meet all your needs.
             </p>
             <div className="flex gap-3 md:gap-4">
@@ -101,13 +101,9 @@ export default function Footer() {
                 { href: "/services/post-construction", label: "Post-construction Cleaning" },
                 { href: "/services/carpet-upholstery", label: "Carpet & Upholstery Cleaning" },
                 { href: "/services/sanitization-disinfection", label: "Sanitization & Disinfection" },
-                { href: "/services/specialized", label: "Specialized Cleaning" },
                 { href: "/services/window", label: "Window Cleaning" },
                 { href: "/services/vehicle-interior", label: "Vehicle Interior Cleaning" },
                 { href: "/services/mattress", label: "Mattress Cleaning" },
-                { href: "/services/garbage-collection", label: "Garbage Collection" },
-                { href: "/services/sanitary-bins", label: "Sanitary Bins Service" },
-                { href: "/services/steam", label: "Steam Cleaning" },
                 { href: "/services/sofa-set", label: "Sofa Set Cleaning" },
               ].map((service) => (
                 <li key={service.href}>
