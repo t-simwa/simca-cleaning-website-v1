@@ -234,31 +234,45 @@ export default function ResidentialCleaningPage() {
   }
 
   const heroImage = {
-    src: "/home-hero/cleaner-home.jpg",
+    src: "/residential/hero.jpg",
     alt: "Professional residential cleaning services in Kenya",
   }
 
+  const whyChooseUsImage = {
+    src: "/residential/why-choose-us.jpeg",
+    alt: "Professional residential cleaning services"
+  };
+
   const whatsIncludedImages = [
     {
-      src: "/home-hero/cleaner-home.jpg",
+      src: "/residential/living-cleaning.jpg",
       alt: "Professional residential cleaning services - living room"
     },
     {
-      src: "/images/services/residential-cleaning-2.jpg",
+      src: "/residential/kitchen-cleaning.jpg",
       alt: "Residential cleaning - kitchen"
     },
     {
-      src: "/images/services/residential-cleaning-3.jpg",
+      src: "/residential/bedroom-cleaning.jpeg",
       alt: "Residential cleaning - bedroom"
     },
     {
-      src: "/images/services/residential-cleaning-4.jpg",
+      src: "/residential/bathroom-cleaning.jpeg",
       alt: "Residential cleaning - bathroom"
     }
   ];
   const [carouselIndex, setCarouselIndex] = useState(0);
   const nextImage = () => setCarouselIndex((prev) => (prev + 1) % whatsIncludedImages.length);
   const prevImage = () => setCarouselIndex((prev) => (prev - 1 + whatsIncludedImages.length) % whatsIncludedImages.length);
+
+  // Auto-scroll carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCarouselIndex((prev) => (prev + 1) % whatsIncludedImages.length);
+    }, 10000); // Change image every 10 seconds
+
+    return () => clearInterval(interval);
+  }, [whatsIncludedImages.length]);
 
   return (
     <div className="min-h-screen">
@@ -277,7 +291,7 @@ export default function ResidentialCleaningPage() {
           transition={{ duration: 10, ease: "easeOut" }}
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/40" />
 
         <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
@@ -447,8 +461,8 @@ export default function ResidentialCleaningPage() {
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
               <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
                     <Image
-                      src={whatsIncludedImages[carouselIndex].src}
-                      alt={whatsIncludedImages[carouselIndex].alt}
+                      src={whyChooseUsImage.src}
+                      alt={whyChooseUsImage.alt}
                       width={800}
                       height={600}
                       className="object-cover w-full h-full"
