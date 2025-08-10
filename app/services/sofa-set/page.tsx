@@ -230,31 +230,40 @@ export default function SofaSetCleaningPage() {
   }
 
   const heroImage = {
-    src: "/home-hero/cleaner-home.jpg",
+    src: "/sofa-set/hero.webp",
     alt: "Professional sofa set cleaning services in Kenya",
   }
 
   const whatsIncludedImages = [
     {
-      src: "/home-hero/cleaner-home.jpg",
+      src: "/sofa-set/sofa-01.webp",
       alt: "Professional sofa set cleaning services - living room"
     },
     {
-      src: "/images/services/sofa-cleaning-2.jpg",
+      src: "/sofa-set/sofa-02.webp",
       alt: "Sofa set cleaning - deep cleaning"
     },
     {
-      src: "/images/services/sofa-cleaning-3.jpg",
+      src: "/sofa-set/sofa-03.webp",
       alt: "Sofa set cleaning - stain removal"
     },
     {
-      src: "/images/services/sofa-cleaning-4.jpg",
+      src: "/sofa-set/sofa-04.webp",
       alt: "Sofa set cleaning - protective treatment"
     }
   ];
   const [carouselIndex, setCarouselIndex] = useState(0);
   const nextImage = () => setCarouselIndex((prev) => (prev + 1) % whatsIncludedImages.length);
   const prevImage = () => setCarouselIndex((prev) => (prev - 1 + whatsIncludedImages.length) % whatsIncludedImages.length);
+
+  // Auto-scroll carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCarouselIndex((prev) => (prev + 1) % whatsIncludedImages.length);
+    }, 8000); // Change image every 8 seconds
+
+    return () => clearInterval(interval);
+  }, [whatsIncludedImages.length]);
 
   return (
     <div className="min-h-screen">
@@ -424,7 +433,7 @@ export default function SofaSetCleaningPage() {
               <div className="w-full mb-6 md:hidden">
                 <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[20rem] xs:h-[24rem] sm:h-[28rem] mx-auto">
                   <Image
-                    src="/home-hero/cleaner-home.jpg"
+                    src="/sofa-set/why-choose-us.webp"
                     alt="Professional sofa set cleaning services"
                     width={800}
                     height={600}
@@ -446,7 +455,7 @@ export default function SofaSetCleaningPage() {
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
               <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
                     <Image
-                      src="/home-hero/cleaner-home.jpg"
+                      src="/sofa-set/why-choose-us.webp"
                       alt="Professional sofa set cleaning services"
                       width={800}
                       height={600}

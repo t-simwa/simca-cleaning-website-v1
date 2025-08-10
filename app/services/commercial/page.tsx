@@ -231,20 +231,20 @@ export default function CommercialCleaningPage() {
   }
 
   const heroImage = {
-    src: "/commercial/hero.jpg",
+    src: "/commercial/hero.webp",
     alt: "Professional commercial cleaning services in Kenya",
   }
 
   const whyChooseUsImage = {
-    src: "/commercial/why-choose-us.jpg",
+    src: "/commercial/why-choose-us.webp",
     alt: "Professional commercial cleaning team at work",
   }
 
   const whatsIncludedImages = [
     { src: "/commercial/workstation.webp", alt: "Office space cleaning" },
-    { src: "/commercial/common-area.jpg", alt: "Bathroom sanitization" },
-    { src: "/commercial/floor.jpg", alt: "Common areas maintenance" },
-    { src: "/commercial/general.jpeg", alt: "Equipment cleaning" },
+    { src: "/commercial/common-area.webp", alt: "Bathroom sanitization" },
+    { src: "/commercial/floor.webp", alt: "Common areas maintenance" },
+    { src: "/commercial/general.webp", alt: "Equipment cleaning" },
   ];
 
   const [carouselIndex, setCarouselIndex] = useState(0);

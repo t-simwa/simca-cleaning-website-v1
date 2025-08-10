@@ -234,30 +234,30 @@ export default function ResidentialCleaningPage() {
   }
 
   const heroImage = {
-    src: "/residential/hero.jpg",
+    src: "/residential/hero.webp",
     alt: "Professional residential cleaning services in Kenya",
   }
 
   const whyChooseUsImage = {
-    src: "/residential/why-choose-us.jpeg",
+    src: "/residential/why-choose-us.webp",
     alt: "Professional residential cleaning services"
   };
 
   const whatsIncludedImages = [
     {
-      src: "/residential/living-cleaning.jpg",
+      src: "/residential/living-cleaning.webp",
       alt: "Professional residential cleaning services - living room"
     },
     {
-      src: "/residential/kitchen-cleaning.jpg",
+      src: "/residential/kitchen-cleaning.webp",
       alt: "Residential cleaning - kitchen"
     },
     {
-      src: "/residential/bedroom-cleaning.jpeg",
+      src: "/residential/bedroom-cleaning.webp",
       alt: "Residential cleaning - bedroom"
     },
     {
-      src: "/residential/bathroom-cleaning.jpeg",
+      src: "/residential/bathroom-cleaning.webp",
       alt: "Residential cleaning - bathroom"
     }
   ];
@@ -269,7 +269,7 @@ export default function ResidentialCleaningPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCarouselIndex((prev) => (prev + 1) % whatsIncludedImages.length);
-    }, 10000); // Change image every 10 seconds
+    }, 8000); // Change image every 10 seconds
 
     return () => clearInterval(interval);
   }, [whatsIncludedImages.length]);
@@ -439,7 +439,7 @@ export default function ResidentialCleaningPage() {
               <div className="w-full mb-6 md:hidden">
                 <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[20rem] xs:h-[24rem] sm:h-[28rem] mx-auto">
                   <Image
-                    src="/residential/why-choose-us.jpeg"
+                    src="/residential/why-choose-us.webp"
                     alt="Professional residential cleaning services"
                     width={800}
                     height={600}
