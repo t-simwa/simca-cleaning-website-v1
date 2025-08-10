@@ -210,28 +210,46 @@ export default function WindowCleaningPage() {
   }
 
   const heroImage = {
-    src: "/home-hero/cleaner-home.jpg",
+    src: "/window/hero.webp",
     alt: "Professional window cleaning services in Kenya",
   }
 
-  const whatsIncludedImages = [
+  const whyChooseUsImage = {
+    src: "/window/why-choose-us.webp",
+    alt: "Professional window cleaning team at work",
+  }
+
+    const whatsIncludedImages = [
     {
-      src: "/home-hero/cleaner-home.jpg",
+      src: "/window/window-01.webp",
       alt: "Professional window cleaning services - exterior windows"
     },
     {
-      src: "/images/services/window-cleaning-2.jpg",
+      src: "/window/window-02.webp",
       alt: "Window cleaning - interior windows"
     },
     {
-      src: "/images/services/window-cleaning-3.jpg",
+      src: "/window/window-03.webp",
       alt: "Window cleaning - commercial buildings"
+    },
+    {
+      src: "/window/window-04.webp",
+      alt: "Window cleaning final inspection and quality check"
     }
   ]
 
   const [carouselIndex, setCarouselIndex] = useState(0)
   const nextImage = () => setCarouselIndex((prev) => (prev + 1) % whatsIncludedImages.length);
   const prevImage = () => setCarouselIndex((prev) => (prev - 1 + whatsIncludedImages.length) % whatsIncludedImages.length);
+
+  // Auto-scroll carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCarouselIndex((prev) => (prev + 1) % whatsIncludedImages.length);
+    }, 8000); // Change image every 8 seconds
+
+    return () => clearInterval(interval);
+  }, [whatsIncludedImages.length]);
 
   return (
     <div className="min-h-screen">
@@ -250,7 +268,7 @@ export default function WindowCleaningPage() {
           transition={{ duration: 10, ease: "easeOut" }}
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
+       <div className="absolute inset-0 bg-black/45" />
 
         <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
@@ -401,8 +419,8 @@ export default function WindowCleaningPage() {
               <div className="w-full mb-6 md:hidden">
                 <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[20rem] xs:h-[24rem] sm:h-[28rem] mx-auto">
                   <Image
-                    src="/home-hero/cleaner-home.jpg"
-                    alt="Professional window cleaning services"
+                    src={whyChooseUsImage.src}
+                    alt={whyChooseUsImage.alt}
                     width={800}
                     height={600}
                     className="object-cover w-full h-full"
@@ -423,8 +441,8 @@ export default function WindowCleaningPage() {
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
               <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
                 <Image
-                  src="/home-hero/cleaner-home.jpg"
-                  alt="Professional window cleaning services"
+                  src={whyChooseUsImage.src}
+                  alt={whyChooseUsImage.alt}
                   width={800}
                   height={600}
                   className="object-cover w-full h-full"
