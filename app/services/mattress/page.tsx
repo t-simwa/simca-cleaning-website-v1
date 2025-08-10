@@ -224,9 +224,35 @@ export default function MattressCleaningPage() {
   }
 
   const heroImage = {
-    src: "/home-hero/cleaner-home.jpg",
+    src: "/mattress/hero.webp",
     alt: "Professional mattress cleaning services in Kenya",
   }
+
+  const whyChooseUsImage = {
+    src: "/mattress/why-choose-us.webp",
+    alt: "Professional mattress cleaning team at work",
+  }
+
+  const whatsIncludedImages = [
+    { src: "/mattress/mattress-01.webp", alt: "Mattress cleaning process" },
+    { src: "/mattress/mattress-02.webp", alt: "Stain removal treatment" },
+    { src: "/mattress/mattress-03.webp", alt: "Deep cleaning equipment" },
+    { src: "/mattress/mattress-04.webp", alt: "Final inspection and quality check" }
+  ]
+
+  const [carouselIndex, setCarouselIndex] = useState(0);
+
+  const nextImage = () => setCarouselIndex((prev) => (prev + 1) % whatsIncludedImages.length);
+  const prevImage = () => setCarouselIndex((prev) => (prev - 1 + whatsIncludedImages.length) % whatsIncludedImages.length);
+
+  // Auto-scroll carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCarouselIndex((prev) => (prev + 1) % whatsIncludedImages.length);
+    }, 8000); // Change image every 8 seconds
+
+    return () => clearInterval(interval);
+  }, [whatsIncludedImages.length]);
 
   return (
     <div className="min-h-screen">
@@ -245,7 +271,7 @@ export default function MattressCleaningPage() {
           transition={{ duration: 10, ease: "easeOut" }}
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/45" />
 
         <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
@@ -396,8 +422,8 @@ export default function MattressCleaningPage() {
               <div className="w-full mb-6 md:hidden">
                 <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[20rem] xs:h-[24rem] sm:h-[28rem] mx-auto">
                   <Image
-                    src="/home-hero/cleaner-home.jpg"
-                    alt="Professional mattress cleaning services"
+                    src={whyChooseUsImage.src}
+                    alt={whyChooseUsImage.alt}
                     width={800}
                     height={600}
                     className="object-cover w-full h-full"
@@ -418,8 +444,8 @@ export default function MattressCleaningPage() {
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
               <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
                 <Image
-                  src="/home-hero/cleaner-home.jpg"
-                  alt="Professional mattress cleaning services"
+                  src={whyChooseUsImage.src}
+                  alt={whyChooseUsImage.alt}
                   width={800}
                   height={600}
                   className="object-cover w-full h-full"
@@ -583,7 +609,7 @@ export default function MattressCleaningPage() {
               <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
                 <AnimatePresence mode="wait">
                 <motion.div 
-                    key={heroImage.src}
+                    key={whatsIncludedImages[carouselIndex].src}
                     initial={{ opacity: 0, x: 40 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -40 }}
@@ -591,8 +617,8 @@ export default function MattressCleaningPage() {
                     className="absolute inset-0 w-full h-full"
                   >
                     <Image
-                      src={heroImage.src}
-                      alt={heroImage.alt}
+                      src={whatsIncludedImages[carouselIndex].src}
+                      alt={whatsIncludedImages[carouselIndex].alt}
                       width={800}
                       height={600}
                       className="object-cover w-full h-full"
@@ -602,7 +628,7 @@ export default function MattressCleaningPage() {
                 </AnimatePresence>
                 {/* Carousel navigation buttons */}
                 <button
-                  onClick={() => {}}
+                  onClick={prevImage}
                   className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full shadow-md hover:scale-110 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50"
                   aria-label="Previous image"
                   type="button"
@@ -610,7 +636,7 @@ export default function MattressCleaningPage() {
                   <ChevronLeft className="w-6 h-6 text-gray-700 dark:text-gray-200" />
                 </button>
                 <button
-                  onClick={() => {}}
+                  onClick={nextImage}
                   className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full shadow-md hover:scale-110 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50"
                   aria-label="Next image"
                   type="button"
@@ -619,11 +645,17 @@ export default function MattressCleaningPage() {
                 </button>
                 {/* Pagination dots (desktop only) */}
                 <div className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 gap-2 z-10">
-                  <button
-                    className="w-3 h-3 rounded-full transition-all duration-200 bg-add8e6 w-6"
-                    aria-label="Go to image 1"
-                    type="button"
-                  />
+                  {whatsIncludedImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCarouselIndex(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                        index === carouselIndex ? 'bg-add8e6 w-6' : 'bg-white/60 w-3'
+                      }`}
+                      aria-label={`Go to image ${index + 1}`}
+                      type="button"
+                    />
+                  ))}
                 </div>
               </div>
             </div>
@@ -657,7 +689,7 @@ export default function MattressCleaningPage() {
                 <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[20rem] xs:h-[24rem] sm:h-[28rem] mx-auto">
                   <AnimatePresence mode="wait">
                   <motion.div
-                      key={heroImage.src}
+                      key={whatsIncludedImages[carouselIndex].src}
                       initial={{ opacity: 0, x: 40 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -40 }}
@@ -665,8 +697,8 @@ export default function MattressCleaningPage() {
                       className="absolute inset-0 w-full h-full"
                     >
                       <Image
-                        src={heroImage.src}
-                        alt={heroImage.alt}
+                        src={whatsIncludedImages[carouselIndex].src}
+                        alt={whatsIncludedImages[carouselIndex].alt}
                         width={800}
                         height={600}
                         className="object-cover w-full h-full"
@@ -676,7 +708,7 @@ export default function MattressCleaningPage() {
                   </AnimatePresence>
                   {/* Carousel navigation buttons (mobile) */}
                   <button
-                    onClick={() => {}}
+                    onClick={prevImage}
                     className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full shadow-md hover:scale-110 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50"
                     aria-label="Previous image"
                     type="button"
@@ -684,7 +716,7 @@ export default function MattressCleaningPage() {
                     <ChevronLeft className="w-5 h-5 text-gray-700 dark:text-gray-200" />
                   </button>
                   <button
-                    onClick={() => {}}
+                    onClick={nextImage}
                     className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full shadow-md hover:scale-110 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50"
                     aria-label="Next image"
                     type="button"
@@ -693,11 +725,17 @@ export default function MattressCleaningPage() {
                   </button>
                   {/* Pagination dots (mobile) */}
                   <div className="flex absolute bottom-4 left-1/2 -translate-x-1/2 gap-2 z-10">
-                    <button
-                      className="w-2 h-2 rounded-full transition-all duration-200 bg-add8e6 w-4"
-                      aria-label="Go to image 1"
-                      type="button"
-                    />
+                    {whatsIncludedImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCarouselIndex(index)}
+                        className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                          index === carouselIndex ? 'bg-add8e6 w-4' : 'bg-white/60 w-2'
+                        }`}
+                        aria-label={`Go to image ${index + 1}`}
+                        type="button"
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
