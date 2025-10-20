@@ -229,7 +229,7 @@ export default function LocationsPage() {
           style={{ pointerEvents: 'none' }}
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="absolute inset-0 bg-black/55 z-10" />
         <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center z-20">
           <div className="flex flex-col items-center">
             {/* Centered Content */}

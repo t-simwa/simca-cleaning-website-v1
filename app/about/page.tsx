@@ -179,7 +179,7 @@ export default function AboutPage() {
           transition={{ duration: 10, ease: "easeOut" }}
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/55" />
 
         <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
