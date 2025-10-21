@@ -24,7 +24,7 @@ export default function GalleryPage() {
   const galleryImages = [
     {
       id: 1,
-      src: "/gallery/office-cleaning.jpg?height=600&width=800",
+      src: "/gallery/office-cleaning.webp?height=600&width=800",
       alt: "Office cleaning in Nairobi",
       category: "commercial",
       title: "Office Cleaning",
@@ -32,7 +32,7 @@ export default function GalleryPage() {
     },
     {
       id: 2,
-      src: "/gallery/residential-cleaning.jpeg?height=600&width=800",
+      src: "/gallery/residential-cleaning.webp?height=600&width=800",
       alt: "Residential deep cleaning",
       category: "residential",
       title: "Home Deep Cleaning",
@@ -40,7 +40,7 @@ export default function GalleryPage() {
     },
     {
       id: 3,
-      src: "/gallery/carpet-cleaning.jpg?height=600&width=800",
+      src: "/gallery/carpet-cleaning.webp?height=600&width=800",
       alt: "Carpet cleaning",
       category: "carpet",
       title: "Carpet Cleaning",
@@ -48,7 +48,7 @@ export default function GalleryPage() {
     },
     {
       id: 4,
-      src: "/gallery/clean-kitchen.png?height=600&width=800",
+      src: "/gallery/clean-kitchen.webp?height=600&width=800",
       alt: "Before and after kitchen cleaning",
       category: "before-after",
       title: "Kitchen Transformation",
@@ -56,7 +56,7 @@ export default function GalleryPage() {
     },
     {
       id: 5,
-      src: "/gallery/window-cleaning.jpg?height=600&width=800",
+      src: "/gallery/window-cleaning.webp?height=600&width=800",
       alt: "Commercial window cleaning",
       category: "commercial",
       title: "Window Cleaning",
@@ -64,7 +64,7 @@ export default function GalleryPage() {
     },
     {
       id: 6,
-      src: "/gallery/bathroom-cleaning.jpg?height=600&width=800",
+      src: "/gallery/bathroom-cleaning.webp?height=600&width=800",
       alt: "Residential bathroom cleaning",
       category: "residential",
       title: "Bathroom Sanitization",
@@ -72,7 +72,7 @@ export default function GalleryPage() {
     },
     {
       id: 7,
-      src: "/gallery/sofa-cleaning.jpg?height=600&width=800",
+      src: "/gallery/sofa-cleaning.webp?height=600&width=800",
       alt: "Upholstery cleaning",
       category: "carpet",
       title: "Sofa Cleaning",
@@ -80,7 +80,7 @@ export default function GalleryPage() {
     },
     {
       id: 8,
-      src: "/gallery/clean-office.jpeg?height=600&width=800",
+      src: "/gallery/clean-office.webp?height=600&width=800",
       alt: "Before and after office cleaning",
       category: "before-after",
       title: "Office Transformation",
@@ -88,7 +88,7 @@ export default function GalleryPage() {
     },
     {
       id: 9,
-      src: "/gallery/construction-cleaning.jpg?height=600&width=800",
+      src: "/gallery/construction-cleaning.webp?height=600&width=800",
       alt: "Post-construction cleaning",
       category: "commercial",
       title: "Post-construction Cleanup",
@@ -96,7 +96,7 @@ export default function GalleryPage() {
     },
     {
       id: 10,
-      src: "/gallery/kitchen-cleaning.jpg?height=600&width=800",
+      src: "/gallery/kitchen-cleaning.webp?height=600&width=800",
       alt: "Residential kitchen cleaning",
       category: "residential",
       title: "Kitchen Cleaning",
@@ -104,7 +104,7 @@ export default function GalleryPage() {
     },
     {
       id: 11,
-      src: "/gallery/clean-carpet.jpg?height=600&width=800",
+      src: "/gallery/clean-carpet.webp?height=600&width=800",
       alt: "Before and after carpet cleaning",
       category: "before-after",
       title: "Carpet Transformation",
@@ -112,7 +112,7 @@ export default function GalleryPage() {
     },
     {
       id: 12,
-      src: "/gallery/floor-polishing.jpg?height=600&width=800",
+      src: "/gallery/floor-polishing.webp?height=600&width=800",
       alt: "Commercial floor cleaning",
       category: "commercial",
       title: "Floor Polishing",
@@ -126,7 +126,7 @@ export default function GalleryPage() {
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}
         <motion.img
-          src="/home-hero/cleaner-home.jpg"
+          src="/gallery/gallery-hero.webp"    
           alt="Simca Agencies - Gallery Portfolio"
           className="object-cover object-center w-full h-full absolute inset-0 z-0"
           initial={{ scale: 1 }}
@@ -240,25 +240,19 @@ export default function GalleryPage() {
             <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
               <TabsList className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12 bg-transparent p-0">
                 {categories.map((category) => (
-                  <motion.button
+                  <TabsTrigger
                     key={category.id}
-                    onClick={() => setActiveTab(category.id)}
-                    className={`group flex items-center gap-2 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                      activeTab === category.id
-                        ? "bg-gradient-to-r from-add8e6 to-add8e6/90 text-white shadow-lg shadow-add8e6/20"
-                        : "bg-white/80 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 backdrop-blur-sm"
-                    }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    value={category.id}
+                    className="group flex items-center gap-2 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs font-medium transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-add8e6 data-[state=active]:to-add8e6/90 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-add8e6/20 data-[state=inactive]:bg-white/80 data-[state=inactive]:dark:bg-gray-800/80 data-[state=inactive]:text-gray-600 data-[state=inactive]:dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 backdrop-blur-sm"
                   >
                     {category.icon}
                     {category.name}
-                  </motion.button>
+                  </TabsTrigger>
                 ))}
               </TabsList>
 
               {categories.map((category) => (
-                <TabsContent key={category.id} value={category.id} className="mt-12 md:mt-16">
+                <TabsContent key={category.id} value={category.id} className="mt-24 md:mt-16">
                   <motion.div 
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
                     initial={{ opacity: 0, y: 20 }}

@@ -90,9 +90,9 @@ export default function ContactPage() {
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}
         <motion.img
-          src="/home-hero/cleaner-home.jpg"
+          src="/contact/contact-hero.webp"
           alt="Professional cleaning services in Kenya"
-          className="object-cover object-center w-full h-full absolute inset-0 z-0"
+          className="object-cover object-center md:object-left w-full h-full absolute inset-0 z-0"
           initial={{ scale: 1 }}
           animate={{ scale: 1.05 }}
           transition={{ duration: 10, ease: "easeOut" }}

@@ -19,7 +19,7 @@ export default function LocationsPage() {
       whatsapp: "+254 700 123 456",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
       emergencyHours: "24/7 Emergency Service Available",
-      image: "/locations/nairobi.jpg",
+      image: "/locations/nairobi.webp",
       description:
         "As Kenya's leading cleaning service provider in the capital, we deliver premium cleaning solutions tailored to Nairobi's dynamic business environment. Our team of certified professionals specializes in high-rise maintenance, corporate facilities, and luxury residential properties, ensuring the highest standards of cleanliness and hygiene.",
       valueProposition: "Trusted by 200+ corporate clients in Nairobi's CBD",
@@ -43,7 +43,7 @@ export default function LocationsPage() {
       whatsapp: "+254 700 789 012",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
       emergencyHours: "24/7 Emergency Service Available",
-      image: "/locations/mombasa.jpg",
+      image: "/locations/mombasa.webp",
       description:
         "Mombasa's premier cleaning service provider, specializing in coastal property maintenance. Our expert team understands the unique challenges of the coastal environment, offering specialized solutions for salt damage prevention, humidity control, and tropical climate maintenance.",
       valueProposition: "Leading provider of coastal property maintenance in Mombasa",
@@ -67,7 +67,7 @@ export default function LocationsPage() {
       whatsapp: "+254 700 234 567",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
       emergencyHours: "24/7 Emergency Service Available",
-      image: "/locations/kisumu.jpg",
+      image: "/locations/kisumu.webp",
       description:
         "Kisumu's trusted cleaning partner, delivering specialized services for lakeside properties and industrial facilities. Our team combines local expertise with advanced cleaning technologies to maintain the highest standards in the Lake Region's unique environment.",
       valueProposition: "Preferred cleaning partner for lakeside properties in Kisumu",
@@ -115,7 +115,7 @@ export default function LocationsPage() {
       whatsapp: "+254 700 345 678",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
       emergencyHours: "24/7 Emergency Service Available",
-      image: "/locations/kaimosi.jpg",
+      image: "/locations/kaimosi.webp",
       description:
         "Western Kenya's trusted cleaning partner, specializing in educational and healthcare facility maintenance. Our team combines local expertise with specialized training to maintain the highest standards of cleanliness in sensitive environments.",
       valueProposition: "Leading provider of institutional cleaning in Western Kenya",
@@ -139,7 +139,7 @@ export default function LocationsPage() {
       whatsapp: "+254 700 901 234",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
       emergencyHours: "24/7 Emergency Service Available",
-      image: "/locations/eldoret.jpg",
+      image: "/locations/eldoret.webp",
       description:
         "Eldoret's premier cleaning service provider, specializing in athletic facility maintenance. Our expert team understands the unique requirements of sports facilities, providing specialized cleaning solutions for training centers and competition venues.",
       valueProposition: "Trusted cleaning partner for athletic facilities in Eldoret",
@@ -210,7 +210,7 @@ export default function LocationsPage() {
   }
   // Use a hero image relevant to locations (or fallback to about page image)
   const heroImage = {
-    src: "/home-hero/cleaner-home.jpg", // Now matches the about page hero image
+    src: "/locations/locations-hero.webp", // Now matches the about page hero image
     alt: "Simca Agencies - Service Locations in Kenya",
   }
 
