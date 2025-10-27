@@ -163,7 +163,7 @@ export default function AboutPage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}
@@ -279,15 +279,9 @@ export default function AboutPage() {
 
       {/* Mission & Values */}
       <div className="relative py-12 md:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+          <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
 
         <div className="container mx-auto px-4 relative">
@@ -310,11 +304,7 @@ export default function AboutPage() {
                 >
                   Our Mission &{" "}
                   <motion.span 
-                    className="text-add8e6 relative inline-block tracking-wider"
-                    style={{
-                      textShadow: "0 2px 4px rgba(173,216,230,0.3)",
-                      WebkitTextStroke: "0.5px rgba(173,216,230,0.3)"
-                    }}
+                    className="text-add8e6 relative inline-block tracking-wider [text-shadow:0_2px_4px_rgba(173,216,230,0.3)] [-webkit-text-stroke:0.5px_rgba(173,216,230,0.3)] dark:[text-shadow:none] dark:[-webkit-text-stroke:none]"
                   >
                     Values
                     <motion.span 
@@ -555,15 +545,9 @@ export default function AboutPage() {
 
       {/* Company History */}
       <div className="relative py-12 md:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-white dark:bg-gray-900">
+          <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
 
         <div className="container mx-auto px-4 relative">
@@ -588,11 +572,7 @@ export default function AboutPage() {
                 >
                   Our Growth{" "}
                   <motion.span 
-                    className="text-add8e6 relative inline-block"
-                    style={{
-                      textShadow: "0 2px 4px rgba(173,216,230,0.3)",
-                      WebkitTextStroke: "0.5px rgba(173,216,230,0.3)"
-                    }}
+                    className="text-add8e6 relative inline-block [text-shadow:0_2px_4px_rgba(173,216,230,0.3)] [-webkit-text-stroke:0.5px_rgba(173,216,230,0.3)] dark:[text-shadow:none] dark:[-webkit-text-stroke:none]"
                   >
                     Story
                     <motion.span 
@@ -837,15 +817,9 @@ export default function AboutPage() {
 
       {/* National Footprint */}
       <div className="relative py-12 md:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-gray-50 dark:bg-gray-800/50">
+          <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px] opacity-5" />
         </div>
 
         <div className="container mx-auto px-4 relative">
@@ -870,11 +844,7 @@ export default function AboutPage() {
                 >
                   Our National{" "}
                   <motion.span 
-                    className="text-add8e6 relative inline-block"
-                    style={{
-                      textShadow: "0 2px 4px rgba(173,216,230,0.3)",
-                      WebkitTextStroke: "0.5px rgba(173,216,230,0.3)"
-                    }}
+                    className="text-add8e6 relative inline-block [text-shadow:0_2px_4px_rgba(173,216,230,0.3)] [-webkit-text-stroke:0.5px_rgba(173,216,230,0.3)] dark:[text-shadow:none] dark:[-webkit-text-stroke:none]"
                   >
                     Footprint
                     <motion.span 
@@ -1123,15 +1093,9 @@ export default function AboutPage() {
 
       {/* CEO Message */}
       <div className="relative py-12 md:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+          <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
 
         <div className="container mx-auto px-4 relative">
@@ -1156,11 +1120,7 @@ export default function AboutPage() {
                 >
                   A Message from Our{" "}
                   <motion.span 
-                    className="text-add8e6 relative inline-block"
-                    style={{
-                      textShadow: "0 2px 4px rgba(173,216,230,0.3)",
-                      WebkitTextStroke: "0.5px rgba(173,216,230,0.3)"
-                    }}
+                    className="text-add8e6 relative inline-block [text-shadow:0_2px_4px_rgba(173,216,230,0.3)] [-webkit-text-stroke:0.5px_rgba(173,216,230,0.3)] dark:[text-shadow:none] dark:[-webkit-text-stroke:none]"
                   >
                     CEO
                     <motion.span 

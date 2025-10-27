@@ -162,6 +162,21 @@ const steamService: ServiceDetail = {
 };
 
 export default function SteamCleaningPage() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Handle window resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  
   // Animation variants for the hero section
   const containerVariants = {
     hidden: { opacity: 0 },
