@@ -121,7 +121,7 @@ export default function GalleryPage() {
   ]
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}
@@ -223,17 +223,9 @@ export default function GalleryPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Gallery Section */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
-        </div>
+      <div className="relative bg-white dark:bg-gray-900 py-12 md:py-20">
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
 
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
