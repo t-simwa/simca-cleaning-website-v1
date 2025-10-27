@@ -257,7 +257,7 @@ export default function CarpetUpholsteryCleaningPage() {
   }, [whatsIncludedImages.length]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}
