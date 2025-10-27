@@ -125,7 +125,7 @@ export default function Header() {
               <div className="h-4 md:h-5 w-px bg-gray-200 dark:bg-gray-700" />
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="p-1.5 md:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110"
+                className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105"
                 aria-label="Toggle dark mode"
               >
                 {theme === "dark" ? (
@@ -133,6 +133,9 @@ export default function Header() {
                 ) : (
                   <Moon className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-300" />
                 )}
+                <span className="text-xs md:text-sm font-medium text-gray-600 dark:text-gray-300 hidden sm:inline">
+                  {theme === "dark" ? "Light Mode" : "Dark Mode"}
+                </span>
               </button>
             </div>
           </div>
@@ -250,7 +253,7 @@ export default function Header() {
 
             {/* Mobile Menu Content */}
             <div className="flex flex-col h-[calc(100vh-4rem)] bg-white dark:bg-gray-900">
-              <nav className="flex-1 overflow-y-auto">
+              <nav className="flex-1">
                 <div className="px-4 py-3 space-y-1">
                   {navItems.map((item) => (
                     <div key={item.name}>
@@ -325,33 +328,36 @@ export default function Header() {
                 </div>
               </nav>
 
-              {/* Mobile Menu Footer */}
-              <div className="border-t border-gray-100 dark:border-gray-800 p-4 space-y-4 bg-gray-50 dark:bg-gray-800">
-                {/* Social Icons */}
-                <div className="flex justify-center space-x-6">
-                  <SocialIcons className="h-5 w-5" />
-                </div>
+               {/* Mobile Menu Footer */}
+               <div className="border-t border-gray-100 dark:border-gray-800 p-4 pb-8 space-y-3 bg-gray-50 dark:bg-gray-800">
+                 {/* Social Icons */}
+                 <div className="flex justify-center space-x-6">
+                   <SocialIcons className="h-5 w-5" />
+                 </div>
 
-                {/* Theme Toggle */}
-                <div className="flex justify-center">
-                  <button
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                    className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300"
-                    aria-label="Toggle dark mode"
-                  >
-                    {theme === "dark" ? (
-                      <Sun className="h-5 w-5 text-gray-600 dark:text-gray-300" />
-                    ) : (
-                      <Moon className="h-5 w-5 text-gray-600 dark:text-gray-300" />
-                    )}
-                  </button>
-                </div>
+                 {/* Theme Toggle */}
+                 <div className="flex justify-center">
+                   <button
+                     onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                     className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300"
+                     aria-label="Toggle dark mode"
+                   >
+                     {theme === "dark" ? (
+                       <Sun className="h-5 w-5 text-gray-600 dark:text-gray-300" />
+                     ) : (
+                       <Moon className="h-5 w-5 text-gray-600 dark:text-gray-300" />
+                     )}
+                     <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                       {theme === "dark" ? "Light Mode" : "Dark Mode"}
+                     </span>
+                   </button>
+                 </div>
 
-                {/* Language Toggle */}
-                <div className="flex justify-center">
-                  <LanguageToggle />
-                </div>
-              </div>
+                 {/* Language Toggle */}
+                 <div className="flex justify-center pb-4">
+                   <LanguageToggle />
+                 </div>
+               </div>
             </div>
           </div>
         </div>

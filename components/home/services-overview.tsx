@@ -579,28 +579,6 @@ export default function ServicesOverview() {
           )}
         </div>
 
-        <div className="text-center mt-12 md:mt-16">
-          <motion.div
-            whileHover={undefined}
-            whileTap={undefined}
-          >
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/80 text-white px-8 py-4 rounded-xl font-medium hover:from-add8e6/90 hover:to-add8e6/70 transition-all duration-300 hover:shadow-lg hover:shadow-add8e6/20 hover:scale-105 transform group text-center text-xs sm:text-sm relative overflow-hidden"
-            >
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                View All Services
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "100%" }}
-                transition={{ duration: 0.5 }}
-              />
-            </Link>
-          </motion.div>
-        </div>
       </div>
     </section>
   )

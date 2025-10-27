@@ -331,7 +331,7 @@ function StatItem({ icon, value, label, suffix, trend, description, highlight, a
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
         >
-          <span className="bg-gradient-to-r from-add8e6 to-add8e6/80 bg-clip-text text-transparent filter drop-shadow-[0_0_8px_rgba(173,216,230,0.3)]">
+          <span className="bg-gradient-to-r from-add8e6 to-add8e6/80 bg-clip-text text-transparent">
             {animate ? count : 0}
             {suffix}
           </span>
