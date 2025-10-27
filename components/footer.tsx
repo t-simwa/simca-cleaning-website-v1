@@ -180,7 +180,7 @@ export default function Footer() {
               href="https://tedsimwa.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-add8e6 hover:text-white transition-colors font-medium"
+              className="text-white hover:text-add8e6 transition-colors font-medium uppercase"
             >
               Ted Simwa
             </a>

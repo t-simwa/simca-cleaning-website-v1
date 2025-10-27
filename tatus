@@ -1,0 +1,13 @@
+[1mdiff --git a/app/services/commercial/page.tsx b/app/services/commercial/page.tsx[m
+[1mindex 60135f4..27598a7 100644[m
+[1m--- a/app/services/commercial/page.tsx[m
+[1m+++ b/app/services/commercial/page.tsx[m
+[36m@@ -282,7 +282,7 @@[m [mexport default function CommercialCleaningPage() {[m
+   }, [whatsIncludedImages.length]);[m
+ [m
+   return ([m
+[31m-    <div className="min-h-screen">[m
+[32m+[m[32m    <div className="min-h-screen bg-white dark:bg-gray-900">[m
+       {/* Hero Section */}[m
+       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">[m
+         {/* Background Image */}[m
