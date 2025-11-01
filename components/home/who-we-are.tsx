@@ -71,7 +71,7 @@ export default function WhoWeAre() {
                 href="/about"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-8 py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-xs sm:text-sm"
               >
-                Read More
+                Learn More About Us
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
