@@ -181,8 +181,8 @@ export default function Hero() {
         className="object-cover object-center"
         priority
         fetchPriority="high"
-        sizes="100vw"
-        quality={85}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, (max-width: 1920px) 100vw, 1920px"
+        quality={75}
         initial={{ scale: 1 }}
         animate={{ scale: 1.05 }}
         transition={{ duration: 10, ease: "easeOut" }}
