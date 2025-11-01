@@ -257,7 +257,7 @@ export default function Testimonials() {
                               />
                             </div>
                             <div>
-                              <h4 className="text-xs md:text-sm font-medium text-gray-800 dark:text-white">{testimonial.name}</h4>
+                              <p className="text-xs md:text-sm font-medium text-gray-800 dark:text-white">{testimonial.name}</p>
                               <p className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400">{testimonial.role}</p>
                             </div>
                           </div>
