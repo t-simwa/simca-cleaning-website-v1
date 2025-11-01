@@ -50,7 +50,7 @@ export default function ServicesOverview() {
       description: "Enjoy a sparkling home, your way. We tailor every clean to your schedule and preferences, using safe, eco-friendly products. No contracts—just reliable, flexible service and a healthier home for your family.",
       icon: Home,
       link: "/services/residential",
-      image: "/services/residential-cleaning.png",
+      image: "/services/residential-cleaning.webp",
       features: [
         "Kitchen cleaning (counters, appliances, sinks, cabinets)",
         "Bathroom sanitization (toilets, showers, mirrors, floors)",
@@ -316,6 +316,8 @@ export default function ServicesOverview() {
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        quality={85}
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                     </div>
@@ -452,6 +454,8 @@ export default function ServicesOverview() {
                               fill
                               className="object-cover transition-transform duration-300 group-hover:scale-105"
                               sizes="100vw"
+                              quality={85}
+                              loading="lazy"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                           </div>
