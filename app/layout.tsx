@@ -7,7 +7,13 @@ import Footer from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 import { PageTransition } from "@/components/ui/page-transition"
 
-const inter = Inter({ subsets: ["latin"], display: "swap", preload: true })
+const inter = Inter({ 
+  subsets: ["latin"], 
+  display: "swap", 
+  preload: true,
+  adjustFontFallback: true,
+  fallback: ['system-ui', 'arial']
+})
 
 export const metadata: Metadata = {
   title: "Simca Agencies Company | Professional Cleaning Services in Kenya",

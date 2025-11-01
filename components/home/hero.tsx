@@ -98,30 +98,40 @@ export default function Hero() {
     setCurrentImage((prev) => (prev - 1 + images.length) % images.length)
   }
 
-  // Animation variants
+  // Check if user prefers reduced motion
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+  
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+  }, [])
+
+  // Animation variants - optimized for LCP
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
+        staggerChildren: prefersReducedMotion ? 0 : 0.1,
+        delayChildren: prefersReducedMotion ? 0 : 0.1
       }
     }
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15
+        type: prefersReducedMotion ? "tween" : "spring",
+        stiffness: prefersReducedMotion ? 0 : 100,
+        damping: prefersReducedMotion ? 0 : 15,
+        duration: prefersReducedMotion ? 0.2 : undefined
       }
     }
   }
+
 
   // Stats animation variants with enhanced micro-interactions
   const statsVariants = {
@@ -229,12 +239,15 @@ export default function Hero() {
               - Kenya's Trusted Cleaning Experts
             </motion.h1>
 
-            <motion.p 
-              variants={itemVariants}
-              className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+            {/* LCP Optimized Paragraph - Renders immediately */}
+            <p 
+              className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto opacity-100"
+              style={{ 
+                willChange: 'auto',
+              }}
             >
               Enjoy peace of mind with our professional, fully customized cleaning services for homes and businesses across Kenya. No contracts, no hassle—just sparkling results, flexible scheduling, and a 100% satisfaction guarantee. Discover why families and companies trust Simca Agencies for quality, affordability, and care.
-            </motion.p>
+            </p>
 
             {/* Quick stats with enhanced micro-interactions */}
             <motion.div 
