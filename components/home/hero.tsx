@@ -182,7 +182,7 @@ export default function Hero() {
         priority
         fetchPriority="high"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, (max-width: 1920px) 100vw, 1920px"
-        quality={75}
+        quality={70}
         initial={{ scale: 1 }}
         animate={{ scale: 1.05 }}
         transition={{ duration: 10, ease: "easeOut" }}

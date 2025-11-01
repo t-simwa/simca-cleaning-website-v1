@@ -50,7 +50,7 @@ export default function WhoWeAre() {
                   height={600}
                   className="object-cover w-full h-full"
                   sizes="(max-width: 768px) 100vw, 840px"
-                  quality={85}
+                  quality={75}
                 />
               </div>
             </div>
@@ -86,7 +86,7 @@ export default function WhoWeAre() {
                 height={600}
                 className="object-cover w-full h-full"
                 sizes="(max-width: 1200px) 50vw, 840px"
-                quality={85}
+                quality={75}
               />
             </div>
           </div>
