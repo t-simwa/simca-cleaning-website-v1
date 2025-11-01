@@ -10,10 +10,13 @@ export default function Logo({ className, variant = "default", ...props }: LogoP
   return (
     <div className={`relative ${className}`} {...props}>
       <Image
-        src="/simca-logo-full.png"
+        src="/simca-logo-full.webp"
         alt="Simca Agencies Logo"
         fill
         className={`object-fit ${variant === "white" ? "brightness-0 invert" : ""}`}
+        sizes="(max-width: 768px) 240px, (max-width: 1024px) 240px, 240px"
+        quality={90}
+        priority={false}
       />
     </div>
   )
