@@ -180,6 +180,7 @@ export default function Hero() {
         fill
         className="object-cover object-center"
         priority
+        fetchPriority="high"
         sizes="100vw"
         initial={{ scale: 1 }}
         animate={{ scale: 1.05 }}

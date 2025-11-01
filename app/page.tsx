@@ -10,13 +10,12 @@ import TikTokFeed from "@/components/instagram-feed"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import FAQ from "@/components/home/faq"
 import WhoWeAre from "@/components/home/who-we-are"
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      {/* Hero Section - Full width with gradient */}
-      <div className="relative">
-        <Hero />
+        {/* Hero Section - Full width with gradient */}
+        <div className="relative">
+          <Hero />
         {/* Section Divider */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
       </div>
