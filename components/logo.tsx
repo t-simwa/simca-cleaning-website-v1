@@ -14,7 +14,7 @@ export default function Logo({ className, variant = "default", ...props }: LogoP
         alt="Simca Agencies Logo"
         fill
         className={`object-fit ${variant === "white" ? "brightness-0 invert" : ""}`}
-        sizes="(max-width: 768px) 240px, (max-width: 1024px) 240px, 240px"
+        sizes="(max-width: 768px) 240px, 420px"
         quality={90}
         priority={false}
       />

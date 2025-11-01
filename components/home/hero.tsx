@@ -167,7 +167,7 @@ export default function Hero() {
 
   // Remove carousel logic and use only the first image
   const heroImage = {
-    src: "/home-hero/cleaner-home.jpg",
+    src: "/home-hero/cleaner-home.webp",
     alt: "Professional cleaning services in Kenya"
   }
 
@@ -182,6 +182,7 @@ export default function Hero() {
         priority
         fetchPriority="high"
         sizes="100vw"
+        quality={85}
         initial={{ scale: 1 }}
         animate={{ scale: 1.05 }}
         transition={{ duration: 10, ease: "easeOut" }}
