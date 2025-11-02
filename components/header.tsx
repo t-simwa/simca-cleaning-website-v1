@@ -144,11 +144,11 @@ export default function Header() {
 
       {/* Main Header */}
       <div className="container mx-auto px-3 md:px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 md:h-20 gap-2">
           {/* Logo */}
-          <Link href="/" className="flex items-center group">
+          <Link href="/" className="flex items-center group flex-shrink-0 min-w-0 max-w-[200px] sm:max-w-[240px]">
             <Logo 
-              className="w-60 h-12 md:w-60 md:h-30 transition-transform duration-300 group-hover:scale-105" 
+              className="w-48 h-10 sm:w-60 sm:h-12 md:w-60 md:h-30 transition-transform duration-300 group-hover:scale-105" 
               variant={theme === "dark" ? "white" : "default"} 
             />
             {/* <span className="ml-1 text-sm md:text-lg font-medium text-gray-600 dark:text-gray-300 group-hover:text-add8e6 transition-colors">
@@ -212,7 +212,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-600 dark:text-gray-300 p-1.5 md:p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="md:hidden text-gray-600 dark:text-gray-300 p-1.5 md:p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -236,9 +236,9 @@ export default function Header() {
           >
             {/* Mobile Menu Header */}
             <div className="flex items-center justify-center px-4 py-3 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
-              <Link href="/" className="flex items-center group justify-center w-full" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/" className="flex items-center group justify-center w-full flex-shrink-0" onClick={() => setIsMenuOpen(false)}>
                 <Logo 
-                  className="w-60 h-12 md:w-60 md:h-30 transition-transform duration-300 group-hover:scale-105" 
+                  className="w-48 h-10 sm:w-60 sm:h-12 md:w-60 md:h-30 transition-transform duration-300 group-hover:scale-105" 
                   variant={theme === "dark" ? "white" : "default"} 
                 />
               </Link>

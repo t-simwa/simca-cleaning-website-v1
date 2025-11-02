@@ -8,6 +8,8 @@ import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion } from "framer-motion"
 import ContactForm from "@/components/home/contact-form"
 
+const MotionImage = motion(Image)
+
 export default function LocationsPage() {
   const locations = [
     {
@@ -215,22 +217,24 @@ export default function LocationsPage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}
-        <motion.img
+        <MotionImage
           src={heroImage.src}
           alt={heroImage.alt}
-          className="object-cover object-center w-full h-full absolute inset-0 z-0"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
           initial={{ scale: 1 }}
           animate={{ scale: 1.05 }}
           transition={{ duration: 10, ease: "easeOut" }}
-          style={{ pointerEvents: 'none' }}
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/55 z-10" />
-        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center z-20">
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
             {/* Centered Content */}
             <motion.div
