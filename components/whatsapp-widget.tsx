@@ -23,13 +23,13 @@ export default function WhatsAppWidget() {
 
   const handleWhatsAppClick = () => {
     window.open(
-      "https://wa.me/254700123456?text=Hello%20Simca%20Cleaning%20Company,%20I'd%20like%20to%20request%20a%20quote.",
+      "https://wa.me/254721525901?text=Hello%20Simca%20Cleaning%20Company,%20I'd%20like%20to%20request%20a%20quote.",
       "_blank",
     )
   }
 
   const handlePhoneClick = () => {
-    window.location.href = "tel:+254700123456"
+    window.location.href = "tel:+254721525901"
   }
 
   if (!isVisible) return null
