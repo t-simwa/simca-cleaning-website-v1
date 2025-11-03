@@ -66,7 +66,7 @@ export default function WhoWeAre() {
             <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
               We continue to set standards by offering outstanding cleaning services and are fully committed to delivering quality, affordable, efficient, and reliable cleaning solutions to our ever-growing base of clients. Our mission is to set the benchmark for cleaning excellence in Kenya—helping homes and businesses thrive with a spotless environment.
             </p>
-            <div className="mt-6">
+            <div className="mt-6 hidden">
               <Link 
                 href="/about"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-8 py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-xs sm:text-sm"
