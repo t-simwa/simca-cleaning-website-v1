@@ -234,7 +234,7 @@ export default function LocationsPage() {
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/55" />
-        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center">
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
             {/* Centered Content */}
             <motion.div
@@ -256,7 +256,7 @@ export default function LocationsPage() {
               </motion.div>
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
               >
                 Our Service {" "}
                 <span className="text-fff relative inline-block">
@@ -272,7 +272,7 @@ export default function LocationsPage() {
               </motion.h1>
               <motion.p
                 variants={itemVariants}
-                className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
               >
                 Wherever you call home or do business, Simca Agencies is right there with you—bringing a caring, local touch to every city we serve. Our teams are part of your community, ready to listen, adapt, and deliver the spotless results you deserve. We believe in building real relationships, so you always know who to trust for a cleaner, healthier space.
               </motion.p>
@@ -303,9 +303,9 @@ export default function LocationsPage() {
                     variants={statsVariants}
                     whileHover="hover"
                     whileTap="tap"
-                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                   >
-                    <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <div className="text-xl md:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                       {stat.icon}
                       <span className="group-hover:scale-110 transition-transform duration-300">
                         {stat.value}
@@ -325,7 +325,7 @@ export default function LocationsPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Kenya Map Overview */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20">
+      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -342,13 +342,13 @@ export default function LocationsPage() {
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12 md:mb-16">
+              <div className="text-center mb-10 md:mb-12">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-2 mb-6 md:mb-6 shadow-sm">
                   <MapPin className="w-3 h-3 md:w-4 md:h-4" />
                   Our Presence
                 </span>
                 <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
+                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
                 >
                   <span className="block md:inline md:mb-0 mb-1">Nationwide</span>
                   <span className="text-add8e6 relative inline-block md:inline md:ml-2 block mb-1 md:mb-0">
@@ -363,14 +363,14 @@ export default function LocationsPage() {
                     />
                   </span>
                 </motion.h2>
-                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
                   Wherever you call home or do business, Simca Agencies is right there with you—bringing a caring, local touch to every city we serve. Our teams are part of your community, ready to listen, adapt, and deliver the spotless results you deserve. We believe in building real relationships, so you always know who to trust for a cleaner, healthier space.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                 <div className="order-2 lg:order-1">
-                  <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300">
+                  <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-6 shadow-sm hover:shadow-md transition-all duration-300">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
                       {locations.map((location) => (
                         <Link
@@ -477,7 +477,7 @@ export default function LocationsPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Individual Location Sections */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20 ">
+      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-16 lg:py-20 ">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -492,19 +492,19 @@ export default function LocationsPage() {
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-8 md:mb-16">
+              <div className="text-center mb-10 md:mb-12">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 mb-6 md:mb-6">
                   <MapPin className="w-3 h-3 md:w-4 md:h-4" />
                   Local Expertise
                 </span>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0" >
+                <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0" >
                   Our Service{" "}
                   <span className="text-add8e6 relative">
                     Locations
                     <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
                   </span>
                 </h2>
-                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
                   Each of our locations is staffed with local experts who understand the unique cleaning needs of their community.
                 </p>
               </div>
@@ -513,7 +513,7 @@ export default function LocationsPage() {
                 <div
                   key={location.id}
                   id={location.id}
-                  className="relative py-16 md:py-24 scroll-mt-24"
+                  className="relative py-12 md:py-16 lg:py-20 scroll-mt-24"
                 >
                   {/* Animated gradient background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
@@ -537,7 +537,7 @@ export default function LocationsPage() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
                           >
-                            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300">
+                            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-6 shadow-sm hover:shadow-md transition-all duration-300">
                               <div className="flex items-center gap-4 mb-6">
                                 <motion.div 
                                   className="bg-add8e6/10 p-3 rounded-xl"
