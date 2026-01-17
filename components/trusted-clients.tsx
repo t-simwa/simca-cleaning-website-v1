@@ -198,7 +198,7 @@ export default function TrustedClients() {
 
   return (
     <ScrollAnimation>
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -211,7 +211,7 @@ export default function TrustedClients() {
         </div>
 
         <div className="container mx-auto px-4 relative">
-          <div className="text-center max-w-3xl mx-auto mb-4 md:mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-4 md:mb-12">
             <motion.div 
               className="inline-block mb-6 sm:mb-4 md:mb-6"
               whileHover={{ scale: 1.05 }}
@@ -224,7 +224,7 @@ export default function TrustedClients() {
             </motion.div>
 
             <motion.h2 
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-5 leading-tight tracking-wide"
+              className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-5 leading-tight tracking-wide"
             >
               Proud to Care for Kenya's Leading <span className="text-add8e6 relative inline-block">Organizations
                 <motion.span
@@ -239,7 +239,7 @@ export default function TrustedClients() {
             </motion.h2>
 
             <motion.p 
-              className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-4"
+              className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -290,7 +290,7 @@ export default function TrustedClients() {
                       href={client.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 w-full overflow-hidden border border-gray-200 dark:border-gray-700"
+                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 w-full overflow-hidden border border-gray-200 dark:border-gray-700"
                       aria-label={`Visit ${client.name} website`}
                       onMouseEnter={() => setHoveredClient(index)}
                       onMouseLeave={() => setHoveredClient(null)}
@@ -302,7 +302,7 @@ export default function TrustedClients() {
                       
                       <div className="flex flex-col h-full relative z-10">
                         {/* Client Logo Section */}
-                        <div className="relative h-32 md:h-36 w-full max-w-[240px] mx-auto mb-8">
+                        <div className="relative h-28 md:h-32 w-full max-w-[220px] mx-auto mb-6">
                           <div className="absolute inset-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-sm" />
                           <div className="absolute inset-0 flex items-center justify-center p-4">
                             {!imagesLoaded[client.logo] && (

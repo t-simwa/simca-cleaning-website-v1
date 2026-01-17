@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function WhoWeAre() {
   return (
-    <section className="relative py-12 md:py-20">
+    <section className="relative py-12 md:py-16 lg:py-20">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -17,7 +17,7 @@ export default function WhoWeAre() {
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
       </div>
       <div className="container mx-auto px-4 relative">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16 lg:gap-20">
           {/* Text Column */}
           <div className="w-full md:w-1/2 max-w-3xl md:pl-14 flex flex-col items-center md:items-start text-center md:text-left">
             <div className="mb-6 w-full flex justify-center md:justify-start">
@@ -26,7 +26,7 @@ export default function WhoWeAre() {
                 About Simca
               </span>
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
               <span className="mb-1">Who Are</span>
               <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                 We?
@@ -54,16 +54,16 @@ export default function WhoWeAre() {
                 />
               </div>
             </div>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
               Simca Agencies is a <span className="font-semibold text-gray-800 dark:text-white">registered and professional cleaning services company in Kenya</span>. We deliver customized cleaning solutions for homes, offices, and businesses, always prioritizing quality, reliability, and client satisfaction at affordable costs.
             </p>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
               With over a decade of experience in the cleaning industry, we ensure you always get the best results for all your cleaning needs. We put every effort into giving our clients the best value for money. Our team is made up of skilled and well-trained employees who handle every job with professionalism and care. We strive to use the latest cleaning machine technology for outstanding results every time.
             </p>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
               As a result, we have made a tremendous impact in the lives of people in Nairobi and its environs. That is why we are considered one of the most trusted and best cleaning services companies in Kenya.
             </p>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
               We continue to set standards by offering outstanding cleaning services and are fully committed to delivering quality, affordable, efficient, and reliable cleaning solutions to our ever-growing base of clients. Our mission is to set the benchmark for cleaning excellence in Kenya—helping homes and businesses thrive with a spotless environment.
             </p>
             <div className="mt-6 hidden">

@@ -235,7 +235,7 @@ export default function ServicesOverview() {
   ]
 
   return (
-    <section className="relative py-12 md:py-20">
+    <section className="relative py-12 md:py-16 lg:py-20">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -248,7 +248,7 @@ export default function ServicesOverview() {
       </div>
 
       <div className="container mx-auto px-4 relative">
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 mt-0">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12 mt-0">
           <motion.div 
             className="inline-block mb-6 sm:mb-4 md:mb-6 mt-0 !mt-0"
             whileHover={undefined}
@@ -261,7 +261,7 @@ export default function ServicesOverview() {
           </motion.div>
 
           <motion.h2 
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
+            className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
           >
             <span className="block mb-1">Affordable, Professional</span>
             <span className="text-add8e6 relative inline-block block mb-1 ml-2">
@@ -279,7 +279,7 @@ export default function ServicesOverview() {
           </motion.h2>
 
           <motion.p 
-            className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-3"
+            className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -309,7 +309,7 @@ export default function ServicesOverview() {
                   </div>
                   <div className="flex flex-col h-full relative z-10">
                     {/* Service Image */}
-                    <div className="relative w-full h-80 md:h-96 lg:h-[22rem] mb-10 rounded-lg overflow-hidden">
+                    <div className="relative w-full h-80 md:h-96 lg:h-[20rem] mb-8 rounded-lg overflow-hidden">
                       <Image
                         src={service.image}
                         alt={service.title}
@@ -321,22 +321,22 @@ export default function ServicesOverview() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                     </div>
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center justify-between mb-5">
                       <motion.div 
-                        className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl transition-transform duration-500"
+                        className="p-2 md:p-2.5 bg-add8e6/10 rounded-lg md:rounded-xl transition-transform duration-500"
                       >
                         {React.createElement(service.icon, { 
-                          className: 'h-7 w-7 md:h-8 md:w-8 text-add8e6'
+                          className: 'h-6 w-6 md:h-7 md:w-7 text-add8e6'
                         })}
                       </motion.div>
                     </div>
                     <motion.h3 
-                      className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
+                      className="text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
                     >
                       {service.title}
                     </motion.h3>
                     <motion.p 
-                      className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-3 md:mb-5"
+                      className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-3 md:mb-4"
                     >
                       {service.description}
                     </motion.p>

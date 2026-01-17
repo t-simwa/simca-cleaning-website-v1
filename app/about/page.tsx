@@ -65,7 +65,7 @@ export default function AboutPage() {
   // Cards data for the "Our Mission & Values" section
   const cards = [
     {
-      icon: <Users className="h-7 w-7 md:h-8 md:w-8 text-add8e6" />,
+      icon: <Users className="h-6 w-6 md:h-7 md:w-7 text-add8e6" />,
       title: "A Personal Touch",
       description: "We treat your space with the same care we'd give our own. Our friendly, reliable team gets to know you and your needs, so we can deliver a clean that's just right for you.",
       items: [
@@ -75,7 +75,7 @@ export default function AboutPage() {
       ]
     },
     {
-      icon: <Wallet className="h-7 w-7 md:h-8 md:w-8 text-add8e6" />,
+      icon: <Wallet className="h-6 w-6 md:h-7 md:w-7 text-add8e6" />,
       title: "Honest & Fair",
       description: "We believe in clear, upfront pricing with no surprises. You get top-quality service at a fair price, so you can enjoy a clean home or office without any stress.",
       items: [
@@ -85,7 +85,7 @@ export default function AboutPage() {
       ]
     },
     {
-      icon: <Handshake className="h-7 w-7 md:h-8 md:w-8 text-add8e6" />,
+      icon: <Handshake className="h-6 w-6 md:h-7 md:w-7 text-add8e6" />,
       title: "Reliable & Trustworthy",
       description: "Your peace of mind is our priority. Our team is carefully vetted, trained, and dedicated to delivering spotless results you can count on, every single time.",
       items: [
@@ -181,7 +181,7 @@ export default function AboutPage() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/55" />
 
-        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center">
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
             {/* Centered Content */}
             <motion.div
@@ -192,7 +192,7 @@ export default function AboutPage() {
             >
               <motion.div
                 variants={itemVariants}
-                className="inline-block mb-6 sm:mb-4 md:mb-10"
+                className="inline-block mb-6 sm:mb-4 md:mb-8"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -204,7 +204,7 @@ export default function AboutPage() {
 
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
               >
                 About{" "}
                 <span className="text-fff relative inline-block">
@@ -221,7 +221,7 @@ export default function AboutPage() {
 
               <motion.p
                 variants={itemVariants}
-                className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
               >
                 We started Simca in 2015 with a simple goal: to offer a cleaning service you can truly count on. We're not just about cleaning; we're about creating a healthier, more comfortable space for you and your family. We're your local team, dedicated to providing a personal touch and a spotless result, every single time.
               </motion.p>
@@ -229,7 +229,7 @@ export default function AboutPage() {
               {/* Quick stats with enhanced micro-interactions */}
               <motion.div 
                 variants={itemVariants}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-16"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 max-w-3xl mx-auto mb-8 md:mb-12"
               >
                 {[
                   { 
@@ -253,9 +253,9 @@ export default function AboutPage() {
                     variants={statsVariants}
                     whileHover="hover"
                     whileTap="tap"
-                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                   >
-                    <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <div className="text-xl md:text-xl lg:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                       {stat.icon}
                       <span className="group-hover:scale-110 transition-transform duration-300">
                         <CountUp end={stat.value} duration={1.2} />
@@ -278,7 +278,7 @@ export default function AboutPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Mission & Values */}
-      <div className="relative py-12 md:py-20">
+      <div className="relative py-12 md:py-16 lg:py-20">
         {/* Background matching home page pattern */}
         <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
           <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
@@ -288,7 +288,7 @@ export default function AboutPage() {
           <ScrollAnimation>
             <div className="max-w-6xl mx-auto">
               {/* Section Header */}
-              <div className="text-center mb-8 md:mb-16">
+              <div className="text-center mb-8 md:mb-12">
                 <motion.div 
                   className="inline-block mb-6 sm:mb-4 md:mb-6 mt-0 !mt-0"
                   whileHover={{ scale: 1.05 }}
@@ -300,7 +300,7 @@ export default function AboutPage() {
                 </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
+                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
                 >
                   Our Mission &{" "}
                   <motion.span 
@@ -316,7 +316,7 @@ export default function AboutPage() {
                   </motion.span>
                 </motion.h2>
                 <motion.p 
-                  className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-6"
+                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -328,7 +328,7 @@ export default function AboutPage() {
               {/* Values Grid */}
               <div className="relative">
                 {/* Mobile Carousel / Desktop Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   {/* Mobile View - Single Card */}
                   {isMobile ? (
                     <AnimatePresence mode="wait">
@@ -338,7 +338,7 @@ export default function AboutPage() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -100 }}
                         transition={{ duration: 0.5 }}
-                        className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden"
+                        className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden"
                       >
                         {/* Glassmorphism effect */}
                         <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
@@ -350,7 +350,7 @@ export default function AboutPage() {
 
                         <div className="flex flex-col h-full relative z-10">
                           <motion.div 
-                            className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-6"
+                            className="p-2 md:p-2.5 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-5"
                             whileHover={{ 
                               scale: 1.15,
                               rotate: [0, -5, 5, 0],
@@ -360,16 +360,16 @@ export default function AboutPage() {
                             {getCurrentCard().icon}
                           </motion.div>
                           
-                          <motion.h3 
-                            className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
-                            whileHover={{ x: 4 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            {getCurrentCard().title}
-                          </motion.h3>
-                          
-                          <motion.p 
-                            className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-6"
+                            <motion.h3 
+                              className="text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
+                              whileHover={{ x: 4 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              {getCurrentCard().title}
+                            </motion.h3>
+                            
+                            <motion.p 
+                              className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-5"
                             whileHover={{ x: 4 }}
                             transition={{ duration: 0.2 }}
                           >
@@ -413,7 +413,7 @@ export default function AboutPage() {
                       {cards.map((card, index) => (
                         <motion.div 
                           key={index}
-                          className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden"
+                          className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden"
                           whileHover={{ y: -5 }}
                           transition={{ duration: 0.2 }}
                         >
@@ -427,7 +427,7 @@ export default function AboutPage() {
 
                           <div className="flex flex-col h-full relative z-10">
                             <motion.div 
-                              className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-6"
+                              className="p-2 md:p-2.5 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-5"
                               whileHover={{ 
                                 scale: 1.15,
                                 rotate: [0, -5, 5, 0],
@@ -438,7 +438,7 @@ export default function AboutPage() {
                             </motion.div>
                             
                             <motion.h3 
-                              className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
+                              className="text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
                               whileHover={{ x: 4 }}
                               transition={{ duration: 0.2 }}
                             >
@@ -446,7 +446,7 @@ export default function AboutPage() {
                             </motion.h3>
                             
                             <motion.p 
-                              className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-6"
+                              className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-5"
                               whileHover={{ x: 4 }}
                               transition={{ duration: 0.2 }}
                             >
@@ -544,7 +544,7 @@ export default function AboutPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Company History */}
-      <div className="relative py-12 md:py-20">
+      <div className="relative py-12 md:py-16 lg:py-20">
         {/* Background matching home page pattern */}
         <div className="absolute inset-0 bg-white dark:bg-gray-900">
           <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
@@ -553,7 +553,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8 md:mb-16">
+              <div className="text-center mb-8 md:mb-12">
                 <motion.div 
                   className="inline-block mb-6 sm:mb-4 md:mb-6 mt-0 !mt-0"
                   whileHover={{ scale: 1.05 }}
@@ -565,7 +565,7 @@ export default function AboutPage() {
                 </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight"
+                  className="text-xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -584,7 +584,7 @@ export default function AboutPage() {
                   </motion.span>
                 </motion.h2>
                 <motion.p 
-                  className="text-sm md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
+                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -612,7 +612,7 @@ export default function AboutPage() {
                       whileHover={{ scale: 1.2 }}
                     />
                     <motion.div 
-                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-5 md:p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                       whileHover={{ 
                         y: -5,
                         transition: { duration: 0.2 }
@@ -664,7 +664,7 @@ export default function AboutPage() {
                       whileHover={{ scale: 1.2 }}
                     />
                     <motion.div 
-                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-5 md:p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                       whileHover={{ 
                         y: -5,
                         transition: { duration: 0.2 }
@@ -716,7 +716,7 @@ export default function AboutPage() {
                       whileHover={{ scale: 1.2 }}
                     />
                     <motion.div 
-                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-5 md:p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                       whileHover={{ 
                         y: -5,
                         transition: { duration: 0.2 }
@@ -768,7 +768,7 @@ export default function AboutPage() {
                       whileHover={{ scale: 1.2 }}
                     />
                     <motion.div 
-                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-5 md:p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                       whileHover={{ 
                         y: -5,
                         transition: { duration: 0.2 }
@@ -816,7 +816,7 @@ export default function AboutPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* National Footprint */}
-      <div className="relative py-12 md:py-20">
+      <div className="relative py-12 md:py-16 lg:py-20">
         {/* Background matching home page pattern */}
         <div className="absolute inset-0 bg-gray-50 dark:bg-gray-800/50">
           <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px] opacity-5" />
@@ -825,7 +825,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-8 md:mb-16">
+              <div className="text-center mb-8 md:mb-12">
                 <motion.div 
                   className="inline-block mb-3 sm:mb-4 md:mb-6 mt-0 !mt-0"
                   whileHover={{ scale: 1.05 }}
@@ -837,7 +837,7 @@ export default function AboutPage() {
                 </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight"
+                  className="text-xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -856,7 +856,7 @@ export default function AboutPage() {
                   </motion.span>
                 </motion.h2>
                 <motion.p 
-                  className="text-sm md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
+                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -894,10 +894,10 @@ export default function AboutPage() {
                   </div>
                 </motion.div>
 
-                <div className="space-y-6 md:space-y-8">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                <div className="space-y-5 md:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
                     <motion.div 
-                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300"
+                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-5 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5 }}
@@ -1054,7 +1054,7 @@ export default function AboutPage() {
                   </div>
 
                   <motion.div 
-                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300"
+                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-xl transition-all duration-300"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
@@ -1067,11 +1067,11 @@ export default function AboutPage() {
                     <div className="relative z-10">
                       <div className="flex items-center gap-4">
                         <motion.div 
-                          className="bg-add8e6/10 p-3 rounded-lg group-hover:scale-110 transition-transform duration-300"
+                          className="bg-add8e6/10 p-2.5 md:p-3 rounded-lg group-hover:scale-110 transition-transform duration-300"
                           whileHover={{ rotate: 360 }}
                           transition={{ duration: 0.5 }}
                         >
-                          <MapPin className="h-6 w-6 text-add8e6" />
+                          <MapPin className="h-5 w-5 md:h-6 md:w-6 text-add8e6" />
                         </motion.div>
                         <div>
                           <h3 className="font-semibold text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors md:text-base">Coming Soon to a Town Near You!</h3>
@@ -1092,7 +1092,7 @@ export default function AboutPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* CEO Message */}
-      <div className="relative py-12 md:py-20">
+      <div className="relative py-12 md:py-16 lg:py-20">
         {/* Background matching home page pattern */}
         <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
           <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
@@ -1101,7 +1101,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8 md:mb-16">
+              <div className="text-center mb-8 md:mb-12">
                 <motion.div 
                   className="inline-block mb-3 sm:mb-4 md:mb-6 mt-0 !mt-0"
                   whileHover={{ scale: 1.05 }}
@@ -1113,7 +1113,7 @@ export default function AboutPage() {
                 </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight"
+                  className="text-xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -1139,7 +1139,7 @@ export default function AboutPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 p-6 md:p-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 p-5 md:p-8">
                   {/* CEO Image */}
                   <motion.div 
                     className="relative h-full min-h-[300px] md:min-h-[500px] rounded-xl overflow-hidden group"
@@ -1185,7 +1185,7 @@ export default function AboutPage() {
 
                     <div className="space-y-4 md:space-y-6">
                       <motion.div 
-                        className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:shadow-xl transition-all duration-300"
+                        className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-4 md:p-5 shadow-sm hover:shadow-xl transition-all duration-300"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}

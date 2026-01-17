@@ -70,7 +70,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative py-12 md:py-20">
+    <section className="relative py-12 md:py-16 lg:py-20">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(62,65,145,0.08),transparent_70%)] animate-pulse" />
@@ -82,19 +82,19 @@ export default function FAQ() {
         </div>
       </div>
       <div className="container mx-auto px-4 relative">
-        <div className="text-center max-w-3xl mx-auto mb-4 md:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-4 md:mb-12">
           <div className="inline-block mb-6 sm:mb-4 md:mb-6">
             <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm">
               <HelpCircle className="w-4 h-4" />
               Frequently Asked Questions
             </span>
           </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
+          <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
             Everything You Need to Know About <span className="text-add8e6 relative inline-block">Our Services
               <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
             </span>
           </h2>
-          <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-6">
+          <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6">
             Answers to the most common questions about our cleaning, guarantees, pricing, and flexibility.
           </p>
           <p className="text-xs md:text-sm text-add8e6 dark:text-add8e6/90 font-medium tracking-wide">
@@ -108,7 +108,7 @@ export default function FAQ() {
               className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-0 shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden transition-all duration-200 hover:shadow-lg hover:scale-[1.015]"
             >
               <button
-                className={`w-full flex justify-between items-center text-left text-sm md:text-base font-medium text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-add8e6/50 transition-colors px-8 py-6 md:py-7 md:px-10
+                className={`w-full flex justify-between items-center text-left text-sm md:text-base font-medium text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-add8e6/50 transition-colors px-6 py-5 md:py-6 md:px-8
                   ${openIndex === idx ? 'bg-add8e6/10 dark:bg-add8e6/10 text-add8e6' : 'hover:bg-add8e6/5 hover:text-add8e6 dark:hover:bg-add8e6/5'}`}
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 aria-expanded={openIndex === idx}
@@ -123,7 +123,7 @@ export default function FAQ() {
               </button>
               <div
                 id={`faq-answer-${idx}`}
-                className={`px-8 pb-8 pt-8 text-gray-600 dark:text-gray-300 text-sm md:text-base transition-all duration-300 ${openIndex === idx ? 'block' : 'hidden'}`}
+                className={`px-6 pb-6 pt-6 text-gray-600 dark:text-gray-300 text-sm md:text-base transition-all duration-300 ${openIndex === idx ? 'block' : 'hidden'}`}
               >
                 {faq.answer}
               </div>

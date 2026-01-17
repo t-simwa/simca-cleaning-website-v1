@@ -14,7 +14,7 @@ export default function WhyChooseUs() {
   const scale = useTransform(scrollYProgress, [0, 0.2], [0.8, 1])
 
   return (
-    <section className="relative py-12 md:py-20">
+    <section className="relative py-12 md:py-16 lg:py-20">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -26,14 +26,14 @@ export default function WhyChooseUs() {
       </div>
       <div className="container mx-auto px-4 relative">
         <motion.div 
-          className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
+          className="text-center max-w-3xl mx-auto mb-10 md:mb-12"
           style={{ opacity, scale }}
         >
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6/20 to-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6 backdrop-blur-sm">
             <Sparkles className="w-4 h-4" />
             Why Choose Simca Agencies
           </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
+          <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
             <span className="block mb-1">Why Choose Simca?</span>
             <span className="inline-block block mb-1 ml-2">
               Cleaning You Can <span className="text-add8e6 relative inline-block">Trust
@@ -48,11 +48,11 @@ export default function WhyChooseUs() {
               </span>
             </span>
           </h2>
-          <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide">
+          <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide">
             We care for your space like it's our own. Friendly service, fair prices, and a spotless result—every time.
           </p>
         </motion.div>
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-xs sm:text-sm md:text-base font-normal">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-6 md:space-y-8 text-gray-700 dark:text-gray-200 text-xs sm:text-sm md:text-base font-normal">
           {[
             {
               title: "Personalized Cleaning, Every Time:",
@@ -84,10 +84,10 @@ export default function WhyChooseUs() {
               icon: <Unlock className="w-5 h-5 text-add8e6 flex-shrink-0" />,
               text: "We want you to stay with us because you love our service, not because you're locked into a contract. That's why we offer total flexibility: you can pause, cancel, or change your cleaning schedule at any time, for any reason. There are no hidden fees or long-term commitments—just honest, straightforward service. We make it easy to get the help you need, when you need it."
             }
-          ].map((para, i) => (
+                          ].map((para, i) => (
                           <motion.div 
                             key={i} 
-              className="relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2"
+              className="relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

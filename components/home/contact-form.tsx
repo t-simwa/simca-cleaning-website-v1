@@ -65,7 +65,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="relative py-12 md:py-20">
+    <section className="relative py-12 md:py-16 lg:py-20">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -78,25 +78,25 @@ export default function ContactForm() {
         </div>
 
         <div className="container mx-auto px-4 relative">
-          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
             <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-4 md:mb-6">
               <MessageSquare className="w-4 h-4" />
               Contact Us
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
               Get in{" "}
               <span className="text-add8e6 relative">
                 Touch
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
               </span>
             </h2>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
               Have questions about our services? Get a free cleaning service quote today! We're here to help.
             </p>
           </div>
 
           <div className="max-w-2xl mx-auto">
-          <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="group">
                 <label htmlFor="name" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5 transition-colors duration-200 group-focus-within:text-add8e6">

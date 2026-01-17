@@ -200,7 +200,7 @@ export default function Hero() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/55" />
 
-      <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-24 lg:py-32 relative flex-grow flex flex-col justify-center">
+      <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 relative flex-grow flex flex-col justify-center">
         <div className="flex flex-col items-center">
           {/* Centered Content */}
           <motion.div
@@ -211,7 +211,7 @@ export default function Hero() {
           >
             <motion.div 
               variants={itemVariants}
-              className="inline-block mb-6 sm:mb-4 md:mb-12"
+              className="inline-block mb-6 sm:mb-4 md:mb-8"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -223,7 +223,7 @@ export default function Hero() {
 
             <motion.h1 
               variants={itemVariants}
-              className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+              className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
             >
               Experience a Cleaner, Healthier Space with{" "}
               <span className="text-fff relative inline-block">
@@ -241,7 +241,7 @@ export default function Hero() {
 
             {/* LCP Optimized Paragraph - Renders immediately */}
             <p 
-              className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto opacity-100"
+              className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto opacity-100"
               style={{ 
                 willChange: 'auto',
               }}
@@ -252,7 +252,7 @@ export default function Hero() {
             {/* Quick stats with enhanced micro-interactions */}
             <motion.div 
               variants={itemVariants}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-16"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 max-w-3xl mx-auto mb-8 md:mb-12"
             >
               {[
                 { 
@@ -276,9 +276,9 @@ export default function Hero() {
                   variants={statsVariants}
                   whileHover="hover"
                   whileTap="tap"
-                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                 >
-                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                  <div className="text-xl md:text-xl lg:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                     {stat.icon}
                     <span className="group-hover:scale-110 transition-transform duration-300">
                       <CountUp end={stat.value} duration={1.2} />
