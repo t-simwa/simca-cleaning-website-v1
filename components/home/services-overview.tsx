@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Home, Building2, HardHat, SprayCanIcon as Spray, ShieldCheck, Sofa, ArrowRight, CheckCircle2, Star, ChevronLeft, ChevronRight, Sparkles, Sun, Car, Bed, Trash2, Container, Droplets, LucideProps } from "lucide-react"
+import { Home, Building2, HardHat, SprayCanIcon as Spray, ShieldCheck, Sofa, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Sparkles, Sun, Car, Bed, LucideProps } from "lucide-react"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import React from "react"
@@ -22,7 +22,6 @@ type Service = {
 }
 
 export default function ServicesOverview() {
-  const [hoveredService, setHoveredService] = useState<number | null>(null)
   const [activeTab, setActiveTab] = useState("all")
   const [currentPage, setCurrentPage] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
@@ -289,114 +288,71 @@ export default function ServicesOverview() {
         </div>
 
         {/* Service Cards */}
-        <div className="relative max-w-7xl mx-auto">
+        <div className="relative max-w-6xl mx-auto">
           {/* Desktop: Show all cards, no carousel or navigation */}
           {!isMobile && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
               {filteredServices.map((service, index) => (
                 <Link
                   key={index}
                   href={service.link}
-                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 w-full overflow-hidden border border-gray-200 dark:border-gray-700"
-                  onMouseEnter={() => setHoveredService(index)}
-                  onMouseLeave={() => setHoveredService(null)}
+                  className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 w-full overflow-hidden border border-gray-100 dark:border-gray-800/50"
                 >
-                  {/* Glassmorphism effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50 rounded-xl" />
-                  {/* Subtle pattern overlay */}
-                  <div className="absolute inset-0 opacity-5 rounded-xl">
-                    <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                  </div>
                   <div className="flex flex-col h-full relative z-10">
-                    {/* Service Image */}
-                    <div className="relative w-full h-80 md:h-96 lg:h-[20rem] mb-8 rounded-lg overflow-hidden">
+                    {/* Service Image - Compact and elegant */}
+                    <div className="relative w-full h-32 mb-3 rounded-md overflow-hidden bg-gray-100 dark:bg-gray-800/50">
                       <Image
                         src={service.image}
                         alt={service.title}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 840px"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         quality={85}
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
+                      {/* Icon overlay - positioned top right */}
+                      <div className="absolute top-2 right-2">
+                        <motion.div 
+                          className="relative"
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90 rounded-md blur-sm" />
+                            <div className="relative p-1.5 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-md border border-add8e6/20">
+                              {React.createElement(service.icon, { 
+                                className: 'h-3 w-3 text-add8e6'
+                              })}
+                            </div>
+                          </div>
+                        </motion.div>
+                      </div>
                     </div>
-                    <div className="flex items-center justify-between mb-5">
-                      <motion.div 
-                        className="p-2 md:p-2.5 bg-add8e6/10 rounded-lg md:rounded-xl transition-transform duration-500"
-                      >
-                        {React.createElement(service.icon, { 
-                          className: 'h-6 w-6 md:h-7 md:w-7 text-add8e6'
-                        })}
-                      </motion.div>
-                    </div>
-                    <motion.h3 
-                      className="text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
+
+                    {/* Title */}
+                    <h3 
+                      className="text-sm font-semibold text-gray-900 dark:text-white mb-1.5 group-hover:text-add8e6 transition-colors duration-200 leading-tight"
                     >
                       {service.title}
-                    </motion.h3>
-                    <motion.p 
-                      className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-3 md:mb-4"
+                    </h3>
+
+                    {/* Description */}
+                    <p 
+                      className="text-xs text-gray-600 dark:text-gray-400 mb-3 leading-relaxed"
                     >
                       {service.description}
-                    </motion.p>
-                    {/* Features list */}
-                    <div className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
-                      <motion.h4 
-                        className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-4s"
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
+                    </p>
+
+                    {/* CTA Link */}
+                    <div className="mt-auto pt-2 border-t border-gray-100 dark:border-gray-800/50">
+                      <span 
+                        className="text-xs text-add8e6 font-medium group-hover:gap-1.5 flex items-center gap-1 transition-all duration-200"
                       >
-                        Our Services Include:
-                      </motion.h4>
-                      {service.features.map((feature, i) => (
-                        <motion.div 
-                          key={i} 
-                          className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
-                          whileHover={{ 
-                            x: 4,
-                            scale: 1.02,
-                            backgroundColor: 'rgba(173, 216, 230, 0.1)',
-                            transition: { duration: 0.2 }
-                          }}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: i * 0.1 }}
-                        >
-                          <motion.div
-                            whileHover={{ 
-                              scale: 1.2,
-                              rotate: 360,
-                              transition: { duration: 0.5 }
-                            }}
-                          >
-                            <CheckCircle2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6 flex-shrink-0" />
-                          </motion.div>
-                          {feature}
-                        </motion.div>
-                      ))}
+                        Learn more
+                        <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                      </span>
                     </div>
-                    {/* Availability */}
-                    <motion.div 
-                      className="mt-auto pt-3 md:pt-4 border-t border-gray-100 dark:border-gray-700"
-                    >
-                      <div className="flex flex-col gap-2">
-                        <motion.span 
-                          className="text-add8e6 font-medium group-hover:underline flex items-center gap-1 md:gap-2 text-xs md:text-sm"
-                        >
-                          Learn more
-                          <motion.div>
-                            <ArrowRight className="w-4 h-4 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                          </motion.div>
-                        </motion.span>
-                        <motion.span 
-                          className="text-xs md:text-sm text-gray-500 dark:text-gray-400"
-                        >
-                          {service.availability}
-                        </motion.span>
-                      </div>
-                    </motion.div>
                   </div>
                 </Link>
               ))}
@@ -405,21 +361,6 @@ export default function ServicesOverview() {
           {/* Mobile: Keep carousel and navigation */}
           {isMobile && (
             <>
-              {/* Navigation Buttons - Hidden on mobile */}
-              <button
-                onClick={prevPage}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
-                aria-label="Previous service"
-              >
-                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
-              </button>
-              <button
-                onClick={nextPage}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
-                aria-label="Next service"
-              >
-                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
-              </button>
               {/* Carousel Container */}
               <div className="overflow-visible">
                 <AnimatePresence mode="wait">
@@ -429,25 +370,17 @@ export default function ServicesOverview() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -100 }}
                     transition={{ duration: 0.5 }}
-                    className="grid grid-cols-1 gap-4"
+                    className="grid grid-cols-1 gap-3"
                   >
                     {getCurrentCards().map((service, index) => (
                       <Link
                         key={`${currentPage}-${index}`}
                         href={service.link}
-                        className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 w-full overflow-hidden border border-gray-200 dark:border-gray-700"
-                        onMouseEnter={() => setHoveredService(index)}
-                        onMouseLeave={() => setHoveredService(null)}
+                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 w-full overflow-hidden border border-gray-100 dark:border-gray-800/50"
                       >
-                        {/* Glassmorphism effect */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50 rounded-xl" />
-                        {/* Subtle pattern overlay */}
-                        <div className="absolute inset-0 opacity-5 rounded-xl">
-                          <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                        </div>
                         <div className="flex flex-col h-full relative z-10">
-                          {/* Service Image */}
-                          <div className="relative w-full h-80 mb-10 rounded-lg overflow-hidden">
+                          {/* Service Image - Compact and elegant */}
+                          <div className="relative w-full h-32 mb-3 rounded-md overflow-hidden bg-gray-100 dark:bg-gray-800/50">
                             <Image
                               src={service.image}
                               alt={service.title}
@@ -457,84 +390,49 @@ export default function ServicesOverview() {
                               quality={85}
                               loading="lazy"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
+                            {/* Icon overlay - positioned top right */}
+                            <div className="absolute top-2 right-2">
+                              <motion.div 
+                                className="relative"
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ duration: 0.2 }}
+                              >
+                                <div className="relative">
+                                  <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90 rounded-md blur-sm" />
+                                  <div className="relative p-1.5 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-md border border-add8e6/20">
+                                    {React.createElement(service.icon, { 
+                                      className: 'h-3 w-3 text-add8e6'
+                                    })}
+                                  </div>
+                                </div>
+                              </motion.div>
+                            </div>
                           </div>
-                          <div className="flex items-center justify-between mb-6">
-                            <motion.div 
-                              className="p-2 bg-add8e6/10 rounded-lg transition-transform duration-500"
-                            >
-                              {React.createElement(service.icon, { 
-                                className: 'h-7 w-7 text-add8e6'
-                              })}
-                            </motion.div>
-                          </div>
-                          <motion.h3 
-                            className="text-sm font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-add8e6 transition-colors"
+
+                          {/* Title */}
+                          <h3 
+                            className="text-sm font-semibold text-gray-900 dark:text-white mb-1.5 group-hover:text-add8e6 transition-colors duration-200 leading-tight"
                           >
                             {service.title}
-                          </motion.h3>
-                          <motion.p 
-                            className="text-xs text-gray-600 dark:text-gray-400 mb-3"
+                          </h3>
+
+                          {/* Description */}
+                          <p 
+                            className="text-xs text-gray-600 dark:text-gray-400 mb-3 leading-relaxed"
                           >
                             {service.description}
-                          </motion.p>
-                          {/* Features list */}
-                          <div className="space-y-1.5 mb-4">
-                            <motion.h4 
-                              className="text-xs font-semibold text-gray-800 dark:text-gray-200 mb-4s"
-                              initial={{ opacity: 0, y: -10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 0.1 }}
+                          </p>
+
+                          {/* CTA Link */}
+                          <div className="mt-auto pt-2 border-t border-gray-100 dark:border-gray-800/50">
+                            <span 
+                              className="text-xs text-add8e6 font-medium group-hover:gap-1.5 flex items-center gap-1 transition-all duration-200"
                             >
-                              Our Services Include:
-                            </motion.h4>
-                            {service.features.map((feature, i) => (
-                              <motion.div 
-                                key={i} 
-                                className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
-                                whileHover={{ 
-                                  x: 4,
-                                  scale: 1.02,
-                                  backgroundColor: 'rgba(173, 216, 230, 0.1)',
-                                  transition: { duration: 0.2 }
-                                }}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: i * 0.1 }}
-                              >
-                                <motion.div
-                                  whileHover={{ 
-                                    scale: 1.2,
-                                    rotate: 360,
-                                    transition: { duration: 0.5 }
-                                  }}
-                                >
-                                  <CheckCircle2 className="w-4 h-4 text-add8e6 flex-shrink-0" />
-                                </motion.div>
-                                {feature}
-                              </motion.div>
-                            ))}
+                              Learn more
+                              <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                            </span>
                           </div>
-                          {/* Availability */}
-                          <motion.div 
-                            className="mt-auto pt-3 border-t border-gray-100 dark:border-gray-700"
-                          >
-                            <div className="flex flex-col gap-2">
-                              <motion.span 
-                                className="text-add8e6 font-medium group-hover:underline flex items-center gap-1 text-xs"
-                              >
-                                Learn more
-                                <motion.div>
-                                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                                </motion.div>
-                              </motion.span>
-                              <motion.span 
-                                className="text-xs text-gray-500 dark:text-gray-400"
-                              >
-                                {service.availability}
-                              </motion.span>
-                            </div>
-                          </motion.div>
                         </div>
                       </Link>
                     ))}
@@ -542,7 +440,7 @@ export default function ServicesOverview() {
                 </AnimatePresence>
               </div>
               {/* Mobile Navigation */}
-              <div className="flex flex-col items-center gap-4 mt-8 md:hidden">
+              <div className="flex flex-col items-center gap-4 mt-6 md:hidden">
                 {/* Mobile Pagination Dots */}
                 <div className="hidden">
                   {Array.from({ length: filteredServices.length }).map((_, index) => (
@@ -562,20 +460,20 @@ export default function ServicesOverview() {
                 <div className="flex items-center gap-4">
                   <motion.button
                     onClick={prevPage}
-                    className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
+                    className="p-2.5 rounded-full bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/30 active:scale-95 border border-gray-100 dark:border-gray-800"
                     aria-label="Previous service"
                   >
-                    <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+                    <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                   </motion.button>
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                  <span className="text-xs text-gray-600 dark:text-gray-400">
                     {currentPage + 1} of {filteredServices.length}
                   </span>
                   <motion.button
                     onClick={nextPage}
-                    className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
+                    className="p-2.5 rounded-full bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/30 active:scale-95 border border-gray-100 dark:border-gray-800"
                     aria-label="Next service"
                   >
-                    <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+                    <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                   </motion.button>
                 </div>
               </div>
