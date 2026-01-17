@@ -101,7 +101,7 @@ export default function ContactPage() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/55 z-10" />
 
-        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center z-20">
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 relative flex-grow flex flex-col justify-center z-20">
           <div className="flex flex-col items-center">
             {/* Centered Content */}
             <motion.div
@@ -133,7 +133,7 @@ export default function ContactPage() {
 
               <motion.h1
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
               >
                 Contact{' '}
                 <span className="text-fff relative inline-block">
@@ -150,7 +150,7 @@ export default function ContactPage() {
 
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
               >
                 We're here to make connecting with us easy and welcoming—no matter your cleaning needs or questions. Whether you're looking for a one-time service or ongoing support, our friendly team is always ready to listen, offer honest advice, and create a solution that fits your unique space. Reach out today and experience the personal care, attention, and reliability that set Simca Agencies apart.
               </motion.p>
@@ -163,9 +163,9 @@ export default function ContactPage() {
                 <motion.div
                   whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)" }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                 >
-                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                  <div className="text-xl md:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                     <MapPin className="w-4 h-4 text-white" />
                     <span className="group-hover:scale-110 transition-transform duration-300">4</span>
                   </div>
@@ -176,9 +176,9 @@ export default function ContactPage() {
                 <motion.div
                   whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)" }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                 >
-                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                  <div className="text-xl md:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                     <Clock className="w-4 h-4 text-white" />
                     <span className="group-hover:scale-110 transition-transform duration-300">24/7</span>
                   </div>
@@ -189,9 +189,9 @@ export default function ContactPage() {
                 <motion.div
                   whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)" }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                 >
-                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                  <div className="text-xl md:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                     <Sparkles className="w-4 h-4 text-white" />
                     <span className="group-hover:scale-110 transition-transform duration-300">1hr</span>
                   </div>
@@ -208,7 +208,7 @@ export default function ContactPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Contact Form and Info */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20">
+      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -223,7 +223,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-8 md:mb-16">
+              <div className="text-center mb-10 md:mb-12">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm mb-6">
                   <MessageCircle className="w-4 h-4" />
                   Reach Out
@@ -232,7 +232,7 @@ export default function ContactPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
+                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
                 >
                   Get in{' '}
                   <span className="text-add8e6 relative inline-block tracking-wider">
@@ -246,14 +246,14 @@ export default function ContactPage() {
                     />
                   </span>
                 </motion.h2>
-                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
+                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
                   We're here to make your experience easy and personal—whether you have a quick question or need a custom cleaning plan. Reach out and let us know what matters most to you. We'll listen, guide you honestly, and make sure you always feel valued and cared for.
                 </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8 md:gap-16">
                 {/* Contact Form Section */}
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-6 md:p-8">
+                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-6 md:p-6">
                   <div className="mb-6 md:mb-8">
                     <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white mb-6 md:mb-10 flex items-center gap-2">
                       <MessageCircle className="h-5 w-5 md:h-6 md:w-6 text-add8e6" />
@@ -267,7 +267,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Contact Information Section */}
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-6 md:p-8 flex flex-col">
+                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-6 md:p-6 flex flex-col">
                   <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white mb-6 md:mb-10 flex items-center gap-2">
                     <Phone className="h-5 w-5 md:h-6 md:w-6 text-add8e6" />
                     Quick Contact
@@ -336,7 +336,7 @@ export default function ContactPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Map Section */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20">
+      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -351,12 +351,12 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-8 md:mb-16">
+              <div className="text-center mb-10 md:mb-12">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 mb-3 md:mb-4 shadow-sm">
                   <MapPin className="w-3 h-3 md:w-4 md:h-4" />
                   Find Us
                 </span>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide">
+                <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide">
                   Our{" "}
                   <span className="text-add8e6 relative inline-block tracking-wider">
                     Locations
@@ -369,7 +369,7 @@ export default function ContactPage() {
                     />
                   </span>
                 </h2>
-                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   Wherever you are in Kenya, you're never far from a Simca team that cares. Drop by any of our branches or reach out—our friendly experts are always ready to listen, answer your questions, and help you find the perfect cleaning solution for your space.
                 </p>
               </div>
