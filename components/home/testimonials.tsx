@@ -1,10 +1,15 @@
 "use client"
 
-import Image from "next/image"
-import { Star, ArrowRight, Sparkles, TrendingUp, CheckCircle2, Home, Building2, Factory, ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
+import React from "react"
+// Unique icons from different icon libraries
+import { FaComments } from "react-icons/fa" // Font Awesome - Comments/Reviews
+import { HiHomeModern } from "react-icons/hi2" // Heroicons v2 - Modern Home
+import { MdCorporateFare } from "react-icons/md" // Material Design - Corporate Building
+import { FaIndustry } from "react-icons/fa" // Font Awesome - Industry
 
 export default function Testimonials() {
   const [hoveredTestimonial, setHoveredTestimonial] = useState<number | null>(null)
@@ -13,10 +18,10 @@ export default function Testimonials() {
   const [isMobile, setIsMobile] = useState(false)
 
   const categories = [
-    { id: "all", label: "All Reviews", icon: <Sparkles className="w-4 h-4" /> },
-    { id: "residential", label: "Residential", icon: <Home className="w-4 h-4" /> },
-    { id: "commercial", label: "Commercial", icon: <Building2 className="w-4 h-4" /> },
-    { id: "industrial", label: "Industrial", icon: <Factory className="w-4 h-4" /> },
+    { id: "all", label: "All Reviews", icon: FaComments },
+    { id: "residential", label: "Residential", icon: HiHomeModern },
+    { id: "commercial", label: "Commercial", icon: MdCorporateFare },
+    { id: "industrial", label: "Industrial", icon: FaIndustry },
   ]
 
   const testimonials = [
@@ -144,7 +149,7 @@ export default function Testimonials() {
           className="text-center max-w-3xl mx-auto mb-10 md:mb-12"
         >
           <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6">
-            <Sparkles className="w-4 h-4" />
+            <FaComments className="w-3.5 h-3.5" />
             Client Testimonials
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
@@ -164,27 +169,30 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        {/* Category Tabs with enhanced interaction */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12">
-          {categories.map((category) => (
-            <motion.button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`group flex items-center gap-2 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                activeCategory === category.id
-                  ? "bg-gradient-to-r from-add8e6 to-add8e6/90 text-white shadow-lg shadow-add8e6/20"
-                  : "bg-white/80 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 backdrop-blur-sm"
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {category.icon}
-              {category.label}
-            </motion.button>
-          ))}
+        {/* Category Tabs - Minimalist */}
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-6 md:mb-8">
+          {categories.map((category) => {
+            const IconComponent = category.icon
+            return (
+              <motion.button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`group flex items-center gap-1.5 px-3 md:px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
+                  activeCategory === category.id
+                    ? "bg-add8e6 text-white shadow-sm"
+                    : "bg-white dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800/50"
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <IconComponent className={`w-3 h-3 ${activeCategory === category.id ? 'text-white' : 'text-add8e6'}`} />
+                {category.label}
+              </motion.button>
+            )
+          })}
         </div>
 
-        <div className="relative max-w-7xl mx-auto">
+        <div className="relative max-w-6xl mx-auto">
           {/* Navigation Buttons - Hidden on mobile */}
           <button
             onClick={prevPage}
@@ -211,56 +219,31 @@ export default function Testimonials() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: isMobile ? -100 : 0 }}
                 transition={{ duration: 0.5 }}
-                className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
+                className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4"
               >
                 {getCurrentCards().map((testimonial, index) => (
                   <motion.div
                     key={`${currentPage}-${index}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="group bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 ring-1 ring-inset ring-gray-900/10"
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    className="group bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100 dark:border-gray-800/50"
                     onMouseEnter={() => setHoveredTestimonial(index)}
                     onMouseLeave={() => setHoveredTestimonial(null)}
                   >
-                    <div className="flex flex-col h-full flex-grow">
-                      {/* Quote with enhanced typography */}
-                      <div className="mb-6">
-                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 font-serif italic leading-relaxed">
+                    <div className="flex flex-col h-full">
+                      {/* Quote */}
+                      <div className="mb-4">
+                        <p className="text-xs text-gray-600 dark:text-gray-400 italic leading-relaxed">
                           "{testimonial.quote}"
                         </p>
                       </div>
 
-                      {/* Highlights with limited items */}
-                      <div className="flex flex-wrap gap-1.5 md:gap-2 mb-6">
-                        {testimonial.highlights.slice(0, 3).map((highlight, i) => (
-                          <span
-                            key={i}
-                            className="inline-flex items-center gap-1 px-2 md:px-3 py-0.5 md:py-1 rounded-full text-xs font-medium bg-add8e6/10 text-add8e6"
-                          >
-                            <CheckCircle2 className="w-3 h-3" />
-                            {highlight}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Author Info with enhanced separation */}
-                      <div className="mt-auto pt-4 border-t border-gray-100 dark:border-gray-700">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden ring-2 ring-add8e6/20">
-                              <Image
-                                src={testimonial.image}
-                                alt={testimonial.name}
-                                fill
-                                className="object-cover"
-                              />
-                            </div>
-                            <div>
-                              <p className="text-xs md:text-sm font-medium text-gray-800 dark:text-white">{testimonial.name}</p>
-                              <p className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400">{testimonial.role}</p>
-                            </div>
-                          </div>
+                      {/* Author Info */}
+                      <div className="mt-auto pt-3 border-t border-gray-100 dark:border-gray-800/50">
+                        <div>
+                          <p className="text-xs font-medium text-gray-900 dark:text-white">{testimonial.name}</p>
+                          <p className="text-[10px] text-gray-500 dark:text-gray-400">{testimonial.role}</p>
                         </div>
                       </div>
                     </div>
