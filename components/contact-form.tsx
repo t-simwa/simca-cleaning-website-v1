@@ -218,16 +218,16 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center gap-2 bg-add8e6 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-medium hover:bg-add8e6/90 transition-all duration-300 hover:shadow-lg hover:scale-105 transform group disabled:opacity-50 disabled:cursor-not-allowed"
+            className="inline-flex items-center gap-2 bg-add8e6 text-white px-6 md:px-8 py-2.5 md:py-3 font-medium transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50"
           >
             {isSubmitting ? (
               <>
-                <Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin" />
+                <Loader2 className="w-3.5 h-3.5 md:w-4 md:h-4 animate-spin" />
                 <span>Sending...</span>
               </>
             ) : (
               <>
-                <Send className="h-4 w-4 mr-2 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <Send className="h-3.5 w-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 <span>Send Message</span>
               </>
             )}

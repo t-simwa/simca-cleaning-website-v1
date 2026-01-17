@@ -594,12 +594,10 @@ export default function TrustedClients() {
                   {/* CTA Button */}
                   <Link href="/contact" passHref legacyBehavior>
                     <motion.a
-                      className="inline-flex items-center gap-2 bg-add8e6 text-white px-8 py-4 rounded-lg text-xs sm:text-sm font-medium hover:bg-add8e6/90 transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 mb-16"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center gap-2 bg-add8e6 text-white px-6 md:px-8 py-2.5 md:py-3 text-xs sm:text-sm font-medium transition-all duration-300 tracking-wide border-b-2 border-transparent hover:border-white/50 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 mb-16 group"
                     >
                       Let's Get Started
-                      <ArrowUpRight className="w-4 h-4" />
+                      <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </motion.a>
                   </Link>
                 </div>

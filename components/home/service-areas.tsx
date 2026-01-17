@@ -342,24 +342,13 @@ export default function ServiceAreas() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 }}
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
+                  <motion.div>
                     <Link
                       href={`/contact?location=${selectedLocationData.id.toLowerCase()}`}
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/80 text-white px-8 py-4 rounded-xl font-medium hover:from-add8e6/90 hover:to-add8e6/70 transition-all duration-300 hover:shadow-lg hover:shadow-add8e6/20 hover:scale-105 transform group text-center text-sm sm:text-base relative overflow-hidden"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/80 text-white px-6 md:px-8 py-2.5 md:py-3 font-medium transition-all duration-300 group text-center text-xs sm:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50"
                     >
-                      <span className="relative z-10 flex items-center justify-center gap-2">
-                        Get a Quote
-                        <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                      </span>
-                      <motion.div 
-                        className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
-                        initial={{ x: "-100%" }}
-                        whileHover={{ x: "100%" }}
-                        transition={{ duration: 0.5 }}
-                      />
+                      Get a Quote
+                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </motion.div>
                 </motion.div>

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Clock, Users, Star, Building2 } from "lucide-react"
+import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -133,47 +133,6 @@ export default function Hero() {
   }
 
 
-  // Stats animation variants with enhanced micro-interactions
-  const statsVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20
-      }
-    },
-    hover: {
-      scale: 1.05,
-      boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)",
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    },
-    tap: {
-      scale: 0.95,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    }
-  }
-
-  // Enhanced stats hover animation
-  const statsHoverAnimation = {
-    scale: 1.05,
-    y: -5,
-    transition: {
-      type: "spring",
-      stiffness: 400,
-      damping: 10
-    }
-  }
 
   // Remove carousel logic and use only the first image
   const heroImage = {
@@ -249,42 +208,36 @@ export default function Hero() {
               Enjoy peace of mind with our professional, fully customized cleaning services for homes and businesses across Kenya. No contracts, no hassle—just sparkling results, flexible scheduling, and a 100% satisfaction guarantee. Discover why families and companies trust Simca Agencies for quality, affordability, and care.
             </p>
 
-            {/* Quick stats with enhanced micro-interactions */}
+            {/* Minimalist Stats Section */}
             <motion.div 
               variants={itemVariants}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 max-w-3xl mx-auto mb-8 md:mb-12"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
             >
               {[
                 { 
                   value: "98%", 
-                  label: "Client Satisfaction", 
-                  icon: <Star className="w-4 h-4 text-white" />,
+                  label: "CLIENT SATISFACTION", 
                 },
                 { 
                   value: "50+", 
-                  label: "Corporate Offices", 
-                  icon: <Building2 className="w-4 h-4 text-white" />,
+                  label: "CORPORATE OFFICES", 
                 },
                 { 
                   value: "15+", 
-                  label: "Years Experience", 
-                  icon: <Clock className="w-4 h-4 text-white" />,
+                  label: "YEARS EXPERIENCE", 
                 }
               ].map((stat, index) => (
                 <motion.div
                   key={index}
-                  variants={statsVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  className="text-center"
                 >
-                  <div className="text-xl md:text-xl lg:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
-                    {stat.icon}
-                    <span className="group-hover:scale-110 transition-transform duration-300">
-                      <CountUp end={stat.value} duration={1.2} />
-                    </span>
+                  <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
+                    <CountUp end={stat.value} duration={1.5} />
                   </div>
-                  <div className="text-xs md:text-sm text-white">
+                  <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -298,10 +251,10 @@ export default function Hero() {
             >
               <Link 
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-8 py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-center text-xs sm:text-sm"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-2.5 md:py-3 font-medium transition-all duration-300 group text-center text-xs sm:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50"
               >
                 Get Your Free Quote
-                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </motion.div>
           </motion.div>
