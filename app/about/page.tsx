@@ -5,14 +5,16 @@ import { Users, Award, MapPin, Sparkles, CheckCircle2, ArrowRight, ChevronLeft, 
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
+import { useInView } from "react-intersection-observer"
 import WhoWeAre from "@/components/home/who-we-are"
 
 const MotionImage = motion(Image)
 
-// CountUp component for animated numbers
-function CountUp({ end, duration = 1.5, suffix = "" }: { end: string | number, duration?: number, suffix?: string }) {
+// CountUp component for animated numbers with scroll trigger
+function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: string | number, duration?: number, suffix?: string, inView?: boolean }) {
   const [count, setCount] = useState(0)
   useEffect(() => {
+    if (!inView) return;
     const isPercent = typeof end === 'string' && end.includes('%');
     const isPlus = typeof end === 'string' && end.includes('+');
     const numericEnd = typeof end === 'number' ? end : parseInt(end);
@@ -30,11 +32,84 @@ function CountUp({ end, duration = 1.5, suffix = "" }: { end: string | number, d
     }
     requestAnimationFrame(animate);
     return () => {};
-  }, [end, duration]);
+  }, [end, duration, inView]);
   let display: string | number = count;
   if (typeof end === 'string' && end.includes('%')) display = `${count}%`;
   if (typeof end === 'string' && end.includes('+')) display = `${count}+`;
+  // Handle non-numeric values like "24/7"
+  if (typeof end === 'string' && !end.match(/^\d+/)) return <span>{end}{suffix}</span>;
   return <span>{display}{suffix}</span>;
+}
+
+// Animation variants for the new hero section
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15,
+    },
+  },
+}
+
+// Stats Section Component with scroll-triggered animation
+function StatsSectionWithAnimation() {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  })
+
+  return (
+    <motion.div 
+      ref={ref}
+      variants={itemVariants}
+      className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
+    >
+      {[
+        { 
+          value: "12+", 
+          label: "YEARS OF EXCELLENCE", 
+        },
+        { 
+          value: "100+", 
+          label: "TRAINED PROFESSIONALS", 
+        },
+        { 
+          value: "6+", 
+          label: "CITIES SERVED", 
+        }
+      ].map((stat, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1, duration: 0.6 }}
+          className="text-center"
+        >
+          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
+            <CountUp end={stat.value} duration={1.5} inView={inView} />
+          </div>
+          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
+            {stat.label}
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  )
 }
 
 export default function AboutPage() {
@@ -96,61 +171,6 @@ export default function AboutPage() {
     }
   ]
 
-  // Animation variants for the new hero section
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-  }
-
-  // Stats animation variants with enhanced micro-interactions
-  const statsVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20
-      }
-    },
-    hover: {
-      scale: 1.05,
-      boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)",
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    },
-    tap: {
-      scale: 0.95,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    }
-  }
 
   const heroImage = {
     src: "/about/about-hero.jpg",
@@ -226,47 +246,8 @@ export default function AboutPage() {
                 We started Simca in 2015 with a simple goal: to offer a cleaning service you can truly count on. We're not just about cleaning; we're about creating a healthier, more comfortable space for you and your family. We're your local team, dedicated to providing a personal touch and a spotless result, every single time.
               </motion.p>
 
-              {/* Quick stats with enhanced micro-interactions */}
-              <motion.div 
-                variants={itemVariants}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 max-w-3xl mx-auto mb-8 md:mb-12"
-              >
-                {[
-                  { 
-                    value: "12+", 
-                    label: "Years of Excellence", 
-                    icon: <Award className="w-4 h-4 text-white" />,
-                  },
-                  { 
-                    value: "100+", 
-                    label: "Trained Professionals", 
-                    icon: <Users className="w-4 h-4 text-white" />,
-                  },
-                  { 
-                    value: "6+", 
-                    label: "Cities Served", 
-                    icon: <MapPin className="w-4 h-4 text-white" />,
-                  }
-                ].map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    variants={statsVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
-                  >
-                    <div className="text-xl md:text-xl lg:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
-                      {stat.icon}
-                      <span className="group-hover:scale-110 transition-transform duration-300">
-                        <CountUp end={stat.value} duration={1.2} />
-                      </span>
-                    </div>
-                    <div className="text-xs md:text-sm text-white">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+              {/* Minimalist Stats Section */}
+              <StatsSectionWithAnimation />
             </motion.div>
           </div>
         </div>

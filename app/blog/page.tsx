@@ -6,6 +6,114 @@ import { Calendar, User, BookOpen, Sparkles, Clock, List, Users, Home, Building2
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
+import { useInView } from "react-intersection-observer"
+
+// CountUp component for animated numbers with scroll trigger
+function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: string | number, duration?: number, suffix?: string, inView?: boolean }) {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    if (!inView) return;
+    // Handle non-numeric values (like "24/7", "1hr")
+    if (typeof end === 'string' && !end.match(/^\d+/)) {
+      return;
+    }
+    const isPercent = typeof end === 'string' && end.includes('%');
+    const isPlus = typeof end === 'string' && end.includes('+');
+    // Extract numeric value and any text suffix
+    let numericEnd: number;
+    let textSuffix = '';
+    if (typeof end === 'number') {
+      numericEnd = end;
+    } else {
+      const match = end.match(/^(\d+)(.*)$/);
+      if (match) {
+        numericEnd = parseInt(match[1]);
+        textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
+      } else {
+        numericEnd = parseInt(end);
+      }
+    }
+    const startTime = performance.now();
+    function animate(now: number) {
+      const elapsed = (now - startTime) / 1000;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.floor(progress * numericEnd);
+      setCount(value);
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setCount(numericEnd);
+      }
+    }
+    requestAnimationFrame(animate);
+    return () => {};
+  }, [end, duration, inView]);
+  
+  // Handle non-numeric values (like "24/7", "1hr")
+  if (typeof end === 'string' && !end.match(/^\d+/)) {
+    return <span>{end}{suffix}</span>;
+  }
+  
+  // Extract numeric value and any text suffix
+  let display: string | number = count;
+  let textSuffix = '';
+  if (typeof end === 'string') {
+    const match = end.match(/^(\d+)(.*)$/);
+    if (match) {
+      textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
+    }
+    if (end.includes('%')) display = `${count}%`;
+    else if (end.includes('+')) display = `${count}+`;
+    else if (textSuffix) display = `${count}${textSuffix}`;
+  }
+  return <span>{display}{suffix}</span>;
+}
+
+// Stats Section Component with scroll-triggered animation
+function StatsSectionWithAnimation() {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  })
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+      className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-16"
+    >
+      {[
+        {
+          value: "50+",
+          label: "EXPERT ARTICLES",
+        },
+        {
+          value: "6",
+          label: "CATEGORIES",
+        },
+        {
+          value: "10k+",
+          label: "MONTHLY READERS",
+        }
+      ].map((stat, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1, duration: 0.6 }}
+          className="text-center"
+        >
+          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
+            <CountUp end={stat.value} duration={1.5} inView={inView} />
+          </div>
+          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
+            {stat.label}
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  )
+}
 
 const BlogPage = () => {
   const [activeCategory, setActiveCategory] = useState("all")
@@ -218,51 +326,8 @@ const BlogPage = () => {
                 Our blog delivers expert cleaning insights, proven techniques, and practical solutions you can trust. Every article is crafted by professionals to help you achieve spotless, healthy spaces—at home or at work—with confidence and ease.
               </motion.p>
 
-              {/* Quick stats (now exactly like about page) */}
-              <motion.div
-                variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-16"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.05, boxShadow: '0 10px 30px -10px rgba(0,0,0,0.2)' }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
-                >
-                  <div className="text-xl md:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
-                    <BookOpen className="w-4 h-4 text-white" />
-                    <span className="group-hover:scale-110 transition-transform duration-300">50+</span>
-                  </div>
-                  <div className="text-xs md:text-sm text-white">
-                    Expert Articles
-                  </div>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.05, boxShadow: '0 10px 30px -10px rgba(0,0,0,0.2)' }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
-                >
-                  <div className="text-xl md:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
-                    <List className="w-4 h-4 text-white" />
-                    <span className="group-hover:scale-110 transition-transform duration-300">6</span>
-                  </div>
-                  <div className="text-xs md:text-sm text-white">
-                    Categories
-                  </div>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.05, boxShadow: '0 10px 30px -10px rgba(0,0,0,0.2)' }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
-                >
-                  <div className="text-xl md:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
-                    <Users className="w-4 h-4 text-white" />
-                    <span className="group-hover:scale-110 transition-transform duration-300">10k+</span>
-                  </div>
-                  <div className="text-xs md:text-sm text-white">
-                    Monthly Readers
-                  </div>
-                </motion.div>
-              </motion.div>
+              {/* Minimalist Stats Section */}
+              <StatsSectionWithAnimation />
             </motion.div>
             </div>
         </div>

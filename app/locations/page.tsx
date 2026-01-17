@@ -7,8 +7,101 @@ import OpenStreetMap from "@/components/openstreet-map"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion } from "framer-motion"
 import ContactForm from "@/components/home/contact-form"
+import { useState, useEffect } from "react"
+import { useInView } from "react-intersection-observer"
 
 const MotionImage = motion(Image)
+
+// CountUp component for animated numbers with scroll trigger
+function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: string | number, duration?: number, suffix?: string, inView?: boolean }) {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    if (!inView) return;
+    const isPercent = typeof end === 'string' && end.includes('%');
+    const isPlus = typeof end === 'string' && end.includes('+');
+    const numericEnd = typeof end === 'number' ? end : parseInt(end);
+    const startTime = performance.now();
+    function animate(now: number) {
+      const elapsed = (now - startTime) / 1000;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.floor(progress * numericEnd);
+      setCount(value);
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setCount(numericEnd);
+      }
+    }
+    requestAnimationFrame(animate);
+    return () => {};
+  }, [end, duration, inView]);
+  let display: string | number = count;
+  if (typeof end === 'string' && end.includes('%')) display = `${count}%`;
+  if (typeof end === 'string' && end.includes('+')) display = `${count}+`;
+  // Handle non-numeric values like "24/7"
+  if (typeof end === 'string' && !end.match(/^\d+/)) return <span>{end}{suffix}</span>;
+  return <span>{display}{suffix}</span>;
+}
+
+// Animation variants
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15,
+    },
+  },
+}
+
+// Stats Section Component with scroll-triggered animation
+function StatsSectionWithAnimation() {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  })
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={itemVariants}
+      className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-16"
+    >
+      {[
+        {
+          value: "6+",
+          label: "CITIES SERVED",
+        },
+        {
+          value: "200+",
+          label: "CORPORATE CLIENTS",
+        },
+        {
+          value: "24/7",
+          label: "EMERGENCY RESPONSE",
+        }
+      ].map((stat, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1, duration: 0.6 }}
+          className="text-center"
+        >
+          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
+            <CountUp end={stat.value} duration={1.5} inView={inView} />
+          </div>
+          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
+            {stat.label}
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  )
+}
 
 export default function LocationsPage() {
   const locations = [
@@ -169,47 +262,6 @@ export default function LocationsPage() {
       },
     },
   }
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-  }
-  const statsVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20
-      }
-    },
-    hover: {
-      scale: 1.05,
-      boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)",
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    },
-    tap: {
-      scale: 0.95,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    }
-  }
   // Use a hero image relevant to locations (or fallback to about page image)
   const heroImage = {
     src: "/locations/locations-hero.webp", // Now matches the about page hero image
@@ -276,47 +328,8 @@ export default function LocationsPage() {
               >
                 Wherever you call home or do business, Simca Agencies is right there with you—bringing a caring, local touch to every city we serve. Our teams are part of your community, ready to listen, adapt, and deliver the spotless results you deserve. We believe in building real relationships, so you always know who to trust for a cleaner, healthier space.
               </motion.p>
-              {/* Quick stats with enhanced micro-interactions */}
-              <motion.div
-                variants={itemVariants}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-16"
-              >
-                {[
-                  {
-                    value: "6+",
-                    label: "Cities Served",
-                    icon: <MapPin className="w-4 h-4 text-white" />,
-                  },
-                  {
-                    value: "200+",
-                    label: "Corporate Clients",
-                    icon: <Users className="w-4 h-4 text-white" />,
-                  },
-                  {
-                    value: "24/7",
-                    label: "Emergency Response",
-                    icon: <Clock className="w-4 h-4 text-white" />,
-                  }
-                ].map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    variants={statsVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
-                  >
-                    <div className="text-xl md:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
-                      {stat.icon}
-                      <span className="group-hover:scale-110 transition-transform duration-300">
-                        {stat.value}
-                      </span>
-                    </div>
-                    <div className="text-xs md:text-sm text-white">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+              {/* Minimalist Stats Section */}
+              <StatsSectionWithAnimation />
             </motion.div>
           </div>
         </div>

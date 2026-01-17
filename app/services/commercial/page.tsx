@@ -5,18 +5,35 @@ import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import ContactForm from "@/components/contact-form";
 
 const MotionImage = motion(Image)
 
-// CountUp component for animated numbers
-function CountUp({ end, duration = 1.5, suffix = "" }: { end: string | number, duration?: number, suffix?: string }) {
+// CountUp component for animated numbers with scroll trigger
+function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: string | number, duration?: number, suffix?: string, inView?: boolean }) {
   const [count, setCount] = useState(0)
   useEffect(() => {
-    const isPercent = typeof end === 'string' && end.includes('%');
-    const isPlus = typeof end === 'string' && end.includes('+');
-    const numericEnd = typeof end === 'number' ? end : parseInt(end);
+    if (!inView) return;
+    // Handle non-numeric values (like "24/7", "1hr")
+    if (typeof end === 'string' && !end.match(/^\d+/)) {
+      return;
+    }
+    // Extract numeric value and any text suffix
+    let numericEnd: number;
+    let textSuffix = '';
+    if (typeof end === 'number') {
+      numericEnd = end;
+    } else {
+      const match = end.match(/^(\d+)(.*)$/);
+      if (match) {
+        numericEnd = parseInt(match[1]);
+        textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
+      } else {
+        numericEnd = parseInt(end);
+      }
+    }
     const startTime = performance.now();
     function animate(now: number) {
       const elapsed = (now - startTime) / 1000;
@@ -31,11 +48,72 @@ function CountUp({ end, duration = 1.5, suffix = "" }: { end: string | number, d
     }
     requestAnimationFrame(animate);
     return () => {};
-  }, [end, duration]);
+  }, [end, duration, inView]);
+  
+  // Handle non-numeric values (like "24/7", "1hr")
+  if (typeof end === 'string' && !end.match(/^\d+/)) {
+    return <span>{end}{suffix}</span>;
+  }
+  
+  // Extract numeric value and any text suffix
   let display: string | number = count;
-  if (typeof end === 'string' && end.includes('%')) display = `${count}%`;
-  if (typeof end === 'string' && end.includes('+')) display = `${count}+`;
+  let textSuffix = '';
+  if (typeof end === 'string') {
+    const match = end.match(/^(\d+)(.*)$/);
+    if (match) {
+      textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
+    }
+    if (end.includes('%')) display = `${count}%`;
+    else if (end.includes('+')) display = `${count}+`;
+    else if (textSuffix) display = `${count}${textSuffix}`;
+  }
   return <span>{display}{suffix}</span>;
+}
+
+// Stats Section Component with scroll-triggered animation
+function StatsSectionWithAnimation() {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  })
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+      className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
+    >
+      {[
+        { 
+          value: "100%", 
+          label: "BOMA CERTIFIED", 
+        },
+        { 
+          value: "200+", 
+          label: "BUSINESS CLIENTS", 
+        },
+        { 
+          value: "24/7", 
+          label: "SERVICE AVAILABILITY", 
+        }
+      ].map((stat, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1, duration: 0.6 }}
+          className="text-center"
+        >
+          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
+            <CountUp end={stat.value} duration={1.5} inView={inView} />
+          </div>
+          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
+            {stat.label}
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  )
 }
 
 interface ServiceDetail {
@@ -214,36 +292,6 @@ export default function CommercialCleaningPage() {
     },
   }
 
-  // Stats animation variants with enhanced micro-interactions
-  const statsVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20
-      }
-    },
-    hover: {
-      scale: 1.05,
-      boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)",
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    },
-    tap: {
-      scale: 0.95,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    }
-  }
 
   const heroImage = {
     src: "/commercial/hero.webp",
@@ -346,47 +394,8 @@ export default function CommercialCleaningPage() {
                 Elevate your business environment with our comprehensive commercial cleaning solutions. Our certified team delivers consistent, high-quality cleaning services with minimal disruption to your operations. Whether you need daily maintenance or specialized deep cleaning, we're here to keep your workspace spotless and professional.
                 </motion.p>
 
-              {/* Quick stats with enhanced micro-interactions */}
-                  <motion.div
-                variants={itemVariants}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 max-w-3xl mx-auto mb-8 md:mb-12"
-              >
-                {[
-                  { 
-                    value: "100%", 
-                    label: "BOMA Certified", 
-                    icon: <Shield className="w-4 h-4 text-white" />,
-                  },
-                  { 
-                    value: "200+", 
-                    label: "Business Clients", 
-                    icon: <Building2 className="w-4 h-4 text-white" />,
-                  },
-                  { 
-                    value: "24/7", 
-                    label: "Service Availability", 
-                    icon: <Clock className="w-4 h-4 text-white" />,
-                  }
-                ].map((stat, index) => (
-                      <motion.div 
-                    key={index}
-                    variants={statsVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
-                  >
-                    <div className="text-xl md:text-xl lg:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
-                      {stat.icon}
-                      <span className="group-hover:scale-110 transition-transform duration-300">
-                        <CountUp end={stat.value} duration={1.2} />
-                      </span>
-                    </div>
-                    <div className="text-xs md:text-sm text-white">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                ))}
-                </motion.div>
+              {/* Minimalist Stats Section */}
+              <StatsSectionWithAnimation />
 
               {/* CTA Button */}
                   <motion.div
