@@ -167,7 +167,7 @@ const BlogPage = () => {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/55 z-10" />
 
-        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center z-20">
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 relative flex-grow flex flex-col justify-center z-20">
           <div className="flex flex-col items-center">
             {/* Centered Content */}
             <motion.div
@@ -196,7 +196,7 @@ const BlogPage = () => {
 
               <motion.h1
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
               >
                 Cleaning Tips &{' '}
                 <span className="text-fff relative inline-block">
@@ -213,7 +213,7 @@ const BlogPage = () => {
 
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-base md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed"
+                className="text-sm md:text-base lg:text-base text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed"
               >
                 Our blog delivers expert cleaning insights, proven techniques, and practical solutions you can trust. Every article is crafted by professionals to help you achieve spotless, healthy spaces—at home or at work—with confidence and ease.
               </motion.p>
@@ -226,9 +226,9 @@ const BlogPage = () => {
                 <motion.div
                   whileHover={{ scale: 1.05, boxShadow: '0 10px 30px -10px rgba(0,0,0,0.2)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                 >
-                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                  <div className="text-xl md:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                     <BookOpen className="w-4 h-4 text-white" />
                     <span className="group-hover:scale-110 transition-transform duration-300">50+</span>
                   </div>
@@ -239,9 +239,9 @@ const BlogPage = () => {
                 <motion.div
                   whileHover={{ scale: 1.05, boxShadow: '0 10px 30px -10px rgba(0,0,0,0.2)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                 >
-                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                  <div className="text-xl md:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                     <List className="w-4 h-4 text-white" />
                     <span className="group-hover:scale-110 transition-transform duration-300">6</span>
                   </div>
@@ -252,9 +252,9 @@ const BlogPage = () => {
                 <motion.div
                   whileHover={{ scale: 1.05, boxShadow: '0 10px 30px -10px rgba(0,0,0,0.2)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                  className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                 >
-                  <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                  <div className="text-xl md:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                     <Users className="w-4 h-4 text-white" />
                     <span className="group-hover:scale-110 transition-transform duration-300">10k+</span>
                   </div>
@@ -272,7 +272,7 @@ const BlogPage = () => {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Featured Post */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20">
+      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -288,7 +288,7 @@ const BlogPage = () => {
           <ScrollAnimation>
             <div className="max-w-6xl mx-auto">
               <motion.div 
-                className="text-center mb-12 md:mb-16"
+                className="text-center mb-10 md:mb-12"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -297,7 +297,7 @@ const BlogPage = () => {
                   <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
                   Featured Article
                 </span>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
+                <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
                   Latest{" "}
                   <span className="text-add8e6 relative inline-block tracking-wider">
                     Insights
@@ -311,7 +311,7 @@ const BlogPage = () => {
                     />
                   </span>
                 </h2>
-                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-6">
+                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6">
                   We deliver expert cleaning insights and proven techniques that transform your approach to maintaining pristine spaces. Every article is crafted by professionals to help you achieve professional-grade results with confidence and efficiency.
                 </p>
               </motion.div>
@@ -361,7 +361,7 @@ const BlogPage = () => {
                 </motion.div>
 
                 <motion.div 
-                  className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300"
+                  className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-6 shadow-sm hover:shadow-md transition-all duration-300"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
@@ -432,7 +432,7 @@ const BlogPage = () => {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Blog Posts Grid */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-20">
+      <div className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -449,7 +449,7 @@ const BlogPage = () => {
           <ScrollAnimation>
             <div className="max-w-7xl mx-auto">
               <motion.div 
-                className="text-center mb-12 md:mb-16"
+                className="text-center mb-10 md:mb-12"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -458,7 +458,7 @@ const BlogPage = () => {
                   <BookOpen className="w-3 h-3 md:w-4 md:h-4" />
                   Latest Articles
                 </span>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
+                <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
                   Explore Our{" "}
                   <span className="text-add8e6 relative inline-block tracking-wider">
                     Articles
@@ -472,7 +472,7 @@ const BlogPage = () => {
                     />
                   </span>
                 </h2>
-                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-6">
+                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6">
                   We deliver expert cleaning insights and proven techniques that transform your approach to maintaining pristine spaces. Every article is crafted by professionals to help you achieve professional-grade results with confidence and efficiency.
                 </p>
               </motion.div>
