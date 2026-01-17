@@ -111,7 +111,7 @@ export default function ContactForm() {
                   onFocus={() => setFocusedField('name')}
                   onBlur={() => setFocusedField(null)}
                   required
-                  className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 placeholder-gray-400 dark:placeholder-gray-500"
+                  className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 placeholder-gray-400 dark:placeholder-gray-500 text-xs md:text-sm"
                   placeholder="John Doe"
                 />
               </div>
@@ -128,7 +128,7 @@ export default function ContactForm() {
                   onFocus={() => setFocusedField('phone')}
                   onBlur={() => setFocusedField(null)}
                   required
-                  className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 placeholder-gray-400 dark:placeholder-gray-500"
+                  className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 placeholder-gray-400 dark:placeholder-gray-500 text-xs md:text-sm"
                   placeholder="0712 345 678"
                 />
               </div>
@@ -147,7 +147,7 @@ export default function ContactForm() {
                     onFocus={() => setFocusedField('email')}
                     onBlur={() => setFocusedField(null)}
                     required
-                    className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 placeholder-gray-400 dark:placeholder-gray-500"
+                    className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 placeholder-gray-400 dark:placeholder-gray-500 text-xs md:text-sm"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -158,20 +158,20 @@ export default function ContactForm() {
                   <div className="relative">
                     <button
                       type="button"
-                      className={`w-full flex items-center justify-between px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 text-left placeholder-gray-400 dark:placeholder-gray-500 ${focusedField === 'service' ? 'ring-2 ring-add8e6 border-transparent' : ''}`}
+                      className={`w-full flex items-center justify-between px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 text-left placeholder-gray-400 dark:placeholder-gray-500 text-xs md:text-sm ${focusedField === 'service' ? 'ring-2 ring-add8e6 border-transparent' : ''}`}
                       onClick={() => setFocusedField(focusedField === 'service' ? null : 'service')}
                       aria-haspopup="listbox"
                       aria-expanded={focusedField === 'service'}
                     >
                       {formData.service ? (
-                        <span className="flex items-center gap-2 text-sm md:text-base">
+                        <span className="flex items-center gap-2 text-xs md:text-sm">
                           {services.find(s => s.value === formData.service)?.icon &&
                             React.createElement(services.find(s => s.value === formData.service)?.icon!, { className: "w-5 h-5 text-add8e6" })
                           }
                           {services.find(s => s.value === formData.service)?.label}
                         </span>
                       ) : (
-                        <span className="text-gray-400 dark:text-gray-500 text-sm md:text-base">Select a service</span>
+                        <span className="text-gray-400 dark:text-gray-500 text-xs md:text-sm">Select a service</span>
                       )}
                       <svg className="w-4 h-4 ml-2 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                     </button>
@@ -186,7 +186,7 @@ export default function ContactForm() {
                             key={service.value}
                             role="option"
                             aria-selected={formData.service === service.value}
-                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm md:text-base hover:bg-add8e6/10 dark:hover:bg-add8e6/20 transition-colors ${formData.service === service.value ? 'bg-add8e6/10 dark:bg-add8e6/20 text-add8e6 font-medium' : 'text-gray-900 dark:text-white'}`}
+                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-xs md:text-sm hover:bg-add8e6/10 dark:hover:bg-add8e6/20 transition-colors ${formData.service === service.value ? 'bg-add8e6/10 dark:bg-add8e6/20 text-add8e6 font-medium' : 'text-gray-900 dark:text-white'}`}
                             onClick={() => {
                               setFormData(prev => ({ ...prev, service: service.value }));
                               setFocusedField(null);
@@ -214,7 +214,7 @@ export default function ContactForm() {
                 onBlur={() => setFocusedField(null)}
                   required
                   rows={4}
-                className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 resize-none placeholder-gray-400 dark:placeholder-gray-500"
+                className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 resize-none placeholder-gray-400 dark:placeholder-gray-500 text-xs md:text-sm"
                 placeholder="Tell us about your cleaning needs..."
               />
             </div>

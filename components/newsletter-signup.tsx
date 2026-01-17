@@ -79,7 +79,7 @@ export default function NewsletterSignup() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
-                  className="flex-1 px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-add8e6/50 text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm md:text-base"
+                  className="flex-1 px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-add8e6/50 text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-xs md:text-sm"
                     required
                   />
                 <button
