@@ -136,7 +136,7 @@ export default function GalleryPage() {
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/55 z-10" />
-        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center z-20">
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 relative flex-grow flex flex-col justify-center z-20">
           <div className="flex flex-col items-center">
             {/* Centered Content */}
             <motion.div
@@ -158,7 +158,7 @@ export default function GalleryPage() {
               </motion.div>
               <motion.h1
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
               >
                 Our Work at <span className="text-fff relative inline-block">Simca Agencies
                   <motion.span
@@ -172,7 +172,7 @@ export default function GalleryPage() {
               </motion.h1>
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
               >
                 Every photo in our gallery tells a story of care, trust, and attention to detail. We treat every space as if it were our own, working closely with you to deliver results you can see and feel. Whether it's a home, office, or something in between, our team is dedicated to making your environment shine—no shortcuts, no surprises, just honest work and real results. See what's possible when you choose a cleaning partner who truly cares.
               </motion.p>
@@ -203,9 +203,9 @@ export default function GalleryPage() {
                     variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 200, damping: 20 } }, hover: { scale: 1.05, boxShadow: '0 10px 30px -10px rgba(0,0,0,0.2)', transition: { type: 'spring', stiffness: 400, damping: 10 } }, tap: { scale: 0.95, transition: { type: 'spring', stiffness: 400, damping: 10 } } }}
                     whileHover="hover"
                     whileTap="tap"
-                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                   >
-                    <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <div className="text-xl md:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                       {stat.icon}
                       <span className="group-hover:scale-110 transition-transform duration-300">{stat.value}</span>
                     </div>
@@ -223,14 +223,14 @@ export default function GalleryPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Gallery Section */}
-      <div className="relative bg-white dark:bg-gray-900 py-12 md:py-20">
+      <div className="relative bg-white dark:bg-gray-900 py-12 md:py-16 lg:py-20">
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
 
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
-              <TabsList className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12 bg-transparent p-0">
+              <TabsList className="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 md:mb-12 bg-transparent p-0">
                 {categories.map((category) => (
                   <TabsTrigger
                     key={category.id}
@@ -292,7 +292,7 @@ export default function GalleryPage() {
                               {image.title}
                             </motion.h3>
                             <motion.p 
-                              className="text-sm md:text-lg text-white tracking-wide mt-1 md:mt-2"
+                              className="text-sm md:text-base lg:text-base text-white tracking-wide mt-1 md:mt-2"
                               initial={{ y: 20, opacity: 0 }}
                               animate={{ y: 0, opacity: 1 }}
                               transition={{ delay: 0.2 }}
@@ -340,7 +340,7 @@ export default function GalleryPage() {
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
                   {galleryImages.find(img => img.id === selectedImage)?.title}
                 </h3>
-                <p className="text-sm md:text-lg text-gray-200 tracking-wide mt-1">
+                <p className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mt-1">
                   {galleryImages.find(img => img.id === selectedImage)?.description}
                 </p>
               </div>
