@@ -265,7 +265,7 @@ export default function ServicesPage() {
                   <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
                 </span>
               </h1>
-              <p className="text-base md:text-xl text-gray-600 dark:text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
                 Comprehensive cleaning solutions tailored to your needs. From residential to commercial, 
                 we deliver exceptional service with attention to detail and commitment to excellence.
               </p>
@@ -335,7 +335,7 @@ export default function ServicesPage() {
                     <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
                   </span>
                 </h2>
-                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
                   Discover our comprehensive range of professional cleaning services, tailored to meet your specific needs
                   and exceed your expectations.
                 </p>
@@ -407,7 +407,7 @@ export default function ServicesPage() {
                             </motion.h3>
                             
                             <motion.p 
-                              className="text-sm md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-6"
+                              className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-400 mb-4 md:mb-6"
                               whileHover={{ x: 4 }}
                               transition={{ duration: 0.2 }}
                             >

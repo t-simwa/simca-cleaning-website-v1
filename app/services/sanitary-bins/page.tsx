@@ -273,7 +273,7 @@ export default function SanitaryBinsPage() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/55" />
 
-        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center">
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
             {/* Centered Content */}
             <motion.div
@@ -284,7 +284,7 @@ export default function SanitaryBinsPage() {
             >
               <motion.div
                 variants={itemVariants}
-                className="inline-block mb-6 sm:mb-4 md:mb-10"
+                className="inline-block mb-6 sm:mb-4 md:mb-8"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -296,7 +296,7 @@ export default function SanitaryBinsPage() {
 
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
               >
                 Professional{" "}
                 <span className="text-fff relative inline-block">
@@ -314,7 +314,7 @@ export default function SanitaryBinsPage() {
 
               <motion.p
                 variants={itemVariants}
-                className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
               >
                 Ensure a hygienic and discreet disposal of sanitary waste with our professional sanitary bins services. We provide scheduled collection and disposal that maintains the highest standards of cleanliness and compliance with health regulations.
               </motion.p>
@@ -322,7 +322,7 @@ export default function SanitaryBinsPage() {
               {/* Quick stats with enhanced micro-interactions */}
               <motion.div 
                 variants={itemVariants}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-16"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 max-w-3xl mx-auto mb-8 md:mb-12"
               >
                 {[
                   { 
@@ -346,9 +346,9 @@ export default function SanitaryBinsPage() {
                     variants={statsVariants}
                     whileHover="hover"
                     whileTap="tap"
-                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                   >
-                    <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <div className="text-xl md:text-xl lg:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                       {stat.icon}
                       <span className="group-hover:scale-110 transition-transform duration-300">
                         <CountUp end={stat.value} duration={1.2} />
@@ -383,7 +383,7 @@ export default function SanitaryBinsPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Why Choose Our Sanitary Bins Services Section */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -403,7 +403,7 @@ export default function SanitaryBinsPage() {
                   Why Choose Us
                   </span>
                 </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
                 <span className="mb-1">Why Choose Our</span>
                 <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                   Sanitary Bins
@@ -430,13 +430,13 @@ export default function SanitaryBinsPage() {
                   />
               </div>
                     </div>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 In today's fast-paced business environment, maintaining proper hygiene standards is crucial for the success and reputation of any commercial establishment. The challenges of managing sanitary waste disposal can be overwhelming, especially when dealing with high-traffic facilities. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers comprehensive sanitary bins services designed to meet the unique needs of businesses across Kenya, ensuring a clean, hygienic, and compliant environment that protects both your staff and customers.
               </p>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 Among professional sanitary waste management services in Kenya, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is recognized for our commitment to excellence, reliability, and environmental responsibility. We provide top-tier sanitary bins services using advanced disposal methods and eco-friendly practices. Our team is dedicated to maintaining the highest standards of hygiene while ensuring discreet and professional service that respects your business operations and privacy requirements.
               </p>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 Our comprehensive sanitary bins services are tailored to enhance your facility's hygiene standards and compliance with health regulations. We pay meticulous attention to every detail, offering discreet installation, scheduled maintenance, and environmentally responsible disposal methods. With Simca, you can trust that your sanitary waste management will be handled by trained professionals who understand the importance of maintaining a clean, safe, and compliant environment for your business.
               </p>
                 </div>
@@ -461,7 +461,7 @@ export default function SanitaryBinsPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Benefits of Our Sanitary Bins Services Section */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -499,11 +499,11 @@ export default function SanitaryBinsPage() {
                 Services
               </span>
             </h2>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide">
               Experience the difference that professional sanitary bins services can make in your business operations. From hygiene compliance to operational efficiency, discover why businesses choose our services.
             </p>
           </motion.div>
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-xs sm:text-sm md:text-base font-normal">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-sm md:text-base lg:text-base font-normal">
             {[
               {
                 title: "Time-saving Convenience:",
@@ -592,7 +592,7 @@ export default function SanitaryBinsPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* What's Included in Our Sanitary Bins Services Section */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -665,7 +665,7 @@ export default function SanitaryBinsPage() {
                     What's Included
                   </span>
       </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
                 <span className="mb-1">What's Included in Our</span>
                 <span className="ml-2">
                   <span className="text-add8e6 relative inline-block block mb-4">
@@ -735,10 +735,10 @@ export default function SanitaryBinsPage() {
               </div>
             </div>
         </div>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 If you're looking for a reliable sanitary bins service in Kenya, Simca Agencies is your trusted choice. We offer comprehensive sanitary waste management solutions and always look for new ways to improve your experience. Our team is flexible, thorough, and ready to accommodate your specific needs—including special requests for additional services.
               </p>
-              <ul className="list-disc pl-5 space-y-4 text-sm md:text-lg text-gray-600 dark:text-gray-300">
+              <ul className="list-disc pl-5 space-y-4 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
                 <li>
                   <span className="font-semibold text-gray-800 dark:text-white">Installation and Setup</span> – Discreet installation of sanitary bin units in designated areas, proper placement for optimal accessibility and privacy, and initial consultation to assess your specific requirements. We ensure all units are securely installed and meet your facility's layout and design preferences.
                 </li>
@@ -804,7 +804,7 @@ export default function SanitaryBinsPage() {
                 </motion.h2>
                 {/* New Introductory Paragraph */}
                 <motion.p 
-                  className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-6 max-w-2xl mx-auto"
+                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6 max-w-2xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -990,7 +990,7 @@ export default function SanitaryBinsPage() {
 
               {/* Explanatory Paragraph Below Cards */}
               <div className="max-w-3xl mx-auto mt-8 text-center">
-                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300">
+                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
                   When comparing sanitary bins service prices in Kenya, consider factors such as reputation, reliability, and the range of services offered in addition to cost. Choosing a reputable sanitary waste management company ensures your facility remains hygienic, compliant, and safe for your staff and customers. For a personalized quote or to discuss your specific needs, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
                 </p>
               </div>
@@ -1003,7 +1003,7 @@ export default function SanitaryBinsPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Contact Section (with sanitary bins page background) */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -1026,7 +1026,7 @@ export default function SanitaryBinsPage() {
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
                 </span>
               </h2>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
               Have questions about our services? Get a free sanitary bins service quote today! We're here to help.
             </p>
               </div>

@@ -277,7 +277,7 @@ export default function SpecializedCleaningPage() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/55" />
 
-        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center">
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
             {/* Centered Content */}
                 <motion.div 
@@ -288,7 +288,7 @@ export default function SpecializedCleaningPage() {
             >
                 <motion.div 
                 variants={itemVariants}
-                className="inline-block mb-6 sm:mb-4 md:mb-10"
+                className="inline-block mb-6 sm:mb-4 md:mb-8"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -300,7 +300,7 @@ export default function SpecializedCleaningPage() {
 
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
               >
                 Professional{" "}
                 <span className="text-fff relative inline-block">
@@ -318,7 +318,7 @@ export default function SpecializedCleaningPage() {
                       
                 <motion.p 
                 variants={itemVariants}
-                className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
                       >
                 For cleaning needs that require extra care and expertise, our specialized cleaning services are tailored to handle unique challenges and delicate items. We offer discreet, efficient, and expert cleaning services for situations that require sensitivity and specialized skills.
                 </motion.p>
@@ -326,7 +326,7 @@ export default function SpecializedCleaningPage() {
               {/* Quick stats with enhanced micro-interactions */}
                   <motion.div
                 variants={itemVariants}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-16"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 max-w-3xl mx-auto mb-8 md:mb-12"
               >
                 {[
                   { 
@@ -350,9 +350,9 @@ export default function SpecializedCleaningPage() {
                     variants={statsVariants}
                     whileHover="hover"
                     whileTap="tap"
-                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                   >
-                    <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <div className="text-xl md:text-xl lg:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                       {stat.icon}
                       <span className="group-hover:scale-110 transition-transform duration-300">
                         <CountUp end={stat.value} duration={1.2} />
@@ -387,7 +387,7 @@ export default function SpecializedCleaningPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Why Choose Our Specialized Cleaning Services Section */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -407,7 +407,7 @@ export default function SpecializedCleaningPage() {
                   Why Choose Us
                   </span>
                 </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
                 <span className="mb-1">Why Choose Our</span>
                 <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                   Specialized
@@ -434,13 +434,13 @@ export default function SpecializedCleaningPage() {
                   />
               </div>
                       </div>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 When faced with unique cleaning challenges that require specialized expertise and equipment, you need a team that understands the complexities and sensitivities involved. In Nairobi's diverse urban environment, specialized cleaning situations arise that demand more than standard cleaning approaches. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers comprehensive specialized cleaning solutions designed to handle the most challenging scenarios with professionalism, discretion, and technical expertise.
               </p>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 Among specialized cleaning services in Kenya, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is recognized for our commitment to safety, compliance, and exceptional results in sensitive situations. We are proud to offer top-tier specialized cleaning services in Nairobi, Kenya, using advanced equipment, certified techniques, and trained specialists. Our team is dedicated to providing discreet, efficient, and thorough solutions for situations that require extra care and expertise.
               </p>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 Our comprehensive specialized cleaning services in Nairobi are designed to restore safety, cleanliness, and peace of mind in challenging circumstances. We pay meticulous attention to every detail, offering services from crime scene cleanup to high-altitude window cleaning, with strict adherence to safety protocols and regulatory requirements. With Simca, you can trust that every specialized cleaning task will be handled by certified professionals who prioritize safety, discretion, and complete restoration.
                       </p>
                     </div>
@@ -467,7 +467,7 @@ export default function SpecializedCleaningPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Benefits of Our Specialized Cleaning Services Section */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -505,11 +505,11 @@ export default function SpecializedCleaningPage() {
                 Cleaning Services
               </span>
             </h2>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide">
               Experience the difference that professional specialized cleaning can make in challenging situations. From safety compliance to complete restoration, discover why clients choose our specialized services.
             </p>
                       </motion.div>
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-xs sm:text-sm md:text-base font-normal">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-sm md:text-base lg:text-base font-normal">
             {[
               {
                 title: "Expert Technical Knowledge:",
@@ -598,7 +598,7 @@ export default function SpecializedCleaningPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* What's Included in Our Specialized Cleaning Services Section */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -671,7 +671,7 @@ export default function SpecializedCleaningPage() {
                     What's Included
                   </span>
       </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
                 <span className="mb-1">What's Included in Our</span>
                 <span className="ml-2">
                   <span className="text-add8e6 relative inline-block block mb-4">
@@ -741,10 +741,10 @@ export default function SpecializedCleaningPage() {
               </div>
             </div>
         </div>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 If you're looking for a reliable specialized cleaning service in Nairobi, Simca Agencies is your trusted choice. We offer a comprehensive range of specialized cleaning services and always look for new ways to improve your experience. Our team is highly trained, thorough, and ready to accommodate your specific needs—including emergency response and sensitive situation handling.
               </p>
-              <ul className="list-disc pl-5 space-y-4 text-sm md:text-lg text-gray-600 dark:text-gray-300">
+              <ul className="list-disc pl-5 space-y-4 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
                 <li>
                   <span className="font-semibold text-gray-800 dark:text-white">Site assessment and consultation</span> – Comprehensive evaluation of the specialized cleaning requirements, including safety assessments, contamination analysis, and development of detailed action plans. Our specialists conduct thorough inspections to understand the scope and complexity of each specialized cleaning project.
                 </li>
@@ -810,7 +810,7 @@ export default function SpecializedCleaningPage() {
                 </motion.h2>
                 {/* New Introductory Paragraph */}
                 <motion.p 
-                  className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-6 max-w-2xl mx-auto"
+                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6 max-w-2xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -996,7 +996,7 @@ export default function SpecializedCleaningPage() {
 
               {/* Explanatory Paragraph Below Cards */}
               <div className="max-w-3xl mx-auto mt-8 text-center">
-                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300">
+                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
                   <strong>Important:</strong> Specialized cleaning services require detailed assessment and custom planning. Prices may vary significantly based on the specific nature of the cleaning required, safety considerations, equipment needs, and regulatory compliance requirements. Contact us for a detailed consultation and accurate quote for your specialized cleaning needs.
                 </p>
               </div>
@@ -1009,7 +1009,7 @@ export default function SpecializedCleaningPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Contact Section (with specialized page background) */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -1032,7 +1032,7 @@ export default function SpecializedCleaningPage() {
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
               </span>
             </h2>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
               Have questions about our specialized cleaning services? Get a free consultation and quote today! We're here to help with your unique cleaning needs.
             </p>
           </div>

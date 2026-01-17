@@ -302,7 +302,7 @@ export default function PostConstructionCleaningPage() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/55" />
 
-        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center">
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
             {/* Centered Content */}
                 <motion.div 
@@ -313,7 +313,7 @@ export default function PostConstructionCleaningPage() {
             >
               <motion.div
                 variants={itemVariants}
-                className="inline-block mb-6 sm:mb-4 md:mb-10"
+                className="inline-block mb-6 sm:mb-4 md:mb-8"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -325,7 +325,7 @@ export default function PostConstructionCleaningPage() {
 
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
               >
                 Professional{" "}
                 <span className="text-fff relative inline-block">
@@ -343,7 +343,7 @@ export default function PostConstructionCleaningPage() {
 
                 <motion.p 
                 variants={itemVariants}
-                className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
               >
                 Remove the dust and debris and get your new or renovated space ready for occupancy with our specialized post-construction cleaning services. Our experienced team uses professional equipment and proven techniques to transform construction sites into pristine, move-in ready spaces.
                 </motion.p>
@@ -351,7 +351,7 @@ export default function PostConstructionCleaningPage() {
               {/* Quick stats with enhanced micro-interactions */}
                   <motion.div
                 variants={itemVariants}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-16"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 max-w-3xl mx-auto mb-8 md:mb-12"
               >
                 {[
                   { 
@@ -375,9 +375,9 @@ export default function PostConstructionCleaningPage() {
                     variants={statsVariants}
                     whileHover="hover"
                     whileTap="tap"
-                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                   >
-                    <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <div className="text-xl md:text-xl lg:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                       {stat.icon}
                       <span className="group-hover:scale-110 transition-transform duration-300">
                         <CountUp end={stat.value} duration={1.2} />
@@ -412,7 +412,7 @@ export default function PostConstructionCleaningPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Why Choose Our Post-Construction Cleaning Services Section */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -432,7 +432,7 @@ export default function PostConstructionCleaningPage() {
                   Why Choose Us
                   </span>
                 </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
                 <span className="mb-1">Why Choose Our</span>
                 <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                   Post-Construction
@@ -459,13 +459,13 @@ export default function PostConstructionCleaningPage() {
                   />
               </div>
                     </div>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 The completion of construction or renovation projects often leaves behind a significant amount of dust, debris, and construction materials that need professional attention. In the bustling construction environment of Nairobi, ensuring your newly built or renovated space is move-in ready requires specialized expertise. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers comprehensive post-construction cleaning solutions designed to transform construction sites into pristine, ready-to-occupy spaces. We stand out as the trusted partner for builders, property owners, and developers, ensuring every project concludes with a spotless finish.
               </p>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 Among professional post-construction cleaning services in Nairobi, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is recognized for our commitment to quality, reliability, and attention to detail. We are pleased to offer top-notch post-construction cleaning services in Nairobi, Kenya, using specialized equipment, eco-friendly products, and proven techniques. Our team is dedicated to consistently providing a clean, safe, and move-in ready environment for every project, regardless of the size or complexity of the construction work.
               </p>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 Our thorough post-construction cleaning services in Nairobi are tailored to address the unique challenges of construction cleanup. We pay close attention to every detail, offering comprehensive debris removal, fine dust elimination, surface polishing, and specialized cleaning for all areas including walls, ceilings, floors, windows, and fixtures. With Simca, you can trust that every corner of your newly constructed or renovated space will be cared for by trained professionals who understand the specific requirements of post-construction cleaning.
                       </p>
                     </div>
@@ -492,7 +492,7 @@ export default function PostConstructionCleaningPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Benefits of Our Post-Construction Cleaning Services Section */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -530,11 +530,11 @@ export default function PostConstructionCleaningPage() {
                 Cleaning Services
               </span>
             </h2>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide">
               Experience the difference that professional post-construction cleaning can make in your project completion. From debris removal to move-in readiness, discover why construction professionals choose our services.
             </p>
           </motion.div>
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-xs sm:text-sm md:text-base font-normal">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-sm md:text-base lg:text-base font-normal">
             {[
               {
                 title: "Time-saving Convenience:",
@@ -623,7 +623,7 @@ export default function PostConstructionCleaningPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* What's Included in Our Post-Construction Cleaning Services Section */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -696,7 +696,7 @@ export default function PostConstructionCleaningPage() {
                     What's Included
                   </span>
       </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
                 <span className="mb-1">What's Included in Our</span>
                 <span className="ml-2">
                   <span className="text-add8e6 relative inline-block block mb-4">
@@ -766,10 +766,10 @@ export default function PostConstructionCleaningPage() {
               </div>
             </div>
         </div>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 If you're looking for a reliable post-construction cleaning service in Nairobi, Simca Agencies is your trusted choice. We offer comprehensive post-construction cleaning services and always look for new ways to improve your project completion experience. Our team is flexible, thorough, and ready to accommodate your specific construction project needs—including special requests for additional services and after-hours cleaning.
               </p>
-              <ul className="list-disc pl-5 space-y-4 text-sm md:text-lg text-gray-600 dark:text-gray-300">
+              <ul className="list-disc pl-5 space-y-4 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
                 <li>
                   <span className="font-semibold text-gray-800 dark:text-white">Debris removal and surface cleaning</span> – Comprehensive removal of construction debris, dust, and materials from all surfaces including walls, ceilings, floors, and fixtures. Our team handles large debris removal, fine dust elimination, surface polishing, and preparation for final finishes. We also clean construction equipment and tools left behind.
                 </li>
@@ -835,7 +835,7 @@ export default function PostConstructionCleaningPage() {
                 </motion.h2>
                 {/* New Introductory Paragraph */}
                 <motion.p 
-                  className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-6 max-w-2xl mx-auto"
+                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6 max-w-2xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -850,7 +850,7 @@ export default function PostConstructionCleaningPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0 }}
-                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
+                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
                     <div className="absolute inset-0 opacity-5">
@@ -1021,7 +1021,7 @@ export default function PostConstructionCleaningPage() {
 
               {/* Explanatory Paragraph Below Cards */}
               <div className="max-w-3xl mx-auto mt-8 text-center">
-                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300">
+                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
                   When comparing post-construction cleaning service prices in Nairobi, consider factors such as project complexity, debris volume, surface types, and the level of detail required. Choosing a reputable cleaning company ensures your newly constructed or renovated space is move-in ready and meets the highest standards. For a personalized quote or to discuss your specific project needs, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
                 </p>
               </div>
@@ -1034,7 +1034,7 @@ export default function PostConstructionCleaningPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Contact Section (with residential page background) */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
@@ -1057,7 +1057,7 @@ export default function PostConstructionCleaningPage() {
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
                 </span>
               </h2>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
               Have questions about our post-construction cleaning services? Get a free cleaning service quote today! We're here to help.
             </p>
               </div>

@@ -308,7 +308,7 @@ export default function ResidentialCleaningPage() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/55" />
 
-        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 lg:py-32 relative flex-grow flex flex-col justify-center">
+        <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
             {/* Centered Content */}
             <motion.div
@@ -319,7 +319,7 @@ export default function ResidentialCleaningPage() {
             >
               <motion.div
                 variants={itemVariants}
-                className="inline-block mb-6 sm:mb-4 md:mb-10"
+                className="inline-block mb-6 sm:mb-4 md:mb-8"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -331,7 +331,7 @@ export default function ResidentialCleaningPage() {
 
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
               >
                 Professional{" "}
                 <span className="text-fff relative inline-block">
@@ -349,7 +349,7 @@ export default function ResidentialCleaningPage() {
 
               <motion.p
                 variants={itemVariants}
-                className="text-sm md:text-lg text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
               >
                 We care for your home like it's our own. Our friendly, reliable team uses eco-friendly products and proven techniques to give you a spotless, healthy space—every time. No contracts, no hidden fees, just honest service that fits your schedule and your budget. Whether you need a one-time deep clean or regular maintenance, we're here to make your home shine so you can focus on what matters most.
               </motion.p>
@@ -357,7 +357,7 @@ export default function ResidentialCleaningPage() {
               {/* Quick stats with enhanced micro-interactions */}
               <motion.div 
                 variants={itemVariants}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8 md:mb-16"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 max-w-3xl mx-auto mb-8 md:mb-12"
               >
                 {[
                   { 
@@ -381,9 +381,9 @@ export default function ResidentialCleaningPage() {
                     variants={statsVariants}
                     whileHover="hover"
                     whileTap="tap"
-                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
+                    className="bg-gradient-to-r from-add8e6 to-add8e6/90 p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center"
                   >
-                    <div className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
+                    <div className="text-xl md:text-xl lg:text-xl font-bold text-white mb-1 md:mb-2 flex items-center justify-center gap-2">
                       {stat.icon}
                       <span className="group-hover:scale-110 transition-transform duration-300">
                         <CountUp end={stat.value} duration={1.2} />
@@ -415,13 +415,13 @@ export default function ResidentialCleaningPage() {
       </div>
 
       {/* Why Choose Our Residential Cleaning Services Section */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Background matching home page pattern */}
         <div className="absolute inset-0 bg-white dark:bg-gray-900">
           <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
-          <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
+          <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16 lg:gap-20">
             {/* Text Column */}
             <div className="w-full md:w-1/2 max-w-3xl md:pl-14 flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-6 w-full flex justify-center md:justify-start">
@@ -430,7 +430,7 @@ export default function ResidentialCleaningPage() {
                   Why Choose Us
                   </span>
                 </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
                 <span className="mb-1">Why Choose Our</span>
                 <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                   Residential
@@ -457,19 +457,19 @@ export default function ResidentialCleaningPage() {
                   />
               </div>
                     </div>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 The pressures of job, family, and personal responsibilities can frequently leave little time for home duties in the fast-paced city of Nairobi. In such a vibrant and demanding environment, maintaining a spotless home can feel overwhelming. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers a variety of expert house cleaning solutions designed to fit your busy lifestyle, ensuring your home remains a haven of comfort and relaxation. We stand out as a beacon of excellence and convenience in the midst of the urban bustle, giving you more time to focus on what matters most.
               </p>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 Among professional house cleaning services in Nairobi, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is recognized for our commitment to quality, reliability, and customer satisfaction. We are pleased to offer top-notch house cleaning services in Nairobi, Kenya, using eco-friendly products and proven techniques. Our team is dedicated to constantly providing a beautiful, healthy, and clean environment for every client, no matter the size or type of your home.
               </p>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 Our thorough house cleaning services in Nairobi are tailored to improve your home's level of comfort and hygiene. We pay close attention to every detail, offering deep cleaning for living rooms, kitchens, bedrooms, and bathrooms, as well as flexible scheduling to suit your needs. With Simca, you can trust that every corner of your home will be cared for by trained professionals who treat your space with respect and care.
               </p>
                 </div>
             {/* Desktop image column */}
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
-              <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
+              <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[40rem] mx-auto">
                     <Image
                       src={whyChooseUsImage.src}
                       alt={whyChooseUsImage.alt}
@@ -490,7 +490,7 @@ export default function ResidentialCleaningPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Benefits of Our Residential Cleaning Services Section */}
-      <section className="relative py-12 md:py-20">
+      <section className="relative py-12 md:py-16 lg:py-20">
         {/* Background matching home page pattern */}
         <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
           <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
@@ -507,7 +507,7 @@ export default function ResidentialCleaningPage() {
                     <Sparkles className="w-4 h-4" />
               Benefits of Our Services
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
               <span className="block mb-1">Benefits of Our</span>
               <span className="inline-block block mb-1 ml-2">
                 <span className="text-add8e6 relative inline-block">Residential
@@ -523,11 +523,11 @@ export default function ResidentialCleaningPage() {
                 Cleaning Services
               </span>
             </h2>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide">
               Experience the difference that professional residential cleaning can make in your daily life. From time savings to health benefits, discover why homeowners choose our services.
             </p>
           </motion.div>
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-xs sm:text-sm md:text-base font-normal">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-sm md:text-base lg:text-base font-normal">
             {[
               {
                 title: "Time-saving Convenience:",
@@ -684,7 +684,7 @@ export default function ResidentialCleaningPage() {
                     What's Included
                   </span>
       </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
                 <span className="mb-1">What's Included in Our</span>
                 <span className="ml-2">
                   <span className="text-add8e6 relative inline-block block mb-4">
@@ -754,10 +754,10 @@ export default function ResidentialCleaningPage() {
               </div>
             </div>
         </div>
-              <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5">
+              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
                 If you're looking for a reliable residential cleaning service in Nairobi, Simca Agencies is your trusted choice. We offer a wide range of house cleaning services and always look for new ways to improve your experience. Our team is flexible, thorough, and ready to accommodate your specific needs—including special requests for additional services.
               </p>
-              <ul className="list-disc pl-5 space-y-4 text-sm md:text-lg text-gray-600 dark:text-gray-300">
+              <ul className="list-disc pl-5 space-y-4 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
                 <li>
                   <span className="font-semibold text-gray-800 dark:text-white">Living room and bedroom</span> – Professional dusting of all surfaces (including furniture, bed frames, bookcases, etc.), wiping mirrors, mopping, vacuuming carpets, and wiping picture frames. If needed, you can request changing linens, bed covers, and other additional services.
                 </li>
@@ -803,7 +803,7 @@ export default function ResidentialCleaningPage() {
                   </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 leading-tight tracking-wide mt-0 !mt-0"
+                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 leading-tight tracking-wide mt-0 !mt-0"
                 >
                   <span className="text-add8e6 relative inline-block tracking-wider">
                     Residential
@@ -820,7 +820,7 @@ export default function ResidentialCleaningPage() {
                 </motion.h2>
                 {/* New Introductory Paragraph */}
                 <motion.p 
-                  className="text-sm md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-6 max-w-2xl mx-auto"
+                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6 max-w-2xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -835,7 +835,7 @@ export default function ResidentialCleaningPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0 }}
-                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
+                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
                     <div className="absolute inset-0 opacity-5">
@@ -1006,7 +1006,7 @@ export default function ResidentialCleaningPage() {
 
               {/* Explanatory Paragraph Below Cards */}
               <div className="max-w-3xl mx-auto mt-8 text-center">
-                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300">
+                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
                   When comparing residential cleaning service prices in Nairobi, consider factors such as reputation, reliability, and the range of services offered in addition to cost. Choosing a reputable cleaning company ensures your home remains clean, healthy, and comfortable for your family and guests. For a personalized quote or to discuss your specific needs, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
                 </p>
               </div>
@@ -1030,14 +1030,14 @@ export default function ResidentialCleaningPage() {
               <MessageCircle className="w-4 h-4" />
               Contact Us
               </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
               Get in{' '}
               <span className="text-add8e6 relative">
                 Touch
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
                 </span>
               </h2>
-            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
               Have questions about our services? Get a free cleaning service quote today! We're here to help.
             </p>
               </div>
