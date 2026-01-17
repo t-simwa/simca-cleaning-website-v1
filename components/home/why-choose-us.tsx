@@ -1,6 +1,5 @@
 "use client"
 
-import { Sparkles } from "lucide-react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import React from "react"
@@ -11,6 +10,7 @@ import { MdGroups } from "react-icons/md" // Material Design - Team Trust
 import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Guarantee
 import { MdAutoAwesome } from "react-icons/md" // Material Design - Quality Results
 import { HiLockOpen } from "react-icons/hi2" // Heroicons v2 - No Contracts
+import { MdFavorite } from "react-icons/md" // Material Design - Favorite/Choice badge
 
 export default function WhyChooseUs() {
   const containerRef = useRef(null)
@@ -38,7 +38,7 @@ export default function WhyChooseUs() {
           style={{ opacity, scale }}
         >
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6/20 to-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6 backdrop-blur-sm">
-            <Sparkles className="w-4 h-4" />
+            <MdFavorite className="w-3.5 h-3.5" />
             Why Choose Simca Agencies
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">

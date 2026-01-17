@@ -1,8 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Sparkles, TrendingUp, SprayCanIcon, Users, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import React from "react"
+// Unique icons from different icon libraries
+import { MdVideoLibrary } from "react-icons/md" // Material Design - Video/Content
+import { FaBroom } from "react-icons/fa" // Font Awesome - Cleaning/Broom
+import { MdCompare } from "react-icons/md" // Material Design - Before/After
+import { FaUsers } from "react-icons/fa" // Font Awesome - Team
 
 export default function TikTokFeed() {
   const [activeCategory, setActiveCategory] = useState("all")
@@ -11,10 +17,10 @@ export default function TikTokFeed() {
   const [isScriptLoaded, setIsScriptLoaded] = useState(false)
 
   const categories = [
-    { id: "all", label: "All Content", icon: <Sparkles className="w-4 h-4" /> },
-    { id: "cleaning", label: "Cleaning Tips", icon: <SprayCanIcon className="w-4 h-4" /> },
-    { id: "before-after", label: "Before & After", icon: <TrendingUp className="w-4 h-4" /> },
-    { id: "team", label: "Team Stories", icon: <Users className="w-4 h-4" /> },
+    { id: "all", label: "All Content", icon: MdVideoLibrary },
+    { id: "cleaning", label: "Cleaning Tips", icon: FaBroom },
+    { id: "before-after", label: "Before & After", icon: MdCompare },
+    { id: "team", label: "Team Stories", icon: FaUsers },
   ]
 
   const tiktokVideos = [
@@ -88,7 +94,7 @@ export default function TikTokFeed() {
       <div className="container mx-auto px-4 relative">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6">
-            <Sparkles className="w-4 h-4" />
+            <MdVideoLibrary className="w-3.5 h-3.5" />
             Tiktok Content
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight">
@@ -111,24 +117,26 @@ export default function TikTokFeed() {
         </div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12">
-          {categories.map((category) => (
-            <motion.button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`group flex items-center gap-2 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs md:text-xs font-medium transition-all duration-300 ${
-                activeCategory === category.id
-                  ? "bg-gradient-to-r from-add8e6 to-add8e6/90 text-white shadow-lg shadow-add8e6/20"
-                  : "bg-white/80 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 backdrop-blur-sm"
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {category.icon}
-              {category.label}
-              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </motion.button>
-          ))}
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-6 md:mb-8">
+          {categories.map((category) => {
+            const IconComponent = category.icon
+            return (
+              <motion.button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`group flex items-center gap-1.5 px-3 md:px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
+                  activeCategory === category.id
+                    ? "bg-add8e6 text-white shadow-sm"
+                    : "bg-white dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800/50"
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <IconComponent className={`w-3 h-3 ${activeCategory === category.id ? 'text-white' : 'text-add8e6'}`} />
+                {category.label}
+              </motion.button>
+            )
+          })}
         </div>
 
         {/* TikTok Feed Carousel */}

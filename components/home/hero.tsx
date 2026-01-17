@@ -2,9 +2,11 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+// Unique icons from different icon libraries
+import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Trust/Check
 
 const MotionImage = motion(Image)
 
@@ -175,7 +177,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
             >
               <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4" />
+                <HiShieldCheck className="w-3.5 h-3.5" />
                 Kenya's Trusted Cleaning Partner
               </span>
             </motion.div>

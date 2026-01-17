@@ -1,8 +1,10 @@
 'use client';
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+// Unique icon from icon library
+import { MdInfo } from "react-icons/md" // Material Design - Info/About
 
 export default function WhoWeAre() {
   return (
@@ -22,7 +24,7 @@ export default function WhoWeAre() {
           <div className="w-full md:w-1/2 max-w-3xl md:pl-14 flex flex-col items-center md:items-start text-center md:text-left">
             <div className="mb-6 w-full flex justify-center md:justify-start">
               <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm">
-                <CheckCircle2 className="w-4 h-4" />
+                <MdInfo className="w-3.5 h-3.5" />
                 About Simca
               </span>
             </div>

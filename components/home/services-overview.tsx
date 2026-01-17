@@ -1,10 +1,21 @@
 "use client"
 
 import Link from "next/link"
-import { Home, Building2, HardHat, SprayCanIcon as Spray, ShieldCheck, Sofa, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Sparkles, Sun, Car, Bed, LucideProps } from "lucide-react"
+import { ArrowRight, ChevronLeft, ChevronRight, LucideProps } from "lucide-react"
+import React from "react"
+// Unique icons from different icon libraries
+import { FaHome } from "react-icons/fa" // Font Awesome - Home
+import { MdBusiness } from "react-icons/md" // Material Design - Business
+import { FaHardHat } from "react-icons/fa" // Font Awesome - Construction
+import { FaShieldVirus } from "react-icons/fa" // Font Awesome - Sanitization
+import { FaCouch } from "react-icons/fa" // Font Awesome - Upholstery
+import { FaWindowMaximize } from "react-icons/fa" // Font Awesome - Window
+import { FaCar } from "react-icons/fa" // Font Awesome - Car
+import { FaBed } from "react-icons/fa" // Font Awesome - Bed
+import { MdStars } from "react-icons/md" // Material Design - Specialized
+import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Shield
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import React from "react"
 import Image from "next/image"
 
 // Update the service type to include image
@@ -47,7 +58,7 @@ export default function ServicesOverview() {
     {
       title: "Residential Cleaning",
       description: "Enjoy a sparkling home, your way. We tailor every clean to your schedule and preferences, using safe, eco-friendly products. No contracts—just reliable, flexible service and a healthier home for your family.",
-      icon: Home,
+      icon: FaHome,
       link: "/services/residential",
       image: "/services/residential-cleaning.webp",
       features: [
@@ -64,7 +75,7 @@ export default function ServicesOverview() {
     {
       title: "Commercial Cleaning",
       description: "Keep your business spotless and productive. We work around your hours to minimize disruption, with trained staff and custom plans for offices, shops, schools, and more. Affordable rates, no long-term contracts, and a cleaner, safer workplace.",
-      icon: Building2,
+      icon: MdBusiness,
       link: "/services/commercial",
       image: "/services/commercial-service.png",
       features: [
@@ -81,7 +92,7 @@ export default function ServicesOverview() {
     {
       title: "Post-construction Cleaning",
       description: "Move in faster with our expert post-construction cleaning. We remove dust, debris, and builder's mess—leaving your new space fresh, safe, and ready to use. Fast, thorough, and satisfaction guaranteed.",
-      icon: HardHat,
+      icon: FaHardHat,
       link: "/services/post-construction",
       image: "/services/post-construction.png",
       features: [
@@ -98,7 +109,7 @@ export default function ServicesOverview() {
     {
       title: "Carpet & Upholstery",
       description: "Breathe new life into your carpets and furniture. We use advanced stain removal and gentle, deep-cleaning methods to protect your fabrics and leave everything fresh, clean, and safe for your family or staff.",
-      icon: Sofa,
+      icon: FaCouch,
       link: "/services/carpet-upholstery",
       image: "/services/carpet-cleaning.png",
       features: [
@@ -115,7 +126,7 @@ export default function ServicesOverview() {
     {
       title: "Sanitization",
       description: "Protect your space with hospital-grade sanitization. Our certified team uses EPA-approved products and proven protocols to eliminate germs and viruses—ideal for homes, offices, and high-traffic areas.",
-      icon: Spray,
+      icon: FaShieldVirus,
       link: "/services/sanitization-disinfection",
       image: "/services/sanitization.jpg",
       features: [
@@ -133,7 +144,7 @@ export default function ServicesOverview() {
     {
       title: "Window Cleaning",
       description: "Experience crystal-clear views with our expert window cleaning service. We use eco-friendly solutions and specialized tools to remove dirt, grime, and streaks—leaving your windows spotless and your space brighter.",
-      icon: Sun,
+      icon: FaWindowMaximize,
       link: "/services/window",
       image: "/services/window-cleaning.png",
       features: [
@@ -150,7 +161,7 @@ export default function ServicesOverview() {
     {
       title: "Vehicle Interior Cleaning",
       description: "Restore your vehicle's interior to showroom condition. Our detailed cleaning service removes stains, odors, and dirt from all surfaces—leaving your car fresh, clean, and smelling great. Satisfaction guaranteed.",
-      icon: Car,
+      icon: FaCar,
       link: "/services/vehicle-interior",
       image: "/services/interior-cleaning.png",
       features: [
@@ -167,7 +178,7 @@ export default function ServicesOverview() {
     {
       title: "Mattress Cleaning",
       description: "Sleep better with our professional mattress cleaning service. We remove dust mites, allergens, and stains using advanced cleaning technology—ensuring a healthier sleep environment for you and your family.",
-      icon: Bed,
+      icon: FaBed,
       link: "/services/mattress",
       image: "/services/mattress-cleaning.png",
       features: [
@@ -187,7 +198,7 @@ export default function ServicesOverview() {
     {
       title: "Sofa Set Cleaning",
       description: "Revitalize your furniture with our professional sofa cleaning service. We use advanced cleaning techniques to remove stains, odors, and dirt—leaving your sofas looking and smelling fresh, like new.",
-      icon: Sofa,
+      icon: FaCouch,
       link: "/services/sofa-set",
       image: "/services/sofa-cleaning.png",
       features: [
@@ -227,10 +238,10 @@ export default function ServicesOverview() {
   }
 
   const categories = [
-    { id: "all", label: "All Services", icon: <Sparkles className="w-4 h-4" />, description: "Complete range of professional cleaning solutions" },
-    { id: "residential", label: "Residential", icon: <Home className="w-4 h-4" />, description: "Personalized home cleaning solutions" },
-    { id: "commercial", label: "Commercial", icon: <Building2 className="w-4 h-4" />, description: "Business-focused cleaning services" },
-    { id: "specialized", label: "Premium Services", icon: <ShieldCheck className="w-4 h-4" />, description: "Advanced cleaning for special requirements" },
+    { id: "all", label: "All Services", icon: MdStars, description: "Complete range of professional cleaning solutions" },
+    { id: "residential", label: "Residential", icon: FaHome, description: "Personalized home cleaning solutions" },
+    { id: "commercial", label: "Commercial", icon: MdBusiness, description: "Business-focused cleaning services" },
+    { id: "specialized", label: "Premium Services", icon: HiShieldCheck, description: "Advanced cleaning for special requirements" },
   ]
 
   return (
@@ -254,7 +265,7 @@ export default function ServicesOverview() {
             whileTap={undefined}
           >
             <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
-              <CheckCircle2 className="w-4 h-4" />
+              <HiShieldCheck className="w-3.5 h-3.5" />
               Our Services
             </span>
           </motion.div>
