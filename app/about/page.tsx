@@ -360,15 +360,15 @@ export default function AboutPage() {
                             {getCurrentCard().icon}
                           </motion.div>
                           
-                            <motion.h3 
+                          <motion.h3 
                               className="text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
-                              whileHover={{ x: 4 }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              {getCurrentCard().title}
-                            </motion.h3>
-                            
-                            <motion.p 
+                            whileHover={{ x: 4 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {getCurrentCard().title}
+                          </motion.h3>
+                          
+                          <motion.p 
                               className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-5"
                             whileHover={{ x: 4 }}
                             transition={{ duration: 0.2 }}

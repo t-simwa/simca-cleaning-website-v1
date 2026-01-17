@@ -85,15 +85,15 @@ export default function Header() {
     >
       {/* Top Bar */}
       <div className="bg-gradient-to-r from-add8e6/10 via-gray-50 to-add8e6/10 dark:from-add8e6/5 dark:via-gray-800/50 dark:to-add8e6/5 border-b border-gray-100 dark:border-gray-800 hidden md:block">
-        <div className="container mx-auto px-3 md:px-4">
-          <div className="grid grid-cols-3 items-center h-12 md:h-14">
+        <div className="container mx-auto px-3 md:px-3">
+          <div className="grid grid-cols-3 items-center h-9 md:h-10">
             {/* Left Section - Call */}
             <div className="flex items-center">
               <a
                 href="tel:+254721525901"
-                className="flex items-center text-xs md:text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+                className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
-                <Phone className="h-4 w-4 md:h-5 md:w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                <Phone className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Call Us: +254 721525901</span>
               </a>
             </div>
@@ -102,30 +102,30 @@ export default function Header() {
             <div className="flex items-center justify-center">
               <a
                 href="mailto:info@simcaagencies.co.ke"
-                className="flex items-center text-xs md:text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+                className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
-                <Mail className="h-4 w-4 md:h-5 md:w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                <Mail className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Email Us: info@simcaagencies.co.ke</span>
               </a>
             </div>
 
             {/* Right Section - Social Icons, Language, Theme */}
-            <div className="flex items-center space-x-4 md:space-x-6 justify-end">
-              <SocialIcons className="h-4 w-4 md:h-5 md:w-5" />
-              <div className="h-4 md:h-5 w-px bg-gray-200 dark:bg-gray-700" />
+            <div className="flex items-center space-x-3 md:space-x-4 justify-end">
+              <SocialIcons className="h-3.5 w-3.5 md:h-3.5 md:w-3.5" />
+              <div className="h-3.5 md:h-3.5 w-px bg-gray-200 dark:bg-gray-700" />
               <LanguageToggle />
-              <div className="h-4 md:h-5 w-px bg-gray-200 dark:bg-gray-700" />
+              <div className="h-3.5 md:h-3.5 w-px bg-gray-200 dark:bg-gray-700" />
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105"
+                className="flex items-center gap-1.5 px-2.5 py-1 md:px-3 md:py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105"
                 aria-label="Toggle dark mode"
               >
                 {theme === "dark" ? (
-                  <Sun className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-300" />
+                  <Sun className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 text-gray-600 dark:text-gray-300" />
                 ) : (
-                  <Moon className="h-4 w-4 md:h-5 md:w-5 text-gray-600 dark:text-gray-300" />
+                  <Moon className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 text-gray-600 dark:text-gray-300" />
                 )}
-                <span className="text-xs md:text-sm font-medium text-gray-600 dark:text-gray-300 hidden sm:inline">
+                <span className="text-xs font-medium text-gray-600 dark:text-gray-300 hidden sm:inline">
                   {theme === "dark" ? "Light Mode" : "Dark Mode"}
                 </span>
               </button>
@@ -136,7 +136,7 @@ export default function Header() {
 
       {/* Main Header */}
       <div className="container mx-auto px-3 md:px-4">
-        <div className="flex items-center justify-between h-16 md:h-20 gap-2">
+        <div className="flex items-center justify-between h-14 md:h-18 gap-2">
           {/* Logo */}
           <Link href="/" className="flex items-center group flex-shrink-0 min-w-0 max-w-[220px] sm:max-w-[240px]">
             <Logo 
@@ -149,7 +149,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <nav className="hidden md:flex items-center space-x-5 lg:space-x-6">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
                 {item.subNav ? (
@@ -195,10 +195,10 @@ export default function Header() {
           <div className="hidden md:flex items-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-8 py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-center text-xs sm:text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-4 py-2 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-center text-xs sm:text-sm"
             >
               Get Your Free Quote
-              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
 
@@ -208,7 +208,7 @@ export default function Header() {
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="h-5 w-5 md:h-6 md:w-6" /> : <Menu className="h-5 w-5 md:h-6 md:w-6" />}
+            {isMenuOpen ? <X className="h-5 w-5 md:h-5 md:w-5" /> : <Menu className="h-5 w-5 md:h-5 md:w-5" />}
           </button>
 
           {/* Mobile Menu Backdrop */}
@@ -300,7 +300,7 @@ export default function Header() {
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="flex items-center">
-                        <Phone className="h-4 w-4 md:h-5 md:w-5 mr-2" />
+                        <Phone className="h-4 w-4 md:h-4 md:w-4 mr-2" />
                         Call Us
                       </span>
                       <span className="text-xs md:text-sm text-gray-500">+254 721525901</span>
@@ -311,7 +311,7 @@ export default function Header() {
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="flex items-center">
-                        <Mail className="h-4 w-4 md:h-5 md:w-5 mr-2" />
+                        <Mail className="h-4 w-4 md:h-4 md:w-4 mr-2" />
                         Email Us
                       </span>
                       <span className="text-xs md:text-sm text-gray-500">info@simcacleaning.co.ke</span>
@@ -335,9 +335,9 @@ export default function Header() {
                      aria-label="Toggle dark mode"
                    >
                      {theme === "dark" ? (
-                       <Sun className="h-5 w-5 text-gray-600 dark:text-gray-300" />
+                       <Sun className="h-4 w-4 text-gray-600 dark:text-gray-300" />
                      ) : (
-                       <Moon className="h-5 w-5 text-gray-600 dark:text-gray-300" />
+                       <Moon className="h-4 w-4 text-gray-600 dark:text-gray-300" />
                      )}
                      <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
                        {theme === "dark" ? "Light Mode" : "Dark Mode"}

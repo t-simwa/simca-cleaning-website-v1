@@ -28,10 +28,10 @@ export default function Footer() {
         </div>
       </div> */}
 
-      <div className="container mx-auto px-4 py-8 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+      <div className="container mx-auto px-4 py-6 md:py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
           {/* Company Info */}
-          <div className="space-y-4 md:space-y-6">
+          <div className="space-y-3 md:space-y-5">
             <div className="flex items-center gap-3 md:gap-4">
               <Logo className="w-60 h-12 md:w-60 md:h-30 transition-transform duration-300 group-hover:scale-105" variant="white" />
             </div>
@@ -50,19 +50,19 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
-                  className="bg-gray-800 hover:bg-add8e6/20 p-2 md:p-2.5 rounded-xl text-gray-400 hover:text-add8e6 transition-all duration-300 hover:scale-110 transform group"
+                  className="bg-gray-800 hover:bg-add8e6/20 p-2 md:p-2 rounded-xl text-gray-400 hover:text-add8e6 transition-all duration-300 hover:scale-110 transform group"
                   aria-label={social.label}
                 >
-                  <social.icon className="h-4 w-4 md:h-5 md:w-5 group-hover:rotate-12 transition-transform" />
+                  <social.icon className="h-4 w-4 md:h-4 md:w-4 group-hover:rotate-12 transition-transform" />
                 </a>
               ))}
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4 md:space-y-6">
-            <h3 className="text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
-              <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-add8e6" />
+          <div className="space-y-3 md:space-y-5">
+            <h3 className="text-base md:text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
+              <Sparkles className="w-4 h-4 md:h-4 md:w-4 text-add8e6" />
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -89,9 +89,9 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div className="space-y-4 md:space-y-6">
-            <h3 className="text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
-              <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-add8e6" />
+          <div className="space-y-3 md:space-y-5">
+            <h3 className="text-base md:text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
+              <Sparkles className="w-4 h-4 md:h-4 md:w-4 text-add8e6" />
               Our Services
             </h3>
             <ul className="space-y-3">
@@ -120,23 +120,23 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4 md:space-y-6">
-            <h3 className="text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
-              <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-add8e6" />
+          <div className="space-y-3 md:space-y-5">
+            <h3 className="text-base md:text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
+              <Sparkles className="w-4 h-4 md:h-4 md:w-4 text-add8e6" />
               Contact Us
             </h3>
             <ul className="space-y-3">
               <li className="flex items-center gap-3 md:gap-4 group">
-                <div className="bg-gray-800 p-2.5 md:p-3 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
-                  <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
+                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+                  <MapPin className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
                 </div>
                 <span className="text-gray-400 group-hover:text-gray-300 transition-colors text-xs md:text-sm">
                   Kimathi Street, CBD, Nairobi, Kenya
                 </span>
               </li>
               <li className="flex items-center gap-3 md:gap-4 group">
-                <div className="bg-gray-800 p-2.5 md:p-3 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
-                  <Phone className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
+                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+                  <Phone className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
                 </div>
                 <a
                   href="tel:+254721525901"
@@ -146,8 +146,8 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3 md:gap-4 group">
-                <div className="bg-gray-800 p-2.5 md:p-3 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
-                  <Mail className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
+                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+                  <Mail className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
                 </div>
                 <a
                   href="mailto:info@simcacleaning.co.ke"
@@ -157,8 +157,8 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3 md:gap-4 group">
-                <div className="bg-gray-800 p-2.5 md:p-3 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
-                  <Clock className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
+                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+                  <Clock className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
                 </div>
                 <span className="text-gray-400 group-hover:text-gray-300 transition-colors text-xs md:text-sm">
                   Mon-Fri: 8am-5pm, Sat: 9am-1pm
@@ -168,7 +168,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <hr className="border-gray-800 my-6 md:my-8" />
+        <hr className="border-gray-800 my-5 md:my-6" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 relative">
           <p className="text-gray-400 text-xs text-center md:text-left">
