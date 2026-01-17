@@ -2,10 +2,14 @@
 
 import Image from "next/image"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
-import { Building2, Award, Star, ArrowUpRight, CheckCircle2, Loader2, Trophy, Medal, Shield, Clock, TrendingUp, DollarSign, ChevronLeft, ChevronRight } from "lucide-react"
+import { Award, ArrowUpRight, Loader2, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import React from "react"
+// Unique icons from different icon libraries
+import { MdBusiness } from "react-icons/md" // Material Design - Building icon
+import { FaAward } from "react-icons/fa" // Font Awesome - Award icon
 
 export default function TrustedClients() {
   const [hoveredClient, setHoveredClient] = useState<number | null>(null)
@@ -218,7 +222,7 @@ export default function TrustedClients() {
               whileTap={{ scale: 0.95 }}
             >
               <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm">
-                <Award className="w-4 h-4" />
+                <FaAward className="w-3.5 h-3.5" />
                 Our Trusted Partners
               </span>
             </motion.div>
@@ -257,7 +261,7 @@ export default function TrustedClients() {
             </motion.p>
           </div>
 
-          <div className="relative max-w-7xl mx-auto">
+          <div className="relative max-w-6xl mx-auto">
             {/* Navigation Buttons - Hidden on mobile */}
             <button
               onClick={prevPage}
@@ -282,7 +286,7 @@ export default function TrustedClients() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: isMobile ? -100 : 0 }}
                   transition={{ duration: 0.5 }}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4"
                 >
                   {getCurrentCards().map((client, index) => (
                     <motion.a
@@ -290,31 +294,28 @@ export default function TrustedClients() {
                       href={client.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 w-full overflow-hidden border border-gray-200 dark:border-gray-700"
+                      className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 w-full overflow-hidden border border-gray-100 dark:border-gray-800/50"
                       aria-label={`Visit ${client.name} website`}
                       onMouseEnter={() => setHoveredClient(index)}
                       onMouseLeave={() => setHoveredClient(null)}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.99 }}
                     >
-                      {/* Glassmorphism effect */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50 rounded-xl" />
-                      
                       <div className="flex flex-col h-full relative z-10">
-                        {/* Client Logo Section */}
-                        <div className="relative h-28 md:h-32 w-full max-w-[220px] mx-auto mb-6">
-                          <div className="absolute inset-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-sm" />
-                          <div className="absolute inset-0 flex items-center justify-center p-4">
+                        {/* Client Logo Section - Compact */}
+                        <div className="relative h-20 w-full max-w-[180px] mx-auto mb-3">
+                          <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-lg shadow-sm" />
+                          <div className="absolute inset-0 flex items-center justify-center p-3">
                             {!imagesLoaded[client.logo] && (
                               <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-lg">
-                                <Loader2 className="w-8 h-8 text-add8e6 animate-spin" />
+                                <Loader2 className="w-5 h-5 text-add8e6 animate-spin" />
                               </div>
                             )}
                             <Image
                               src={client.logo || "/placeholder.svg?height=80&width=160"}
                               alt={`${client.name} logo`}
                               fill
-                              sizes="(max-width: 640px) 160px, (max-width: 1024px) 200px, 240px"
+                              sizes="(max-width: 640px) 140px, (max-width: 1024px) 160px, 180px"
                               className={`object-contain filter dark:brightness-90 transition-opacity duration-200 ${
                                 !imagesLoaded[client.logo] ? 'opacity-0' : 'opacity-100'
                               }`}
@@ -322,19 +323,18 @@ export default function TrustedClients() {
                               style={{
                                 objectPosition: 'center',
                                 objectFit: 'contain',
-                                padding: '0.5rem'
+                                padding: '0.25rem'
                               }}
                             />
                           </div>
                         </div>
 
                         {/* Client Info */}
-                        <div className="mb-6">
-                          <h3 className="text-sm md:text-lg font-bold text-gray-800 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors">
+                        <div className="mb-3">
+                          <h3 className="text-xs md:text-sm font-semibold text-gray-900 dark:text-white mb-1.5 group-hover:text-add8e6 transition-colors leading-tight">
                             {client.name}
                           </h3>
-                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mb-3 md:mb-5">
-                            {/* Rewrite description for warmth and partnership */}
+                          <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                             {(() => {
                               switch (client.name) {
                                 case "Kenya Revenue Authority":
@@ -358,89 +358,9 @@ export default function TrustedClients() {
                           </p>
                         </div>
 
-                        {/* Services */}
-                        <div className="mb-4 md:mb-6">
-                          <h4 className="text-xs md:text-sm font-semibold text-gray-800 dark:text-white mb-2 md:mb-3 uppercase tracking-wide">
-                            How We Help
-                          </h4>
-                          <div className="space-y-1.5 md:space-y-2">
-                            {client.services.primary.map((service, i) => (
-                              <motion.div 
-                                key={i} 
-                                className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-300 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
-                                whileHover={{ 
-                                  x: 4,
-                                  scale: 1.02,
-                                  backgroundColor: 'rgba(173, 216, 230, 0.1)',
-                                  transition: { duration: 0.2 }
-                                }}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: i * 0.1 }}
-                              >
-                                <motion.div
-                                  whileHover={{ 
-                                    scale: 1.2,
-                                    rotate: 360,
-                                    transition: { duration: 0.5 }
-                                  }}
-                                >
-                                  <CheckCircle2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6 flex-shrink-0" />
-                                </motion.div>
-                                {/* Rewrite service for warmth and clarity */}
-                                {(() => {
-                                  switch (service) {
-                                    case "Office Cleaning":
-                                      return "Caring for every corner of your workspace";
-                                    case "Sanitization":
-                                      return "Creating a healthy, safe environment";
-                                    case "Waste Management":
-                                      return "Keeping spaces tidy and stress-free";
-                                    case "Healthcare Cleaning":
-                                      return "Supporting patient safety with every clean";
-                                    case "Biohazard Management":
-                                      return "Handling sensitive areas with care and expertise";
-                                    case "Sterilization Support":
-                                      return "Ensuring the highest standards of hygiene";
-                                    case "Corporate Cleaning":
-                                      return "Helping your team shine in a spotless office";
-                                    case "Data Center Maintenance":
-                                      return "Protecting your technology with gentle, expert care";
-                                    case "Specialized Equipment Cleaning":
-                                      return "Safeguarding your valuable assets";
-                                    case "Hotel Cleaning":
-                                      return "Making every guest feel at home";
-                                    case "Luxury Suite Maintenance":
-                                      return "Delivering a touch of luxury, every day";
-                                    case "Public Area Management":
-                                      return "Welcoming everyone with clean, inviting spaces";
-                                    case "Bank Cleaning":
-                                      return "Building trust with a spotless environment";
-                                    case "Secure Area Maintenance":
-                                      return "Respecting your security while we clean";
-                                    case "Cash Handling Area Cleaning":
-                                      return "Keeping sensitive spaces safe and clean";
-                                    case "Port Facility Cleaning":
-                                      return "Supporting smooth operations with reliable cleaning";
-                                    case "Industrial Area Maintenance":
-                                      return "Caring for complex, high-traffic areas";
-                                    case "Healthcare Facility Cleaning":
-                                      return "Promoting health and comfort for all";
-                                    case "Office Maintenance":
-                                      return "Ensuring a welcoming, productive workplace";
-                                    default:
-                                      return service;
-                                  }
-                                })()}
-                              </motion.div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Testimonial */}
-                        <div className="mb-4 md:mb-6 bg-white/50 dark:bg-gray-700/30 rounded-lg p-4 backdrop-blur-sm">
-                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 italic">
-                            {/* Rewrite testimonial for warmth and partnership */}
+                        {/* Testimonial - Compact */}
+                        <div className="mb-3 bg-gray-50 dark:bg-gray-800/50 rounded-md p-3">
+                          <p className="text-xs text-gray-600 dark:text-gray-400 italic leading-relaxed">
                             {(() => {
                               switch (client.name) {
                                 case "Kenya Revenue Authority":
@@ -464,11 +384,22 @@ export default function TrustedClients() {
                           </p>
                         </div>
 
-                        {/* Footer */}
-                        <div className="flex items-center justify-between pt-3 md:pt-4 border-t border-gray-100 dark:border-gray-700">
-                          <div className="flex items-center gap-2">
-                            <Building2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6" />
-                            <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
+                        {/* Footer - Compact with unique icon */}
+                        <div className="flex items-center justify-between pt-2 border-t border-gray-100 dark:border-gray-800/50 mt-auto">
+                          <div className="flex items-center gap-1.5">
+                            <motion.div 
+                              className="relative"
+                              whileHover={{ scale: 1.1 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <div className="relative">
+                                <div className="absolute inset-0 bg-gradient-to-br from-add8e6/20 via-add8e6/10 to-transparent rounded-md blur-sm group-hover:blur-md transition-all duration-300" />
+                                <div className="relative p-1 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-md border border-add8e6/10 group-hover:border-add8e6/30 transition-all duration-300">
+                                  <MdBusiness className="h-3 w-3 text-add8e6" />
+                                </div>
+                              </div>
+                            </motion.div>
+                            <span className="text-xs text-gray-500 dark:text-gray-400">
                               {client.years} Years
                             </span>
                           </div>
@@ -540,64 +471,42 @@ export default function TrustedClients() {
             </div>
           </div>
 
-          {/* Join Section with Hero-style Elements */}
-          <div className="mt-12 md:mt-16 text-center relative">
-            <div className="relative">
+          {/* Join Section - Minimalist Design */}
+          <div className="mt-8 md:mt-10 text-center relative">
+            <div className="relative max-w-2xl mx-auto">
               <motion.div 
-                className="inline-flex flex-col items-center gap-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-6 md:px-8 py-8 md:py-10 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 max-w-2xl"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="group relative bg-white dark:bg-gray-900/50 rounded-lg px-5 py-6 md:px-6 md:py-7 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50"
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
               >
-                {/* Client Logos */}
-                <div className="flex -space-x-3 md:-space-x-4">
-                  {[
-                    { src: "/trusted-clients/kpa-logo.png", alt: "KPA Logo" },
-                    { src: "/trusted-clients/nairobi-hospital.png", alt: "KPLC Logo" },
-                    { src: "/trusted-clients/nhif-logo.png", alt: "NHIF Logo" }
-                  ].map((logo, i) => (
-                    <motion.div 
-                      key={i} 
-                      className="relative w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white dark:border-gray-800 overflow-hidden bg-white dark:bg-gray-800 shadow-sm transform transition-all duration-200 hover:scale-110 hover:z-10"
-                      style={{ 
-                        transform: `rotate(${i * 5}deg)`,
-                        transitionDelay: `${i * 100}ms`
-                      }}
-                      whileHover={{ scale: 1.1, rotate: 0 }}
-                    >
-                      <Image
-                        src={logo.src}
-                        alt={logo.alt}
-                        fill
-                        className="object-contain p-2 filter dark:brightness-90"
-                      />
-                    </motion.div>
-                  ))}
-                </div>
-
                 {/* Main Content */}
-                <div className="space-y-6">
+                <div className="space-y-4">
                   <div>
-                    <motion.h3 
-                      className="text-sm md:text-lg font-bold text-gray-800 dark:text-white mb-2 md:mb-3"
+                    <h3 
+                      className="text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-add8e6 transition-colors leading-tight"
                     >
                       Ready to Experience the Simca Difference?
-                    </motion.h3>
-                    <motion.p 
-                      className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mb-3 md:mb-5"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2 }}
+                    </h3>
+                    <p 
+                      className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
                     >
                       Join a community of organizations who trust us to care for their spaces with heart, skill, and a personal touch.
-                    </motion.p>
+                    </p>
                   </div>
-                  {/* CTA Button */}
+                  
+                  {/* CTA Button - Minimalist */}
                   <Link href="/contact" passHref legacyBehavior>
                     <motion.a
-                      className="inline-flex items-center gap-2 bg-add8e6 text-white px-6 md:px-8 py-2.5 md:py-3 text-xs sm:text-sm font-medium transition-all duration-300 tracking-wide border-b-2 border-transparent hover:border-white/50 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 mb-16 group"
+                      className="inline-flex items-center gap-1.5 bg-add8e6 text-white px-4 py-2 text-xs font-medium rounded-md transition-all duration-300 hover:bg-add8e6/90 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 group/btn"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       Let's Get Started
-                      <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      <ArrowUpRight className="w-3 h-3 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
                     </motion.a>
                   </Link>
                 </div>

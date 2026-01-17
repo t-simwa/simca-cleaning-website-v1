@@ -3,8 +3,10 @@
 import React from "react"
 import { useEffect, useState, useRef } from "react"
 import { useInView } from "react-intersection-observer"
-import { Users, Home, Building2, Award, TrendingUp, ArrowUpRight, Sparkles, Clock, Leaf, ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+// Unique icon for header
+import { MdBarChart } from "react-icons/md" // Material Design - Bar Chart
 
 export default function StatsCounter() {
   const { ref, inView } = useInView({
@@ -17,58 +19,34 @@ export default function StatsCounter() {
 
   const stats = [
     {
-      icon: <Award className="h-10 w-10 text-add8e6" />,
       value: 8,
       label: "Years Serving Our Community",
       suffix: "+",
-      trend: "+12%",
-      description: "Trusted by local families and businesses year after year.",
-      highlight: "Experience you can rely on for a spotless, worry-free clean."
     },
     {
-      icon: <Users className="h-10 w-10 text-add8e6" />,
       value: 1500,
       label: "Happy Clients & Counting",
       suffix: "+",
-      trend: "+25%",
-      description: "Thousands of clients who feel at home with our service.",
-      highlight: "We treat your space like our own—your satisfaction is our promise."
     },
     {
-      icon: <Home className="h-10 w-10 text-add8e6" />,
       value: 12,
       label: "Communities Cared For",
       suffix: "",
-      trend: "+3",
-      description: "Expanding our reach to serve more neighborhoods every year.",
-      highlight: "Wherever you are, we bring a personal touch to every clean."
     },
     {
-      icon: <Building2 className="h-10 w-10 text-add8e6" />,
       value: 100,
       label: "Dedicated Team Members",
       suffix: "+",
-      trend: "+15%",
-      description: "A growing family of friendly, background-checked professionals.",
-      highlight: "You'll see familiar faces who care about your comfort and safety."
     },
     {
-      icon: <Clock className="h-10 w-10 text-add8e6" />,
       value: 2,
       label: "Average Response Time",
       suffix: " Hours",
-      trend: "-30%",
-      description: "We're there when you need us—fast, flexible, and reliable.",
-      highlight: "Quick help, no waiting, and always on your schedule."
     },
     {
-      icon: <Leaf className="h-10 w-10 text-add8e6" />,
       value: 100,
       label: "Eco-Friendly Cleaning",
       suffix: "%",
-      trend: "100%",
-      description: "Safe for your family, pets, and the planet—every single visit.",
-      highlight: "Enjoy a sparkling clean home with a gentle, green approach."
     },
   ]
 
@@ -119,7 +97,7 @@ export default function StatsCounter() {
       <div className="container mx-auto px-4 relative">
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
           <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6">
-            <Sparkles className="w-4 h-4" />
+            <MdBarChart className="w-3.5 h-3.5" />
             By the Numbers
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight">
@@ -141,7 +119,7 @@ export default function StatsCounter() {
           </p>
         </div>
 
-        <div className="relative max-w-7xl mx-auto">
+        <div className="relative max-w-6xl mx-auto">
           {/* Navigation Buttons - Hidden on mobile */}
           <button
             onClick={prevPage}
@@ -169,20 +147,16 @@ export default function StatsCounter() {
                 exit={{ opacity: 0, x: isMobile ? -100 : 0 }}
                 transition={{ duration: 0.5 }}
                 ref={ref}
-                className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12"
               >
                 {getCurrentCards().map((stat, index) => (
                   <StatItem
                     key={`${currentPage}-${index}`}
-                    icon={stat.icon}
                     value={stat.value}
                     label={stat.label}
                     suffix={stat.suffix}
-                    trend={stat.trend}
-                    description={stat.description}
-                    highlight={stat.highlight}
                     animate={inView}
-                    delay={index * 200}
+                    delay={index * 100}
                   />
                 ))}
               </motion.div>
@@ -261,18 +235,14 @@ export default function StatsCounter() {
 }
 
 interface StatItemProps {
-  icon: React.ReactNode
   value: number
   label: string
   suffix: string
-  trend: string
-  description: string
-  highlight: string
   animate: boolean
   delay: number
 }
 
-function StatItem({ icon, value, label, suffix, trend, description, highlight, animate, delay }: StatItemProps) {
+function StatItem({ value, label, suffix, animate, delay }: StatItemProps) {
   const [count, setCount] = useState(0)
   const countRef = useRef(0)
   const animationDuration = 2000 // ms
@@ -305,61 +275,21 @@ function StatItem({ icon, value, label, suffix, trend, description, highlight, a
   }, [animate, value, delay])
 
   return (
-    <motion.div 
-      className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-xl md:rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group border border-gray-200 dark:border-gray-700 flex flex-col items-center justify-center h-full"
-      style={{
-        opacity: animate ? 1 : 0,
-        transform: animate ? 'translateY(0)' : 'translateY(20px)',
-        transition: `all 0.5s ease-out ${delay}ms`
-      }}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+    <motion.div
+      className="text-center"
+      initial={{ opacity: 0, y: 20 }}
+      animate={animate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ delay: delay / 1000, duration: 0.6 }}
     >
-      <div className="flex flex-col items-center justify-center h-full w-full">
-        <motion.div 
-          className="p-2 md:p-3 bg-gradient-to-br from-add8e6/20 to-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 border border-add8e6/20 flex items-center justify-center mb-4"
-          whileHover={{ 
-            scale: 1.15,
-            rotate: [0, -5, 5, 0],
-            transition: { duration: 0.5 }
-          }}
-        >
-          {React.cloneElement(icon as React.ReactElement<any>, { className: 'h-7 w-7 md:h-8 md:w-8 text-add8e6' })}
-        </motion.div>
-        <motion.div 
-          className="text-3xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-3 tracking-tight text-center"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-        >
-          <span className="bg-gradient-to-r from-add8e6 to-add8e6/80 bg-clip-text text-transparent">
-            {animate ? count : 0}
-            {suffix}
-          </span>
-        </motion.div>
+      {/* Number - Matching hero style */}
+      <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-3 md:mb-4 tracking-tight">
+        {animate ? count : 0}
+        {suffix}
       </div>
-      <motion.div 
-        className="text-xs md:text-sm text-gray-600 dark:text-gray-400 font-medium mb-2 md:mb-3 tracking-wide text-center"
-        whileHover={{ x: 4 }}
-        transition={{ duration: 0.2 }}
-      >
+
+      {/* Label - Matching hero style */}
+      <div className="text-[10px] md:text-xs text-gray-600 dark:text-gray-400 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 dark:border-gray-500/40 inline-block">
         {label}
-      </motion.div>
-      <motion.div 
-        className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-3 md:mb-5 text-center"
-        whileHover={{ x: 4 }}
-        transition={{ duration: 0.2 }}
-      >
-        {description}
-      </motion.div>
-      <div className="mt-auto pt-3 md:pt-4 border-t border-gray-100 dark:border-gray-700 w-full">
-        <motion.div 
-          className="flex items-center gap-2 text-add8e6 justify-center"
-          whileHover={{ x: 4 }}
-          transition={{ duration: 0.2 }}
-        >
-          <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
-          <span className="text-xs md:text-sm font-medium tracking-wide">{highlight}</span>
-        </motion.div>
       </div>
     </motion.div>
   )
