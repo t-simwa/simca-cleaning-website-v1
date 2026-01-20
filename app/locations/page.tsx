@@ -73,7 +73,7 @@ function StatsSectionWithAnimation() {
     <motion.div
       ref={ref}
       variants={itemVariants}
-      className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
+      className="grid grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
     >
       {[
         {

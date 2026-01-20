@@ -271,7 +271,7 @@ export default function ServicesPage() {
               </p>
 
               {/* Quick stats */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8">
+              <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-8">
                 <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
                   <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-add8e6" />
