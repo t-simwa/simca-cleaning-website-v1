@@ -2,13 +2,19 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { MapPin, Phone, Clock, Users, CheckCircle2, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import OpenStreetMap from "@/components/openstreet-map"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion } from "framer-motion"
 import ContactForm from "@/components/home/contact-form"
 import { useState, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
+import React from "react"
+// Unique icons from different icon libraries
+import { FaMapMarkerAlt } from "react-icons/fa" // Font Awesome - Location
+import { FaPhone } from "react-icons/fa" // Font Awesome - Phone
+import { FaClock } from "react-icons/fa" // Font Awesome - Clock
+import { MdLocationOn } from "react-icons/md" // Material Design - Location (for badge)
 
 const MotionImage = motion(Image)
 
@@ -68,7 +74,7 @@ function StatsSectionWithAnimation() {
     <motion.div
       ref={ref}
       variants={itemVariants}
-      className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-16"
+      className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
     >
       {[
         {
@@ -297,18 +303,18 @@ export default function LocationsPage() {
             >
               <motion.div
                 variants={itemVariants}
-                className="inline-block mb-6 sm:mb-4 md:mb-10"
+                className="inline-block mb-6 sm:mb-4 md:mb-8"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
+                  <MdLocationOn className="w-3.5 h-3.5" />
                   National Coverage
                 </span>
               </motion.div>
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
               >
                 Our Service {" "}
                 <span className="text-fff relative inline-block">
@@ -324,7 +330,7 @@ export default function LocationsPage() {
               </motion.h1>
               <motion.p
                 variants={itemVariants}
-                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
               >
                 Wherever you call home or do business, Simca Agencies is right there with you—bringing a caring, local touch to every city we serve. Our teams are part of your community, ready to listen, adapt, and deliver the spotless results you deserve. We believe in building real relationships, so you always know who to trust for a cleaner, healthier space.
               </motion.p>
@@ -342,8 +348,6 @@ export default function LocationsPage() {
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-          {/* Subtle pattern overlay */}
-          <div className="absolute inset-0 opacity-[0.03] bg-[url('/images/pattern.png')] bg-repeat" />
         </div>
         
         {/* Floating decorative elements */}
@@ -357,7 +361,7 @@ export default function LocationsPage() {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-10 md:mb-12">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-2 mb-6 md:mb-6 shadow-sm">
-                  <MapPin className="w-3 h-3 md:w-4 md:h-4" />
+                  <MdLocationOn className="w-3.5 h-3.5" />
                   Our Presence
                 </span>
                 <motion.h2 
@@ -381,29 +385,40 @@ export default function LocationsPage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
                 <div className="order-2 lg:order-1">
-                  <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+                  <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mb-5 md:mb-6">
                       {locations.map((location) => (
                         <Link
                           key={location.id}
                           href={`#${location.id}`}
-                          className="group flex items-center gap-3 p-3 md:p-4 rounded-xl hover:bg-add8e6/5 dark:hover:bg-add8e6/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-add8e6/50"
+                          className="group flex items-start gap-2.5 p-3 md:p-3.5 rounded-lg hover:bg-add8e6/5 dark:hover:bg-add8e6/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-add8e6/50 border border-transparent hover:border-add8e6/20"
                         >
-                          <div className="bg-add8e6/10 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                            <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
-                          </div>
+                          <motion.div 
+                            className="relative flex-shrink-0 mt-0.5"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                {React.createElement(FaMapMarkerAlt, { 
+                                  className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
+                                })}
+                              </div>
+                            </div>
+                          </motion.div>
                           <div className="flex-1 min-w-0">
-                            <div className="flex items-center justify-between gap-2">
-                              <h3 className="font-semibold text-sm md:text-base text-gray-900 dark:text-white group-hover:text-add8e6 transition-colors mb-2 md:mb-3">
+                            <div className="flex items-center justify-between gap-2 mb-1.5">
+                              <h3 className="font-semibold text-xs md:text-sm text-gray-900 dark:text-white group-hover:text-add8e6 transition-colors leading-tight">
                                 {location.name}
                               </h3>
-                              <span className="text-xs md:text-xs bg-add8e6/10 text-add8e6 px-2 py-1 rounded-full whitespace-nowrap flex-shrink-0">
+                              <span className="text-[10px] md:text-xs bg-add8e6/10 text-add8e6 px-1.5 py-0.5 rounded-full whitespace-nowrap flex-shrink-0 font-medium">
                                 24/7
                               </span>
                             </div>
-                            <p className="text-xs md:text-xs text-gray-600 dark:text-gray-400 line-clamp-2 md:line-clamp-none">
+                            <p className="text-[10px] md:text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                               {(() => {
                                 switch (location.name) {
                                   case "Nairobi":
@@ -429,20 +444,20 @@ export default function LocationsPage() {
                     </div>
                     <Link
                       href="/contact"
-                      className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-8 py-4 rounded-xl font-medium hover:shadow-lg transition-all duration-300 group text-center text-xs sm:text-sm w-full focus:outline-none focus:ring-2 focus:ring-add8e6/50"
+                      className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300 group text-center text-xs sm:text-sm w-full focus:outline-none focus:ring-2 focus:ring-add8e6/50"
                     >
                       Get Local Cleaning Support
-                      <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </div>
-                <div className="order-1 lg:order-2 relative h-[400px] md:h-[750px] rounded-2xl overflow-hidden shadow-xl group z-0">
+                <div className="order-1 lg:order-2 relative h-[300px] md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg group z-0 border border-gray-100 dark:border-gray-800/50">
                   <div className="absolute inset-0 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm flex items-center justify-center z-10 transition-opacity duration-300 map-loading">
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-add8e6"></div>
                   </div>
                   <OpenStreetMap 
                     address="Kenya"
-                    height="750px"
+                    height="600px"
                     zoom={6}
                     markers={[
                       {
@@ -472,10 +487,10 @@ export default function LocationsPage() {
                     ]}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 z-20">
-                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 md:p-4 rounded-xl shadow-lg">
-                      <h3 className="text-xs md:text-base font-bold text-gray-800 dark:text-white mb-2">Click on any marker to discover our local expertise</h3>
-                      <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-20">
+                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2.5 md:p-3 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
+                      <h3 className="text-xs md:text-sm font-bold text-gray-800 dark:text-white mb-1.5">Click on any marker to discover our local expertise</h3>
+                      <p className="text-[10px] md:text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
                         Our map shows just how close help is—each marker is a team that cares about your space as much as you do. Click a city to meet your local Simca experts and discover how we make cleaning personal, reliable, and worry-free.
                       </p>
                     </div>
@@ -506,8 +521,8 @@ export default function LocationsPage() {
           <ScrollAnimation>
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-10 md:mb-12">
-                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 mb-6 md:mb-6">
-                  <MapPin className="w-3 h-3 md:w-4 md:h-4" />
+                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-2 mb-6 md:mb-6 shadow-sm">
+                  <MdLocationOn className="w-3.5 h-3.5" />
                   Local Expertise
                 </span>
                 <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0" >
@@ -526,7 +541,7 @@ export default function LocationsPage() {
                 <div
                   key={location.id}
                   id={location.id}
-                  className="relative py-12 md:py-16 lg:py-20 scroll-mt-24"
+                  className="relative py-8 md:py-12 lg:py-16 scroll-mt-24"
                 >
                   {/* Animated gradient background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
@@ -542,7 +557,7 @@ export default function LocationsPage() {
                   <div className="container mx-auto px-4 relative">
                     <ScrollAnimation>
                       <div className="max-w-6xl mx-auto">
-                        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
+                        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-center ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
                           <motion.div 
                             className={`order-2 lg:order-1 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}
                             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
@@ -550,144 +565,122 @@ export default function LocationsPage() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
                           >
-                            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                              <div className="flex items-center gap-4 mb-6">
+                            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50">
+                              <div className="flex items-center gap-3 mb-4">
                                 <motion.div 
-                                  className="bg-add8e6/10 p-3 rounded-xl"
-                                  whileHover={{ 
-                                    scale: 1.1,
-                                    rotate: [0, -5, 5, 0],
-                                    transition: { duration: 0.5 }
-                                  }}
+                                  className="relative flex-shrink-0"
+                                  whileHover={{ scale: 1.1 }}
+                                  transition={{ duration: 0.2 }}
                                 >
-                                  <MapPin className="h-12 w-12 text-add8e6" />
+                                  <div className="relative">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                                    <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                      {React.createElement(FaMapMarkerAlt, { 
+                                        className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
+                                      })}
+                                    </div>
+                                  </div>
                                 </motion.div>
-                                <h2 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3">
+                                <h2 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">
                                   {location.name}
                                 </h2>
                               </div>
-                              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-6">
+                              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-5 leading-relaxed">
                                 {location.description}
                               </p>
 
-                              <div className="space-y-6 md:space-y-8">
+                              <div className="space-y-4 md:space-y-5">
                                 <motion.div
                                   initial={{ opacity: 0, y: 20 }}
                                   whileInView={{ opacity: 1, y: 0 }}
                                   viewport={{ once: true }}
                                   transition={{ duration: 0.5, delay: 0.1 }}
                                 >
-                                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 flex items-center gap-2">
-                                    <span className="w-1.5 h-1.5 bg-add8e6 rounded-full"></span>
+                                  <h3 className="text-xs md:text-sm font-semibold text-gray-900 dark:text-white mb-2 md:mb-2.5 flex items-center gap-2">
+                                    <span className="w-1 h-1 bg-add8e6 rounded-full"></span>
                                     Contact Information
                                   </h3>
-                                  <div className="space-y-3">
+                                  <div className="space-y-2">
                                     <motion.div 
-                                      className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
+                                      className="group flex items-center text-xs text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm border border-transparent hover:border-add8e6/20 transition-all duration-200"
                                       whileHover={{ 
-                                        x: 4,
+                                        x: 3,
                                         backgroundColor: 'rgba(173, 216, 230, 0.1)',
                                         transition: { duration: 0.2 }
                                       }}
                                     >
-                                      <MapPin className="w-4 h-4 text-add8e6 mr-2 flex-shrink-0" />
-                                      {location.address}
+                                      <motion.div 
+                                        className="relative flex-shrink-0 mr-2"
+                                        whileHover={{ scale: 1.1 }}
+                                        transition={{ duration: 0.2 }}
+                                      >
+                                        <div className="relative">
+                                          <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                                          <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                            {React.createElement(FaMapMarkerAlt, { 
+                                              className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
+                                            })}
+                                          </div>
+                                        </div>
+                                      </motion.div>
+                                      <span className="flex-1">{location.address}</span>
                                     </motion.div>
                                     <motion.div 
-                                      className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
+                                      className="group flex items-center text-xs text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm border border-transparent hover:border-add8e6/20 transition-all duration-200"
                                       whileHover={{ 
-                                        x: 4,
+                                        x: 3,
                                         backgroundColor: 'rgba(173, 216, 230, 0.1)',
                                         transition: { duration: 0.2 }
                                       }}
                                     >
-                                      <Phone className="w-4 h-4 text-add8e6 mr-2 flex-shrink-0" />
-                                      {location.phone}
+                                      <motion.div 
+                                        className="relative flex-shrink-0 mr-2"
+                                        whileHover={{ scale: 1.1 }}
+                                        transition={{ duration: 0.2 }}
+                                      >
+                                        <div className="relative">
+                                          <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                                          <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                            {React.createElement(FaPhone, { 
+                                              className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
+                                            })}
+                                          </div>
+                                        </div>
+                                      </motion.div>
+                                      <span className="flex-1">{location.phone}</span>
                                     </motion.div>
                                     <motion.div 
-                                      className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
+                                      className="group flex items-center text-xs text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm border border-transparent hover:border-add8e6/20 transition-all duration-200"
                                       whileHover={{ 
-                                        x: 4,
+                                        x: 3,
                                         backgroundColor: 'rgba(173, 216, 230, 0.1)',
                                         transition: { duration: 0.2 }
                                       }}
                                     >
-                                      <Clock className="w-4 h-4 text-add8e6 mr-2 flex-shrink-0" />
-                                      {location.hours}
+                                      <motion.div 
+                                        className="relative flex-shrink-0 mr-2"
+                                        whileHover={{ scale: 1.1 }}
+                                        transition={{ duration: 0.2 }}
+                                      >
+                                        <div className="relative">
+                                          <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                                          <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                            {React.createElement(FaClock, { 
+                                              className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
+                                            })}
+                                          </div>
+                                        </div>
+                                      </motion.div>
+                                      <span className="flex-1">{location.hours}</span>
                                     </motion.div>
                                   </div>
-                                </motion.div>
-
-                                <motion.div
-                                  initial={{ opacity: 0, y: 20 }}
-                                  whileInView={{ opacity: 1, y: 0 }}
-                                  viewport={{ once: true }}
-                                  transition={{ duration: 0.5, delay: 0.2 }}
-                                >
-                                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 flex items-center gap-2">
-                                    <span className="w-1.5 h-1.5 bg-add8e6 rounded-full"></span>
-                                    Special Services
-                                  </h3>
-                                  <ul className="space-y-1 md:space-y-2">
-                                    {location.specialServices.map((service, i) => (
-                                      <motion.li 
-                                        key={i} 
-                                        className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.3, delay: i * 0.1 }}
-                                        whileHover={{ 
-                                          x: 4,
-                                          backgroundColor: 'rgba(173, 216, 230, 0.1)',
-                                          transition: { duration: 0.2 }
-                                        }}
-                                      >
-                                        <CheckCircle2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6 mr-2 flex-shrink-0" />
-                                        {service}
-                                      </motion.li>
-                                    ))}
-                                  </ul>
-                                </motion.div>
-
-                                <motion.div
-                                  initial={{ opacity: 0, y: 20 }}
-                                  whileInView={{ opacity: 1, y: 0 }}
-                                  viewport={{ once: true }}
-                                  transition={{ duration: 0.5, delay: 0.3 }}
-                                >
-                                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 flex items-center gap-2">
-                                    <span className="w-1.5 h-1.5 bg-add8e6 rounded-full"></span>
-                                    Certifications & Expertise
-                                  </h3>
-                                  <div className="flex flex-wrap gap-2 mb-4">
-                                    {location.certifications.map((cert, i) => (
-                                      <motion.span
-                                        key={i}
-                                        className="text-xs bg-add8e6/10 text-add8e6 px-2 py-1 rounded-full hover:bg-add8e6/20 transition-all duration-300"
-                                        whileHover={{ scale: 1.05 }}
-                                      >
-                                        {cert}
-                                      </motion.span>
-                                    ))}
-                                  </div>
-                                  <motion.p 
-                                    className="text-xs md:text-sm text-gray-600 dark:text-gray-400 p-2 rounded-lg bg-white/50 dark:bg-gray-700/30 backdrop-blur-sm"
-                                    whileHover={{ 
-                                      x: 4,
-                                      backgroundColor: 'rgba(173, 216, 230, 0.1)',
-                                      transition: { duration: 0.2 }
-                                    }}
-                                  >
-                                    {location.localExpertise}
-                                  </motion.p>
                                 </motion.div>
                               </div>
                             </div>
                           </motion.div>
 
                           <motion.div 
-                            className={`relative h-[300px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-xl group ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}
+                            className={`relative h-[250px] md:h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-lg group border border-gray-100 dark:border-gray-800/50 ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}
                             initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -700,19 +693,19 @@ export default function LocationsPage() {
                               fill 
                               className="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
-                            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 z-20">
+                            <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-20">
                               <motion.div 
-                                className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 md:p-4 rounded-xl"
+                                className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2.5 md:p-3 rounded-lg border border-gray-100 dark:border-gray-700"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.4 }}
                               >
-                                <div className="flex items-center justify-between">
-                                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                                <div className="flex items-center justify-between gap-2">
+                                  <p className="text-[10px] md:text-xs text-gray-600 dark:text-gray-400 leading-relaxed flex-1">
                                     {location.valueProposition}
                                   </p>
-                                  <span className="text-xs md:text-sm text-add8e6 font-medium">
+                                  <span className="text-[10px] md:text-xs text-add8e6 font-medium whitespace-nowrap ml-2">
                                     {location.responseTime}
                                   </span>
                                 </div>
