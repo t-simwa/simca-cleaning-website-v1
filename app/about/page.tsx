@@ -1,7 +1,17 @@
 "use client"
 
+import React from "react"
 import Image from "next/image"
-import { Users, Award, MapPin, Sparkles, CheckCircle2, ArrowRight, ChevronLeft, ChevronRight, Handshake, Wallet } from "lucide-react"
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+// Unique icons from different icon libraries - matching home page style
+import { FaUserFriends } from "react-icons/fa" // Font Awesome - Personal Touch
+import { FaTags } from "react-icons/fa" // Font Awesome - Honest & Fair
+import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Reliable & Trustworthy
+import { MdStars } from "react-icons/md" // Material Design - Sparkles/Stars
+import { FaMapMarkerAlt } from "react-icons/fa" // Font Awesome - Map Pin
+import { FaAward } from "react-icons/fa" // Font Awesome - Award
+import { MdAutoAwesome } from "react-icons/md" // Material Design - Sparkles/Awesome
+import { MdGroups } from "react-icons/md" // Material Design - Users/Team
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
@@ -77,7 +87,7 @@ function StatsSectionWithAnimation() {
     <motion.div 
       ref={ref}
       variants={itemVariants}
-      className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
+      className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto"
     >
       {[
         { 
@@ -100,10 +110,10 @@ function StatsSectionWithAnimation() {
           transition={{ delay: index * 0.1, duration: 0.6 }}
           className="text-center"
         >
-          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
+          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-3 tracking-tight">
             <CountUp end={stat.value} duration={1.5} inView={inView} />
           </div>
-          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
+          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1 border-b border-gray-400/30 inline-block">
             {stat.label}
           </div>
         </motion.div>
@@ -140,34 +150,19 @@ export default function AboutPage() {
   // Cards data for the "Our Mission & Values" section
   const cards = [
     {
-      icon: <Users className="h-6 w-6 md:h-7 md:w-7 text-add8e6" />,
+      icon: FaUserFriends,
       title: "A Personal Touch",
-      description: "We treat your space with the same care we'd give our own. Our friendly, reliable team gets to know you and your needs, so we can deliver a clean that's just right for you.",
-      items: [
-        "Friendly and familiar faces",
-        "Custom plans for your needs",
-        "We listen to your feedback"
-      ]
+      description: "We treat your space with the same care we'd give our own. Our friendly, reliable team gets to know you and your needs, so we can deliver a clean that's just right for you."
     },
     {
-      icon: <Wallet className="h-6 w-6 md:h-7 md:w-7 text-add8e6" />,
+      icon: FaTags,
       title: "Honest & Fair",
-      description: "We believe in clear, upfront pricing with no surprises. You get top-quality service at a fair price, so you can enjoy a clean home or office without any stress.",
-      items: [
-        "Transparent, upfront pricing",
-        "No hidden fees, ever",
-        "Flexible options for any budget"
-      ]
+      description: "We believe in clear, upfront pricing with no surprises. You get top-quality service at a fair price, so you can enjoy a clean home or office without any stress."
     },
     {
-      icon: <Handshake className="h-6 w-6 md:h-7 md:w-7 text-add8e6" />,
+      icon: HiShieldCheck,
       title: "Reliable & Trustworthy",
-      description: "Your peace of mind is our priority. Our team is carefully vetted, trained, and dedicated to delivering spotless results you can count on, every single time.",
-      items: [
-        "Vetted and trained professionals",
-        "Satisfaction guarantee",
-        "Consistent, high-quality results"
-      ]
+      description: "Your peace of mind is our priority. Our team is carefully vetted, trained, and dedicated to delivering spotless results you can count on, every single time."
     }
   ]
 
@@ -212,19 +207,19 @@ export default function AboutPage() {
             >
               <motion.div
                 variants={itemVariants}
-                className="inline-block mb-6 sm:mb-4 md:mb-8"
+                className="inline-block mb-4 sm:mb-3 md:mb-6"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4" />
+                  <HiShieldCheck className="w-3.5 h-3.5" />
                   Our Story
                 </span>
               </motion.div>
 
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wide"
               >
                 About{" "}
                 <span className="text-fff relative inline-block">
@@ -241,7 +236,7 @@ export default function AboutPage() {
 
               <motion.p
                 variants={itemVariants}
-                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
+                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto"
               >
                 We started Simca in 2015 with a simple goal: to offer a cleaning service you can truly count on. We're not just about cleaning; we're about creating a healthier, more comfortable space for you and your family. We're your local team, dedicated to providing a personal touch and a spotless result, every single time.
               </motion.p>
@@ -269,35 +264,36 @@ export default function AboutPage() {
           <ScrollAnimation>
             <div className="max-w-6xl mx-auto">
               {/* Section Header */}
-              <div className="text-center mb-8 md:mb-12">
+              <div className="text-center mb-6 md:mb-10">
                 <motion.div 
-                  className="inline-block mb-6 sm:mb-4 md:mb-6 mt-0 !mt-0"
+                  className="inline-block mb-4 sm:mb-3 md:mb-5"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
-                    <Sparkles className="w-4 h-4" />
-                  Our Core Values
-                </span>
+                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm">
+                    <MdStars className="w-3.5 h-3.5" />
+                    Our Core Values
+                  </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
+                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
                 >
                   Our Mission &{" "}
                   <motion.span 
-                    className="text-add8e6 relative inline-block tracking-wider [text-shadow:0_2px_4px_rgba(173,216,230,0.3)] [-webkit-text-stroke:0.5px_rgba(173,216,230,0.3)] dark:[text-shadow:none] dark:[-webkit-text-stroke:none]"
+                    className="text-add8e6 relative inline-block"
                   >
                     Values
                     <motion.span 
-                      className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full"
+                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                       initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: 'easeOut' }}
                     />
                   </motion.span>
                 </motion.h2>
                 <motion.p 
-                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6"
+                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-4"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -309,7 +305,7 @@ export default function AboutPage() {
               {/* Values Grid */}
               <div className="relative">
                 {/* Mobile Carousel / Desktop Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
                   {/* Mobile View - Single Card */}
                   {isMobile ? (
                     <AnimatePresence mode="wait">
@@ -319,72 +315,42 @@ export default function AboutPage() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -100 }}
                         transition={{ duration: 0.5 }}
-                        className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden"
+                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50"
                       >
-                        {/* Glassmorphism effect */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                        
-                        {/* Subtle pattern overlay */}
-                        <div className="absolute inset-0 opacity-5">
-                          <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                        </div>
-
                         <div className="flex flex-col h-full relative z-10">
+                          {/* Beautifully styled icon */}
                           <motion.div 
-                            className="p-2 md:p-2.5 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-5"
-                            whileHover={{ 
-                              scale: 1.15,
-                              rotate: [0, -5, 5, 0],
-                              transition: { duration: 0.5 }
-                            }}
+                            className="relative flex-shrink-0 mb-4"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            {getCurrentCard().icon}
+                            <div className="relative">
+                              {/* Gradient glow effect */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              {/* Icon container */}
+                              <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                {React.createElement(getCurrentCard().icon, { 
+                                  className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
+                                })}
+                              </div>
+                            </div>
                           </motion.div>
                           
                           <motion.h3 
-                              className="text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
-                            whileHover={{ x: 4 }}
+                            className="font-semibold text-add8e6 text-xs md:text-sm mb-2 group-hover:text-add8e6/80 transition-colors leading-tight"
+                            whileHover={{ x: 2 }}
                             transition={{ duration: 0.2 }}
                           >
                             {getCurrentCard().title}
                           </motion.h3>
                           
                           <motion.p 
-                              className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-5"
-                            whileHover={{ x: 4 }}
+                            className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                            whileHover={{ x: 2 }}
                             transition={{ duration: 0.2 }}
                           >
                             {getCurrentCard().description}
                           </motion.p>
-
-                          <div className="space-y-2 md:space-y-3">
-                            {getCurrentCard().items.map((item, i) => (
-                              <motion.div 
-                                key={i} 
-                                className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
-                                whileHover={{ 
-                                  x: 4,
-                                  scale: 1.02,
-                                  backgroundColor: 'rgba(173, 216, 230, 0.1)',
-                                  transition: { duration: 0.2 }
-                                }}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: i * 0.1 }}
-                              >
-                                <motion.div
-                                  whileHover={{ 
-                                    scale: 1.2,
-                                    rotate: 360,
-                                    transition: { duration: 0.5 }
-                                  }}
-                                >
-                                  <CheckCircle2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6 flex-shrink-0" />
-                                </motion.div>
-                                {item}
-                              </motion.div>
-                            ))}
-                          </div>
                         </div>
                       </motion.div>
                     </AnimatePresence>
@@ -394,74 +360,46 @@ export default function AboutPage() {
                       {cards.map((card, index) => (
                         <motion.div 
                           key={index}
-                          className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden"
-                          whileHover={{ y: -5 }}
-                          transition={{ duration: 0.2 }}
+                          className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.05 }}
                         >
-                          {/* Glassmorphism effect */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                          
-                          {/* Subtle pattern overlay */}
-                          <div className="absolute inset-0 opacity-5">
-                            <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                          </div>
-
                           <div className="flex flex-col h-full relative z-10">
+                            {/* Beautifully styled icon */}
                             <motion.div 
-                              className="p-2 md:p-2.5 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-5"
-                              whileHover={{ 
-                                scale: 1.15,
-                                rotate: [0, -5, 5, 0],
-                                transition: { duration: 0.5 }
-                              }}
+                              className="relative flex-shrink-0 mb-4"
+                              whileHover={{ scale: 1.1 }}
+                              transition={{ duration: 0.2 }}
                             >
-                              {card.icon}
+                              <div className="relative">
+                                {/* Gradient glow effect */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                                {/* Icon container */}
+                                <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                  {React.createElement(card.icon, { 
+                                    className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
+                                  })}
+                                </div>
+                              </div>
                             </motion.div>
                             
                             <motion.h3 
-                              className="text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-add8e6 transition-colors"
-                              whileHover={{ x: 4 }}
+                              className="font-semibold text-add8e6 text-xs md:text-sm mb-2 group-hover:text-add8e6/80 transition-colors leading-tight"
+                              whileHover={{ x: 2 }}
                               transition={{ duration: 0.2 }}
                             >
                               {card.title}
                             </motion.h3>
                             
                             <motion.p 
-                              className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-5"
-                              whileHover={{ x: 4 }}
+                              className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                              whileHover={{ x: 2 }}
                               transition={{ duration: 0.2 }}
                             >
                               {card.description}
                             </motion.p>
-
-                            <div className="space-y-2 md:space-y-3">
-                              {card.items.map((item, i) => (
-                                <motion.div 
-                                  key={i} 
-                                  className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm"
-                                  whileHover={{ 
-                                    x: 4,
-                                    scale: 1.02,
-                                    backgroundColor: 'rgba(173, 216, 230, 0.1)',
-                                    transition: { duration: 0.2 }
-                                  }}
-                                  initial={{ opacity: 0, x: -20 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: i * 0.1 }}
-                                >
-                                  <motion.div
-                                    whileHover={{ 
-                                      scale: 1.2,
-                                      rotate: 360,
-                                      transition: { duration: 0.5 }
-                                    }}
-                                  >
-                                    <CheckCircle2 className="w-4 h-4 md:w-4 md:h-4 text-add8e6 flex-shrink-0" />
-                                  </motion.div>
-                                  {item}
-                                </motion.div>
-                              ))}
-                            </div>
                           </div>
                         </motion.div>
                       ))}
@@ -534,33 +472,34 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8 md:mb-12">
+              <div className="text-center mb-6 md:mb-10">
                 <motion.div 
-                  className="inline-block mb-6 sm:mb-4 md:mb-6 mt-0 !mt-0"
+                  className="inline-block mb-4 sm:mb-3 md:mb-5"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
-                    <Sparkles className="w-4 h-4" />
-                  Our Journey
-                </span>
+                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm">
+                    <MdStars className="w-3.5 h-3.5" />
+                    Our Journey
+                  </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight"
+                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
                   Our Growth{" "}
                   <motion.span 
-                    className="text-add8e6 relative inline-block [text-shadow:0_2px_4px_rgba(173,216,230,0.3)] [-webkit-text-stroke:0.5px_rgba(173,216,230,0.3)] dark:[text-shadow:none] dark:[-webkit-text-stroke:none]"
+                    className="text-add8e6 relative inline-block"
                   >
                     Story
                     <motion.span 
-                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full"
+                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                       initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: 'easeOut' }}
                     />
                   </motion.span>
                 </motion.h2>
@@ -579,54 +518,54 @@ export default function AboutPage() {
                 {/* Timeline Line */}
                 <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-add8e6/20 dark:bg-add8e6/30 hidden md:block" />
 
-                <div className="space-y-6 md:space-y-8">
+                <div className="space-y-4 md:space-y-6">
                   {/* 2015 */}
                   <motion.div 
-                    className="relative pl-6 md:pl-8 pb-6 md:pb-8 group"
+                    className="relative pl-6 md:pl-8 pb-4 md:pb-6 group"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
                   >
                     <div className="absolute left-0 top-0 w-0.5 h-full bg-add8e6/20 group-hover:bg-add8e6 transition-colors duration-300" />
                     <motion.div 
-                      className="absolute w-4 h-4 md:w-6 md:h-6 bg-add8e6 rounded-full -left-[7px] md:-left-[11px] top-0 group-hover:scale-110 transition-transform duration-300"
+                      className="absolute w-3 h-3 md:w-4 md:h-4 bg-add8e6 rounded-full -left-[5px] md:-left-[7px] top-0 group-hover:scale-110 transition-transform duration-300"
                       whileHover={{ scale: 1.2 }}
                     />
                     <motion.div 
-                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-5 md:p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      className="bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                       whileHover={{ 
-                        y: -5,
+                        y: -2,
                         transition: { duration: 0.2 }
                       }}
                     >
-                      <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                      <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
                         <motion.span 
-                          className="text-add8e6 font-bold text-sm md:text-base"
-                          whileHover={{ scale: 1.1 }}
+                          className="text-add8e6 font-bold text-xs md:text-sm"
+                          whileHover={{ scale: 1.05 }}
                         >
                           2015
                         </motion.span>
                         <motion.h3 
-                          className="text-base md:text-lg font-bold text-gray-800 dark:text-white"
-                          whileHover={{ x: 4 }}
+                          className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
+                          whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
                           Our Humble Start
                         </motion.h3>
                       </div>
                       <motion.p 
-                        className="text-xs md:text-base text-gray-600 dark:text-gray-300"
-                        whileHover={{ x: 4 }}
+                        className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                        whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
                         It all began in Nairobi with a small but dedicated team of 15 professionals and a big goal: to make homes and businesses feel welcoming and clean. We were thrilled to partner with our first 25+ residential and commercial clients, building relationships one spotless space at a time by offering everything from home cleaning to specialized office maintenance.
                       </motion.p>
                       <motion.div 
-                        className="mt-3 md:mt-4 flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400"
-                        whileHover={{ x: 4 }}
+                        className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
+                        whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <span className="w-1.5 h-1.5 bg-add8e6 rounded-full"></span>
+                        <span className="w-1 h-1 bg-add8e6 rounded-full"></span>
                         <span>25+ Foundational Clients</span>
                       </motion.div>
                     </motion.div>
@@ -634,51 +573,51 @@ export default function AboutPage() {
 
                   {/* 2017 */}
                   <motion.div 
-                    className="relative pl-6 md:pl-8 pb-6 md:pb-8 group"
+                    className="relative pl-6 md:pl-8 pb-4 md:pb-6 group"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                   >
                     <div className="absolute left-0 top-0 w-0.5 h-full bg-add8e6/20 group-hover:bg-add8e6 transition-colors duration-300" />
                     <motion.div 
-                      className="absolute w-4 h-4 md:w-6 md:h-6 bg-add8e6 rounded-full -left-[7px] md:-left-[11px] top-0 group-hover:scale-110 transition-transform duration-300"
+                      className="absolute w-3 h-3 md:w-4 md:h-4 bg-add8e6 rounded-full -left-[5px] md:-left-[7px] top-0 group-hover:scale-110 transition-transform duration-300"
                       whileHover={{ scale: 1.2 }}
                     />
                     <motion.div 
-                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-5 md:p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      className="bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                       whileHover={{ 
-                        y: -5,
+                        y: -2,
                         transition: { duration: 0.2 }
                       }}
                     >
-                      <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                      <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
                         <motion.span 
-                          className="text-add8e6 font-bold text-sm md:text-base"
-                          whileHover={{ scale: 1.1 }}
+                          className="text-add8e6 font-bold text-xs md:text-sm"
+                          whileHover={{ scale: 1.05 }}
                         >
                           2017
                         </motion.span>
                         <motion.h3 
-                          className="text-base md:text-lg font-bold text-gray-800 dark:text-white"
-                          whileHover={{ x: 4 }}
+                          className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
+                          whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
                           Growing & Learning
                         </motion.h3>
                       </div>
                       <motion.p 
-                        className="text-xs md:text-base text-gray-600 dark:text-gray-300"
-                        whileHover={{ x: 4 }}
+                        className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                        whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
                         As more people trusted us with their spaces, our family grew! We expanded our services to Mombasa and Eldoret, welcoming over 50 new commercial clients in hospitality and healthcare. To ensure we always delivered the best, we proudly earned our ISO 9001:2015 certification, a testament to our commitment to top-quality, reliable service.
                       </motion.p>
                       <motion.div 
-                        className="mt-3 md:mt-4 flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400"
-                        whileHover={{ x: 4 }}
+                        className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
+                        whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <span className="w-1.5 h-1.5 bg-add8e6 rounded-full"></span>
+                        <span className="w-1 h-1 bg-add8e6 rounded-full"></span>
                         <span>ISO 9001 Certified Quality</span>
                       </motion.div>
                     </motion.div>
@@ -686,51 +625,51 @@ export default function AboutPage() {
 
                   {/* 2020 */}
                   <motion.div 
-                    className="relative pl-6 md:pl-8 pb-6 md:pb-8 group"
+                    className="relative pl-6 md:pl-8 pb-4 md:pb-6 group"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
                     <div className="absolute left-0 top-0 w-0.5 h-full bg-add8e6/20 group-hover:bg-add8e6 transition-colors duration-300" />
                     <motion.div 
-                      className="absolute w-4 h-4 md:w-6 md:h-6 bg-add8e6 rounded-full -left-[7px] md:-left-[11px] top-0 group-hover:scale-110 transition-transform duration-300"
+                      className="absolute w-3 h-3 md:w-4 md:h-4 bg-add8e6 rounded-full -left-[5px] md:-left-[7px] top-0 group-hover:scale-110 transition-transform duration-300"
                       whileHover={{ scale: 1.2 }}
                     />
                     <motion.div 
-                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-5 md:p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      className="bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                       whileHover={{ 
-                        y: -5,
+                        y: -2,
                         transition: { duration: 0.2 }
                       }}
                     >
-                      <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                      <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
                         <motion.span 
-                          className="text-add8e6 font-bold text-sm md:text-base"
-                          whileHover={{ scale: 1.1 }}
+                          className="text-add8e6 font-bold text-xs md:text-sm"
+                          whileHover={{ scale: 1.05 }}
                         >
                           2020
                         </motion.span>
                         <motion.h3 
-                          className="text-base md:text-lg font-bold text-gray-800 dark:text-white"
-                          whileHover={{ x: 4 }}
+                          className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
+                          whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
                           Caring for Your Home & Our Planet
                         </motion.h3>
                       </div>
                       <motion.p 
-                        className="text-xs md:text-base text-gray-600 dark:text-gray-300"
-                        whileHover={{ x: 4 }}
+                        className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                        whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
                         We've always believed in cleaning that's safe for your family and our planet. In 2020, we officially launched our Green Seal certified eco-friendly solutions. We also embraced new technology to ensure consistent, top-notch results, which helped us achieve a 98% client satisfaction rate that we're incredibly proud of.
                       </motion.p>
                       <motion.div 
-                        className="mt-3 md:mt-4 flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400"
-                        whileHover={{ x: 4 }}
+                        className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
+                        whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <span className="w-1.5 h-1.5 bg-add8e6 rounded-full"></span>
+                        <span className="w-1 h-1 bg-add8e6 rounded-full"></span>
                         <span>Green Seal Certified</span>
                       </motion.div>
                     </motion.div>
@@ -745,44 +684,44 @@ export default function AboutPage() {
                   >
                     <div className="absolute left-0 top-0 w-0.5 h-full bg-add8e6/20 group-hover:bg-add8e6 transition-colors duration-300" />
                     <motion.div 
-                      className="absolute w-4 h-4 md:w-6 md:h-6 bg-add8e6 rounded-full -left-[7px] md:-left-[11px] top-0 group-hover:scale-110 transition-transform duration-300"
+                      className="absolute w-3 h-3 md:w-4 md:h-4 bg-add8e6 rounded-full -left-[5px] md:-left-[7px] top-0 group-hover:scale-110 transition-transform duration-300"
                       whileHover={{ scale: 1.2 }}
                     />
                     <motion.div 
-                      className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-5 md:p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      className="bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                       whileHover={{ 
-                        y: -5,
+                        y: -2,
                         transition: { duration: 0.2 }
                       }}
                     >
-                      <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                      <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
                         <motion.span 
-                          className="text-add8e6 font-bold text-sm md:text-base"
-                          whileHover={{ scale: 1.1 }}
+                          className="text-add8e6 font-bold text-xs md:text-sm"
+                          whileHover={{ scale: 1.05 }}
                         >
                           2023
                         </motion.span>
                         <motion.h3 
-                          className="text-base md:text-lg font-bold text-gray-800 dark:text-white"
-                          whileHover={{ x: 4 }}
+                          className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
+                          whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
                           A Trusted Name in Cleaning
                         </motion.h3>
                       </div>
                       <motion.p 
-                        className="text-xs md:text-base text-gray-600 dark:text-gray-300"
-                        whileHover={{ x: 4 }}
+                        className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                        whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
                         Today, our team of over 100 dedicated professionals serves more than 200 clients across 6 major cities. Being named 'Best Cleaning Service Provider 2023' by the Kenya Business Awards was a wonderful honor, but our greatest achievement is the daily trust you place in us to care for your spaces.
                       </motion.p>
                       <motion.div 
-                        className="mt-3 md:mt-4 flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400"
-                        whileHover={{ x: 4 }}
+                        className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
+                        whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <span className="w-1.5 h-1.5 bg-add8e6 rounded-full"></span>
+                        <span className="w-1 h-1 bg-add8e6 rounded-full"></span>
                         <span>Kenya's Best Cleaning Service 2023</span>
                       </motion.div>
                     </motion.div>
@@ -806,33 +745,34 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-8 md:mb-12">
+              <div className="text-center mb-6 md:mb-10">
                 <motion.div 
-                  className="inline-block mb-3 sm:mb-4 md:mb-6 mt-0 !mt-0"
+                  className="inline-block mb-4 sm:mb-3 md:mb-5"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
-                    <MapPin className="w-4 h-4" />
-                  Our Coverage
-                </span>
+                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm">
+                    <FaMapMarkerAlt className="w-3.5 h-3.5" />
+                    Our Coverage
+                  </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight"
+                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
                   Our National{" "}
                   <motion.span 
-                    className="text-add8e6 relative inline-block [text-shadow:0_2px_4px_rgba(173,216,230,0.3)] [-webkit-text-stroke:0.5px_rgba(173,216,230,0.3)] dark:[text-shadow:none] dark:[-webkit-text-stroke:none]"
+                    className="text-add8e6 relative inline-block"
                   >
                     Footprint
                     <motion.span 
-                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full"
+                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                       initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: 'easeOut' }}
                     />
                   </motion.span>
                 </motion.h2>
@@ -846,9 +786,9 @@ export default function AboutPage() {
                 </motion.p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
                 <motion.div 
-                  className="relative h-[300px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl group"
+                  className="relative h-[250px] md:h-[400px] rounded-lg overflow-hidden shadow-md group"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
@@ -862,201 +802,229 @@ export default function AboutPage() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 z-20">
+                  <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-20">
                     <motion.div 
-                      className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 md:p-4 rounded-xl"
-                      whileHover={{ y: -5 }}
+                      className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2 md:p-3 rounded-lg"
+                      whileHover={{ y: -2 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                      <p className="text-xs text-gray-600 dark:text-gray-300">
                         Your local cleaning experts, wherever you are.
                       </p>
                     </motion.div>
                   </div>
                 </motion.div>
 
-                <div className="space-y-5 md:space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+                <div className="space-y-3 md:space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                     <motion.div 
-                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-5 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300"
+                      className="group relative bg-white dark:bg-gray-900/50 p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5 }}
                       whileHover={{ 
-                        y: -5,
+                        y: -2,
                         transition: { duration: 0.2 }
                       }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-add8e6/5 via-transparent to-add8e6/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="relative z-10">
-                        <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+                        <div className="flex items-center gap-2 mb-2">
                           <motion.div 
-                            className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300"
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.5 }}
+                            className="relative"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                <FaMapMarkerAlt className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Nairobi</h3>
+                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Nairobi</h3>
                         </div>
-                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">In the heart of the capital, we help businesses shine and homes feel like a sanctuary. We're here for you 24/7.</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">In the heart of the capital, we help businesses shine and homes feel like a sanctuary. We're here for you 24/7.</p>
                       </div>
                     </motion.div>
 
                     <motion.div 
-                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300"
+                      className="group relative bg-white dark:bg-gray-900/50 p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
                       whileHover={{ 
-                        y: -5,
+                        y: -2,
                         transition: { duration: 0.2 }
                       }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-add8e6/5 via-transparent to-add8e6/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="relative z-10">
-                        <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+                        <div className="flex items-center gap-2 mb-2">
                           <motion.div 
-                            className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300"
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.5 }}
+                            className="relative"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                <FaMapMarkerAlt className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Mombasa</h3>
+                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Mombasa</h3>
                         </div>
-                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">From bustling hotels to peaceful seaside homes, we provide a fresh, clean environment for the coastal community.</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">From bustling hotels to peaceful seaside homes, we provide a fresh, clean environment for the coastal community.</p>
                       </div>
                     </motion.div>
 
                     <motion.div 
-                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300"
+                      className="group relative bg-white dark:bg-gray-900/50 p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
                       whileHover={{ 
-                        y: -5,
+                        y: -2,
                         transition: { duration: 0.2 }
                       }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-add8e6/5 via-transparent to-add8e6/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="relative z-10">
-                        <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+                        <div className="flex items-center gap-2 mb-2">
                           <motion.div 
-                            className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300"
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.5 }}
+                            className="relative"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                <FaMapMarkerAlt className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Kaimosi</h3>
+                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Kaimosi</h3>
                         </div>
-                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">We're honored to support the places that matter most, providing top-tier cleaning for schools and healthcare facilities.</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">We're honored to support the places that matter most, providing top-tier cleaning for schools and healthcare facilities.</p>
                       </div>
                     </motion.div>
 
                     <motion.div 
-                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300"
+                      className="group relative bg-white dark:bg-gray-900/50 p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
                       whileHover={{ 
-                        y: -5,
+                        y: -2,
                         transition: { duration: 0.2 }
                       }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-add8e6/5 via-transparent to-add8e6/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="relative z-10">
-                        <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+                        <div className="flex items-center gap-2 mb-2">
                           <motion.div 
-                            className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300"
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.5 }}
+                            className="relative"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                <FaMapMarkerAlt className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Eldoret</h3>
+                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Eldoret</h3>
                         </div>
-                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">In the City of Champions, we deliver championship-level cleaning for everything from sports complexes to industrial sites.</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">In the City of Champions, we deliver championship-level cleaning for everything from sports complexes to industrial sites.</p>
                       </div>
                     </motion.div>
 
                     <motion.div 
-                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300"
+                      className="group relative bg-white dark:bg-gray-900/50 p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.4 }}
                       whileHover={{ 
-                        y: -5,
+                        y: -2,
                         transition: { duration: 0.2 }
                       }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-add8e6/5 via-transparent to-add8e6/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="relative z-10">
-                        <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+                        <div className="flex items-center gap-2 mb-2">
                           <motion.div 
-                            className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300"
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.5 }}
+                            className="relative"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                <FaMapMarkerAlt className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Kisumu</h3>
+                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Kisumu</h3>
                         </div>
-                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Bringing a fresh sparkle to the vibrant lakeside city, we serve homes and businesses with care and dedication.</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Bringing a fresh sparkle to the vibrant lakeside city, we serve homes and businesses with care and dedication.</p>
                       </div>
                     </motion.div>
 
                     <motion.div 
-                      className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300"
+                      className="group relative bg-white dark:bg-gray-900/50 p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.5 }}
                       whileHover={{ 
-                        y: -5,
+                        y: -2,
                         transition: { duration: 0.2 }
                       }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-add8e6/5 via-transparent to-add8e6/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="relative z-10">
-                        <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+                        <div className="flex items-center gap-2 mb-2">
                           <motion.div 
-                            className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300"
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.5 }}
+                            className="relative"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                <FaMapMarkerAlt className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Nakuru</h3>
+                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Nakuru</h3>
                         </div>
-                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">In the heart of the Rift Valley, we're proud to offer our reliable cleaning services to this bustling, growing city.</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">In the heart of the Rift Valley, we're proud to offer our reliable cleaning services to this bustling, growing city.</p>
                       </div>
                     </motion.div>
                   </div>
 
                   <motion.div 
-                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-xl transition-all duration-300"
+                    className="group relative bg-white dark:bg-gray-900/50 p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     whileHover={{ 
-                      y: -5,
+                      y: -2,
                       transition: { duration: 0.2 }
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-add8e6/5 via-transparent to-add8e6/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative z-10">
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-3">
                         <motion.div 
-                          className="bg-add8e6/10 p-2.5 md:p-3 rounded-lg group-hover:scale-110 transition-transform duration-300"
-                          whileHover={{ rotate: 360 }}
-                          transition={{ duration: 0.5 }}
+                          className="relative"
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.2 }}
                         >
-                          <MapPin className="h-5 w-5 md:h-6 md:w-6 text-add8e6" />
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                            <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                              <FaMapMarkerAlt className="h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                            </div>
+                          </div>
                         </motion.div>
                         <div>
-                          <h3 className="font-semibold text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors md:text-base">Coming Soon to a Town Near You!</h3>
-                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Coming Soon to a Town Near You!</h3>
+                          <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                             We're excited to be growing! Our goal is to bring our friendly, reliable cleaning services to more communities across Kenya, with plans to reach 10 major cities by 2025.
                           </p>
                         </div>
@@ -1082,55 +1050,55 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8 md:mb-12">
+              <div className="text-center mb-6 md:mb-10">
                 <motion.div 
-                  className="inline-block mb-3 sm:mb-4 md:mb-6 mt-0 !mt-0"
+                  className="inline-block mb-4 sm:mb-3 md:mb-5"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
-                    <Sparkles className="w-4 h-4" />
-                  Leadership
-                </span>
+                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm">
+                    <MdStars className="w-3.5 h-3.5" />
+                    Leadership
+                  </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight"
+                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
                   A Message from Our{" "}
                   <motion.span 
-                    className="text-add8e6 relative inline-block [text-shadow:0_2px_4px_rgba(173,216,230,0.3)] [-webkit-text-stroke:0.5px_rgba(173,216,230,0.3)] dark:[text-shadow:none] dark:[-webkit-text-stroke:none]"
+                    className="text-add8e6 relative inline-block"
                   >
                     CEO
                     <motion.span 
-                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full"
+                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                       initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: 'easeOut' }}
                     />
                   </motion.span>
                 </motion.h2>
               </div>
 
               <motion.div 
-                className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden"
+                className="bg-white dark:bg-gray-900/50 rounded-lg shadow-md overflow-hidden border border-gray-100 dark:border-gray-800/50"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 p-5 md:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 md:p-6">
                   {/* CEO Image */}
                   <motion.div 
-                    className="relative h-full min-h-[300px] md:min-h-[500px] rounded-xl overflow-hidden group"
+                    className="relative h-full min-h-[250px] md:min-h-[400px] rounded-lg overflow-hidden group"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
                     whileHover={{ scale: 1.02 }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
                     <Image
                       src="/ceo.jpg?height=800&width=600"
                       alt="David Simwa - Founder & CEO of Simca Agencies"
@@ -1138,14 +1106,14 @@ export default function AboutPage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 z-20">
+                    <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-20">
                       <motion.div 
-                        className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 md:p-4 rounded-xl shadow-lg"
-                        whileHover={{ y: -5 }}
+                        className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2 md:p-3 rounded-lg shadow-md"
+                        whileHover={{ y: -2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <p className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white">David Simwa</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-300">Founder & CEO</p>
+                        <p className="font-semibold text-xs text-gray-800 dark:text-white">David Simwa</p>
+                        <p className="text-[10px] text-gray-600 dark:text-gray-300">Founder & CEO</p>
                       </motion.div>
                     </div>
                   </motion.div>
@@ -1153,83 +1121,95 @@ export default function AboutPage() {
                   {/* Message Content */}
                   <div className="flex flex-col justify-center h-full">
                     <motion.blockquote 
-                      className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-8 relative"
+                      className="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4 md:mb-6 relative"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5 }}
                     >
-                      <div className="absolute -left-4 top-0 bottom-0 w-1 bg-add8e6/20 rounded-full" />
-                      <div className="pl-4">
+                      <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-add8e6/20 rounded-full" />
+                      <div className="pl-3">
                         When I started Simca Agencies, my goal was simple: to create a cleaning service I'd want for my own family. I believe a clean home is more than just a tidy space—it's a place where you can feel happy, healthy, and at peace. We're not just a company; we're your neighbors, a team of caring people dedicated to making your life a little easier and your home a lot brighter. Thank you for trusting us. It means the world to us, and we'll always work our hardest to earn that trust, one spotless room at a time.
                       </div>
                     </motion.blockquote>
 
-                    <div className="space-y-4 md:space-y-6">
+                    <div className="space-y-3 md:space-y-4">
                       <motion.div 
-                        className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-4 md:p-5 shadow-sm hover:shadow-xl transition-all duration-300"
+                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
-                        whileHover={{ y: -5 }}
+                        whileHover={{ y: -2 }}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-br from-add8e6/5 via-transparent to-add8e6/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <div className="relative z-10 flex items-start gap-4">
+                        <div className="relative z-10 flex items-start gap-3">
                           <motion.div 
-                            className="bg-add8e6/10 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300"
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.5 }}
+                            className="relative flex-shrink-0"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            <Award className="h-5 w-5 text-add8e6" />
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                <FaAward className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
                           </motion.div>
                           <div>
-                            <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Our Promise to You</h3>
-                            <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Our certifications are our promise that you'll always receive a reliable, top-quality clean you can trust.</p>
+                            <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Our Promise to You</h3>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Our certifications are our promise that you'll always receive a reliable, top-quality clean you can trust.</p>
                           </div>
                         </div>
                       </motion.div>
 
                       <motion.div 
-                        className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:shadow-xl transition-all duration-300"
+                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        whileHover={{ y: -5 }}
+                        whileHover={{ y: -2 }}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-br from-add8e6/5 via-transparent to-add8e6/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <div className="relative z-10 flex items-start gap-4">
+                        <div className="relative z-10 flex items-start gap-3">
                           <motion.div 
-                            className="bg-add8e6/10 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300"
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.5 }}
+                            className="relative flex-shrink-0"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            <Sparkles className="h-5 w-5 text-add8e6" />
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                <MdAutoAwesome className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
                           </motion.div>
                           <div>
-                            <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">A Fresh Approach</h3>
-                            <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">We love finding new ways to make your space shine, including using eco-friendly products that are safe for your family.</p>
+                            <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">A Fresh Approach</h3>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">We love finding new ways to make your space shine, including using eco-friendly products that are safe for your family.</p>
                           </div>
                         </div>
                       </motion.div>
 
                       <motion.div 
-                        className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:shadow-xl transition-all duration-300"
+                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        whileHover={{ y: -5 }}
+                        whileHover={{ y: -2 }}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-br from-add8e6/5 via-transparent to-add8e6/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <div className="relative z-10 flex items-start gap-4">
+                        <div className="relative z-10 flex items-start gap-3">
                           <motion.div 
-                            className="bg-add8e6/10 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300"
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.5 }}
+                            className="relative flex-shrink-0"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            <Users className="h-5 w-5 text-add8e6" />
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                <MdGroups className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
                           </motion.div>
                           <div>
-                            <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Always Here for You</h3>
-                            <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">With 200+ happy clients and 24/7 support, we're always ready to create a custom cleaning plan that fits your life.</p>
+                            <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Always Here for You</h3>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">With 200+ happy clients and 24/7 support, we're always ready to create a custom cleaning plan that fits your life.</p>
                           </div>
                         </div>
                       </motion.div>

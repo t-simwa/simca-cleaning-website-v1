@@ -56,7 +56,7 @@ export default function WhyChooseUs() {
               </span>
             </span>
           </h2>
-          <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide">
+          <p className="text-sm md:text-base lg:text-sm text-gray-600 dark:text-gray-300 tracking-wide">
             We care for your space like it's our own. Friendly service, fair prices, and a spotless result—every time.
           </p>
         </motion.div>
