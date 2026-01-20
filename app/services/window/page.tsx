@@ -1,6 +1,16 @@
 "use client";
 
-import { SquareStack, CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock, Sparkles, Shield, Users, Calendar, Star, Leaf, Award, Settings, Wallet, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
+import { SquareStack, ArrowRight, MapPin, Phone, Mail, Users, Calendar, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
+import { FaWindowMaximize } from "react-icons/fa"; // Font Awesome - Window (same as contact form)
+// Unique icons from different icon libraries - matching home page style
+import { HiClock } from "react-icons/hi2"; // Heroicons v2 - Clock/Time
+import { MdStars } from "react-icons/md"; // Material Design - Quality/Star
+import { FaLeaf } from "react-icons/fa"; // Font Awesome - Leaf/Health
+import { FaCog } from "react-icons/fa"; // Font Awesome - Settings/Customization
+import { HiShieldCheck } from "react-icons/hi2"; // Heroicons v2 - Shield/Reliability
+import { FaAward } from "react-icons/fa"; // Font Awesome - Award/Professionalism
+import { FaTags } from "react-icons/fa"; // Font Awesome - Tags/Cost-effective
+import { MdAutoAwesome } from "react-icons/md"; // Material Design - Benefits/Excellence
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -334,7 +344,7 @@ export default function WindowCleaningPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4" />
+                  <FaWindowMaximize className="w-3.5 h-3.5" />
                   Window Services
                 </span>
               </motion.div>
@@ -390,14 +400,9 @@ export default function WindowCleaningPage() {
 
       {/* Why Choose Our Window Cleaning Services Section */}
       <section className="relative py-12 md:py-16 lg:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-white dark:bg-gray-900">
+          <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
@@ -405,11 +410,11 @@ export default function WindowCleaningPage() {
             <div className="w-full md:w-1/2 max-w-3xl md:pl-14 flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-6 w-full flex justify-center md:justify-start">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm">
-                    <CheckCircle2 className="w-4 h-4" />
+                    <FaWindowMaximize className="w-3.5 h-3.5" />
                   Why Choose Us
                   </span>
                 </div>
-              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">Why Choose Our</span>
                 <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                   Window
@@ -448,7 +453,7 @@ export default function WindowCleaningPage() {
                 </div>
             {/* Desktop image column */}
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
-              <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
+              <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[40rem] mx-auto">
                 <Image
                   src={whyChooseUsImage.src}
                   alt={whyChooseUsImage.alt}
@@ -468,15 +473,10 @@ export default function WindowCleaningPage() {
 
       {/* Benefits of Our Window Cleaning Services Section */}
       <section className="relative py-12 md:py-16 lg:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+          <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
-      </div>
         <div className="container mx-auto px-4 relative">
               <motion.div
             className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
@@ -486,10 +486,10 @@ export default function WindowCleaningPage() {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6/20 to-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6 backdrop-blur-sm">
-              <Sparkles className="w-4 h-4" />
+              <MdAutoAwesome className="w-3.5 h-3.5" />
               Benefits of Our Services
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide">
               <span className="block mb-1">Benefits of Our</span>
               <span className="inline-block block mb-1 ml-2">
                 <span className="text-add8e6 relative inline-block">Window
@@ -509,11 +509,11 @@ export default function WindowCleaningPage() {
               Discover the advantages of professional window cleaning for your home or business. From improved curb appeal to a healthier indoor environment, see why clients trust Simca Agencies for sparkling results.
             </p>
               </motion.div>
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-sm md:text-base lg:text-base font-normal">
+          <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 space-y-3 md:space-y-4">
             {[
               {
                 title: "Enhanced Curb Appeal:",
-                icon: <Star className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: MdStars,
                 content: (
                   <>
                     Clean, streak-free windows instantly boost the appearance of your property, making it look well-maintained and inviting. Whether you own a home or a business, sparkling windows create a positive first impression for guests, clients, and potential buyers. Over time, dirt, grime, and water spots can dull your windows and detract from your property's overall look. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> ensures your windows always look their best, helping your property stand out in any neighborhood or commercial district.
@@ -522,7 +522,7 @@ export default function WindowCleaningPage() {
               },
               {
                 title: "Healthier Indoor Environment:",
-                icon: <Leaf className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: FaLeaf,
                 content: (
                   <>
                     Removing dust, pollen, and pollutants from your windows helps improve indoor air quality and reduces the risk of allergies. Over time, windows can accumulate a surprising amount of contaminants that may affect the health of your family, employees, or customers. Our professional cleaning process eliminates these irritants, creating a fresher and more comfortable environment. With regular service from <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span>, you can breathe easier and enjoy a cleaner, healthier space year-round.
@@ -531,7 +531,7 @@ export default function WindowCleaningPage() {
               },
               {
                 title: "More Natural Light:",
-                icon: <Sparkles className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: MdAutoAwesome,
                 content: (
                   <>
                     Spotless windows let in more sunlight, brightening your rooms and boosting your mood and productivity. Natural light is known to enhance well-being and can even help reduce energy costs by minimizing the need for artificial lighting. Dirty or streaky windows can block sunlight and make spaces feel gloomy or closed off. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> helps you enjoy a lighter, more inviting environment every day by ensuring your windows are always crystal clear.
@@ -540,7 +540,7 @@ export default function WindowCleaningPage() {
               },
               {
                 title: "Prolonged Window Lifespan:",
-                icon: <Shield className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: HiShieldCheck,
                 content: (
                   <>
                     Regular professional cleaning prevents the buildup of dirt, hard water stains, and corrosive contaminants that can damage glass and window frames. Over time, these substances can etch into the glass or cause frames to deteriorate, leading to costly repairs or replacements. Our team uses safe, effective methods to remove these threats and protect your investment. With routine service from <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span>, you can extend the life of your windows and maintain their beauty for years to come.
@@ -549,7 +549,7 @@ export default function WindowCleaningPage() {
               },
               {
                 title: "Safety and Convenience:",
-                icon: <Award className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: FaAward,
                 content: (
                   <>
                     Cleaning windows—especially on upper floors or hard-to-reach areas—can be risky and time-consuming for property owners. Our trained professionals use the right equipment, safety gear, and techniques to deliver safe, efficient results every time. You won’t have to worry about climbing ladders, handling harsh chemicals, or missing spots. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> provides a hassle-free experience, allowing you to relax while we handle all the details.
@@ -558,7 +558,7 @@ export default function WindowCleaningPage() {
               },
               {
                 title: "Cost-Effective Solutions:",
-                icon: <Wallet className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: FaTags,
                 content: (
                   <>
                     Professional window cleaning saves you time, effort, and money in the long run by preventing damage and maintaining your property’s value. Our affordable packages are designed to fit a variety of needs and budgets, ensuring you get the best results without overspending. Investing in regular cleaning also helps you avoid expensive repairs or replacements caused by neglect. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> delivers lasting value and peace of mind with every visit.
@@ -567,20 +567,39 @@ export default function WindowCleaningPage() {
               }
             ].map((para, i) => (
               <motion.div
-                key={i}
-                className="relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2"
-                initial={{ opacity: 0, y: 30 }}
+                key={i} 
+                className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 md:p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50"
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
               >
-                <span className="flex items-center gap-2 mb-1">
-                  {para.icon}
-                  <span className="font-bold text-add8e6 text-xs md:text-sm">{para.title}</span>
-                </span>
-                <span>{para.content}</span>
+                <div className="flex items-start gap-3">
+                  <motion.div 
+                    className="relative flex-shrink-0 mt-0.5"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                      <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                        {React.createElement(para.icon, { 
+                          className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
+                        })}
+                      </div>
+                    </div>
                   </motion.div>
-                ))}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-add8e6 text-xs md:text-sm mb-1.5 group-hover:text-add8e6/80 transition-colors leading-tight">
+                      {para.title}
+                    </h3>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                      {para.content}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
               </div>
         </div>
       </section>
@@ -589,15 +608,10 @@ export default function WindowCleaningPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* What's Included in Our Window Cleaning Services Section */}
-      <section className="relative py-12 md:py-16 lg:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+      <section className="relative py-12 md:py-20">
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-white dark:bg-gray-900">
+          <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-8">
@@ -658,11 +672,11 @@ export default function WindowCleaningPage() {
             <div className="w-full md:w-1/2 max-w-3xl md:pl-2 flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-6 w-full flex justify-center md:justify-start">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm">
-                    <CheckCircle2 className="w-4 h-4" />
+                    <FaWindowMaximize className="w-3.5 h-3.5" />
                     What's Included
                   </span>
       </div>
-              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">What's Included in Our</span>
                 <span className="ml-2">
                   <span className="text-add8e6 relative inline-block block mb-4">
@@ -759,14 +773,9 @@ export default function WindowCleaningPage() {
 
       {/* Window Cleaning Plans Section */}
       <div id="pricing" className="relative py-12 md:py-20 scroll-mt-24">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-gray-50 dark:bg-gray-800/50">
+          <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
@@ -779,12 +788,12 @@ export default function WindowCleaningPage() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
-                    <Phone className="w-4 h-4" />
+                    <Phone className="w-3.5 h-3.5" />
                     Pricing & Packages
                   </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 leading-tight tracking-wide mt-0 !mt-0"
+                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide mt-0 !mt-0"
                 >
                   <span className="text-add8e6 relative inline-block tracking-wider">
                     Window
@@ -810,47 +819,43 @@ export default function WindowCleaningPage() {
                 </motion.p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-3 gap-4 md:gap-6">
                 {/* Main three cards */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0 }}
-                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
+                    className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50 overflow-hidden flex flex-col"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                    <div className="absolute inset-0 opacity-5">
-                      <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                    </div>
                     <div className="flex flex-col h-full relative z-10">
-                    <div className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
+                    <div className="p-2 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-3">
+                      <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
                         Small Residential Windows
                       </h3>
                       </div>
-                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-2">
+                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-3">
                       KES 2,500 – 5,000
                     </div>
-                      <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Interior and exterior window cleaning
+                      <ul className="space-y-1.5 flex-grow mb-4">
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaWindowMaximize className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Interior and exterior window cleaning</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Frame and sill cleaning
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaWindowMaximize className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Frame and sill cleaning</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Up to 10 windows
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaWindowMaximize className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Up to 10 windows</span>
                       </li>
                       </ul>
                       <Link
                         href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-2.5 md:py-3 font-semibold transition-all duration-300 text-center text-xs md:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                       >
                         Get a Quote
-                        <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                       </Link>
                     </div>
                   </motion.div>
@@ -858,41 +863,37 @@ export default function WindowCleaningPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
+                  className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50 overflow-hidden flex flex-col"
                   >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                  <div className="absolute inset-0 opacity-5">
-                    <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                </div>
                   <div className="flex flex-col h-full relative z-10">
-                    <div className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
+                    <div className="p-2 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-3">
+                      <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
                         Medium Residential Windows
                       </h3>
                     </div>
-                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-2">
+                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-3">
                       KES 5,500 – 10,000
                     </div>
-                    <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Complete interior and exterior cleaning
+                    <ul className="space-y-1.5 flex-grow mb-4">
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaWindowMaximize className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Complete interior and exterior cleaning</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Frame, sill, and screen cleaning
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaWindowMaximize className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Frame, sill, and screen cleaning</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        10-20 windows
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaWindowMaximize className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>10-20 windows</span>
                       </li>
                     </ul>
                     <Link
                       href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-2.5 md:py-3 font-semibold transition-all duration-300 text-center text-xs md:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
-                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </div>
               </motion.div>
@@ -900,86 +901,78 @@ export default function WindowCleaningPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
+                  className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50 overflow-hidden flex flex-col"
                 >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                <div className="absolute inset-0 opacity-5">
-                  <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                </div>
                   <div className="flex flex-col h-full relative z-10">
-                    <div className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
+                    <div className="p-2 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-3">
+                      <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
                         Large Residential / Commercial
                       </h3>
                 </div>
-                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-2">
+                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-3">
                       KES 10,000 – 25,000
             </div>
-                    <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Comprehensive window cleaning service
+                    <ul className="space-y-1.5 flex-grow mb-4">
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaWindowMaximize className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Comprehensive window cleaning service</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        All surfaces, frames, and screens
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaWindowMaximize className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>All surfaces, frames, and screens</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        20+ windows or commercial buildings
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaWindowMaximize className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>20+ windows or commercial buildings</span>
                       </li>
                     </ul>
                     <Link
                       href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-2.5 md:py-3 font-semibold transition-all duration-300 text-center text-xs md:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
-                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </motion.div>
               </div>
               {/* Centered specialized card below */}
-              <div className="flex justify-center mt-8">
+              <div className="flex justify-center mt-6">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col w-full md:w-1/3"
+                  className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50 overflow-hidden flex flex-col w-full md:w-1/3"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                    <div className="absolute inset-0 opacity-5">
-                      <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                    </div>
                   <div className="flex flex-col h-full relative z-10">
-                    <div className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
+                    <div className="p-2 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-3">
+                      <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
                         Specialized / Custom Window Cleaning
                       </h3>
                     </div>
-                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-2">
+                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-3">
                       Negotiable / Custom Quote
                     </div>
-                    <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        High-rise buildings, skylights, or special requests
+                    <ul className="space-y-1.5 flex-grow mb-4">
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaWindowMaximize className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>High-rise buildings, skylights, or special requests</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Custom cleaning plans for unique properties
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaWindowMaximize className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Custom cleaning plans for unique properties</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Flexible scheduling and tailored services
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaWindowMaximize className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Flexible scheduling and tailored services</span>
                       </li>
                     </ul>
                     <Link
                       href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-2.5 md:py-3 font-semibold transition-all duration-300 text-center text-xs md:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
-                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                     </div>
                   </motion.div>
@@ -999,24 +992,19 @@ export default function WindowCleaningPage() {
       {/* Section Divider */}
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
-      {/* Get In Touch Section */}
-      <section className="relative py-12 md:py-16 lg:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+      {/* Contact Section */}
+      <section className="relative py-12 md:py-20">
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-white dark:bg-gray-900">
+          <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
             <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-4 md:mb-6">
-              <MessageCircle className="w-4 h-4" />
+              <MessageCircle className="w-3.5 h-3.5" />
               Contact Us
               </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
               Get in{' '}
               <span className="text-add8e6 relative">
                 Touch

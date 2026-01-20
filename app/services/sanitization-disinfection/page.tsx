@@ -1,6 +1,16 @@
 "use client";
 
-import { SprayCan, CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock, Sparkles, Shield, Users, Calendar, Star, Leaf, Award, Settings, Wallet, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
+import { SprayCan, ArrowRight, MapPin, Phone, Mail, Users, Calendar, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
+import { FaShieldVirus } from "react-icons/fa"; // Font Awesome - Shield Virus (same as contact form)
+// Unique icons from different icon libraries - matching home page style
+import { HiClock } from "react-icons/hi2"; // Heroicons v2 - Clock/Time
+import { MdStars } from "react-icons/md"; // Material Design - Quality/Star
+import { FaLeaf } from "react-icons/fa"; // Font Awesome - Leaf/Health
+import { FaCog } from "react-icons/fa"; // Font Awesome - Settings/Customization
+import { HiShieldCheck } from "react-icons/hi2"; // Heroicons v2 - Shield/Reliability
+import { FaAward } from "react-icons/fa"; // Font Awesome - Award/Professionalism
+import { FaTags } from "react-icons/fa"; // Font Awesome - Tags/Cost-effective
+import { MdAutoAwesome } from "react-icons/md"; // Material Design - Benefits/Excellence
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -364,7 +374,7 @@ export default function SanitizationDisinfectionPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4" />
+                  <FaShieldVirus className="w-3.5 h-3.5" />
                   Sanitization & Disinfection
                 </span>
               </motion.div>
@@ -417,14 +427,9 @@ export default function SanitizationDisinfectionPage() {
 
       {/* Why Choose Our Sanitization & Disinfection Services Section */}
       <section className="relative py-12 md:py-16 lg:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-white dark:bg-gray-900">
+          <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
@@ -432,11 +437,11 @@ export default function SanitizationDisinfectionPage() {
             <div className="w-full md:w-1/2 max-w-3xl md:pl-14 flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-6 w-full flex justify-center md:justify-start">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm">
-                    <CheckCircle2 className="w-4 h-4" />
+                    <FaShieldVirus className="w-3.5 h-3.5" />
                   Why Choose Us
                   </span>
                 </div>
-              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">Why Choose Our</span>
                 <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                   Sanitization & Disinfection
@@ -475,7 +480,7 @@ export default function SanitizationDisinfectionPage() {
                       </div>
             {/* Desktop image column */}
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
-              <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
+              <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[40rem] mx-auto">
                     <Image
                       src={whyChooseUsImage.src}
                       alt={whyChooseUsImage.alt}
@@ -497,14 +502,9 @@ export default function SanitizationDisinfectionPage() {
 
       {/* Benefits of Our Sanitization & Disinfection Services Section */}
       <section className="relative py-12 md:py-16 lg:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+          <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
                 <motion.div 
@@ -515,10 +515,10 @@ export default function SanitizationDisinfectionPage() {
             transition={{ duration: 0.6 }}
                 >
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6/20 to-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6 backdrop-blur-sm">
-                    <Sparkles className="w-4 h-4" />
+                    <MdAutoAwesome className="w-3.5 h-3.5" />
               Benefits of Our Services
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide">
               <span className="block mb-1">Benefits of Our</span>
               <span className="inline-block block mb-1 ml-2">
                 <span className="text-add8e6 relative inline-block">Sanitization & Disinfection
@@ -538,11 +538,11 @@ export default function SanitizationDisinfectionPage() {
               Experience the difference that professional sanitization and disinfection can make in your daily life. From health protection to peace of mind, discover why businesses and homeowners choose our services.
             </p>
           </motion.div>
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 space-y-10 text-gray-700 dark:text-gray-200 text-sm md:text-base lg:text-base font-normal">
+          <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 space-y-3 md:space-y-4">
             {[
               {
                 title: "Time-saving Convenience:",
-                icon: <Clock className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: HiClock,
                 content: (
                   <>
                     One of the most significant advantages of choosing <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is the time-saving convenience it offers. Instead of spending your valuable time researching disinfectants or worrying about proper sanitization protocols, you can leave the disinfection to our trained professionals. Whether it's a one-time deep sanitization or regular maintenance, our skilled team will efficiently tackle the task, allowing you to focus on what matters most to you and your family.
@@ -551,7 +551,7 @@ export default function SanitizationDisinfectionPage() {
               },
               {
                 title: "Exceptional Quality Results:",
-                icon: <Star className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: MdStars,
                 content: (
                   <>
                     <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> prides itself on delivering exceptional quality sanitization and disinfection services in Kenya that surpasses expectations. Equipped with hospital-grade disinfectants, advanced electrostatic spraying technology, and proven techniques, our trained professionals ensure a thorough and effective disinfection every time. From residential spaces to commercial properties, we guarantee a pathogen-free environment that promotes health and well-being.
@@ -560,7 +560,7 @@ export default function SanitizationDisinfectionPage() {
               },
               {
                 title: "Healthier Living Environment:",
-                icon: <Leaf className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: FaLeaf,
                 content: (
                   <>
                     A sanitized environment is crucial for maintaining good health, and <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> understands this well. By eliminating 99.9% of pathogens, viruses, and harmful bacteria, our sanitization and disinfection solutions create healthier living spaces for you and your family. This is particularly beneficial for individuals with compromised immune systems, families with young children, and anyone aiming to provide a safe and hygienic environment.
@@ -569,7 +569,7 @@ export default function SanitizationDisinfectionPage() {
               },
               {
                 title: "Customized Sanitization Services:",
-                icon: <Settings className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: FaCog,
                 content: (
                   <>
                     <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers flexible and customized sanitization and disinfection solutions tailored to your specific needs. Whether you require comprehensive pathogen elimination, specialized services for high-touch areas, or regular maintenance disinfection, we can accommodate your requirements. Our personalized approach ensures that every corner of your space receives the attention it deserves.
@@ -578,7 +578,7 @@ export default function SanitizationDisinfectionPage() {
               },
               {
                 title: "Consistency and Reliability:",
-                icon: <Shield className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: HiShieldCheck,
                 content: (
                   <>
                     With <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span>, you can expect consistency and reliability in every sanitization session. Our dedicated team follows strict disinfection protocols and schedules, ensuring that your space remains consistently safe and well-maintained. Whether it's a residential home, office, or commercial facility, you can trust us to deliver impeccable results time and time again.
@@ -587,7 +587,7 @@ export default function SanitizationDisinfectionPage() {
               },
               {
                 title: "Professionalism and Expertise:",
-                icon: <Award className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: FaAward,
                 content: (
                   <>
                     <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is staffed by certified disinfection specialists who possess the expertise and skills needed to handle various sanitization challenges. Our attention to detail, professionalism, and commitment to customer satisfaction set us apart in the industry. Whether it's targeting specific pathogens, sanitizing sensitive equipment, or ensuring comprehensive coverage, our team is up to the task.
@@ -596,7 +596,7 @@ export default function SanitizationDisinfectionPage() {
               },
               {
                 title: "Cost-effective Solutions:",
-                icon: <Wallet className="w-5 h-5 text-add8e6 flex-shrink-0" />,
+                icon: FaTags,
                 content: (
                   <>
                     While some may perceive professional sanitization and disinfection services as a luxury, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers cost-effective solutions that provide excellent value for money. When you consider the health benefits, the quality of service delivered, and the peace of mind that comes with a properly sanitized environment, investing in our disinfection services becomes a wise decision for your sanitization needs in Kenya.
@@ -606,17 +606,36 @@ export default function SanitizationDisinfectionPage() {
             ].map((para, i) => (
                   <motion.div
                 key={i} 
-                className="relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2"
-                initial={{ opacity: 0, y: 30 }}
+                className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 md:p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50"
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
                       >
-                <span className="flex items-center gap-2 mb-1">
-                  {para.icon}
-                  <span className="font-bold text-add8e6 text-xs md:text-sm">{para.title}</span>
-                </span>
-                <span>{para.content}</span>
+                <div className="flex items-start gap-3">
+                  <motion.div 
+                    className="relative flex-shrink-0 mt-0.5"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                      <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                        {React.createElement(para.icon, { 
+                          className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
+                        })}
+                      </div>
+                    </div>
+                  </motion.div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-add8e6 text-xs md:text-sm mb-1.5 group-hover:text-add8e6/80 transition-colors leading-tight">
+                      {para.title}
+                    </h3>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                      {para.content}
+                    </p>
+                  </div>
+                </div>
                   </motion.div>
                 ))}
               </div>
@@ -627,15 +646,10 @@ export default function SanitizationDisinfectionPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* What's Included in Our Sanitization & Disinfection Services Section */}
-      <section className="relative py-12 md:py-16 lg:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+      <section className="relative py-12 md:py-20">
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-white dark:bg-gray-900">
+          <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-8">
@@ -696,11 +710,11 @@ export default function SanitizationDisinfectionPage() {
             <div className="w-full md:w-1/2 max-w-3xl md:pl-2 flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-6 w-full flex justify-center md:justify-start">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm">
-                    <CheckCircle2 className="w-4 h-4" />
+                    <FaShieldVirus className="w-3.5 h-3.5" />
                     What's Included
                   </span>
       </div>
-              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-8 leading-tight tracking-wide w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">What's Included in Our</span>
                 <span className="ml-2">
                   <span className="text-add8e6 relative inline-block block mb-4">
@@ -797,14 +811,9 @@ export default function SanitizationDisinfectionPage() {
 
       {/* Pricing Section */}
       <div id="pricing" className="relative py-12 md:py-20 scroll-mt-24">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-gray-50 dark:bg-gray-800/50">
+          <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
@@ -817,12 +826,12 @@ export default function SanitizationDisinfectionPage() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
-                    <Phone className="w-4 h-4" />
+                    <Phone className="w-3.5 h-3.5" />
                     Pricing & Packages
                   </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-6 leading-tight tracking-wide mt-0 !mt-0"
+                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide mt-0 !mt-0"
                 >
                   <span className="text-add8e6 relative inline-block tracking-wider">
                     Sanitization & Disinfection
@@ -848,47 +857,43 @@ export default function SanitizationDisinfectionPage() {
                 </motion.p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-3 gap-4 md:gap-6">
                 {/* Main three cards */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0 }}
-                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
+                    className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50 overflow-hidden flex flex-col"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                    <div className="absolute inset-0 opacity-5">
-                      <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                    </div>
                     <div className="flex flex-col h-full relative z-10">
-                    <div className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
+                    <div className="p-2 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-3">
+                      <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
                         Small Area / Basic Sanitization
                       </h3>
                       </div>
-                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-2">
+                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-3">
                       KES 150 – 300 per sq meter
                     </div>
-                      <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Basic disinfection treatment
+                      <ul className="space-y-1.5 flex-grow mb-4">
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaShieldVirus className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Basic disinfection treatment</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        High-touch surface wiping
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaShieldVirus className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>High-touch surface wiping</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Up to 100 sq meters
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaShieldVirus className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Up to 100 sq meters</span>
                       </li>
                       </ul>
                       <Link
                         href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-2.5 md:py-3 font-semibold transition-all duration-300 text-center text-xs md:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                       >
                         Get a Quote
-                        <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                       </Link>
                     </div>
                   </motion.div>
@@ -896,41 +901,37 @@ export default function SanitizationDisinfectionPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
+                  className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50 overflow-hidden flex flex-col"
                   >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                  <div className="absolute inset-0 opacity-5">
-                    <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                </div>
                   <div className="flex flex-col h-full relative z-10">
-                    <div className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
+                    <div className="p-2 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-3">
+                      <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
                         Medium Area / Standard Disinfection
                       </h3>
                     </div>
-                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-2">
+                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-3">
                       KES 300 – 500 per sq meter
                     </div>
-                    <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Hospital-grade disinfectants
+                    <ul className="space-y-1.5 flex-grow mb-4">
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaShieldVirus className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Hospital-grade disinfectants</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Electrostatic application
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaShieldVirus className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Electrostatic application</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        100-300 sq meters
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaShieldVirus className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>100-300 sq meters</span>
                       </li>
                     </ul>
                     <Link
                       href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-2.5 md:py-3 font-semibold transition-all duration-300 text-center text-xs md:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
-                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </div>
               </motion.div>
@@ -938,86 +939,78 @@ export default function SanitizationDisinfectionPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
+                  className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50 overflow-hidden flex flex-col"
                 >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                <div className="absolute inset-0 opacity-5">
-                  <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                </div>
                   <div className="flex flex-col h-full relative z-10">
-                    <div className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
+                    <div className="p-2 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-3">
+                      <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
                         Large Area / Comprehensive Treatment
                       </h3>
                 </div>
-                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-2">
+                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-3">
                       KES 500+ per sq meter
             </div>
-                    <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Comprehensive pathogen elimination
+                    <ul className="space-y-1.5 flex-grow mb-4">
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaShieldVirus className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Comprehensive pathogen elimination</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Advanced electrostatic technology
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaShieldVirus className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Advanced electrostatic technology</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        300+ sq meters
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaShieldVirus className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>300+ sq meters</span>
                       </li>
                     </ul>
                     <Link
                       href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-2.5 md:py-3 font-semibold transition-all duration-300 text-center text-xs md:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
-                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </motion.div>
               </div>
               {/* Centered specialized card below */}
-              <div className="flex justify-center mt-8">
+              <div className="flex justify-center mt-6">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col w-full md:w-1/3"
+                  className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50 overflow-hidden flex flex-col w-full md:w-1/3"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                    <div className="absolute inset-0 opacity-5">
-                      <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                    </div>
                   <div className="flex flex-col h-full relative z-10">
-                    <div className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
+                    <div className="p-2 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-3">
+                      <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
                         Specialized / Emergency Response
                       </h3>
                     </div>
-                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-2">
+                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-3">
                       Custom Quote
                     </div>
-                    <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Emergency outbreak response
+                    <ul className="space-y-1.5 flex-grow mb-4">
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaShieldVirus className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Emergency outbreak response</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Custom disinfection protocols
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaShieldVirus className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Custom disinfection protocols</span>
                       </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        24/7 availability and rapid deployment
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <FaShieldVirus className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>24/7 availability and rapid deployment</span>
                       </li>
                     </ul>
                     <Link
                       href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-2.5 md:py-3 font-semibold transition-all duration-300 text-center text-xs md:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
-                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                     </div>
                   </motion.div>
@@ -1037,24 +1030,19 @@ export default function SanitizationDisinfectionPage() {
       {/* Section Divider */}
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
-      {/* Contact Section (with residential page background) */}
-      <section className="relative py-12 md:py-16 lg:py-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
-        </div>
-        {/* Floating decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+      {/* Contact Section */}
+      <section className="relative py-12 md:py-20">
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-white dark:bg-gray-900">
+          <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
             <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-4 md:mb-6">
-              <MessageCircle className="w-4 h-4" />
+              <MessageCircle className="w-3.5 h-3.5" />
               Contact Us
               </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
               Get in{' '}
               <span className="text-add8e6 relative">
                 Touch

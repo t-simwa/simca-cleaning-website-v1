@@ -10,11 +10,10 @@ import ContactForm from "@/components/home/contact-form"
 import { useState, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import React from "react"
-// Unique icons from different icon libraries
-import { FaMapMarkerAlt } from "react-icons/fa" // Font Awesome - Location
-import { FaPhone } from "react-icons/fa" // Font Awesome - Phone
-import { FaClock } from "react-icons/fa" // Font Awesome - Clock
-import { MdLocationOn } from "react-icons/md" // Material Design - Location (for badge)
+// Unique icons from different icon libraries - matching home page style
+import { MdLocationOn } from "react-icons/md" // Material Design - Location (for badge and main location)
+import { HiPhone } from "react-icons/hi2" // Heroicons v2 - Phone
+import { HiClock } from "react-icons/hi2" // Heroicons v2 - Clock
 
 const MotionImage = motion(Image)
 
@@ -403,7 +402,7 @@ export default function LocationsPage() {
                             <div className="relative">
                               <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
                               <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
-                                {React.createElement(FaMapMarkerAlt, { 
+                                {React.createElement(MdLocationOn, { 
                                   className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
                                 })}
                               </div>
@@ -575,7 +574,7 @@ export default function LocationsPage() {
                                   <div className="relative">
                                     <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
                                     <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
-                                      {React.createElement(FaMapMarkerAlt, { 
+                                      {React.createElement(MdLocationOn, { 
                                         className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
                                       })}
                                     </div>
@@ -617,7 +616,7 @@ export default function LocationsPage() {
                                         <div className="relative">
                                           <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
                                           <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
-                                            {React.createElement(FaMapMarkerAlt, { 
+                                            {React.createElement(MdLocationOn, { 
                                               className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
                                             })}
                                           </div>
@@ -641,7 +640,7 @@ export default function LocationsPage() {
                                         <div className="relative">
                                           <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
                                           <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
-                                            {React.createElement(FaPhone, { 
+                                            {React.createElement(HiPhone, { 
                                               className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
                                             })}
                                           </div>
@@ -665,7 +664,7 @@ export default function LocationsPage() {
                                         <div className="relative">
                                           <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
                                           <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
-                                            {React.createElement(FaClock, { 
+                                            {React.createElement(HiClock, { 
                                               className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
                                             })}
                                           </div>
