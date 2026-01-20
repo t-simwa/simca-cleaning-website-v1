@@ -1,8 +1,13 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { MessageCircle, X, Phone, Clock } from "lucide-react"
+import { X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+// Unique icons from different icon libraries - matching home page style
+import { FaWhatsapp } from "react-icons/fa" // Font Awesome - WhatsApp
+import { MdPhone } from "react-icons/md" // Material Design - Phone
+import { HiClock } from "react-icons/hi2" // Heroicons v2 - Clock
+import { HiChatBubbleLeftRight } from "react-icons/hi2" // Heroicons v2 - Chat
 
 export default function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false)
@@ -35,64 +40,73 @@ export default function WhatsAppWidget() {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
+    <div className="fixed bottom-3 right-3 md:bottom-4 md:right-4 z-50">
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: 10, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-4 md:p-6 mb-4 w-[calc(100vw-2rem)] md:w-80 border border-gray-100 dark:border-gray-700"
+            exit={{ opacity: 0, y: 10, scale: 0.96 }}
+            transition={{ duration: 0.15 }}
+            className="bg-white dark:bg-gray-900/95 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md p-3 mb-2.5 w-[calc(100vw-1.5rem)] md:w-64 border border-gray-100 dark:border-gray-800/50"
           >
             {/* Header */}
-            <div className="flex justify-between items-center mb-4 md:mb-6">
-              <div className="flex items-center gap-2 md:gap-3">
-                <div className="bg-green-500 rounded-full p-2 md:p-2.5">
-                  <MessageCircle className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                </div>
+            <div className="flex justify-between items-start mb-3">
+              <div className="flex items-start gap-2">
+                <motion.div 
+                  className="relative flex-shrink-0 mt-0.5"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-green-500/20 rounded-md blur-sm" />
+                    <div className="relative p-1.5 bg-gradient-to-br from-green-500/10 to-green-500/5 dark:from-green-500/15 dark:to-green-500/8 rounded-md border border-green-500/20">
+                      <HiChatBubbleLeftRight className="h-3 w-3 text-green-600 dark:text-green-400" />
+                    </div>
+                  </div>
+                </motion.div>
                 <div>
-                  <h3 className="font-semibold text-gray-800 dark:text-white text-sm md:text-base">Chat with us</h3>
-                  <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">We typically reply instantly</p>
+                  <h3 className="font-semibold text-gray-900 dark:text-white text-xs leading-tight mb-0.5">Chat with us</h3>
+                  <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-tight">We typically reply instantly</p>
                 </div>
               </div>
               <button
                 onClick={toggleWidget}
-                className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors"
+                className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors p-0.5 -mt-0.5 -mr-0.5"
                 aria-label="Close chat"
               >
-                <X className="h-4 w-4 md:h-5 md:w-5" />
+                <X className="h-3 w-3" />
               </button>
             </div>
 
             {/* Content */}
-            <div className="space-y-3 md:space-y-4">
-              <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">
+            <div className="space-y-2.5">
+              <p className="text-[11px] text-gray-600 dark:text-gray-300 leading-relaxed">
                 Hello! Need help with cleaning services? We're here to assist you.
               </p>
               
               {/* Business Hours */}
-              <div className="flex items-center gap-2 text-xs md:text-sm text-gray-500 dark:text-gray-400">
-                <Clock className="h-3 w-3 md:h-4 md:w-4" />
-                <span>Mon-Fri: 8am-5pm, Sat: 9am-1pm</span>
+              <div className="flex items-center gap-1.5 text-[10px] text-gray-500 dark:text-gray-400">
+                <HiClock className="h-2.5 w-2.5 flex-shrink-0" />
+                <span className="leading-tight">Mon-Fri: 8am-5pm, Sat: 9am-1pm</span>
               </div>
 
               {/* Action Buttons */}
-              <div className="space-y-2 md:space-y-3 pt-2">
+              <div className="space-y-1.5 pt-1.5 border-t border-gray-100 dark:border-gray-800/50">
                 <button
                   onClick={handleWhatsAppClick}
-                  className="w-full bg-green-500 hover:bg-green-600 text-white py-2.5 md:py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-green-500/20 text-sm md:text-base"
+                  className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white py-2 px-3 rounded-md flex items-center justify-center gap-1.5 transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] shadow-sm text-xs font-medium"
                 >
-                  <MessageCircle className="h-4 w-4 md:h-5 md:w-5" />
-                  <span className="font-medium">Start WhatsApp Chat</span>
+                  <FaWhatsapp className="h-3 w-3" />
+                  <span>Start WhatsApp Chat</span>
                 </button>
                 
                 <button
                   onClick={handlePhoneClick}
-                  className="w-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 py-2.5 md:py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-sm md:text-base"
+                  className="w-full bg-gray-50 hover:bg-gray-100 dark:bg-gray-800/50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 py-2 px-3 rounded-md flex items-center justify-center gap-1.5 transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] border border-gray-100 dark:border-gray-800/50 text-xs font-medium"
                 >
-                  <Phone className="h-4 w-4 md:h-5 md:w-5" />
-                  <span className="font-medium">Call Us</span>
+                  <MdPhone className="h-3 w-3" />
+                  <span>Call Us</span>
                 </button>
               </div>
             </div>
@@ -104,13 +118,20 @@ export default function WhatsAppWidget() {
         onClick={toggleWidget}
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        transition={{ type: "spring", stiffness: 200, damping: 15 }}
-        className={`bg-green-500 hover:bg-green-600 text-white p-3 md:p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 ${
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        className={`relative bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-2.5 md:p-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105 active:scale-95 ${
           isOpen ? "rotate-90" : ""
         }`}
         aria-label="WhatsApp Chat"
       >
-        {isOpen ? <X className="h-5 w-5 md:h-6 md:w-6" /> : <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />}
+        <div className="absolute inset-0 bg-green-500/20 rounded-lg blur-sm opacity-0 hover:opacity-100 transition-opacity" />
+        <div className="relative">
+          {isOpen ? (
+            <X className="h-3.5 w-3.5 md:h-4 md:w-4" />
+          ) : (
+            <FaWhatsapp className="h-3.5 w-3.5 md:h-4 md:w-4" />
+          )}
+        </div>
       </motion.button>
     </div>
   )
