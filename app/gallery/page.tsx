@@ -2,7 +2,15 @@
 
 import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Camera, Sparkles, CheckCircle2, List, Star, Home, Building2, Sofa, Clock, ZoomIn, ArrowRight } from "lucide-react"
+import { ZoomIn } from "lucide-react"
+import React from "react"
+// Beautiful styled icons from react-icons
+import { MdStars } from "react-icons/md" // Material Design - All/Sparkles
+import { FaHome } from "react-icons/fa" // Font Awesome - Residential
+import { MdBusiness } from "react-icons/md" // Material Design - Commercial
+import { FaCouch } from "react-icons/fa" // Font Awesome - Carpet & Upholstery
+import { MdAccessTime } from "react-icons/md" // Material Design - Before & After
+import { FaCamera } from "react-icons/fa" // Font Awesome - Camera
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import Link from "next/link"
 import { useState, useEffect } from "react"
@@ -82,7 +90,7 @@ function StatsSectionWithAnimation() {
     <motion.div
       ref={ref}
       variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-      className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-16"
+      className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
     >
       {[
         {
@@ -122,11 +130,11 @@ export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
   const categories = [
-    { id: "all", name: "All", icon: <Sparkles className="w-4 h-4" /> },
-    { id: "residential", name: "Residential", icon: <Home className="w-4 h-4" /> },
-    { id: "commercial", name: "Commercial", icon: <Building2 className="w-4 h-4" /> },
-    { id: "carpet", name: "Carpet & Upholstery", icon: <Sofa className="w-4 h-4" /> },
-    { id: "before-after", name: "Before & After", icon: <Clock className="w-4 h-4" /> },
+    { id: "all", name: "All", icon: MdStars },
+    { id: "residential", name: "Residential", icon: FaHome },
+    { id: "commercial", name: "Commercial", icon: MdBusiness },
+    { id: "carpet", name: "Carpet & Upholstery", icon: FaCouch },
+    { id: "before-after", name: "Before & After", icon: MdAccessTime },
   ]
 
   const galleryImages = [
@@ -255,18 +263,18 @@ export default function GalleryPage() {
             >
               <motion.div
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="inline-block mb-6 sm:mb-4 md:mb-10"
+                className="inline-block mb-6 sm:mb-4 md:mb-8"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
-                  <Camera className="w-4 h-4" />
+                  <FaCamera className="w-3.5 h-3.5" />
                   Gallery Portfolio
                 </span>
               </motion.div>
               <motion.h1
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
               >
                 Our Work at <span className="text-fff relative inline-block">Simca Agencies
                   <motion.span
@@ -280,7 +288,7 @@ export default function GalleryPage() {
               </motion.h1>
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
               >
                 Every photo in our gallery tells a story of care, trust, and attention to detail. We treat every space as if it were our own, working closely with you to deliver results you can see and feel. Whether it's a home, office, or something in between, our team is dedicated to making your environment shine—no shortcuts, no surprises, just honest work and real results. See what's possible when you choose a cleaning partner who truly cares.
               </motion.p>
@@ -295,29 +303,38 @@ export default function GalleryPage() {
 
       {/* Gallery Section */}
       <div className="relative bg-white dark:bg-gray-900 py-12 md:py-16 lg:py-20">
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
+        </div>
+        {/* Floating decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        </div>
 
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
-              <TabsList className="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 md:mb-12 bg-transparent p-0">
+              <TabsList className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 md:mb-12 bg-transparent p-0">
                 {categories.map((category) => (
                   <TabsTrigger
                     key={category.id}
                     value={category.id}
-                    className="group flex items-center gap-2 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs font-medium transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-add8e6 data-[state=active]:to-add8e6/90 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-add8e6/20 data-[state=inactive]:bg-white/80 data-[state=inactive]:dark:bg-gray-800/80 data-[state=inactive]:text-gray-600 data-[state=inactive]:dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 backdrop-blur-sm"
+                    className="group flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-add8e6 data-[state=active]:to-add8e6/90 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-add8e6/20 data-[state=inactive]:bg-white/80 data-[state=inactive]:dark:bg-gray-800/80 data-[state=inactive]:text-gray-600 data-[state=inactive]:dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 backdrop-blur-sm"
                   >
-                    {category.icon}
+                    {React.createElement(category.icon, { 
+                      className: 'w-3 h-3'
+                    })}
                     {category.name}
                   </TabsTrigger>
                 ))}
               </TabsList>
 
               {categories.map((category) => (
-                <TabsContent key={category.id} value={category.id} className="mt-24 md:mt-16">
+                <TabsContent key={category.id} value={category.id} className="mt-8 md:mt-12">
                   <motion.div 
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
@@ -329,47 +346,40 @@ export default function GalleryPage() {
                           key={image.id}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 }}
-                          className="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm"
-                          whileHover={{ scale: 1.02 }}
+                          transition={{ duration: 0.4, delay: index * 0.05 }}
+                          className="group relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800/50"
                         >
-                          <div className="relative h-48 sm:h-56 md:h-64 w-full">
+                          <div className="relative h-40 sm:h-48 md:h-56 w-full">
                             <Image
                               src={image.src || "/placeholder.svg"}
                               alt={image.alt}
                               fill
-                              className="object-cover transition-transform duration-500 group-hover:scale-110"
+                              className="object-cover transition-transform duration-300 group-hover:scale-105"
                               loading="lazy"
                               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                             <motion.button
-                              className="absolute top-4 right-4 p-2 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-add8e6 hover:text-white"
+                              className="absolute top-2 right-2 p-1.5 rounded-md bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-add8e6 hover:text-white"
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
                               onClick={() => setSelectedImage(image.id)}
                               aria-label="View full size image"
                             >
-                              <ZoomIn className="w-5 h-5" />
+                              <ZoomIn className="w-3.5 h-3.5" />
                             </motion.button>
                           </div>
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6">
-                            <motion.h3 
-                              className="text-xl md:text-2xl font-bold text-white mb-1"
-                              initial={{ y: 20, opacity: 0 }}
-                              animate={{ y: 0, opacity: 1 }}
-                              transition={{ delay: 0.1 }}
+                          <div className="p-3 md:p-4">
+                            <h3 
+                              className="text-sm font-semibold text-gray-900 dark:text-white mb-1.5 group-hover:text-add8e6 transition-colors duration-200 leading-tight"
                             >
                               {image.title}
-                            </motion.h3>
-                            <motion.p 
-                              className="text-sm md:text-base lg:text-base text-white tracking-wide mt-1 md:mt-2"
-                              initial={{ y: 20, opacity: 0 }}
-                              animate={{ y: 0, opacity: 1 }}
-                              transition={{ delay: 0.2 }}
+                            </h3>
+                            <p 
+                              className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
                             >
                               {image.description}
-                            </motion.p>
+                            </p>
                           </div>
                         </motion.div>
                       ))}
@@ -385,59 +395,66 @@ export default function GalleryPage() {
 
       {/* Lightbox Modal */}
       <AnimatePresence>
-        {selectedImage !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
-            onClick={() => setSelectedImage(null)}
-          >
+        {selectedImage !== null && (() => {
+          const selectedImg = galleryImages.find(img => img.id === selectedImage);
+          if (!selectedImg) return null;
+          
+          return (
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-4xl w-full mx-4"
-              onClick={(e) => e.stopPropagation()}
+              key="lightbox"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+              onClick={() => setSelectedImage(null)}
             >
-              <Image
-                src={galleryImages.find(img => img.id === selectedImage)?.src || ""}
-                alt={galleryImages.find(img => img.id === selectedImage)?.alt || ""}
-                width={1200}
-                height={800}
-                className="rounded-lg shadow-2xl"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-6 rounded-b-lg">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
-                  {galleryImages.find(img => img.id === selectedImage)?.title}
-                </h3>
-                <p className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mt-1">
-                  {galleryImages.find(img => img.id === selectedImage)?.description}
-                </p>
-              </div>
-              <button
-                className="absolute top-4 right-4 p-2 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-add8e6 hover:text-white transition-all duration-300"
-                onClick={() => setSelectedImage(null)}
-                aria-label="Close modal"
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="relative max-w-5xl w-full max-h-[90vh] flex flex-col"
+                onClick={(e) => e.stopPropagation()}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
+                <div className="relative w-full flex-1 min-h-0 mb-16 rounded-lg overflow-hidden bg-black/20">
+                  <img
+                    src={selectedImg.src || ""}
+                    alt={selectedImg.alt || ""}
+                    className="w-full h-full object-contain rounded-lg shadow-2xl"
+                    style={{ maxHeight: '85vh' }}
                   />
-                </svg>
-              </button>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 md:p-6 rounded-b-lg">
+                  <h3 className="text-sm md:text-base font-semibold text-white mb-1">
+                    {selectedImg.title}
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-200 tracking-wide mt-1">
+                    {selectedImg.description}
+                  </p>
+                </div>
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-md bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-add8e6 hover:text-white transition-all duration-300"
+                  onClick={() => setSelectedImage(null)}
+                  aria-label="Close modal"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
+          );
+        })()}
       </AnimatePresence>
 
       <ContactForm />
