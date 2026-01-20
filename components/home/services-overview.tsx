@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, ChevronLeft, ChevronRight, LucideProps } from "lucide-react"
+import { ArrowRight, LucideProps } from "lucide-react"
 import React from "react"
 // Unique icons from different icon libraries
 import { FaHome } from "react-icons/fa" // Font Awesome - Home
@@ -15,7 +15,7 @@ import { FaBed } from "react-icons/fa" // Font Awesome - Bed
 import { MdStars } from "react-icons/md" // Material Design - Specialized
 import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Shield
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import Image from "next/image"
 
 // Update the service type to include image
@@ -34,25 +34,6 @@ type Service = {
 
 export default function ServicesOverview() {
   const [activeTab, setActiveTab] = useState("all")
-  const [currentPage, setCurrentPage] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Handle window resize
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
-  // Reset current page when changing categories
-  useEffect(() => {
-    setCurrentPage(0)
-  }, [activeTab])
 
   const services: Service[] = [
     {
@@ -218,25 +199,6 @@ export default function ServicesOverview() {
     ? services 
     : services.filter(service => service.category === activeTab)
 
-  // Calculate total pages based on screen size and filtered services
-  const cardsPerPage = isMobile ? 1 : 3
-  const totalPages = Math.ceil(filteredServices.length / cardsPerPage)
-
-  // Navigation functions
-  const nextPage = () => {
-    setCurrentPage((prev) => (prev + 1) % totalPages)
-  }
-
-  const prevPage = () => {
-    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages)
-  }
-
-  // Get current cards
-  const getCurrentCards = () => {
-    const start = currentPage * cardsPerPage
-    return filteredServices.slice(start, start + cardsPerPage)
-  }
-
   const categories = [
     { id: "all", label: "All Services", icon: MdStars, description: "Complete range of professional cleaning solutions" },
     { id: "residential", label: "Residential", icon: FaHome, description: "Personalized home cleaning solutions" },
@@ -300,196 +262,73 @@ export default function ServicesOverview() {
 
         {/* Service Cards */}
         <div className="relative max-w-6xl mx-auto">
-          {/* Desktop: Show all cards, no carousel or navigation */}
-          {!isMobile && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-              {filteredServices.map((service, index) => (
-                <Link
-                  key={index}
-                  href={service.link}
-                  className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 w-full overflow-hidden border border-gray-100 dark:border-gray-800/50"
-                >
-                  <div className="flex flex-col h-full relative z-10">
-                    {/* Service Image - Compact and elegant */}
-                    <div className="relative w-full h-32 mb-3 rounded-md overflow-hidden bg-gray-100 dark:bg-gray-800/50">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        quality={85}
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
-                      {/* Icon overlay - positioned top right */}
-                      <div className="absolute top-2 right-2">
-                        <motion.div 
-                          className="relative"
-                          whileHover={{ scale: 1.1 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <div className="relative">
-                            <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90 rounded-md blur-sm" />
-                            <div className="relative p-1.5 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-md border border-add8e6/20">
-                              {React.createElement(service.icon, { 
-                                className: 'h-3 w-3 text-add8e6'
-                              })}
-                            </div>
-                          </div>
-                        </motion.div>
-                      </div>
-                    </div>
-
-                    {/* Title */}
-                    <h3 
-                      className="text-sm font-semibold text-gray-900 dark:text-white mb-1.5 group-hover:text-add8e6 transition-colors duration-200 leading-tight"
-                    >
-                      {service.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p 
-                      className="text-xs text-gray-600 dark:text-gray-400 mb-3 leading-relaxed"
-                    >
-                      {service.description}
-                    </p>
-
-                    {/* CTA Link */}
-                    <div className="mt-auto pt-2 border-t border-gray-100 dark:border-gray-800/50">
-                      <span 
-                        className="text-xs text-add8e6 font-medium group-hover:gap-1.5 flex items-center gap-1 transition-all duration-200"
+          {/* Show all cards in grid - single column on mobile, multi-column on desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+            {filteredServices.map((service, index) => (
+              <Link
+                key={index}
+                href={service.link}
+                className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 w-full overflow-hidden border border-gray-100 dark:border-gray-800/50"
+              >
+                <div className="flex flex-col h-full relative z-10">
+                  {/* Service Image - Compact and elegant */}
+                  <div className="relative w-full h-32 mb-3 rounded-md overflow-hidden bg-gray-100 dark:bg-gray-800/50">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      quality={85}
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
+                    {/* Icon overlay - positioned top right */}
+                    <div className="absolute top-2 right-2">
+                      <motion.div 
+                        className="relative"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        Learn more
-                        <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-          {/* Mobile: Keep carousel and navigation */}
-          {isMobile && (
-            <>
-              {/* Carousel Container */}
-              <div className="overflow-visible">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentPage}
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -100 }}
-                    transition={{ duration: 0.5 }}
-                    className="grid grid-cols-1 gap-3"
-                  >
-                    {getCurrentCards().map((service, index) => (
-                      <Link
-                        key={`${currentPage}-${index}`}
-                        href={service.link}
-                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 w-full overflow-hidden border border-gray-100 dark:border-gray-800/50"
-                      >
-                        <div className="flex flex-col h-full relative z-10">
-                          {/* Service Image - Compact and elegant */}
-                          <div className="relative w-full h-32 mb-3 rounded-md overflow-hidden bg-gray-100 dark:bg-gray-800/50">
-                            <Image
-                              src={service.image}
-                              alt={service.title}
-                              fill
-                              className="object-cover transition-transform duration-300 group-hover:scale-105"
-                              sizes="100vw"
-                              quality={85}
-                              loading="lazy"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
-                            {/* Icon overlay - positioned top right */}
-                            <div className="absolute top-2 right-2">
-                              <motion.div 
-                                className="relative"
-                                whileHover={{ scale: 1.1 }}
-                                transition={{ duration: 0.2 }}
-                              >
-                                <div className="relative">
-                                  <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90 rounded-md blur-sm" />
-                                  <div className="relative p-1.5 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-md border border-add8e6/20">
-                                    {React.createElement(service.icon, { 
-                                      className: 'h-3 w-3 text-add8e6'
-                                    })}
-                                  </div>
-                                </div>
-                              </motion.div>
-                            </div>
-                          </div>
-
-                          {/* Title */}
-                          <h3 
-                            className="text-sm font-semibold text-gray-900 dark:text-white mb-1.5 group-hover:text-add8e6 transition-colors duration-200 leading-tight"
-                          >
-                            {service.title}
-                          </h3>
-
-                          {/* Description */}
-                          <p 
-                            className="text-xs text-gray-600 dark:text-gray-400 mb-3 leading-relaxed"
-                          >
-                            {service.description}
-                          </p>
-
-                          {/* CTA Link */}
-                          <div className="mt-auto pt-2 border-t border-gray-100 dark:border-gray-800/50">
-                            <span 
-                              className="text-xs text-add8e6 font-medium group-hover:gap-1.5 flex items-center gap-1 transition-all duration-200"
-                            >
-                              Learn more
-                              <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
-                            </span>
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90 rounded-md blur-sm" />
+                          <div className="relative p-1.5 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-md border border-add8e6/20">
+                            {React.createElement(service.icon, { 
+                              className: 'h-3 w-3 text-add8e6'
+                            })}
                           </div>
                         </div>
-                      </Link>
-                    ))}
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-              {/* Mobile Navigation */}
-              <div className="flex flex-col items-center gap-4 mt-6 md:hidden">
-                {/* Mobile Pagination Dots */}
-                <div className="hidden">
-                  {Array.from({ length: filteredServices.length }).map((_, index) => (
-                    <motion.button
-                      key={index}
-                      onClick={() => setCurrentPage(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                        currentPage === index
-                          ? 'bg-add8e6 w-6'
-                          : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
-                      }`}
-                      aria-label={`Go to service ${index + 1}`}
-                    />
-                  ))}
-                </div>
-                {/* Mobile Navigation Buttons */}
-                <div className="flex items-center gap-4">
-                  <motion.button
-                    onClick={prevPage}
-                    className="p-2.5 rounded-full bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/30 active:scale-95 border border-gray-100 dark:border-gray-800"
-                    aria-label="Previous service"
+                      </motion.div>
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 
+                    className="text-sm font-semibold text-gray-900 dark:text-white mb-1.5 group-hover:text-add8e6 transition-colors duration-200 leading-tight"
                   >
-                    <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-                  </motion.button>
-                  <span className="text-xs text-gray-600 dark:text-gray-400">
-                    {currentPage + 1} of {filteredServices.length}
-                  </span>
-                  <motion.button
-                    onClick={nextPage}
-                    className="p-2.5 rounded-full bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/30 active:scale-95 border border-gray-100 dark:border-gray-800"
-                    aria-label="Next service"
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p 
+                    className="text-xs text-gray-600 dark:text-gray-400 mb-3 leading-relaxed"
                   >
-                    <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-                  </motion.button>
+                    {service.description}
+                  </p>
+
+                  {/* CTA Link */}
+                  <div className="mt-auto pt-2 border-t border-gray-100 dark:border-gray-800/50">
+                    <span 
+                      className="text-xs text-add8e6 font-medium group-hover:gap-1.5 flex items-center gap-1 transition-all duration-200"
+                    >
+                      Learn more
+                      <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </>
-          )}
+              </Link>
+            ))}
+          </div>
         </div>
 
       </div>

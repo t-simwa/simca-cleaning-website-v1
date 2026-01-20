@@ -3,8 +3,7 @@
 import React from "react"
 import { useEffect, useState, useRef } from "react"
 import { useInView } from "react-intersection-observer"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 // Unique icon for header
 import { MdBarChart } from "react-icons/md" // Material Design - Bar Chart
 
@@ -14,8 +13,8 @@ export default function StatsCounter() {
     triggerOnce: true,
   })
 
-  const [currentPage, setCurrentPage] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   const stats = [
     {
@@ -50,36 +49,40 @@ export default function StatsCounter() {
     },
   ]
 
-  // Calculate total pages based on screen size
-  const cardsPerPage = isMobile ? 1 : 3
-  const totalPages = Math.ceil(stats.length / cardsPerPage)
-
-  // Handle window resize
+  // Auto-scroll functionality - show 1 stat at a time
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
+    if (!inView || !scrollContainerRef.current) return
 
-  // Navigation functions
-  const nextPage = () => {
-    setCurrentPage((prev) => (prev + 1) % totalPages)
-  }
+    const container = scrollContainerRef.current
+    const scrollInterval = setInterval(() => {
+      setCurrentIndex((prev) => {
+        // Move to next stat (showing 1 at a time)
+        // When we reach the last stat, loop back to start
+        if (prev >= stats.length - 1) {
+          return 0
+        }
+        return prev + 1
+      })
+    }, 3000) // Change every 3 seconds
 
-  const prevPage = () => {
-    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages)
-  }
+    return () => clearInterval(scrollInterval)
+  }, [inView, stats.length])
 
-  // Get current cards
-  const getCurrentCards = () => {
-    const start = currentPage * cardsPerPage
-    return stats.slice(start, start + cardsPerPage)
-  }
+  // Scroll to current index
+  useEffect(() => {
+    if (!scrollContainerRef.current) return
+
+    const container = scrollContainerRef.current
+    // Calculate width of each stat card (full width since we show 1 at a time)
+    const containerWidth = container.offsetWidth
+    const cardWidth = containerWidth
+    const scrollPosition = currentIndex * cardWidth
+
+    container.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth',
+    })
+  }, [currentIndex])
 
   return (
     <section className="relative py-12 md:py-16 lg:py-20">
@@ -120,114 +123,45 @@ export default function StatsCounter() {
         </div>
 
         <div className="relative max-w-6xl mx-auto">
-          {/* Navigation Buttons - Hidden on mobile */}
-          <button
-            onClick={prevPage}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
-            aria-label="Previous stats"
+          {/* Auto-scrolling horizontal container */}
+          <div 
+            ref={scrollContainerRef}
+            className="overflow-x-hidden scroll-smooth snap-x snap-mandatory"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+            }}
           >
-            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
-          </button>
-
-          <button
-            onClick={nextPage}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
-            aria-label="Next stats"
-          >
-            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
-          </button>
-
-          {/* Carousel Container */}
-          <div className="overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentPage}
-                initial={{ opacity: 0, x: isMobile ? 100 : 0 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: isMobile ? -100 : 0 }}
-                transition={{ duration: 0.5 }}
-                ref={ref}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12"
-              >
-                {getCurrentCards().map((stat, index) => (
+            <div 
+              ref={ref}
+              className="flex gap-8 md:gap-12"
+            >
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 snap-center w-full"
+                  style={{
+                    minWidth: '100%', // Each stat takes full width (1 visible at a time)
+                  }}
+                >
                   <StatItem
-                    key={`${currentPage}-${index}`}
                     value={stat.value}
                     label={stat.label}
                     suffix={stat.suffix}
                     animate={inView}
                     delay={index * 100}
                   />
-                ))}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="flex flex-col items-center gap-4 mt-8 md:hidden">
-            {/* Mobile Pagination Dots - removed as per request */}
-            {/* <div className="flex items-center gap-3">
-              {Array.from({ length: stats.length }).map((_, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => setCurrentPage(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                    currentPage === index
-                      ? 'bg-add8e6 w-6'
-                      : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
-                  }`}
-                  aria-label={`Go to stat ${index + 1}`}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                />
+                </div>
               ))}
-            </div> */}
-
-            {/* Mobile Navigation Buttons */}
-            <div className="flex items-center gap-4">
-              <motion.button
-                onClick={prevPage}
-                className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
-                aria-label="Previous stat"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-              </motion.button>
-              
-              <span className="text-sm text-gray-600 dark:text-gray-400">
-                {currentPage + 1} of {stats.length}
-              </span>
-
-              <motion.button
-                onClick={nextPage}
-                className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
-                aria-label="Next stat"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-              </motion.button>
             </div>
           </div>
-
-          {/* Only show on md and up */}
-          <div className="hidden md:flex justify-center items-center gap-2 mt-8">
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <motion.button
-                key={index}
-                onClick={() => setCurrentPage(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                  currentPage === index
-                    ? 'bg-add8e6 w-4'
-                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
-                }`}
-                aria-label={`Go to page ${index + 1}`}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-              />
-            ))}
-          </div>
+          
+          {/* Hide scrollbar */}
+          <style jsx>{`
+            div::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
         </div>
       </div>
     </section>
