@@ -8,6 +8,15 @@ import { motion } from "framer-motion"
 import { useState, useEffect, useRef } from "react"
 import { useInView } from "react-intersection-observer"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import React from "react"
+// Beautiful styled icons from different libraries
+import { HiChatBubbleLeftRight } from "react-icons/hi2" // Heroicons v2 - Message
+import { MdFavorite } from "react-icons/md" // Material Design - Favorite/Choice badge
+import { FaPhoneAlt } from "react-icons/fa" // Font Awesome - Phone
+import { FaEnvelope } from "react-icons/fa" // Font Awesome - Email
+import { MdAccessTime } from "react-icons/md" // Material Design - Clock
+import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Shield
+import { MdLocationOn } from "react-icons/md" // Material Design - Location
 
 // CountUp component for animated numbers with scroll trigger
 function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: string | number, duration?: number, suffix?: string, inView?: boolean }) {
@@ -81,7 +90,7 @@ function StatsSectionWithAnimation() {
     <motion.div
       ref={ref}
       variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-      className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-16"
+      className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
     >
       {[
         {
@@ -229,19 +238,19 @@ export default function ContactPage() {
             >
               <motion.div
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="inline-block mb-6 sm:mb-4 md:mb-10"
+                className="inline-block mb-6 sm:mb-4 md:mb-8"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
-                  <MessageCircle className="w-4 h-4" />
+                  <HiChatBubbleLeftRight className="w-3.5 h-3.5" />
                   Get in Touch
                 </span>
               </motion.div>
 
               <motion.h1
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 md:mb-10 leading-tight tracking-wide"
+                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
               >
                 Contact{' '}
                 <span className="text-fff relative inline-block">
@@ -258,7 +267,7 @@ export default function ContactPage() {
 
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-12 max-w-2xl mx-auto"
+                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
               >
                 We're here to make connecting with us easy and welcoming—no matter your cleaning needs or questions. Whether you're looking for a one-time service or ongoing support, our friendly team is always ready to listen, offer honest advice, and create a solution that fits your unique space. Reach out today and experience the personal care, attention, and reliability that set Simca Agencies apart.
               </motion.p>
@@ -290,7 +299,7 @@ export default function ContactPage() {
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-10 md:mb-12">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm mb-6">
-                  <MessageCircle className="w-4 h-4" />
+                  <HiChatBubbleLeftRight className="w-3.5 h-3.5" />
                   Reach Out
                 </span>
                 <motion.h2 
@@ -311,20 +320,31 @@ export default function ContactPage() {
                     />
                   </span>
                 </motion.h2>
-                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
+                <p className="text-sm md:text-base lg:text-sm text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
                   We're here to make your experience easy and personal—whether you have a quick question or need a custom cleaning plan. Reach out and let us know what matters most to you. We'll listen, guide you honestly, and make sure you always feel valued and cared for.
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8 md:gap-16">
+              <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 {/* Contact Form Section */}
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-6 md:p-6">
-                  <div className="mb-6 md:mb-8">
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white mb-6 md:mb-10 flex items-center gap-2">
-                      <MessageCircle className="h-5 w-5 md:h-6 md:w-6 text-add8e6" />
+                <div className="bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800/50">
+                  <div className="mb-4">
+                    <h3 className="text-sm font-semibold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                      <motion.div 
+                        className="relative flex-shrink-0"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md" />
+                          <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15">
+                            <HiChatBubbleLeftRight className="h-3.5 w-3.5 text-add8e6" />
+                          </div>
+                        </div>
+                      </motion.div>
                       Send Us a Message
                     </h3>
-                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                       Tell us what you need—no request is too big or too small. We'll listen, offer honest advice, and respond quickly with a quote that fits your needs. Your privacy and trust are always respected.
                     </p>
                   </div>
@@ -332,62 +352,111 @@ export default function ContactPage() {
                 </div>
 
                 {/* Contact Information Section */}
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-6 md:p-6 flex flex-col">
-                  <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white mb-6 md:mb-10 flex items-center gap-2">
-                    <Phone className="h-5 w-5 md:h-6 md:w-6 text-add8e6" />
+                <div className="bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800/50 flex flex-col">
+                  <h3 className="text-sm font-semibold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                    <motion.div 
+                      className="relative flex-shrink-0"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md" />
+                        <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15">
+                          <HiChatBubbleLeftRight className="h-3.5 w-3.5 text-add8e6" />
+                        </div>
+                      </div>
+                    </motion.div>
                     Quick Contact
                   </h3>
-                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mb-6 md:mb-10">
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
                     Need help fast, or just want to talk to a real person? Our friendly team is here for you 24/7—whether it's an urgent cleaning or a simple question. We serve all major cities in Kenya and always put your needs first.
                   </p>
-                  <div className="space-y-4 flex-grow">
-                    <div className="flex items-start group/item p-3 -m-3 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
-                      <div className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg mr-3 group-hover/item:scale-110 transition-transform duration-300">
-                        <Phone className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
-                      </div>
-                      <div className="md:mb-4">
-                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Emergency Line</p>
-                        <a href="tel:+25472356800" className="text-xs md:text-sm text-gray-800 dark:text-white hover:text-add8e6 transition-colors block">
+                  <div className="space-y-3 flex-grow">
+                    <div className="flex items-start group/item">
+                      <motion.div 
+                        className="relative flex-shrink-0 mt-0.5 mr-3"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover/item:blur-lg transition-all duration-300" />
+                          <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover/item:border-add8e6/30 transition-all duration-300">
+                            <FaPhoneAlt className="h-3.5 w-3.5 text-add8e6 group-hover/item:scale-110 transition-transform duration-300" />
+                          </div>
+                        </div>
+                      </motion.div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Emergency Line</p>
+                        <a href="tel:+25472356800" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
                           Call us anytime—day or night: +254 72356800
                         </a>
-                        <a href="tel:+254712345678" className="text-xs md:text-sm text-gray-800 dark:text-white hover:text-add8e6 transition-colors block">
+                        <a href="tel:+254712345678" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
                           Or reach us on: +254 712345678
                         </a>
                       </div>
                     </div>
-                    <div className="flex items-start group/item p-3 -m-3 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
-                      <div className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg mr-3 group-hover/item:scale-110 transition-transform duration-300">
-                        <Mail className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
-                      </div>
-                      <div className="md:mb-4">
-                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Email Us</p>
-                        <a href="mailto:info@simcacleaning.co.ke" className="text-xs md:text-sm text-gray-800 dark:text-white hover:text-add8e6 transition-colors">
+                    <div className="flex items-start group/item">
+                      <motion.div 
+                        className="relative flex-shrink-0 mt-0.5 mr-3"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover/item:blur-lg transition-all duration-300" />
+                          <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover/item:border-add8e6/30 transition-all duration-300">
+                            <FaEnvelope className="h-3.5 w-3.5 text-add8e6 group-hover/item:scale-110 transition-transform duration-300" />
+                          </div>
+                        </div>
+                      </motion.div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Email Us</p>
+                        <a href="mailto:info@simcacleaning.co.ke" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors leading-relaxed">
                           We reply quickly: info@simcacleaning.co.ke
                         </a>
                       </div>
                     </div>
-                    <div className="flex items-start group/item p-3 -m-3 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
-                      <div className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg mr-3 group-hover/item:scale-110 transition-transform duration-300">
-                        <Clock className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
-                      </div>
-                      <div>
-                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Service Hours</p>
-                        <p className="text-xs md:text-sm text-gray-800 dark:text-white">
+                    <div className="flex items-start group/item">
+                      <motion.div 
+                        className="relative flex-shrink-0 mt-0.5 mr-3"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover/item:blur-lg transition-all duration-300" />
+                          <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover/item:border-add8e6/30 transition-all duration-300">
+                            <MdAccessTime className="h-3.5 w-3.5 text-add8e6 group-hover/item:scale-110 transition-transform duration-300" />
+                          </div>
+                        </div>
+                      </motion.div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Service Hours</p>
+                        <p className="text-xs text-gray-800 dark:text-white leading-relaxed">
                           Mon-Fri: 8am-5pm, Sat: 9am-1pm
                         </p>
-                        <p className="text-xs md:text-sm text-add8e6 mt-1">
+                        <p className="text-xs text-add8e6 mt-1 leading-relaxed">
                           After-hours? We're still here for you.
                         </p>
                       </div>
                     </div>
                   </div>
-                  {/* Additional Info to fill space */}
-                  <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-gray-200 dark:border-gray-700">
-                    <h4 className="text-xs md:text-sm font-semibold text-gray-800 dark:text-white mb-2 md:mb-3 flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 md:w-5 md:h-5 text-add8e6" />
+                  {/* Additional Info */}
+                  <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800/50">
+                    <h4 className="text-xs font-semibold text-gray-800 dark:text-white mb-2 flex items-center gap-2">
+                      <motion.div 
+                        className="relative flex-shrink-0"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md" />
+                          <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15">
+                            <HiShieldCheck className="h-3.5 w-3.5 text-add8e6" />
+                          </div>
+                        </div>
+                      </motion.div>
                       Our Commitment
                     </h4>
-                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                       We treat every client like family and every space like our own. If you're ever less than thrilled with our service, just let us know—we'll make it right, no questions asked. Your happiness and peace of mind are our promise, every single time.
                     </p>
                   </div>
@@ -417,11 +486,11 @@ export default function ContactPage() {
           <ScrollAnimation>
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-10 md:mb-12">
-                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 mb-3 md:mb-4 shadow-sm">
-                  <MapPin className="w-3 h-3 md:w-4 md:h-4" />
+                <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm mb-6">
+                  <MdLocationOn className="w-3.5 h-3.5" />
                   Find Us
                 </span>
-                <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight tracking-wide">
+                <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
                   Our{" "}
                   <span className="text-add8e6 relative inline-block tracking-wider">
                     Locations
@@ -434,47 +503,88 @@ export default function ContactPage() {
                     />
                   </span>
                 </h2>
-                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base lg:text-sm text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   Wherever you are in Kenya, you're never far from a Simca team that cares. Drop by any of our branches or reach out—our friendly experts are always ready to listen, answer your questions, and help you find the perfect cleaning solution for your space.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-8 md:mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-12">
                 {/* Desktop Grid Layout */}
                 {!isMobile && (
                   locations.map((location, index) => (
                     <div
                       key={index}
-                      className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-4 md:p-6 flex flex-col h-full"
+                      className="group bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100 dark:border-gray-800/50 flex flex-col h-full"
                     >
-                      <div className="flex items-center gap-3 mb-3 md:mb-4">
-                        <div className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                          <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
-                        </div>
-                        <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors flex-grow">
+                      <div className="text-center mb-3">
+                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-add8e6 transition-colors duration-200 leading-tight">
                           {location.name}
                         </h3>
                       </div>
-                      <div className="space-y-3 md:space-y-4 flex-grow mb-4">
-                        <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
-                          <MapPin className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 break-words w-full">{location.address}</p>
+                      <div className="space-y-3 flex-grow">
+                        <div className="flex items-center group/item">
+                          <motion.div 
+                            className="relative flex-shrink-0 mr-3"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover/item:blur-lg transition-all duration-300" />
+                              <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover/item:border-add8e6/30 transition-all duration-300">
+                                <MdLocationOn className="h-3.5 w-3.5 text-add8e6 group-hover/item:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </motion.div>
+                          <p className="text-xs text-gray-600 dark:text-gray-400 break-words w-full leading-relaxed">{location.address}</p>
                         </div>
-                        <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
-                          <Phone className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <a href={`tel:${location.phone}`} className="text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 transition-colors break-words w-full">
+                        <div className="flex items-center group/item">
+                          <motion.div 
+                            className="relative flex-shrink-0 mr-3"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover/item:blur-lg transition-all duration-300" />
+                              <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover/item:border-add8e6/30 transition-all duration-300">
+                                <FaPhoneAlt className="h-3.5 w-3.5 text-add8e6 group-hover/item:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </motion.div>
+                          <a href={`tel:${location.phone}`} className="text-xs text-gray-600 dark:text-gray-400 hover:text-add8e6 transition-colors break-words w-full leading-relaxed">
                             {location.phone}
                           </a>
                         </div>
-                        <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
-                          <Mail className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <a href={`mailto:${location.email}`} className="text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 transition-colors break-words w-full">
+                        <div className="flex items-center group/item">
+                          <motion.div 
+                            className="relative flex-shrink-0 mr-3"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover/item:blur-lg transition-all duration-300" />
+                              <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover/item:border-add8e6/30 transition-all duration-300">
+                                <FaEnvelope className="h-3.5 w-3.5 text-add8e6 group-hover/item:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </motion.div>
+                          <a href={`mailto:${location.email}`} className="text-xs text-gray-600 dark:text-gray-400 hover:text-add8e6 transition-colors break-words w-full leading-relaxed">
                             {location.email}
                           </a>
                         </div>
-                        <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
-                          <Clock className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 break-words w-full">{location.hours}</p>
+                        <div className="flex items-center group/item">
+                          <motion.div 
+                            className="relative flex-shrink-0 mr-3"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover/item:blur-lg transition-all duration-300" />
+                              <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover/item:border-add8e6/30 transition-all duration-300">
+                                <MdAccessTime className="h-3.5 w-3.5 text-add8e6 group-hover/item:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </motion.div>
+                          <p className="text-xs text-gray-600 dark:text-gray-400 break-words w-full leading-relaxed">{location.hours}</p>
                         </div>
                       </div>
                     </div>
@@ -491,35 +601,76 @@ export default function ContactPage() {
                     transition={{ duration: 0.5 }}
                     className="w-full"
                   >
-                    <div className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-4 md:p-6 flex flex-col h-full">
-                      <div className="flex items-center gap-3 mb-3 md:mb-4">
-                        <div className="bg-add8e6/10 p-1.5 md:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                          <MapPin className="h-4 w-4 md:h-5 md:w-5 text-add8e6" />
-                        </div>
-                        <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors flex-grow">
+                    <div className="group bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100 dark:border-gray-800/50 flex flex-col h-full">
+                      <div className="text-center mb-3">
+                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-add8e6 transition-colors duration-200 leading-tight">
                           {currentMobileCard.name}
                         </h3>
                       </div>
-                      <div className="space-y-3 md:space-y-4 flex-grow mb-4">
-                        <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
-                          <MapPin className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 break-words w-full">{currentMobileCard.address}</p>
+                      <div className="space-y-3 flex-grow">
+                        <div className="flex items-center group/item">
+                          <motion.div 
+                            className="relative flex-shrink-0 mr-3"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover/item:blur-lg transition-all duration-300" />
+                              <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover/item:border-add8e6/30 transition-all duration-300">
+                                <MdLocationOn className="h-3.5 w-3.5 text-add8e6 group-hover/item:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </motion.div>
+                          <p className="text-xs text-gray-600 dark:text-gray-400 break-words w-full leading-relaxed">{currentMobileCard.address}</p>
                         </div>
-                        <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
-                          <Phone className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <a href={`tel:${currentMobileCard.phone}`} className="text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 transition-colors break-words w-full">
+                        <div className="flex items-center group/item">
+                          <motion.div 
+                            className="relative flex-shrink-0 mr-3"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover/item:blur-lg transition-all duration-300" />
+                              <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover/item:border-add8e6/30 transition-all duration-300">
+                                <FaPhoneAlt className="h-3.5 w-3.5 text-add8e6 group-hover/item:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </motion.div>
+                          <a href={`tel:${currentMobileCard.phone}`} className="text-xs text-gray-600 dark:text-gray-400 hover:text-add8e6 transition-colors break-words w-full leading-relaxed">
                             {currentMobileCard.phone}
                           </a>
                         </div>
-                        <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
-                          <Mail className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <a href={`mailto:${currentMobileCard.email}`} className="text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 transition-colors break-words w-full">
+                        <div className="flex items-center group/item">
+                          <motion.div 
+                            className="relative flex-shrink-0 mr-3"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover/item:blur-lg transition-all duration-300" />
+                              <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover/item:border-add8e6/30 transition-all duration-300">
+                                <FaEnvelope className="h-3.5 w-3.5 text-add8e6 group-hover/item:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </motion.div>
+                          <a href={`mailto:${currentMobileCard.email}`} className="text-xs text-gray-600 dark:text-gray-400 hover:text-add8e6 transition-colors break-words w-full leading-relaxed">
                             {currentMobileCard.email}
                           </a>
                         </div>
-                        <div className="flex items-start group/item p-1 -m-1 rounded-md hover:bg-add8e6/10 transition-colors duration-200">
-                          <Clock className="h-4 w-4 text-add8e6 mt-1 mr-2 flex-shrink-0" />
-                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 break-words w-full">{currentMobileCard.hours}</p>
+                        <div className="flex items-center group/item">
+                          <motion.div 
+                            className="relative flex-shrink-0 mr-3"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover/item:blur-lg transition-all duration-300" />
+                              <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover/item:border-add8e6/30 transition-all duration-300">
+                                <MdAccessTime className="h-3.5 w-3.5 text-add8e6 group-hover/item:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </motion.div>
+                          <p className="text-xs text-gray-600 dark:text-gray-400 break-words w-full leading-relaxed">{currentMobileCard.hours}</p>
                         </div>
                       </div>
                     </div>
@@ -576,7 +727,7 @@ export default function ContactPage() {
                 </div>
               )}
 
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-[400px] md:h-[500px] lg:h-[600px] mt-8 md:mt-12">
+              <div className="bg-white dark:bg-gray-900/50 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden h-[400px] md:h-[500px] lg:h-[600px] mt-8 md:mt-12 border border-gray-100 dark:border-gray-800/50">
                 <OpenStreetMap
                   address="Kenya"
                   height="100%"

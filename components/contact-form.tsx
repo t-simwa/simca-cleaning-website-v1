@@ -3,7 +3,20 @@
 import React from "react"
 
 import { useState, useRef, useEffect } from "react"
-import { Send, ChevronDown, Phone, Mail, Clock, MessageCircle, ShieldCheck, Loader2, Home, Building2, HardHat, Sofa, SprayCan, Sparkles, SquareStack, Car, Bed, Trash2, Package, Droplets } from "lucide-react"
+import { Send, ShieldCheck, Loader2 } from "lucide-react"
+// Unique icons from different icon libraries - matching home page contact form
+import { FaHome } from "react-icons/fa" // Font Awesome - Home
+import { MdBusiness } from "react-icons/md" // Material Design - Business
+import { FaHardHat } from "react-icons/fa" // Font Awesome - Construction
+import { FaCouch } from "react-icons/fa" // Font Awesome - Upholstery
+import { FaShieldVirus } from "react-icons/fa" // Font Awesome - Sanitization
+import { MdStars } from "react-icons/md" // Material Design - Specialized
+import { FaWindowMaximize } from "react-icons/fa" // Font Awesome - Window
+import { FaCar } from "react-icons/fa" // Font Awesome - Car
+import { FaBed } from "react-icons/fa" // Font Awesome - Bed
+import { FaTrash } from "react-icons/fa" // Font Awesome - Trash
+import { FaBox } from "react-icons/fa" // Font Awesome - Package
+import { FaTint } from "react-icons/fa" // Font Awesome - Droplet/Steam
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -21,20 +34,20 @@ export default function ContactForm() {
   const [focusedField, setFocusedField] = useState<string | null>(null)
 
   const services = [
-    { value: "Residential Cleaning", label: "Residential Cleaning", icon: Home },
-    { value: "Commercial Cleaning", label: "Commercial Cleaning", icon: Building2 },
-    { value: "Post-construction Cleaning", label: "Post-construction Cleaning", icon: HardHat },
-    { value: "Carpet & Upholstery Cleaning", label: "Carpet & Upholstery Cleaning", icon: Sofa },
-    { value: "Sanitization & Disinfection", label: "Sanitization & Disinfection", icon: SprayCan },
-    { value: "Specialized Cleaning", label: "Specialized Cleaning", icon: Sparkles },
-    { value: "Window Cleaning", label: "Window Cleaning", icon: SquareStack },
-    { value: "Vehicle Interior Cleaning", label: "Vehicle Interior Cleaning", icon: Car },
-    { value: "Mattress Cleaning", label: "Mattress Cleaning", icon: Bed },
-    { value: "Garbage Collection Services", label: "Garbage Collection Services", icon: Trash2 },
-    { value: "Sanitary Bins Services", label: "Sanitary Bins Services", icon: Package },
-    { value: "Steam Cleaning", label: "Steam Cleaning", icon: Droplets },
-    { value: "Sofa Set Cleaning", label: "Sofa Set Cleaning", icon: Sofa },
-    { value: "Office Cleaning", label: "Office Cleaning", icon: Building2 },
+    { value: "Residential Cleaning", label: "Residential Cleaning", icon: FaHome },
+    { value: "Commercial Cleaning", label: "Commercial Cleaning", icon: MdBusiness },
+    { value: "Post-construction Cleaning", label: "Post-construction Cleaning", icon: FaHardHat },
+    { value: "Carpet & Upholstery Cleaning", label: "Carpet & Upholstery Cleaning", icon: FaCouch },
+    { value: "Sanitization & Disinfection", label: "Sanitization & Disinfection", icon: FaShieldVirus },
+    { value: "Specialized Cleaning", label: "Specialized Cleaning", icon: MdStars },
+    { value: "Window Cleaning", label: "Window Cleaning", icon: FaWindowMaximize },
+    { value: "Vehicle Interior Cleaning", label: "Vehicle Interior Cleaning", icon: FaCar },
+    { value: "Mattress Cleaning", label: "Mattress Cleaning", icon: FaBed },
+    { value: "Garbage Collection Services", label: "Garbage Collection Services", icon: FaTrash },
+    { value: "Sanitary Bins Services", label: "Sanitary Bins Services", icon: FaBox },
+    { value: "Steam Cleaning", label: "Steam Cleaning", icon: FaTint },
+    { value: "Sofa Set Cleaning", label: "Sofa Set Cleaning", icon: FaCouch },
+    { value: "Office Cleaning", label: "Office Cleaning", icon: MdBusiness },
   ]
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -89,22 +102,22 @@ export default function ContactForm() {
   return (
     <div>
       {submitSuccess ? (
-        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-400 px-4 py-3 rounded-md relative mb-6 animate-fade-in">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-5 h-5" />
-            <strong className="font-bold">Thank you!</strong>
+        <div className="mb-4 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-md text-center">
+          <div className="flex items-center justify-center gap-2 text-green-600 dark:text-green-400 mb-1">
+            <ShieldCheck className="w-4 h-4" />
+            <h3 className="text-sm font-semibold">Message Sent Successfully!</h3>
           </div>
-          <span className="block sm:inline mt-1">
-            Your message has been sent successfully. We'll get back to you shortly.
-          </span>
+          <p className="text-xs text-green-600 dark:text-green-400">
+            Thank you for choosing us. We'll get back to you within 24 hours.
+          </p>
         </div>
       ) : null}
 
-      <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+      <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className="group">
-            <label htmlFor="name" className={`block text-sm font-medium mb-1.5 transition-colors duration-200 ${focusedField === 'name' ? 'text-add8e6' : 'text-gray-700 dark:text-gray-300'}`}>
-              Your Name
+            <label htmlFor="name" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-200 group-focus-within:text-add8e6">
+              Name
             </label>
             <input
               type="text"
@@ -114,28 +127,13 @@ export default function ContactForm() {
               onChange={handleChange}
               onFocus={() => setFocusedField('name')}
               onBlur={() => setFocusedField(null)}
-              className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 placeholder-gray-400 dark:placeholder-gray-500 text-xs md:text-sm"
               required
+              className="w-full px-3 py-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6/30 focus:border-add8e6/50 transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500 text-xs"
+              placeholder="John Doe"
             />
           </div>
           <div className="group">
-            <label htmlFor="email" className={`block text-sm font-medium mb-1.5 transition-colors duration-200 ${focusedField === 'email' ? 'text-add8e6' : 'text-gray-700 dark:text-gray-300'}`}>
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              onFocus={() => setFocusedField('email')}
-              onBlur={() => setFocusedField(null)}
-              className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 placeholder-gray-400 dark:placeholder-gray-500 text-xs md:text-sm"
-              required
-            />
-          </div>
-          <div className="group">
-            <label htmlFor="phone" className={`block text-sm font-medium mb-1.5 transition-colors duration-200 ${focusedField === 'phone' ? 'text-add8e6' : 'text-gray-700 dark:text-gray-300'}`}>
+            <label htmlFor="phone" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-200 group-focus-within:text-add8e6">
               Phone Number
             </label>
             <input
@@ -146,88 +144,126 @@ export default function ContactForm() {
               onChange={handleChange}
               onFocus={() => setFocusedField('phone')}
               onBlur={() => setFocusedField(null)}
-              className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 placeholder-gray-400 dark:placeholder-gray-500 text-xs md:text-sm"
               required
+              className="w-full px-3 py-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6/30 focus:border-add8e6/50 transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500 text-xs"
+              placeholder="0712 345 678"
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="group">
+            <label htmlFor="email" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-200 group-focus-within:text-add8e6">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              onFocus={() => setFocusedField('email')}
+              onBlur={() => setFocusedField(null)}
+              required
+              className="w-full px-3 py-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6/30 focus:border-add8e6/50 transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500 text-xs"
+              placeholder="john@example.com"
             />
           </div>
           <div className="relative group" ref={serviceDropdownRef}>
-            <label htmlFor="service" className={`block text-sm font-medium mb-1.5 transition-colors duration-200 ${focusedField === 'service' || isServiceDropdownOpen ? 'text-add8e6' : 'text-gray-700 dark:text-gray-300'}`}>Service Interested In</label>
+            <label htmlFor="service" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-200 group-focus-within:text-add8e6">
+              Service Interested In
+            </label>
             <button
               type="button"
               id="service"
               aria-haspopup="listbox"
               aria-expanded={isServiceDropdownOpen}
-              className={`w-full flex items-center justify-between px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 text-left placeholder-gray-400 dark:placeholder-gray-500 text-xs md:text-sm ${isServiceDropdownOpen ? 'ring-2 ring-add8e6 border-transparent' : ''}`}
-              onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
-              onBlur={() => setTimeout(() => setIsServiceDropdownOpen(false), 100)}
+              className={`w-full flex items-center justify-between px-3 py-2 rounded-md border bg-white dark:bg-gray-900/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6/30 transition-all duration-200 text-left text-xs ${
+                isServiceDropdownOpen || focusedField === 'service'
+                  ? 'ring-2 ring-add8e6/30 border-add8e6/50' 
+                  : 'border-gray-200 dark:border-gray-700'
+              }`}
+              onClick={() => {
+                setIsServiceDropdownOpen(!isServiceDropdownOpen)
+                setFocusedField(isServiceDropdownOpen ? null : 'service')
+              }}
+              onBlur={() => setTimeout(() => {
+                setIsServiceDropdownOpen(false)
+                setFocusedField(null)
+              }, 100)}
             >
               {formData.service ? (
-                <span className="flex items-center gap-2 text-xs md:text-sm">
+                <span className="flex items-center gap-1.5 text-xs">
                   {services.find(s => s.value === formData.service)?.icon &&
-                    React.createElement(services.find(s => s.value === formData.service)?.icon!, { className: "w-5 h-5 text-add8e6" })
+                    React.createElement(services.find(s => s.value === formData.service)?.icon!, { className: "w-3.5 h-3.5 text-add8e6" })
                   }
                   {services.find(s => s.value === formData.service)?.label}
                 </span>
               ) : (
-                <span className="text-gray-400 dark:text-gray-500 text-xs md:text-sm">Select a service</span>
+                <span className="text-gray-400 dark:text-gray-500 text-xs">Select a service</span>
               )}
-              <svg className="w-4 h-4 ml-2 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              <svg className="w-3 h-3 ml-2 text-gray-400 dark:text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
             </button>
             {isServiceDropdownOpen && (
               <ul
                 tabIndex={-1}
                 role="listbox"
-                className="absolute z-10 mt-2 w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-1 max-h-60 overflow-auto"
+                className="absolute z-10 mt-1 w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg py-1 max-h-60 overflow-auto"
               >
                 {services.map((service) => (
                   <li
                     key={service.value}
                     role="option"
                     aria-selected={formData.service === service.value}
-                    className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-xs md:text-sm hover:bg-add8e6/10 dark:hover:bg-add8e6/20 transition-colors ${formData.service === service.value ? 'bg-add8e6/10 dark:bg-add8e6/20 text-add8e6 font-medium' : 'text-gray-900 dark:text-white'}`}
+                    className={`flex items-center gap-2 px-3 py-1.5 cursor-pointer text-xs hover:bg-add8e6/10 dark:hover:bg-add8e6/20 transition-colors ${
+                      formData.service === service.value 
+                        ? 'bg-add8e6/10 dark:bg-add8e6/20 text-add8e6 font-medium' 
+                        : 'text-gray-900 dark:text-white'
+                    }`}
                     onClick={() => {
                       setFormData(prev => ({ ...prev, service: service.value }));
                       setIsServiceDropdownOpen(false);
+                      setFocusedField(null);
                     }}
                   >
-                    {React.createElement(service.icon, { className: "w-5 h-5 text-add8e6 flex-shrink-0" })}
+                    {React.createElement(service.icon, { className: "w-3.5 h-3.5 text-add8e6 flex-shrink-0" })}
                     {service.label}
                   </li>
                 ))}
               </ul>
             )}
           </div>
-          <div className="md:col-span-2 group">
-            <label htmlFor="message" className={`block text-sm font-medium mb-1.5 transition-colors duration-200 ${focusedField === 'message' ? 'text-add8e6' : 'text-gray-700 dark:text-gray-300'}`}>
-              Your Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              onFocus={() => setFocusedField('message')}
-              onBlur={() => setFocusedField(null)}
-              rows={4}
-              className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-add8e6 focus:border-transparent transition-all duration-300 resize-none placeholder-gray-400 dark:placeholder-gray-500 text-xs md:text-sm"
-              required
-            ></textarea>
-          </div>
         </div>
-        <div className="mt-6 md:mt-8 flex justify-center">
+        <div className="group">
+          <label htmlFor="message" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-200 group-focus-within:text-add8e6">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            onFocus={() => setFocusedField('message')}
+            onBlur={() => setFocusedField(null)}
+            required
+            rows={4}
+            className="w-full px-3 py-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6/30 focus:border-add8e6/50 transition-all duration-200 resize-none placeholder-gray-400 dark:placeholder-gray-500 text-xs"
+            placeholder="Tell us about your cleaning needs..."
+          ></textarea>
+        </div>
+        <div className="flex justify-center">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center gap-2 bg-add8e6 text-white px-6 md:px-8 py-2.5 md:py-3 font-medium transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50"
+            className="inline-flex items-center gap-1.5 bg-add8e6 text-white px-5 py-2 font-medium rounded-md transition-all duration-200 group disabled:opacity-50 disabled:cursor-not-allowed text-xs hover:bg-add8e6/90"
           >
             {isSubmitting ? (
               <>
-                <Loader2 className="w-3.5 h-3.5 md:w-4 md:h-4 animate-spin" />
+                <Loader2 className="w-3.5 h-3.5 animate-spin" />
                 <span>Sending...</span>
               </>
             ) : (
               <>
-                <Send className="h-3.5 w-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <Send className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 <span>Send Message</span>
               </>
             )}
