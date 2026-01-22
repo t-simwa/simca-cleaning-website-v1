@@ -288,7 +288,7 @@ export default function Header() {
             }`}
           >
             {/* Mobile Menu Header */}
-            <div className="flex items-center justify-center px-4 py-3 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
+            <div className="flex items-center justify-center px-4 py-2 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
               <Link href="/" className="flex items-center group justify-center w-full flex-shrink-0" onClick={() => setIsMenuOpen(false)}>
                 <Logo 
                   className="w-52 h-11 sm:w-60 sm:h-12 md:w-60 md:h-30 transition-transform duration-300 group-hover:scale-105" 
@@ -305,15 +305,15 @@ export default function Header() {
             </div>
 
             {/* Mobile Menu Content */}
-            <div className="flex flex-col h-[calc(100vh-4rem)] bg-white dark:bg-gray-900">
+            <div className="flex flex-col h-[calc(100vh-3.5rem)] bg-white dark:bg-gray-900">
               {/* Scrollable Content Area */}
               <nav className="flex-1 overflow-y-auto">
-                <div className="px-4 py-3 space-y-1">
+                <div className="px-4 py-2 space-y-0.5">
                   {navItems.map((item) => (
                     <div key={item.name}>
                       {item.subNav ? (
                         <button
-                          className="flex items-center justify-between w-full py-3 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                          className="flex items-center justify-between w-full py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
                           onClick={toggleMobileServices}
                         >
                           <span>{item.name}</span>
@@ -322,7 +322,7 @@ export default function Header() {
                       ) : (
                         <Link
                           href={item.href}
-                          className="flex items-center justify-between py-3 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                          className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           <span>{item.name}</span>
@@ -330,12 +330,12 @@ export default function Header() {
                         </Link>
                       )}
                       {item.subNav && isMobileServicesOpen && (
-                        <div className="pl-8 pr-4 py-1 space-y-1 bg-gray-50 dark:bg-gray-800">
+                        <div className="pl-8 pr-4 py-0.5 space-y-0.5 bg-gray-50 dark:bg-gray-800">
                           {item.subNav.map((subItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="block py-2 px-4 text-xs text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                              className="block py-1.5 px-4 text-xs text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
                               onClick={() => {
                                 setIsMenuOpen(false)
                                 setIsMobileServicesOpen(false)
@@ -351,14 +351,14 @@ export default function Header() {
                 </div>
 
                 {/* Quick Actions */}
-                <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
-                  <h3 className="text-xs md:text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
+                <div className="px-4 py-2 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
+                  <h3 className="text-xs md:text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
                     Quick Actions
                   </h3>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     <a
                       href="tel:+254721525901"
-                      className="flex items-center justify-between py-3 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="flex items-center">
@@ -369,7 +369,7 @@ export default function Header() {
                     </a>
                     <Link
                       href="/contact"
-                      className="flex items-center justify-between py-3 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="flex items-center">
@@ -383,9 +383,9 @@ export default function Header() {
               </nav>
 
               {/* Fixed Mobile Menu Footer */}
-              <div className="border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-800/95 backdrop-blur-sm flex-shrink-0">
+              <div className="border-t border-gray-200 dark:border-gray-700 p-3 bg-gray-50 dark:bg-gray-800/95 backdrop-blur-sm flex-shrink-0">
                 {/* Social Icons */}
-                <div className="flex justify-center mb-4">
+                <div className="flex justify-center mb-3">
                   <SocialIcons className="h-5 w-5" />
                 </div>
 
