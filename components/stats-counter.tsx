@@ -40,12 +40,12 @@ export default function StatsCounter() {
 
   const stats = [
     {
-      value: 8,
+      value: 15,
       label: "Years Serving Our Community",
-      suffix: "+",
+      suffix: "",
     },
     {
-      value: 1500,
+      value: 250,
       label: "Happy Clients & Counting",
       suffix: "+",
     },
@@ -55,9 +55,9 @@ export default function StatsCounter() {
       suffix: "",
     },
     {
-      value: 100,
+      value: 188,
       label: "Dedicated Team Members",
-      suffix: "+",
+      suffix: "",
     },
     {
       value: 2,

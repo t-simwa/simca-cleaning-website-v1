@@ -29,7 +29,6 @@ export default function ServicesPage() {
       icon: <Home className="h-12 w-12 text-add8e6" />,
       image: "/placeholder.svg?height=600&width=800",
       features: [
-        "ISO 9001:2015 certified cleaning protocols",
         "Eco-friendly cleaning products (EPA Safer Choice certified)",
         "Customized cleaning plans with digital scheduling",
         "100% satisfaction guarantee with 24-hour re-cleaning"

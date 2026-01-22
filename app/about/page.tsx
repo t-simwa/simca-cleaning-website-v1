@@ -91,11 +91,11 @@ function StatsSectionWithAnimation() {
     >
       {[
         { 
-          value: "12+", 
+          value: "15", 
           label: "YEARS OF EXCELLENCE", 
         },
         { 
-          value: "100+", 
+          value: "188", 
           label: "TRAINED PROFESSIONALS", 
         },
         { 
@@ -211,7 +211,7 @@ export default function AboutPage() {
                 variants={itemVariants}
                 className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto"
               >
-                We started Simca in 2015 with a simple goal: to offer a cleaning service you can truly count on. We're not just about cleaning; we're about creating a healthier, more comfortable space for you and your family. We're your local team, dedicated to providing a personal touch and a spotless result, every single time.
+                We started Simca in 2011 with a simple goal: to offer a cleaning service you can truly count on. We're not just about cleaning; we're about creating a healthier, more comfortable space for you and your family. We're your local team, dedicated to providing a personal touch and a spotless result, every single time.
               </motion.p>
 
               {/* Minimalist Stats Section */}
@@ -391,7 +391,7 @@ export default function AboutPage() {
                 <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-add8e6/20 dark:bg-add8e6/30 hidden md:block" />
 
                 <div className="space-y-4 md:space-y-6">
-                  {/* 2015 */}
+                  {/* 2011 */}
                   <motion.div 
                     className="relative pl-6 md:pl-8 pb-4 md:pb-6 group"
                     initial={{ opacity: 0, x: -20 }}
@@ -415,7 +415,7 @@ export default function AboutPage() {
                           className="text-add8e6 font-bold text-xs md:text-sm"
                           whileHover={{ scale: 1.05 }}
                         >
-                          2015
+                          2011
                         </motion.span>
                         <motion.h3 
                           className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
@@ -482,16 +482,8 @@ export default function AboutPage() {
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        As more people trusted us with their spaces, our family grew! We expanded our services to Mombasa and Eldoret, welcoming over 50 new commercial clients in hospitality and healthcare. To ensure we always delivered the best, we proudly earned our ISO 9001:2015 certification, a testament to our commitment to top-quality, reliable service.
+                        As more people trusted us with their spaces, our family grew! We expanded our services to Mombasa and Eldoret, welcoming over 50 new commercial clients in hospitality and healthcare. To ensure we always delivered the best, we maintained our commitment to top-quality, reliable service.
                       </motion.p>
-                      <motion.div 
-                        className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
-                        whileHover={{ x: 2 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <span className="w-1 h-1 bg-add8e6 rounded-full"></span>
-                        <span>ISO 9001 Certified Quality</span>
-                      </motion.div>
                     </motion.div>
                   </motion.div>
 
@@ -586,7 +578,7 @@ export default function AboutPage() {
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        Today, our team of over 100 dedicated professionals serves more than 200 clients across 6 major cities. Being named 'Best Cleaning Service Provider 2023' by the Kenya Business Awards was a wonderful honor, but our greatest achievement is the daily trust you place in us to care for your spaces.
+                        Today, our team of 188 dedicated professionals serves more than 200 clients across 6 major cities. Being named 'Best Cleaning Service Provider 2023' by the Kenya Business Awards was a wonderful honor, but our greatest achievement is the daily trust you place in us to care for your spaces.
                       </motion.p>
                       <motion.div 
                         className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"

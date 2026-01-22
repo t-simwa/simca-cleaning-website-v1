@@ -107,7 +107,7 @@ export default function MegaMenu({ type, onClose }: MegaMenuProps) {
     },
     {
       title: "Our History",
-      description: "How we've grown since 2015.",
+      description: "How we've grown since 2011.",
       icon: <History className="h-6 w-6 text-add8e6" />,
       link: "/about#history",
       image: "/images/our-history.png",

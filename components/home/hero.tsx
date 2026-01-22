@@ -221,11 +221,11 @@ export default function Hero() {
                   label: "CLIENT SATISFACTION", 
                 },
                 { 
-                  value: "50+", 
+                  value: "5", 
                   label: "CORPORATE OFFICES", 
                 },
                 { 
-                  value: "15+", 
+                  value: "15", 
                   label: "YEARS EXPERIENCE", 
                 }
               ].map((stat, index) => (

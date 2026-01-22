@@ -60,7 +60,7 @@ export default function WhoWeAre() {
               Simca Agencies is a <span className="font-semibold text-gray-800 dark:text-white">registered and professional cleaning services company in Kenya</span>. We deliver customized cleaning solutions for homes, offices, and businesses, always prioritizing quality, reliability, and client satisfaction at affordable costs.
             </p>
             <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-              With over a decade of experience in the cleaning industry, we ensure you always get the best results for all your cleaning needs. We put every effort into giving our clients the best value for money. Our team is made up of skilled and well-trained employees who handle every job with professionalism and care. We strive to use the latest cleaning machine technology for outstanding results every time.
+              With 15 years of experience in the cleaning industry, we ensure you always get the best results for all your cleaning needs. We put every effort into giving our clients the best value for money. Our team is made up of skilled and well-trained employees who handle every job with professionalism and care. We strive to use the latest cleaning machine technology for outstanding results every time.
             </p>
             <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
               As a result, we have made a tremendous impact in the lives of people in Nairobi and its environs. That is why we are considered one of the most trusted and best cleaning services companies in Kenya.
