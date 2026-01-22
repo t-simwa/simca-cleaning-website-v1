@@ -55,7 +55,7 @@ export default function Hero() {
 
   const images = [
     { 
-      src: "/home-hero/cleaner-home.jpg", 
+      src: "/home-hero/cleaner-home.webp", 
       alt: "Professional cleaning services in Kenya",
       caption: "Residential Cleaning",
       description: "Transform your home with our thorough, eco-friendly cleaning solutions. Perfect for busy families and professionals.",

@@ -89,7 +89,7 @@ export default function ServicesOverview() {
       description: "Eliminate pests and protect your property with our professional fumigation and pest control services. We use safe and effective treatment methods to ensure complete pest elimination and long-term prevention.",
       icon: FaBug,
       link: "/services/fumigation-pest-control",
-      image: "/services/pest-control.png",
+      image: "/services/sanitization.webp",
       features: [
         "Comprehensive pest elimination",
         "Safe and eco-friendly treatments",
@@ -106,7 +106,7 @@ export default function ServicesOverview() {
       description: "Transform your outdoor spaces into beautiful, well-maintained landscapes with our professional landscaping services. We create and maintain stunning gardens, lawns, and outdoor environments.",
       icon: FaLeaf,
       link: "/services/landscaping-services",
-      image: "/services/landscaping.png",
+      image: "/services/landscaping.webp",
       features: [
         "Garden design and installation",
         "Lawn care and maintenance",

@@ -297,31 +297,27 @@ export default function LandscapingServicesPage() {
 
 
   const heroImage = {
-    src: "/post-construction/hero.webp",
+    src: "/landscaping/landscaping-hero.webp",
     alt: "Professional landscaping services in Kenya",
   }
 
   const whyChooseUsImage = {
-    src: "/post-construction/why-choose-us.webp",
+    src: "/landscaping/landscaping.webp",
     alt: "Professional landscaping team at work",
   }
 
   const whatsIncludedImages = [
     {
-      src: "/post-construction/post-construction-01.webp",
+      src: "/landscaping/landscaping-01.webp",
       alt: "Professional landscaping services - garden design"
     },
     {
-      src: "/post-construction/post-construction-02.webp",
+      src: "/landscaping/landscaping-02.webp",
       alt: "Landscaping - lawn installation"
     },
     {
-      src: "/post-construction/post-construction-03.webp",
+      src: "/landscaping/landscaping-04.webp",
       alt: "Landscaping - plant installation"
-    },
-    {
-      src: "/post-construction/post-construction-04.webp",
-      alt: "Landscaping - maintenance services"
     }
   ];
   const [carouselIndex, setCarouselIndex] = useState(0);
