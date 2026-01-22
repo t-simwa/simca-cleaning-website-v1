@@ -223,14 +223,12 @@ const residentialService: ServiceDetail = {
     ]
   },
   serviceAreas: [
-    "Nairobi Central",
-    "Westlands",
-    "Kilimani",
-    "Lavington",
-    "Karen",
-    "Runda",
-    "Gigiri",
-    "Muthaiga"
+    "Mombasa",
+    "Kisumu",
+    "Lamu",
+    "Lodwar",
+    "Kaimosi",
+    "Other areas upon consultation"
   ],
   whyChooseUs: {
     title: "Why Choose Our Residential Cleaning",
@@ -477,13 +475,13 @@ export default function ResidentialCleaningPage() {
               </div>
                     </div>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                The pressures of job, family, and personal responsibilities can frequently leave little time for home duties in the fast-paced city of Nairobi. In such a vibrant and demanding environment, maintaining a spotless home can feel overwhelming. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers a variety of expert house cleaning solutions designed to fit your busy lifestyle, ensuring your home remains a haven of comfort and relaxation. We stand out as a beacon of excellence and convenience in the midst of the urban bustle, giving you more time to focus on what matters most.
+                The pressures of job, family, and personal responsibilities can frequently leave little time for home duties. In such a vibrant and demanding environment, maintaining a spotless home can feel overwhelming. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers a variety of expert house cleaning solutions designed to fit your busy lifestyle, ensuring your home remains a haven of comfort and relaxation. We stand out as a beacon of excellence and convenience, giving you more time to focus on what matters most.
               </p>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Among professional house cleaning services in Nairobi, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is recognized for our commitment to quality, reliability, and customer satisfaction. We are pleased to offer top-notch house cleaning services in Nairobi, Kenya, using eco-friendly products and proven techniques. Our team is dedicated to constantly providing a beautiful, healthy, and clean environment for every client, no matter the size or type of your home.
+                Among professional house cleaning services in Mombasa, Kisumu, Lamu, Lodwar, and Kaimosi, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is recognized for our commitment to quality, reliability, and customer satisfaction. We are pleased to offer top-notch house cleaning services across our service locations in Kenya, using eco-friendly products and proven techniques. Our team is dedicated to constantly providing a beautiful, healthy, and clean environment for every client, no matter the size or type of your home.
               </p>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Our thorough house cleaning services in Nairobi are tailored to improve your home's level of comfort and hygiene. We pay close attention to every detail, offering deep cleaning for living rooms, kitchens, bedrooms, and bathrooms, as well as flexible scheduling to suit your needs. With Simca, you can trust that every corner of your home will be cared for by trained professionals who treat your space with respect and care.
+                Our thorough house cleaning services across our service locations are tailored to improve your home's level of comfort and hygiene. We pay close attention to every detail, offering deep cleaning for living rooms, kitchens, bedrooms, and bathrooms, as well as flexible scheduling to suit your needs. With Simca, you can trust that every corner of your home will be cared for by trained professionals who treat your space with respect and care.
               </p>
                 </div>
             {/* Desktop image column */}
@@ -793,7 +791,7 @@ export default function ResidentialCleaningPage() {
             </div>
         </div>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                If you're looking for a reliable residential cleaning service in Nairobi, Simca Agencies is your trusted choice. We offer a wide range of house cleaning services and always look for new ways to improve your experience. Our team is flexible, thorough, and ready to accommodate your specific needs—including special requests for additional services.
+                If you're looking for a reliable residential cleaning service in Mombasa, Kisumu, Lamu, Lodwar, or Kaimosi, Simca Agencies is your trusted choice. We offer a wide range of house cleaning services and always look for new ways to improve your experience. Our team is flexible, thorough, and ready to accommodate your specific needs—including special requests for additional services.
               </p>
               <ul className="list-disc pl-5 space-y-4 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
                 <li>
@@ -863,7 +861,7 @@ export default function ResidentialCleaningPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <strong>Note:</strong> The residential cleaning service prices below are approximate and may vary based on the size of your home, your specific requirements, your location in Nairobi, and the cleaning package you choose. For unique homes or special requests, please contact us for a custom quote. All prices are per session and apply to Nairobi.
+                  <strong>Note:</strong> The residential cleaning service prices below are approximate and may vary based on the size of your home, your specific requirements, your location, and the cleaning package you choose. For unique homes or special requests, please contact us for a custom quote. All prices are per session and apply to our service locations.
                 </motion.p>
               </div>
 
@@ -1029,7 +1027,7 @@ export default function ResidentialCleaningPage() {
               {/* Explanatory Paragraph Below Cards */}
               <div className="max-w-3xl mx-auto mt-8 text-center">
                 <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-                  When comparing residential cleaning service prices in Nairobi, consider factors such as reputation, reliability, and the range of services offered in addition to cost. Choosing a reputable cleaning company ensures your home remains clean, healthy, and comfortable for your family and guests. For a personalized quote or to discuss your specific needs, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
+                  When comparing residential cleaning service prices, consider factors such as reputation, reliability, and the range of services offered in addition to cost. Choosing a reputable cleaning company ensures your home remains clean, healthy, and comfortable for your family and guests. For a personalized quote or to discuss your specific needs, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
                 </p>
               </div>
             </div>

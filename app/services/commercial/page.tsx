@@ -220,14 +220,12 @@ const commercialService: ServiceDetail = {
     ]
   },
   serviceAreas: [
-    "Nairobi Central Business District",
-    "Westlands",
-    "Kilimani",
-    "Industrial Area",
-    "Karen",
-    "Runda",
-    "Gigiri",
-    "Muthaiga"
+    "Mombasa",
+    "Kisumu",
+    "Lamu",
+    "Lodwar",
+    "Kaimosi",
+    "Other areas upon consultation"
   ],
   whyChooseUs: {
     title: "Why Choose Our Commercial Cleaning",
@@ -473,13 +471,13 @@ export default function CommercialCleaningPage() {
               </div>
                     </div>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                In the fast-paced business environment of Nairobi, maintaining a clean and professional workspace is crucial for productivity, employee satisfaction, and client impressions. The demands of running a business often leave little time for facility maintenance. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers comprehensive commercial cleaning solutions designed to keep your business environment spotless and professional, allowing you to focus on what matters most - growing your business and serving your clients.
+                In the fast-paced business environment, maintaining a clean and professional workspace is crucial for productivity, employee satisfaction, and client impressions. The demands of running a business often leave little time for facility maintenance. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers comprehensive commercial cleaning solutions designed to keep your business environment spotless and professional, allowing you to focus on what matters most - growing your business and serving your clients.
               </p>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Among professional commercial cleaning services in Nairobi, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is recognized for our commitment to quality, reliability, and customer satisfaction. We are pleased to offer top-notch commercial cleaning services in Nairobi, Kenya, using BOMA-certified standards, eco-friendly products, and proven techniques. Our team is dedicated to consistently providing a clean, healthy, and professional environment for every business client, regardless of the size or type of your facility.
+                Among professional commercial cleaning services in Mombasa, Kisumu, Lamu, Lodwar, and Kaimosi, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is recognized for our commitment to quality, reliability, and customer satisfaction. We are pleased to offer top-notch commercial cleaning services across our service locations in Kenya, using BOMA-certified standards, eco-friendly products, and proven techniques. Our team is dedicated to consistently providing a clean, healthy, and professional environment for every business client, regardless of the size or type of your facility.
               </p>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Our thorough commercial cleaning services in Nairobi are tailored to enhance your business environment's cleanliness and professionalism. We pay close attention to every detail, offering comprehensive cleaning for offices, retail spaces, industrial facilities, and specialized areas, as well as flexible scheduling to minimize disruption to your operations. With Simca, you can trust that every corner of your facility will be cared for by trained professionals who understand the unique needs of commercial environments.
+                Our thorough commercial cleaning services across our service locations are tailored to enhance your business environment's cleanliness and professionalism. We pay close attention to every detail, offering comprehensive cleaning for offices, retail spaces, industrial facilities, and specialized areas, as well as flexible scheduling to minimize disruption to your operations. With Simca, you can trust that every corner of your facility will be cared for by trained professionals who understand the unique needs of commercial environments.
                       </p>
                     </div>
             {/* Desktop image column */}
@@ -789,7 +787,7 @@ export default function CommercialCleaningPage() {
             </div>
         </div>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                If you're looking for a reliable commercial cleaning service in Nairobi, Simca Agencies is your trusted choice. We offer a comprehensive range of business cleaning services and always look for new ways to improve your facility's cleanliness. Our team is flexible, thorough, and ready to accommodate your specific business needs—including special requests for additional services and after-hours cleaning.
+                If you're looking for a reliable commercial cleaning service in Mombasa, Kisumu, Lamu, Lodwar, or Kaimosi, Simca Agencies is your trusted choice. We offer a comprehensive range of business cleaning services and always look for new ways to improve your facility's cleanliness. Our team is flexible, thorough, and ready to accommodate your specific business needs—including special requests for additional services and after-hours cleaning.
               </p>
               <ul className="list-disc pl-5 space-y-4 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
                 <li>
@@ -857,7 +855,7 @@ export default function CommercialCleaningPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <strong>Note:</strong> The commercial cleaning service prices below are approximate and may vary based on the size of your facility, your specific requirements, your location in Nairobi, and the cleaning package you choose. For unique facilities or special requests, please contact us for a custom quote. All prices are per session and apply to Nairobi.
+                  <strong>Note:</strong> The commercial cleaning service prices below are approximate and may vary based on the size of your facility, your specific requirements, your location, and the cleaning package you choose. For unique facilities or special requests, please contact us for a custom quote. All prices are per session and apply to our service locations.
                 </motion.p>
               </div>
 
@@ -1023,7 +1021,7 @@ export default function CommercialCleaningPage() {
               {/* Explanatory Paragraph Below Cards */}
               <div className="max-w-3xl mx-auto mt-8 text-center">
                 <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-                  When comparing commercial cleaning service prices in Nairobi, consider factors such as BOMA certification, reliability, and the range of services offered in addition to cost. Choosing a reputable commercial cleaning company ensures your facility remains clean, professional, and compliant with industry standards. For a personalized quote or to discuss your specific business needs, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
+                  When comparing commercial cleaning service prices, consider factors such as BOMA certification, reliability, and the range of services offered in addition to cost. Choosing a reputable commercial cleaning company ensures your facility remains clean, professional, and compliant with industry standards. For a personalized quote or to discuss your specific business needs, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
                 </p>
               </div>
             </div>

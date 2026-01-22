@@ -217,10 +217,12 @@ const carpetUpholsteryService: ServiceDetail = {
     ]
   },
   serviceAreas: [
-    "Nairobi Metropolitan Area",
+    "Mombasa",
     "Kisumu",
-    "Nakuru",
-    "Selected areas upon request"
+    "Lamu",
+    "Lodwar",
+    "Kaimosi",
+    "Other areas upon consultation"
   ],
   whyChooseUs: {
     title: "Why Choose Our Carpet & Upholstery Service",
@@ -447,13 +449,13 @@ export default function CarpetUpholsteryCleaningPage() {
               </div>
                     </div>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                The accumulation of dirt, stains, and allergens in carpets and upholstery can significantly impact the health and appearance of your living spaces in the bustling environment of Nairobi. In such a dynamic and demanding setting, maintaining clean and fresh fabrics can be challenging. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers specialized carpet and upholstery cleaning solutions designed to restore the beauty and extend the lifespan of your valuable fabrics. We stand out as the trusted partner for homeowners and businesses, ensuring your carpets and furniture remain pristine and healthy.
+                The accumulation of dirt, stains, and allergens in carpets and upholstery can significantly impact the health and appearance of your living spaces. In such a dynamic and demanding setting, maintaining clean and fresh fabrics can be challenging. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers specialized carpet and upholstery cleaning solutions designed to restore the beauty and extend the lifespan of your valuable fabrics. We stand out as the trusted partner for homeowners and businesses, ensuring your carpets and furniture remain pristine and healthy.
               </p>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Among professional carpet and upholstery cleaning services in Nairobi, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is recognized for our commitment to quality, reliability, and attention to detail. We are pleased to offer top-notch carpet and upholstery cleaning services in Nairobi, Kenya, using advanced equipment, eco-friendly products, and proven techniques. Our team is dedicated to consistently providing deep cleaning solutions that remove stains, eliminate odors, and restore the original beauty of your fabrics.
+                Among professional carpet and upholstery cleaning services in Mombasa, Kisumu, Lamu, Lodwar, and Kaimosi, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is recognized for our commitment to quality, reliability, and attention to detail. We are pleased to offer top-notch carpet and upholstery cleaning services across our service locations in Kenya, using advanced equipment, eco-friendly products, and proven techniques. Our team is dedicated to consistently providing deep cleaning solutions that remove stains, eliminate odors, and restore the original beauty of your fabrics.
               </p>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Our thorough carpet and upholstery cleaning services in Nairobi are tailored to address the unique challenges of fabric care. We pay close attention to every detail, offering specialized treatments for different fabric types, stain removal techniques, and protective coatings to prevent future damage. With Simca, you can trust that every fiber of your carpets and upholstery will be cared for by trained professionals who understand the specific requirements of fabric cleaning and restoration.
+                Our thorough carpet and upholstery cleaning services across our service locations are tailored to address the unique challenges of fabric care. We pay close attention to every detail, offering specialized treatments for different fabric types, stain removal techniques, and protective coatings to prevent future damage. With Simca, you can trust that every fiber of your carpets and upholstery will be cared for by trained professionals who understand the specific requirements of fabric cleaning and restoration.
                       </p>
                     </div>
             {/* Desktop image column */}
@@ -763,7 +765,7 @@ export default function CarpetUpholsteryCleaningPage() {
             </div>
         </div>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                If you're looking for a reliable carpet and upholstery cleaning service in Nairobi, Simca Agencies is your trusted choice. We offer comprehensive fabric cleaning services and always look for new ways to improve your experience. Our team is flexible, thorough, and ready to accommodate your specific needs—including special requests for additional services.
+                If you're looking for a reliable carpet and upholstery cleaning service in Mombasa, Kisumu, Lamu, Lodwar, or Kaimosi, Simca Agencies is your trusted choice. We offer comprehensive fabric cleaning services and always look for new ways to improve your experience. Our team is flexible, thorough, and ready to accommodate your specific needs—including special requests for additional services.
               </p>
               <ul className="list-disc pl-5 space-y-4 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
                 <li>
@@ -831,7 +833,7 @@ export default function CarpetUpholsteryCleaningPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <strong>Note:</strong> The carpet and upholstery cleaning service prices below are approximate and may vary based on the size of your carpets/furniture, fabric type, stain severity, your location in Nairobi, and the cleaning package you choose. For unique fabrics or special requests, please contact us for a custom quote. All prices are per session and apply to Nairobi.
+                  <strong>Note:</strong> The carpet and upholstery cleaning service prices below are approximate and may vary based on the size of your carpets/furniture, fabric type, stain severity, your location, and the cleaning package you choose. For unique fabrics or special requests, please contact us for a custom quote. All prices are per session and apply to our service locations.
                 </motion.p>
               </div>
 
@@ -997,7 +999,7 @@ export default function CarpetUpholsteryCleaningPage() {
               {/* Explanatory Paragraph Below Cards */}
               <div className="max-w-3xl mx-auto mt-8 text-center">
                 <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-                  When comparing carpet and upholstery cleaning service prices in Nairobi, consider factors such as reputation, reliability, fabric type, and the range of services offered in addition to cost. Choosing a reputable cleaning company ensures your carpets and furniture remain clean, healthy, and beautiful for years to come. For a personalized quote or to discuss your specific fabric care needs, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
+                  When comparing carpet and upholstery cleaning service prices, consider factors such as reputation, reliability, fabric type, and the range of services offered in addition to cost. Choosing a reputable cleaning company ensures your carpets and furniture remain clean, healthy, and beautiful for years to come. For a personalized quote or to discuss your specific fabric care needs, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
                 </p>
               </div>
             </div>
