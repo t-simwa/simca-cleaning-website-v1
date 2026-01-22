@@ -19,7 +19,7 @@ type LatLngTuple = [number, number]
 const KNOWN_COORDINATES: { [key: string]: LatLngTuple } = {
   "Kaimosi Friends University, Kaimosi Town, Vihiga County, Western Kenya": [0.1697, 34.7525],
   "Kimathi Street, Central Business District, Nairobi, Kenya": [-1.2833, 36.8172],
-  "Moi Avenue, Mombasa CBD, Mombasa County, Kenya": [-4.0435, 39.6682],
+  "PO BOX 16584, 80100, Mombasa": [-4.0435, 39.6682],
   "Uganda Road, Eldoret Town, Uasin Gishu County, Rift Valley, Kenya": [0.5204, 35.2697]
 }
 

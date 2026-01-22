@@ -94,7 +94,7 @@ function StatsSectionWithAnimation() {
     >
       {[
         {
-          value: "4",
+          value: "5",
           label: "LOCATIONS",
         },
         {
@@ -128,43 +128,36 @@ function StatsSectionWithAnimation() {
 export default function ContactPage() {
   const locations = [
     {
-      name: "Nairobi (Headquarters)",
-      address: "Kimathi Street, Central Business District, Nairobi",
-      phone: "+254 721525901",
-      email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
-    },
-    {
       name: "Mombasa",
-      address: "Moi Avenue, Mombasa CBD",
-      phone: "+254 721525901",
-      email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
-    },
-    {
-      name: "Kaimosi",
-      address: "Main Street, Kaimosi Town",
-      phone: "+254 721525901",
-      email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
-    },
-    {
-      name: "Eldoret",
-      address: "Uganda Road, Eldoret Town",
+      address: "PO BOX 16584, 80100, Mombasa",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
     },
     {
       name: "Kisumu",
-      address: "Oginga Odinga Street, Kisumu",
+      address: "Oginga Odinga Street, Kisumu CBD, Kisumu County",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
     },
     {
-      name: "Nakuru",
-      address: "Kenyatta Avenue, Nakuru",
+      name: "Lamu",
+      address: "Lamu Old Town, Lamu Island, Lamu County",
+      phone: "+254 721525901",
+      email: "Info@simcaagencies.co.ke",
+      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+    },
+    {
+      name: "Lodwar",
+      address: "Lodwar Town, Turkana County",
+      phone: "+254 721525901",
+      email: "Info@simcaagencies.co.ke",
+      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+    },
+    {
+      name: "Kaimosi",
+      address: "Kaimosi Friends University, Kaimosi Town, Vihiga County",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",

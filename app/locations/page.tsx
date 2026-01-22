@@ -77,7 +77,7 @@ function StatsSectionWithAnimation() {
     >
       {[
         {
-          value: "6+",
+          value: "5",
           label: "CITIES SERVED",
         },
         {
@@ -111,33 +111,9 @@ function StatsSectionWithAnimation() {
 export default function LocationsPage() {
   const locations = [
     {
-      id: "nairobi",
-      name: "Nairobi",
-      address: "Kimathi Street, Central Business District, Nairobi, Kenya",
-      phone: "+254 721525901",
-      emergencyPhone: "+254 735772968",
-      whatsapp: "+254 721525901",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
-      emergencyHours: "24/7 Emergency Service Available",
-      image: "/locations/nairobi.webp",
-      description:
-        "As Kenya's leading cleaning service provider in the capital, we deliver premium cleaning solutions tailored to Nairobi's dynamic business environment. Our team of certified professionals specializes in high-rise maintenance, corporate facilities, and luxury residential properties, ensuring the highest standards of cleanliness and hygiene.",
-      valueProposition: "Trusted by 200+ corporate clients in Nairobi's CBD",
-      specialServices: [
-        "High-rise window cleaning with certified safety protocols",
-        "Corporate office maintenance with green cleaning certification",
-        "Luxury apartment complex services with 24/7 availability",
-        "Event venue cleaning with rapid response teams",
-      ],
-      certifications: ["ISO 9001", "Green Cleaning Certified", "Safety First Certified"],
-      localExpertise: "Specialized in high-rise buildings and corporate facilities",
-      serviceAreas: "CBD, Westlands, Kilimani, Lavington, Karen, and surrounding areas",
-      responseTime: "30 minutes for emergency services",
-    },
-    {
       id: "mombasa",
       name: "Mombasa",
-      address: "Moi Avenue, Mombasa CBD, Mombasa County, Kenya",
+      address: "PO BOX 16584, 80100, Mombasa",
       phone: "+254 721525901",
       emergencyPhone: "+254 735772968",
       whatsapp: "+254 721525901",
@@ -183,28 +159,52 @@ export default function LocationsPage() {
       responseTime: "40 minutes for emergency services",
     },
     {
-      id: "nakuru",
-      name: "Nakuru",
-      address: "Kenyatta Avenue, Nakuru CBD, Nakuru County, Kenya",
+      id: "lamu",
+      name: "Lamu",
+      address: "Lamu Old Town, Lamu Island, Lamu County, Kenya",
       phone: "+254 721525901",
       emergencyPhone: "+254 735772968",
       whatsapp: "+254 721525901",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
       emergencyHours: "24/7 Emergency Service Available",
-      image: "/locations/nakuru.webp",
+      image: "/locations/lamu.webp",
       description:
-        "Nakuru's leading cleaning service provider, specializing in agricultural and industrial facility maintenance. Our expert team understands the unique requirements of the Rift Valley's agricultural sector, providing specialized cleaning solutions for processing plants and warehouses.",
-      valueProposition: "Trusted cleaning partner for agricultural facilities in Nakuru",
+        "Lamu's premier cleaning service provider, specializing in heritage property maintenance and coastal facility cleaning. Our expert team understands the unique requirements of preserving historical buildings while maintaining modern cleanliness standards in this UNESCO World Heritage site.",
+      valueProposition: "Trusted cleaning partner for heritage and coastal properties in Lamu",
       specialServices: [
-        "Agricultural facility cleaning with food safety certification",
-        "Processing plant maintenance with industry standards",
-        "Warehouse cleaning with specialized equipment",
-        "Industrial equipment cleaning with safety protocols",
+        "Heritage building cleaning with preservation protocols",
+        "Coastal property maintenance with specialized equipment",
+        "Hotel and resort cleaning with international standards",
+        "Traditional architecture cleaning with cultural sensitivity",
       ],
-      certifications: ["Food Safety Certified", "Industrial Cleaning Certified", "Safety First Certified"],
-      localExpertise: "Experts in agricultural and industrial facility cleaning",
-      serviceAreas: "CBD, Industrial Area, Lanet, and surrounding areas",
-      responseTime: "35 minutes for emergency services",
+      certifications: ["Heritage Property Specialist", "Coastal Cleaning Certified", "Cultural Preservation Certified"],
+      localExpertise: "Experts in heritage property maintenance and coastal facility cleaning",
+      serviceAreas: "Lamu Old Town, Shela, Manda Island, and surrounding areas",
+      responseTime: "60 minutes for emergency services",
+    },
+    {
+      id: "lodwar",
+      name: "Lodwar",
+      address: "Lodwar Town, Turkana County, Northern Kenya",
+      phone: "+254 721525901",
+      emergencyPhone: "+254 735772968",
+      whatsapp: "+254 721525901",
+      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      emergencyHours: "24/7 Emergency Service Available",
+      image: "/locations/lodwar.webp",
+      description:
+        "Lodwar's trusted cleaning service provider, specializing in arid region facility maintenance. Our expert team understands the unique challenges of the northern Kenya environment, offering specialized solutions for dust control, desert climate maintenance, and facility cleaning in challenging conditions.",
+      valueProposition: "Leading provider of cleaning services in Northern Kenya",
+      specialServices: [
+        "Dust and sand removal with specialized equipment",
+        "Arid climate facility maintenance with advanced techniques",
+        "Commercial and institutional cleaning with reliability",
+        "Emergency response cleaning with rapid deployment",
+      ],
+      certifications: ["Arid Region Specialist", "Commercial Cleaning Certified", "Emergency Response Certified"],
+      localExpertise: "Experts in arid region facility maintenance and challenging environment cleaning",
+      serviceAreas: "Lodwar Town, Turkana County, and surrounding areas",
+      responseTime: "45 minutes for emergency services",
     },
     {
       id: "kaimosi",
@@ -229,30 +229,6 @@ export default function LocationsPage() {
       localExpertise: "Specialists in educational and healthcare facility cleaning",
       serviceAreas: "Kaimosi Town, Vihiga County, and surrounding areas",
       responseTime: "50 minutes for emergency services",
-    },
-    {
-      id: "eldoret",
-      name: "Eldoret",
-      address: "Uganda Road, Eldoret Town, Uasin Gishu County, Rift Valley, Kenya",
-      phone: "+254 721525901",
-      emergencyPhone: "+254 735772968",
-      whatsapp: "+254 721525901",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
-      emergencyHours: "24/7 Emergency Service Available",
-      image: "/locations/eldoret.webp",
-      description:
-        "Eldoret's premier cleaning service provider, specializing in athletic facility maintenance. Our expert team understands the unique requirements of sports facilities, providing specialized cleaning solutions for training centers and competition venues.",
-      valueProposition: "Trusted cleaning partner for athletic facilities in Eldoret",
-      specialServices: [
-        "Athletic facility maintenance with sports certification",
-        "Training center cleaning with specialized equipment",
-        "Post-event cleanup with rapid response teams",
-        "Commercial property services with industry standards",
-      ],
-      certifications: ["Sports Facility Specialist", "Commercial Cleaning Certified", "Safety First Certified"],
-      localExpertise: "Experts in athletic and sports facility cleaning",
-      serviceAreas: "CBD, Industrial Area, Kapseret, and surrounding areas",
-      responseTime: "30 minutes for emergency services",
     },
   ]
 
@@ -420,18 +396,16 @@ export default function LocationsPage() {
                             <p className="text-[10px] md:text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                               {(() => {
                                 switch (location.name) {
-                                  case "Nairobi":
-                                    return "In the heart of the capital, we help businesses shine and homes feel like a sanctuary. We're here for you 24/7.";
-                                  case "Kaimosi":
-                                    return "We're honored to support the places that matter most, providing top-tier cleaning for schools and healthcare facilities.";
-                                  case "Eldoret":
-                                    return "In the City of Champions, we deliver championship-level cleaning for everything from sports complexes to industrial sites.";
-                                  case "Kisumu":
-                                    return "Bringing a fresh sparkle to the vibrant lakeside city, we serve homes and businesses with care and dedication.";
-                                  case "Nakuru":
-                                    return "In the heart of the Rift Valley, we're proud to offer our reliable cleaning services to this bustling, growing city.";
                                   case "Mombasa":
                                     return "On the coast, we keep homes and businesses fresh and welcoming, no matter the season.";
+                                  case "Kisumu":
+                                    return "Bringing a fresh sparkle to the vibrant lakeside city, we serve homes and businesses with care and dedication.";
+                                  case "Lamu":
+                                    return "Preserving heritage while maintaining modern cleanliness standards in this UNESCO World Heritage site.";
+                                  case "Lodwar":
+                                    return "Serving Northern Kenya with specialized cleaning solutions for arid region facilities.";
+                                  case "Kaimosi":
+                                    return "We're honored to support the places that matter most, providing top-tier cleaning for schools and healthcare facilities.";
                                   default:
                                     return location.specialServices[0];
                                 }
@@ -460,10 +434,6 @@ export default function LocationsPage() {
                     zoom={6}
                     markers={[
                       {
-                        position: "Nairobi, Kenya",
-                        popup: "Nairobi"
-                      },
-                      {
                         position: "Mombasa, Kenya",
                         popup: "Mombasa"
                       },
@@ -472,16 +442,16 @@ export default function LocationsPage() {
                         popup: "Kisumu"
                       },
                       {
-                        position: "Nakuru, Kenya",
-                        popup: "Nakuru"
+                        position: "Lamu, Kenya",
+                        popup: "Lamu"
+                      },
+                      {
+                        position: "Lodwar, Kenya",
+                        popup: "Lodwar"
                       },
                       {
                         position: "Kaimosi, Kenya",
                         popup: "Kaimosi"
-                      },
-                      {
-                        position: "Eldoret, Kenya",
-                        popup: "Eldoret"
                       }
                     ]}
                   />
@@ -646,7 +616,11 @@ export default function LocationsPage() {
                                           </div>
                                         </div>
                                       </motion.div>
-                                      <span className="flex-1">{location.phone}</span>
+                                      <div className="flex-1">
+                                        <a href={`tel:${location.phone.replace(/\s/g, '')}`} className="hover:text-add8e6 transition-colors">{location.phone}</a>
+                                        <span className="mx-1.5 text-gray-400">/</span>
+                                        <a href={`tel:${location.emergencyPhone.replace(/\s/g, '')}`} className="hover:text-add8e6 transition-colors">{location.emergencyPhone}</a>
+                                      </div>
                                     </motion.div>
                                     <motion.div 
                                       className="group flex items-center text-xs text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm border border-transparent hover:border-add8e6/20 transition-all duration-200"

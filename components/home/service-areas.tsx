@@ -8,7 +8,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import OpenStreetMap from "@/components/openstreet-map"
 
 export default function ServiceAreas() {
-  const [selectedLocation, setSelectedLocation] = useState("Nairobi")
+  const [selectedLocation, setSelectedLocation] = useState("Mombasa")
   const [hoveredLocation, setHoveredLocation] = useState<number | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
   const [activeFilter, setActiveFilter] = useState("all")
@@ -32,22 +32,11 @@ export default function ServiceAreas() {
 
   const locations = [
     {
-      id: "Nairobi",
-      name: "Nairobi",
-      image: "/nairobi.jpg",
-      description: "Our headquarters and primary service area, covering all major neighborhoods and suburbs.",
-      address: "Kimathi Street, CBD, Nairobi",
-      phone: "+254 721525901",
-      email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
-      areas: ["Westlands", "Kilimani", "Karen", "Lavington", "Runda", "Gigiri"],
-    },
-    {
       id: "Mombasa",
       name: "Mombasa",
       image: "/mombasa.jpg",
       description: "Serving the coastal region with specialized cleaning services for hotels and resorts.",
-      address: "Digo Road, Mombasa",
+      address: "PO BOX 16584, 80100, Mombasa",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
@@ -58,22 +47,44 @@ export default function ServiceAreas() {
       name: "Kisumu",
       image: "/kisumu.jpg",
       description: "Expanding our services to the Lake Region with a focus on commercial properties.",
-      address: "Oginga Odinga Street, Kisumu",
+      address: "Oginga Odinga Street, Kisumu CBD",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
       areas: ["Milimani", "Lolwe", "Kibos", "Nyalenda"],
     },
     {
-      id: "Nakuru",
-      name: "Nakuru",
-      image: "/nakuru.webp",
-      description: "Providing comprehensive cleaning services in the Rift Valley region.",
-      address: "Kenyatta Avenue, Nakuru",
+      id: "Lamu",
+      name: "Lamu",
+      image: "/lamu.jpg",
+      description: "Specializing in heritage property maintenance and coastal facility cleaning in this UNESCO World Heritage site.",
+      address: "Lamu Old Town, Lamu Island",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
-      areas: ["Milimani", "Section 58", "Prestige", "Freehold"],
+      areas: ["Lamu Old Town", "Shela", "Manda Island"],
+    },
+    {
+      id: "Lodwar",
+      name: "Lodwar",
+      image: "/lodwar.jpg",
+      description: "Providing specialized cleaning services for arid region facilities in Northern Kenya.",
+      address: "Lodwar Town, Turkana County",
+      phone: "+254 721525901",
+      email: "Info@simcaagencies.co.ke",
+      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      areas: ["Lodwar Town", "Turkana County"],
+    },
+    {
+      id: "Kaimosi",
+      name: "Kaimosi",
+      image: "/kaimosi.webp",
+      description: "Specializing in educational and healthcare facility maintenance in Western Kenya.",
+      address: "Kaimosi Friends University, Kaimosi Town",
+      phone: "+254 721525901",
+      email: "Info@simcaagencies.co.ke",
+      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      areas: ["Kaimosi Town", "Vihiga County"],
     },
   ]
 
@@ -84,8 +95,8 @@ export default function ServiceAreas() {
     return matchesSearch && matchesFilter
   })
 
-  // Get only the first 4 locations
-  const displayedLocations = filteredLocations.slice(0, 4)
+  // Get all locations
+  const displayedLocations = filteredLocations
 
   const selectedLocationData = locations.find(loc => loc.id === selectedLocation)
 

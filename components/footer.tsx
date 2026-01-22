@@ -131,7 +131,7 @@ export default function Footer() {
                   <MapPin className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
                 </div>
                 <span className="text-gray-400 group-hover:text-gray-300 transition-colors text-xs md:text-sm">
-                  Kimathi Street, CBD, Nairobi, Kenya
+                  PO BOX 16584, 80100, Mombasa
                 </span>
               </li>
               <li className="flex items-center gap-3 md:gap-4 group">
