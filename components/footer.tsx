@@ -147,13 +147,35 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 md:gap-4 group">
                 <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+                  <Phone className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
+                </div>
+                <a
+                  href="tel:+254735772968"
+                  className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm"
+                >
+                  +254 735772968
+                </a>
+              </li>
+              <li className="flex items-center gap-3 md:gap-4 group">
+                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
                   <Mail className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
                 </div>
                 <a
-                  href="mailto:info@simcacleaning.co.ke"
+                  href="mailto:Info@simcaagencies.co.ke"
                   className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm"
                 >
-                  info@simcacleaning.co.ke
+                  Info@simcaagencies.co.ke
+                </a>
+              </li>
+              <li className="flex items-center gap-3 md:gap-4 group">
+                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+                  <Mail className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
+                </div>
+                <a
+                  href="mailto:simka1974@hotmail.com"
+                  className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm"
+                >
+                  simka1974@hotmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3 md:gap-4 group">

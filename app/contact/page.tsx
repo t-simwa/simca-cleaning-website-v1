@@ -130,43 +130,43 @@ export default function ContactPage() {
     {
       name: "Nairobi (Headquarters)",
       address: "Kimathi Street, Central Business District, Nairobi",
-      phone: "+254 700 123 456",
-      email: "nairobi@simcacleaning.co.ke",
+      phone: "+254 721525901",
+      email: "Info@simcaagencies.co.ke",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
     },
     {
       name: "Mombasa",
       address: "Moi Avenue, Mombasa CBD",
-      phone: "+254 700 789 012",
-      email: "mombasa@simcacleaning.co.ke",
+      phone: "+254 721525901",
+      email: "Info@simcaagencies.co.ke",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
     },
     {
       name: "Kaimosi",
       address: "Main Street, Kaimosi Town",
-      phone: "+254 700 345 678",
-      email: "kaimosi@simcacleaning.co.ke",
+      phone: "+254 721525901",
+      email: "Info@simcaagencies.co.ke",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
     },
     {
       name: "Eldoret",
       address: "Uganda Road, Eldoret Town",
-      phone: "+254 700 901 234",
-      email: "eldoret@simcacleaning.co.ke",
+      phone: "+254 721525901",
+      email: "Info@simcaagencies.co.ke",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
     },
     {
       name: "Kisumu",
       address: "Oginga Odinga Street, Kisumu",
-      phone: "+254 700 234 567",
-      email: "kisumu@simcacleaning.co.ke",
+      phone: "+254 721525901",
+      email: "Info@simcaagencies.co.ke",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
     },
     {
       name: "Nakuru",
       address: "Kenyatta Avenue, Nakuru",
-      phone: "+254 700 345 678",
-      email: "nakuru@simcacleaning.co.ke",
+      phone: "+254 721525901",
+      email: "Info@simcaagencies.co.ke",
       hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
     },
   ]
@@ -387,11 +387,11 @@ export default function ContactPage() {
                       </motion.div>
                       <div className="flex-1 min-w-0">
                         <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Emergency Line</p>
-                        <a href="tel:+25472356800" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
-                          Call us anytime—day or night: +254 72356800
+                        <a href="tel:+254721525901" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
+                          Call us anytime—day or night: +254 721525901
                         </a>
-                        <a href="tel:+254712345678" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
-                          Or reach us on: +254 712345678
+                        <a href="tel:+254735772968" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
+                          Or reach us on: +254 735772968
                         </a>
                       </div>
                     </div>
@@ -410,8 +410,11 @@ export default function ContactPage() {
                       </motion.div>
                       <div className="flex-1 min-w-0">
                         <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Email Us</p>
-                        <a href="mailto:info@simcacleaning.co.ke" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors leading-relaxed">
-                          We reply quickly: info@simcacleaning.co.ke
+                        <a href="mailto:Info@simcaagencies.co.ke" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed mb-1">
+                          We reply quickly: Info@simcaagencies.co.ke
+                        </a>
+                        <a href="mailto:simka1974@hotmail.com" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
+                          Or reach us on: simka1974@hotmail.com
                         </a>
                       </div>
                     </div>

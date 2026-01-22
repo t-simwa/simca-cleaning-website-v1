@@ -149,7 +149,7 @@ export default function Header() {
         <div className="container mx-auto px-3 md:px-3">
           <div className="grid grid-cols-3 items-center h-9 md:h-10">
             {/* Left Section - Call */}
-            <div className="flex items-center">
+            <div className="flex items-center gap-3">
               <a
                 href="tel:+254721525901"
                 className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
@@ -157,16 +157,32 @@ export default function Header() {
                 <Phone className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Call Us: +254 721525901</span>
               </a>
+              <span className="text-gray-400 dark:text-gray-600">|</span>
+              <a
+                href="tel:+254735772968"
+                className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+              >
+                <Phone className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
+                <span>+254 735772968</span>
+              </a>
             </div>
 
             {/* Center Section - Email */}
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center gap-3">
               <a
-                href="mailto:info@simcaagencies.co.ke"
+                href="mailto:Info@simcaagencies.co.ke"
                 className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
                 <Mail className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Email Us: info@simcaagencies.co.ke</span>
+                <span>Email Us: Info@simcaagencies.co.ke</span>
+              </a>
+              <span className="text-gray-400 dark:text-gray-600">|</span>
+              <a
+                href="mailto:simka1974@hotmail.com"
+                className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+              >
+                <Mail className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
+                <span>simka1974@hotmail.com</span>
               </a>
             </div>
 
@@ -367,8 +383,19 @@ export default function Header() {
                       </span>
                       <span className="text-xs md:text-sm text-gray-500">+254 721525901</span>
                     </a>
-                    <Link
-                      href="/contact"
+                    <a
+                      href="tel:+254735772968"
+                      className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span className="flex items-center">
+                        <Phone className="h-4 w-4 md:h-4 md:w-4 mr-2" />
+                        Emergency Line
+                      </span>
+                      <span className="text-xs md:text-sm text-gray-500">+254 735772968</span>
+                    </a>
+                    <a
+                      href="mailto:Info@simcaagencies.co.ke"
                       className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -376,8 +403,19 @@ export default function Header() {
                         <Mail className="h-4 w-4 md:h-4 md:w-4 mr-2" />
                         Email Us
                       </span>
-                      <span className="text-xs md:text-sm text-gray-500">info@simcacleaning.co.ke</span>
-                    </Link>
+                      <span className="text-xs md:text-sm text-gray-500">Info@simcaagencies.co.ke</span>
+                    </a>
+                    <a
+                      href="mailto:simka1974@hotmail.com"
+                      className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span className="flex items-center">
+                        <Mail className="h-4 w-4 md:h-4 md:w-4 mr-2" />
+                        Alternative Email
+                      </span>
+                      <span className="text-xs md:text-sm text-gray-500">simka1974@hotmail.com</span>
+                    </a>
                   </div>
                 </div>
               </nav>
