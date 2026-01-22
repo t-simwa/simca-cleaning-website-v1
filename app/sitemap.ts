@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://simcaagencies.co.ke'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.simca-agencies.com'
 
   // Define all routes with their priorities and change frequencies
   const routes = [
