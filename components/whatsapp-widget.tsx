@@ -88,7 +88,7 @@ export default function WhatsAppWidget() {
               {/* Business Hours */}
               <div className="flex items-center gap-1.5 text-[10px] text-gray-500 dark:text-gray-400">
                 <HiClock className="h-2.5 w-2.5 flex-shrink-0" />
-                <span className="leading-tight">Mon-Fri: 8am-5pm, Sat: 9am-1pm</span>
+                <span className="leading-tight">Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm</span>
               </div>
 
               {/* Action Buttons */}

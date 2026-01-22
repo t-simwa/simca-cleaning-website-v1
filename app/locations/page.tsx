@@ -85,8 +85,8 @@ function StatsSectionWithAnimation() {
           label: "CORPORATE CLIENTS",
         },
         {
-          value: "24/7",
-          label: "EMERGENCY RESPONSE",
+          value: "1hr",
+          label: "RESPONSE TIME",
         }
       ].map((stat, index) => (
         <motion.div
@@ -117,8 +117,7 @@ export default function LocationsPage() {
       phone: "+254 721525901",
       emergencyPhone: "+254 735772968",
       whatsapp: "+254 721525901",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
-      emergencyHours: "24/7 Emergency Service Available",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
       image: "/locations/mombasa.webp",
       description:
         "Mombasa's premier cleaning service provider, specializing in coastal property maintenance. Our expert team understands the unique challenges of the coastal environment, offering specialized solutions for salt damage prevention, humidity control, and tropical climate maintenance.",
@@ -141,8 +140,7 @@ export default function LocationsPage() {
       phone: "+254 721525901",
       emergencyPhone: "+254 735772968",
       whatsapp: "+254 721525901",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
-      emergencyHours: "24/7 Emergency Service Available",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
       image: "/locations/kisumu.webp",
       description:
         "Kisumu's trusted cleaning partner, delivering specialized services for lakeside properties and industrial facilities. Our team combines local expertise with advanced cleaning technologies to maintain the highest standards in the Lake Region's unique environment.",
@@ -165,8 +163,7 @@ export default function LocationsPage() {
       phone: "+254 721525901",
       emergencyPhone: "+254 735772968",
       whatsapp: "+254 721525901",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
-      emergencyHours: "24/7 Emergency Service Available",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
       image: "/locations/lamu.webp",
       description:
         "Lamu's premier cleaning service provider, specializing in heritage property maintenance and coastal facility cleaning. Our expert team understands the unique requirements of preserving historical buildings while maintaining modern cleanliness standards in this UNESCO World Heritage site.",
@@ -189,8 +186,7 @@ export default function LocationsPage() {
       phone: "+254 721525901",
       emergencyPhone: "+254 735772968",
       whatsapp: "+254 721525901",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
-      emergencyHours: "24/7 Emergency Service Available",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
       image: "/locations/lodwar.webp",
       description:
         "Lodwar's trusted cleaning service provider, specializing in arid region facility maintenance. Our expert team understands the unique challenges of the northern Kenya environment, offering specialized solutions for dust control, desert climate maintenance, and facility cleaning in challenging conditions.",
@@ -213,8 +209,7 @@ export default function LocationsPage() {
       phone: "+254 721525901",
       emergencyPhone: "+254 735772968",
       whatsapp: "+254 721525901",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
-      emergencyHours: "24/7 Emergency Service Available",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
       image: "/locations/kaimosi.webp",
       description:
         "Western Kenya's trusted cleaning partner, specializing in educational and healthcare facility maintenance. Our team combines local expertise with specialized training to maintain the highest standards of cleanliness in sensitive environments.",
@@ -389,9 +384,6 @@ export default function LocationsPage() {
                               <h3 className="font-semibold text-xs md:text-sm text-gray-900 dark:text-white group-hover:text-add8e6 transition-colors leading-tight">
                                 {location.name}
                               </h3>
-                              <span className="text-[10px] md:text-xs bg-add8e6/10 text-add8e6 px-1.5 py-0.5 rounded-full whitespace-nowrap flex-shrink-0 font-medium">
-                                24/7
-                              </span>
                             </div>
                             <p className="text-[10px] md:text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                               {(() => {

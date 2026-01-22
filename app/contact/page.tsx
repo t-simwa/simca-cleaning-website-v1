@@ -132,35 +132,35 @@ export default function ContactPage() {
       address: "PO BOX 16584, 80100, Mombasa",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
     },
     {
       name: "Kisumu",
       address: "Oginga Odinga Street, Kisumu CBD, Kisumu County",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
     },
     {
       name: "Lamu",
       address: "Lamu Old Town, Lamu Island, Lamu County",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
     },
     {
       name: "Lodwar",
       address: "Lodwar Town, Turkana County",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
     },
     {
       name: "Kaimosi",
       address: "Kaimosi Friends University, Kaimosi Town, Vihiga County",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
     },
   ]
 
@@ -427,7 +427,7 @@ export default function ContactPage() {
                       <div className="flex-1 min-w-0">
                         <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Service Hours</p>
                         <p className="text-xs text-gray-800 dark:text-white leading-relaxed">
-                          Mon-Fri: 8am-5pm, Sat: 9am-1pm
+                          Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm
                         </p>
                         <p className="text-xs text-add8e6 mt-1 leading-relaxed">
                           After-hours? We're still here for you.

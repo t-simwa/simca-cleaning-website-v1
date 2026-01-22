@@ -39,7 +39,7 @@ export default function ServiceAreas() {
       address: "PO BOX 16584, 80100, Mombasa",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
       areas: ["Nyali", "Bamburi", "Shanzu", "Diani", "Malindi"],
     },
     {
@@ -50,7 +50,7 @@ export default function ServiceAreas() {
       address: "Oginga Odinga Street, Kisumu CBD",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
       areas: ["Milimani", "Lolwe", "Kibos", "Nyalenda"],
     },
     {
@@ -61,7 +61,7 @@ export default function ServiceAreas() {
       address: "Lamu Old Town, Lamu Island",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
       areas: ["Lamu Old Town", "Shela", "Manda Island"],
     },
     {
@@ -72,7 +72,7 @@ export default function ServiceAreas() {
       address: "Lodwar Town, Turkana County",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
       areas: ["Lodwar Town", "Turkana County"],
     },
     {
@@ -83,7 +83,7 @@ export default function ServiceAreas() {
       address: "Kaimosi Friends University, Kaimosi Town",
       phone: "+254 721525901",
       email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 8am-5pm, Sat: 9am-1pm",
+      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
       areas: ["Kaimosi Town", "Vihiga County"],
     },
   ]

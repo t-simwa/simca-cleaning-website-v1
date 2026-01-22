@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import React, { useState, useEffect } from "react"
-import { Home, Building2, HardHat, SprayCanIcon as Spray, ShieldCheck, Sofa, CheckCircle2, Sparkles, Users, Phone, Mail, MapPin, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { Home, Building2, HardHat, SprayCanIcon as Spray, ShieldCheck, Sofa, Bug, CheckCircle2, Sparkles, Users, Phone, Mail, MapPin, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import TrustedClients from "@/components/trusted-clients"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion, AnimatePresence } from "framer-motion"
@@ -79,34 +79,6 @@ export default function ServicesPage() {
       availability: "Available 24/7 with 2-hour emergency response"
     },
     {
-      id: "construction",
-      title: "Post-construction Cleaning",
-      description: "Specialized cleaning solutions for construction and renovation projects. Our certified team ensures your space is ready for immediate occupancy with our comprehensive post-construction cleaning process.",
-      icon: <HardHat className="h-12 w-12 text-add8e6" />,
-      image: "/placeholder.svg?height=600&width=800",
-      features: [
-        "OSHA-compliant safety protocols",
-        "Industrial-grade equipment for heavy-duty cleaning",
-        "Specialized dust removal systems",
-        "Final inspection certification"
-      ],
-      benefits: [
-        "Eliminate 99.9% of construction dust and debris",
-        "Reduce project completion time by 20%",
-        "Prevent damage to new installations",
-        "Ensure compliance with health and safety standards",
-        "Ready for immediate occupancy after cleaning"
-      ],
-      process: [
-        "Pre-cleaning site assessment and safety evaluation",
-        "Heavy debris removal and rough cleaning",
-        "Detailed cleaning of all surfaces and fixtures",
-        "Final inspection with air quality testing",
-        "Post-cleaning walkthrough and certification"
-      ],
-      availability: "Available within 24 hours of construction completion"
-    },
-    {
       id: "carpet",
       title: "Carpet & Upholstery Cleaning",
       description: "Revitalize your carpets and upholstery with our advanced cleaning technology. Our certified technicians use eco-friendly solutions to remove deep-seated dirt, allergens, and stains.",
@@ -135,34 +107,6 @@ export default function ServicesPage() {
       availability: "Same-day service available with 4-hour window"
     },
     {
-      id: "sanitization",
-      title: "Sanitization & Disinfection",
-      description: "Professional sanitization services using hospital-grade disinfectants. Our certified team follows CDC and WHO guidelines to ensure maximum protection against pathogens.",
-      icon: <Spray className="h-12 w-12 text-add8e6" />,
-      image: "/placeholder.svg?height=600&width=800",
-      features: [
-        "EPA-registered disinfectants",
-        "Electrostatic spray technology",
-        "UV-C disinfection systems",
-        "Certified sanitization protocols"
-      ],
-      benefits: [
-        "Eliminate 99.9% of viruses and bacteria",
-        "Reduce cross-contamination risks",
-        "Improve indoor air quality",
-        "Comply with health regulations",
-        "Protect against seasonal illnesses"
-      ],
-      process: [
-        "Risk assessment and high-touch point identification",
-        "Application of EPA-registered disinfectants",
-        "Electrostatic spraying for complete coverage",
-        "UV-C treatment for enhanced disinfection",
-        "Post-treatment verification and certification"
-      ],
-      availability: "24/7 emergency sanitization services"
-    },
-    {
       id: "specialized",
       title: "Specialized Cleaning",
       description: "Custom cleaning solutions for unique environments. Our specialized team is trained to handle specific industry requirements with precision and attention to detail.",
@@ -189,6 +133,33 @@ export default function ServicesPage() {
         "Regular performance evaluation"
       ],
       availability: "Custom scheduling based on industry requirements"
+    },
+    {
+      id: "fumigation-pest-control",
+      title: "Fumigation & Pest Control",
+      description: "Eliminate pests and protect your property with our professional fumigation and pest control services. We use safe and effective treatment methods to ensure complete pest elimination and long-term prevention.",
+      icon: <Bug className="h-12 w-12 text-add8e6" />,
+      image: "/placeholder.svg?height=600&width=800",
+      features: [
+        "Comprehensive pest elimination",
+        "Safe and eco-friendly treatments",
+        "Residential and commercial services",
+        "Preventive maintenance programs"
+      ],
+      benefits: [
+        "Eliminate 99.9% of pests and rodents",
+        "Protect property from pest damage",
+        "Create healthier living environments",
+        "Long-term pest prevention solutions",
+        "Safe for occupants and pets"
+      ],
+      process: [
+        "Thorough property inspection and pest identification",
+        "Customized treatment plan development",
+        "Safe and effective pest control application",
+        "Follow-up inspection and preventive measures"
+      ],
+      availability: "Available upon request, including emergency services"
     },
   ]
 

@@ -6,12 +6,8 @@ import React from "react"
 // Unique icons from different icon libraries
 import { FaHome } from "react-icons/fa" // Font Awesome - Home
 import { MdBusiness } from "react-icons/md" // Material Design - Business
-import { FaHardHat } from "react-icons/fa" // Font Awesome - Construction
-import { FaShieldVirus } from "react-icons/fa" // Font Awesome - Sanitization
 import { FaCouch } from "react-icons/fa" // Font Awesome - Upholstery
-import { FaWindowMaximize } from "react-icons/fa" // Font Awesome - Window
-import { FaCar } from "react-icons/fa" // Font Awesome - Car
-import { FaBed } from "react-icons/fa" // Font Awesome - Bed
+import { FaBug } from "react-icons/fa" // Font Awesome - Bug
 import { MdStars } from "react-icons/md" // Material Design - Specialized
 import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Shield
 import { useState, useEffect } from "react"
@@ -71,23 +67,6 @@ export default function ServicesOverview() {
       availability: "Available 24/7 for emergencies"
     },
     {
-      title: "Post-construction Cleaning",
-      description: "Move in faster with our expert post-construction cleaning. We remove dust, debris, and builder's mess—leaving your new space fresh, safe, and ready to use. Fast, thorough, and satisfaction guaranteed.",
-      icon: FaHardHat,
-      link: "/services/post-construction",
-      image: "/services/post-construction.png",
-      features: [
-        "Construction dust removal from all surfaces",
-        "Window and glass cleaning (interior/exterior)",
-        "Floor cleaning (hardwood, tile, carpet)",
-        "Cabinet and appliance cleaning"
-      ],
-      category: "specialized",
-      rating: 4.9,
-      reviews: 76,
-      availability: "Certified construction cleaning specialists"
-    },
-    {
       title: "Carpet & Upholstery",
       description: "Breathe new life into your carpets and furniture. We use advanced stain removal and gentle, deep-cleaning methods to protect your fabrics and leave everything fresh, clean, and safe for your family or staff.",
       icon: FaCouch,
@@ -105,93 +84,21 @@ export default function ServicesOverview() {
       availability: "Satisfaction guaranteed or we'll reclean"
     },
     {
-      title: "Sanitization",
-      description: "Protect your space with hospital-grade sanitization. Our certified team uses EPA-approved products and proven protocols to eliminate germs and viruses—ideal for homes, offices, and high-traffic areas.",
-      icon: FaShieldVirus,
-      link: "/services/sanitization-disinfection",
-      image: "/services/sanitization.jpg",
+      title: "Fumigation & Pest Control",
+      description: "Eliminate pests and protect your property with our professional fumigation and pest control services. We use safe and effective treatment methods to ensure complete pest elimination and long-term prevention.",
+      icon: FaBug,
+      link: "/services/fumigation-pest-control",
+      image: "/services/pest-control.png",
       features: [
-        "High-touch surface disinfection",
-        "Air purification and treatment",
-        "Restroom and kitchen sanitization",
-        "Electrostatic spraying technology"
+        "Comprehensive pest elimination",
+        "Safe and eco-friendly treatments",
+        "Rodent and insect control",
+        "Preventive maintenance programs"
       ],
       category: "specialized",
-      rating: 4.9,
+      rating: 4.8,
       reviews: 89,
-      availability: "Certified sanitization specialists"
-    },
-
-    {
-      title: "Window Cleaning",
-      description: "Experience crystal-clear views with our expert window cleaning service. We use eco-friendly solutions and specialized tools to remove dirt, grime, and streaks—leaving your windows spotless and your space brighter.",
-      icon: FaWindowMaximize,
-      link: "/services/window",
-      image: "/services/window-cleaning.png",
-      features: [
-        "Interior and exterior window cleaning",
-        "Window frame and sill cleaning",
-        "Screen cleaning and maintenance",
-        "Skylight and high-rise window cleaning"
-      ],
-      category: "specialized",
-      rating: 4.8,
-      reviews: 92,
-      availability: "Available for homes and businesses"
-    },
-    {
-      title: "Vehicle Interior Cleaning",
-      description: "Restore your vehicle's interior to showroom condition. Our detailed cleaning service removes stains, odors, and dirt from all surfaces—leaving your car fresh, clean, and smelling great. Satisfaction guaranteed.",
-      icon: FaCar,
-      link: "/services/vehicle-interior",
-      image: "/services/interior-cleaning.png",
-      features: [
-        "Dashboard and console cleaning",
-        "Seat and upholstery deep cleaning",
-        "Carpet and floor mat cleaning",
-        "Air vent and interior sanitization"
-      ],
-      category: "specialized",
-      rating: 4.9,
-      reviews: 78,
-      availability: "Mobile service available"
-    },
-    {
-      title: "Mattress Cleaning",
-      description: "Sleep better with our professional mattress cleaning service. We remove dust mites, allergens, and stains using advanced cleaning technology—ensuring a healthier sleep environment for you and your family.",
-      icon: FaBed,
-      link: "/services/mattress",
-      image: "/services/mattress-cleaning.png",
-      features: [
-        "Deep mattress vacuuming and cleaning",
-        "Stain removal and treatment",
-        "Dust mite and allergen elimination",
-        "Mattress sanitization and deodorizing"
-      ],
-      category: "specialized",
-      rating: 4.9,
-      reviews: 65,
-      availability: "Same-day service available"
-    },
-
-
-
-    {
-      title: "Sofa Set Cleaning",
-      description: "Revitalize your furniture with our professional sofa cleaning service. We use advanced cleaning techniques to remove stains, odors, and dirt—leaving your sofas looking and smelling fresh, like new.",
-      icon: FaCouch,
-      link: "/services/sofa-set",
-      image: "/services/sofa-cleaning.png",
-      features: [
-        "Fabric type-specific cleaning methods",
-        "Stain removal and spot treatment",
-        "Odor elimination and freshening",
-        "Fabric protection and conditioning"
-      ],
-      category: "specialized",
-      rating: 4.8,
-      reviews: 95,
-      availability: "Same-day service available"
+      availability: "Available upon request, including emergency services"
     },
   ]
 

@@ -5,10 +5,8 @@ import Image from "next/image"
 import {
   Home,
   Building2,
-  HardHat,
-  SprayCanIcon as Spray,
-  ShieldCheck,
   Sofa,
+  Bug,
   MapPin,
   Info,
   Users,
@@ -38,13 +36,6 @@ export default function MegaMenu({ type, onClose }: MegaMenuProps) {
       image: "/images/commercial-cleaning.png",
     },
     {
-      title: "Post-construction Cleaning",
-      description: "Specialized cleaning after building or renovation projects.",
-      icon: <HardHat className="h-6 w-6 text-add8e6" />,
-      link: "/services#construction",
-      image: "/images/construction-cleaning.png",
-    },
-    {
       title: "Carpet & Upholstery",
       description: "Deep cleaning for carpets, rugs, and upholstered furniture.",
       icon: <Sofa className="h-6 w-6 text-add8e6" />,
@@ -52,18 +43,11 @@ export default function MegaMenu({ type, onClose }: MegaMenuProps) {
       image: "/images/carpet-cleaning.png",
     },
     {
-      title: "Sanitization",
-      description: "Thorough sanitization and disinfection services.",
-      icon: <Spray className="h-6 w-6 text-add8e6" />,
-      link: "/services#sanitization",
-      image: "/images/sanitization.png",
-    },
-    {
-      title: "Specialized Cleaning",
-      description: "Custom cleaning solutions for specific needs and industries.",
-      icon: <ShieldCheck className="h-6 w-6 text-add8e6" />,
-      link: "/services#specialized",
-      image: "/images/specialized-cleaning.png",
+      title: "Fumigation & Pest Control",
+      description: "Professional fumigation and pest control services.",
+      icon: <Bug className="h-6 w-6 text-add8e6" />,
+      link: "/services/fumigation-pest-control",
+      image: "/images/pest-control.png",
     },
   ]
 

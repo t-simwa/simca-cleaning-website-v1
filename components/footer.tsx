@@ -98,13 +98,8 @@ export default function Footer() {
               {[
                 { href: "/services/residential", label: "Residential Cleaning" },
                 { href: "/services/commercial", label: "Commercial Cleaning" },
-                { href: "/services/post-construction", label: "Post-construction Cleaning" },
                 { href: "/services/carpet-upholstery", label: "Carpet & Upholstery Cleaning" },
-                { href: "/services/sanitization-disinfection", label: "Sanitization & Disinfection" },
-                { href: "/services/window", label: "Window Cleaning" },
-                { href: "/services/vehicle-interior", label: "Vehicle Interior Cleaning" },
-                { href: "/services/mattress", label: "Mattress Cleaning" },
-                { href: "/services/sofa-set", label: "Sofa Set Cleaning" },
+                { href: "/services/fumigation-pest-control", label: "Fumigation & Pest Control" },
               ].map((service) => (
                 <li key={service.href}>
                   <Link
@@ -183,7 +178,7 @@ export default function Footer() {
                   <Clock className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
                 </div>
                 <span className="text-gray-400 group-hover:text-gray-300 transition-colors text-xs md:text-sm">
-                  Mon-Fri: 8am-5pm, Sat: 9am-1pm
+                  Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm
                 </span>
               </li>
             </ul>
