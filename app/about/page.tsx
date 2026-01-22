@@ -2,7 +2,7 @@
 
 import React from "react"
 import Image from "next/image"
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 // Unique icons from different icon libraries - matching home page style
 import { FaUserFriends } from "react-icons/fa" // Font Awesome - Personal Touch
 import { FaTags } from "react-icons/fa" // Font Awesome - Honest & Fair
@@ -13,7 +13,7 @@ import { FaAward } from "react-icons/fa" // Font Awesome - Award
 import { MdAutoAwesome } from "react-icons/md" // Material Design - Sparkles/Awesome
 import { MdGroups } from "react-icons/md" // Material Design - Users/Team
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import WhoWeAre from "@/components/home/who-we-are"
@@ -123,29 +123,6 @@ function StatsSectionWithAnimation() {
 }
 
 export default function AboutPage() {
-  const [currentPage, setCurrentPage] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Handle window resize
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
-  // Navigation functions
-  const nextPage = () => {
-    setCurrentPage((prev) => (prev + 1) % 3) // 3 cards total
-  }
-
-  const prevPage = () => {
-    setCurrentPage((prev) => (prev - 1 + 3) % 3) // 3 cards total
-  }
 
   // Cards data for the "Our Mission & Values" section
   const cards = [
@@ -172,10 +149,6 @@ export default function AboutPage() {
     alt: "Professional cleaning services in Kenya",
   }
 
-  // Get current card for mobile
-  const getCurrentCard = () => {
-    return cards[currentPage]
-  }
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
@@ -304,155 +277,54 @@ export default function AboutPage() {
 
               {/* Values Grid */}
               <div className="relative">
-                {/* Mobile Carousel / Desktop Grid */}
+                {/* Show all cards in grid - single column on mobile, multi-column on desktop */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-                  {/* Mobile View - Single Card */}
-                  {isMobile ? (
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={currentPage}
-                        initial={{ opacity: 0, x: 100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -100 }}
-                        transition={{ duration: 0.5 }}
-                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50"
-                      >
-                        <div className="flex flex-col h-full relative z-10">
-                          {/* Beautifully styled icon */}
-                          <motion.div 
-                            className="relative flex-shrink-0 mb-4"
-                            whileHover={{ scale: 1.1 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <div className="relative">
-                              {/* Gradient glow effect */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
-                              {/* Icon container */}
-                              <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
-                                {React.createElement(getCurrentCard().icon, { 
-                                  className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
-                                })}
-                              </div>
-                            </div>
-                          </motion.div>
-                          
-                          <motion.h3 
-                            className="font-semibold text-add8e6 text-xs md:text-sm mb-2 group-hover:text-add8e6/80 transition-colors leading-tight"
-                            whileHover={{ x: 2 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            {getCurrentCard().title}
-                          </motion.h3>
-                          
-                          <motion.p 
-                            className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
-                            whileHover={{ x: 2 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            {getCurrentCard().description}
-                          </motion.p>
-                        </div>
-                      </motion.div>
-                    </AnimatePresence>
-                  ) : (
-                    // Desktop View - All Cards
-                    <>
-                      {cards.map((card, index) => (
+                  {cards.map((card, index) => (
+                    <motion.div 
+                      key={index}
+                      className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                    >
+                      <div className="flex flex-col h-full relative z-10">
+                        {/* Beautifully styled icon */}
                         <motion.div 
-                          key={index}
-                          className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50"
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: index * 0.05 }}
+                          className="relative flex-shrink-0 mb-4"
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.2 }}
                         >
-                          <div className="flex flex-col h-full relative z-10">
-                            {/* Beautifully styled icon */}
-                            <motion.div 
-                              className="relative flex-shrink-0 mb-4"
-                              whileHover={{ scale: 1.1 }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              <div className="relative">
-                                {/* Gradient glow effect */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
-                                {/* Icon container */}
-                                <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
-                                  {React.createElement(card.icon, { 
-                                    className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
-                                  })}
-                                </div>
-                              </div>
-                            </motion.div>
-                            
-                            <motion.h3 
-                              className="font-semibold text-add8e6 text-xs md:text-sm mb-2 group-hover:text-add8e6/80 transition-colors leading-tight"
-                              whileHover={{ x: 2 }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              {card.title}
-                            </motion.h3>
-                            
-                            <motion.p 
-                              className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
-                              whileHover={{ x: 2 }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              {card.description}
-                            </motion.p>
+                          <div className="relative">
+                            {/* Gradient glow effect */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                            {/* Icon container */}
+                            <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                              {React.createElement(card.icon, { 
+                                className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
+                              })}
+                            </div>
                           </div>
                         </motion.div>
-                      ))}
-                    </>
-                  )}
-                </div>
-
-                {/* Mobile Navigation */}
-                <div className="flex flex-col items-center gap-4 mt-8 md:hidden">
-                  {/* Mobile Pagination Dots */}
-                  <div className="flex items-center gap-3">
-                    {Array.from({ length: 3 }).map((_, index) => (
-                      <motion.button
-                        key={index}
-                        onClick={() => setCurrentPage(index)}
-                        className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                          currentPage === index
-                            ? 'bg-add8e6 w-6'
-                            : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
-                        }`}
-                        aria-label={`Go to value ${index + 1}`}
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 0.9 }}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Mobile Navigation Buttons */}
-                  <div className="flex items-center gap-4">
-                    <motion.button
-                      onClick={prevPage}
-                      className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
-                      aria-label="Previous value"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-                    </motion.button>
-                    
-                    <span className="text-sm text-gray-600 dark:text-gray-400">
-                      {currentPage + 1} of 3
-                    </span>
-
-                    <motion.button
-                      onClick={nextPage}
-                      className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
-                      aria-label="Next value"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-                    </motion.button>
-                  </div>
+                        
+                        <motion.h3 
+                          className="font-semibold text-add8e6 text-xs md:text-sm mb-2 group-hover:text-add8e6/80 transition-colors leading-tight"
+                          whileHover={{ x: 2 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {card.title}
+                        </motion.h3>
+                        
+                        <motion.p 
+                          className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                          whileHover={{ x: 2 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {card.description}
+                        </motion.p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </div>

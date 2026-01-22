@@ -2,11 +2,72 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, Phone, Moon, Sun, Sparkles, Mail, ChevronDown, ArrowRight } from "lucide-react"
+import { Menu, X, Phone, Moon, Sun, Sparkles, Mail, ChevronDown, ArrowRight, Globe } from "lucide-react"
 import Logo from "./logo"
 import { useTheme } from "next-themes"
 import SocialIcons from "./social-icons"
 import LanguageToggle from "./language-toggle"
+
+// Mobile Language Toggle Component
+function MobileLanguageToggle() {
+  const [language, setLanguage] = useState("en")
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-700 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 active:scale-95 border border-gray-200 dark:border-gray-600 group"
+        aria-label="Select language"
+      >
+        <div className="relative">
+          <div className="absolute inset-0 bg-add8e6/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="relative p-1.5 bg-gradient-to-br from-add8e6/10 to-add8e6/5 dark:from-add8e6/20 dark:to-add8e6/10 rounded-lg">
+            <Globe className="h-4 w-4 text-add8e6 group-hover:rotate-12 transition-transform duration-300" />
+          </div>
+        </div>
+        <span className="text-xs font-semibold text-gray-700 dark:text-gray-200">
+          {language === "en" ? "EN" : "SW"}
+        </span>
+        <ChevronDown className={`h-3 w-3 text-gray-500 dark:text-gray-400 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+
+      {isOpen && (
+        <>
+          <div 
+            className="fixed inset-0 z-40" 
+            onClick={() => setIsOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="absolute right-0 bottom-full mb-2 w-36 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 py-1.5 z-50">
+            <button
+              onClick={() => {
+                setLanguage("en")
+                setIsOpen(false)
+              }}
+              className={`w-full text-left px-4 py-2.5 text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors rounded-lg mx-1 ${
+                language === "en" ? "text-add8e6 bg-add8e6/10" : "text-gray-700 dark:text-gray-200"
+              }`}
+            >
+              English
+            </button>
+            <button
+              onClick={() => {
+                setLanguage("sw")
+                setIsOpen(false)
+              }}
+              className={`w-full text-left px-4 py-2.5 text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors rounded-lg mx-1 ${
+                language === "sw" ? "text-add8e6 bg-add8e6/10" : "text-gray-700 dark:text-gray-200"
+              }`}
+            >
+              Swahili
+            </button>
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -245,7 +306,8 @@ export default function Header() {
 
             {/* Mobile Menu Content */}
             <div className="flex flex-col h-[calc(100vh-4rem)] bg-white dark:bg-gray-900">
-              <nav className="flex-1">
+              {/* Scrollable Content Area */}
+              <nav className="flex-1 overflow-y-auto">
                 <div className="px-4 py-3 space-y-1">
                   {navItems.map((item) => (
                     <div key={item.name}>
@@ -320,36 +382,43 @@ export default function Header() {
                 </div>
               </nav>
 
-               {/* Mobile Menu Footer */}
-               <div className="border-t border-gray-100 dark:border-gray-800 p-4 pb-8 space-y-3 bg-gray-50 dark:bg-gray-800">
-                 {/* Social Icons */}
-                 <div className="flex justify-center space-x-6">
-                   <SocialIcons className="h-5 w-5" />
-                 </div>
+              {/* Fixed Mobile Menu Footer */}
+              <div className="border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-800/95 backdrop-blur-sm flex-shrink-0">
+                {/* Social Icons */}
+                <div className="flex justify-center mb-4">
+                  <SocialIcons className="h-5 w-5" />
+                </div>
 
-                 {/* Theme Toggle */}
-                 <div className="flex justify-center">
-                   <button
-                     onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                     className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300"
-                     aria-label="Toggle dark mode"
-                   >
-                     {theme === "dark" ? (
-                       <Sun className="h-4 w-4 text-gray-600 dark:text-gray-300" />
-                     ) : (
-                       <Moon className="h-4 w-4 text-gray-600 dark:text-gray-300" />
-                     )}
-                     <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                       {theme === "dark" ? "Light Mode" : "Dark Mode"}
-                     </span>
-                   </button>
-                 </div>
+                {/* Dark Mode & Language Toggle Row - Beautiful Design */}
+                <div className="flex items-center justify-center gap-3">
+                  {/* Dark Mode Toggle */}
+                  <button
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-700 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 active:scale-95 border border-gray-200 dark:border-gray-600 group"
+                    aria-label="Toggle dark mode"
+                  >
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-add8e6/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative p-1.5 bg-gradient-to-br from-add8e6/10 to-add8e6/5 dark:from-add8e6/20 dark:to-add8e6/10 rounded-lg">
+                        {theme === "dark" ? (
+                          <Sun className="h-4 w-4 text-add8e6 group-hover:rotate-180 transition-transform duration-500" />
+                        ) : (
+                          <Moon className="h-4 w-4 text-add8e6 group-hover:rotate-12 transition-transform duration-300" />
+                        )}
+                      </div>
+                    </div>
+                    <span className="text-xs font-semibold text-gray-700 dark:text-gray-200">
+                      {theme === "dark" ? "Light" : "Dark"}
+                    </span>
+                  </button>
 
-                 {/* Language Toggle */}
-                 <div className="flex justify-center pb-4">
-                   <LanguageToggle />
-                 </div>
-               </div>
+                  {/* Divider */}
+                  <div className="h-8 w-px bg-gray-300 dark:bg-gray-600" />
+
+                  {/* Language Toggle - Mobile Design */}
+                  <MobileLanguageToggle />
+                </div>
+              </div>
             </div>
           </div>
         </div>

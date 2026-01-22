@@ -2,9 +2,9 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Calendar, User, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
+import { Calendar, User, ArrowRight } from "lucide-react"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import React from "react"
@@ -128,25 +128,6 @@ function StatsSectionWithAnimation() {
 
 const BlogPage = () => {
   const [activeCategory, setActiveCategory] = useState("all")
-  const [currentPage, setCurrentPage] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Handle window resize
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
-  // Reset current page when changing categories
-  useEffect(() => {
-    setCurrentPage(0)
-  }, [activeCategory])
 
   const blogPosts = [
     {
@@ -246,26 +227,6 @@ const BlogPage = () => {
   const filteredPosts = activeCategory === "all" 
     ? blogPosts.slice(1) 
     : blogPosts.slice(1).filter(post => post.category === activeCategory)
-
-  // Calculate total pages based on filtered posts
-  const totalPages = filteredPosts.length
-
-  // Navigation functions
-  const nextPage = () => {
-    setCurrentPage((prev) => (prev + 1) % totalPages)
-  }
-
-  const prevPage = () => {
-    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages)
-  }
-
-  // Get current cards
-  const getCurrentCards = () => {
-    if (isMobile) {
-      return [filteredPosts[currentPage]]
-    }
-    return filteredPosts
-  }
 
   const recentPosts = blogPosts.slice(0, 3)
 
@@ -605,122 +566,69 @@ const BlogPage = () => {
                     </motion.p>
                   </div>
 
-                  {/* Blog Posts Grid/Carousel */}
+                  {/* Blog Posts Grid - Show all cards in grid - single column on mobile, multi-column on desktop */}
                   <div className="relative">
-                    <div className="grid md:grid-cols-2 gap-4 md:gap-5">
-                      <AnimatePresence mode="wait">
-                        {getCurrentCards().map((post, index) => (
-                          <motion.div
-                            key={post.id}
-                            initial={{ opacity: 0, x: isMobile ? 100 : 0 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: isMobile ? -100 : 0 }}
-                            transition={{ duration: 0.5 }}
-                          >
-                            <ScrollAnimation>
-                              <Link href={`/blog/${post.id}`}>
-                                <motion.div 
-                                  className="group relative bg-white dark:bg-gray-900/50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100 dark:border-gray-800/50"
-                                  whileHover={{ y: -2 }}
-                                >
-                                  <div className="relative h-40 mb-3">
-                                    <Image
-                                      src={post.image || "/placeholder.svg"}
-                                      alt={post.title}
-                                      fill
-                                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                      sizes="(max-width: 768px) 100vw, 50vw"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
-                                    {/* Category Badge */}
-                                    <div className="absolute top-2 left-2">
-                                      <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-2.5 py-1 rounded-full text-xs font-medium backdrop-blur-sm shadow-sm">
-                                        {post.category}
-                                      </span>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+                      {filteredPosts.map((post, index) => (
+                        <ScrollAnimation key={post.id}>
+                          <Link href={`/blog/${post.id}`}>
+                            <motion.div 
+                              className="group relative bg-white dark:bg-gray-900/50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100 dark:border-gray-800/50"
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.4, delay: index * 0.05 }}
+                              whileHover={{ y: -2 }}
+                            >
+                              <div className="relative h-40 mb-3">
+                                <Image
+                                  src={post.image || "/placeholder.svg"}
+                                  alt={post.title}
+                                  fill
+                                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                  sizes="(max-width: 768px) 100vw, 50vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
+                                {/* Category Badge */}
+                                <div className="absolute top-2 left-2">
+                                  <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-2.5 py-1 rounded-full text-xs font-medium backdrop-blur-sm shadow-sm">
+                                    {post.category}
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="p-4">
+                                <div className="flex items-center gap-2 mb-2.5">
+                                  <motion.div 
+                                    className="relative"
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ duration: 0.2 }}
+                                  >
+                                    <div className="relative">
+                                      <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md" />
+                                      <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15">
+                                        <Calendar className="w-3.5 h-3.5 text-add8e6" />
+                                      </div>
                                     </div>
-                                  </div>
-                                  <div className="p-4">
-                                    <div className="flex items-center gap-2 mb-2.5">
-                                      <motion.div 
-                                        className="relative"
-                                        whileHover={{ scale: 1.1 }}
-                                        transition={{ duration: 0.2 }}
-                                      >
-                                        <div className="relative">
-                                          <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md" />
-                                          <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15">
-                                            <Calendar className="w-3.5 h-3.5 text-add8e6" />
-                                          </div>
-                                        </div>
-                                      </motion.div>
-                                      <span className="text-xs text-gray-600 dark:text-gray-400">{post.date}</span>
-                                    </div>
-                                    <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-add8e6 transition-colors duration-200 leading-tight">
-                                      {post.title}
-                                    </h3>
-                                    <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 leading-relaxed line-clamp-2">
-                                      {post.excerpt}
-                                    </p>
-                                    <div className="pt-2 border-t border-gray-100 dark:border-gray-800/50">
-                                      <span className="text-xs text-add8e6 font-medium group-hover:gap-1.5 flex items-center gap-1 transition-all duration-200">
-                                        Read more
-                                        <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
-                                      </span>
-                                    </div>
-                                  </div>
-                                </motion.div>
-                              </Link>
-                            </ScrollAnimation>
-                          </motion.div>
-                        ))}
-                      </AnimatePresence>
-                    </div>
-
-                    {/* Mobile Navigation Buttons - Moved below articles */}
-                    <div className="md:hidden flex flex-col items-center gap-3 mt-6">
-                      {/* Mobile Pagination Dots */}
-                      <div className="flex justify-center items-center gap-1.5">
-                        {Array.from({ length: totalPages }).map((_, index) => (
-                          <motion.button
-                            key={index}
-                            onClick={() => setCurrentPage(index)}
-                            className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
-                              currentPage === index
-                                ? 'bg-add8e6 w-3'
-                                : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
-                            }`}
-                            aria-label={`Go to article ${index + 1}`}
-                            whileHover={{ scale: 1.2 }}
-                            whileTap={{ scale: 0.9 }}
-                          />
-                        ))}
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <motion.button
-                          onClick={prevPage}
-                          className="p-2.5 rounded-full bg-white dark:bg-gray-900/50 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/30 active:scale-95 border border-gray-100 dark:border-gray-800/50"
-                          aria-label="Previous article"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-                        </motion.button>
-                        
-                        <span className="text-xs text-gray-600 dark:text-gray-400">
-                          {currentPage + 1} of {totalPages}
-                        </span>
-
-                        <motion.button
-                          onClick={nextPage}
-                          className="p-2.5 rounded-full bg-white dark:bg-gray-900/50 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/30 active:scale-95 border border-gray-100 dark:border-gray-800/50"
-                          aria-label="Next article"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-                        </motion.button>
-                      </div>
+                                  </motion.div>
+                                  <span className="text-xs text-gray-600 dark:text-gray-400">{post.date}</span>
+                                </div>
+                                <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-add8e6 transition-colors duration-200 leading-tight">
+                                  {post.title}
+                                </h3>
+                                <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 leading-relaxed line-clamp-2">
+                                  {post.excerpt}
+                                </p>
+                                <div className="pt-2 border-t border-gray-100 dark:border-gray-800/50">
+                                  <span className="text-xs text-add8e6 font-medium group-hover:gap-1.5 flex items-center gap-1 transition-all duration-200">
+                                    Read more
+                                    <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                                  </span>
+                                </div>
+                              </div>
+                            </motion.div>
+                          </Link>
+                        </ScrollAnimation>
+                      ))}
                     </div>
                   </div>
                 </div>

@@ -7,6 +7,18 @@ import { motion } from "framer-motion"
 // Unique icon for header
 import { MdBarChart } from "react-icons/md" // Material Design - Bar Chart
 
+// Hook to detect mobile devices
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768) // md breakpoint
+    check()
+    window.addEventListener("resize", check)
+    return () => window.removeEventListener("resize", check)
+  }, [])
+  return isMobile
+}
+
 export default function StatsCounter() {
   const { ref, inView } = useInView({
     threshold: 0.1,
@@ -15,6 +27,16 @@ export default function StatsCounter() {
 
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const isMobile = useIsMobile()
+  const prevIsMobileRef = useRef(isMobile)
+
+  // Reset index when switching between mobile and desktop
+  useEffect(() => {
+    if (prevIsMobileRef.current !== isMobile) {
+      setCurrentIndex(0)
+      prevIsMobileRef.current = isMobile
+    }
+  }, [isMobile])
 
   const stats = [
     {
@@ -49,40 +71,46 @@ export default function StatsCounter() {
     },
   ]
 
-  // Auto-scroll functionality - show 1 stat at a time
+  // Auto-scroll functionality - show 3 stats at a time on desktop, 1 on mobile
   useEffect(() => {
     if (!inView || !scrollContainerRef.current) return
 
     const container = scrollContainerRef.current
+    const cardsPerView = isMobile ? 1 : 3
     const scrollInterval = setInterval(() => {
       setCurrentIndex((prev) => {
-        // Move to next stat (showing 1 at a time)
-        // When we reach the last stat, loop back to start
-        if (prev >= stats.length - 1) {
+        // Move by cardsPerView (3 on desktop, 1 on mobile)
+        // When we reach or exceed the last stat, loop back to start
+        if (prev + cardsPerView >= stats.length) {
           return 0
         }
-        return prev + 1
+        return prev + cardsPerView
       })
     }, 3000) // Change every 3 seconds
 
     return () => clearInterval(scrollInterval)
-  }, [inView, stats.length])
+  }, [inView, stats.length, isMobile])
 
   // Scroll to current index
   useEffect(() => {
     if (!scrollContainerRef.current) return
 
     const container = scrollContainerRef.current
-    // Calculate width of each stat card (full width since we show 1 at a time)
-    const containerWidth = container.offsetWidth
-    const cardWidth = containerWidth
-    const scrollPosition = currentIndex * cardWidth
+    const flexContainer = container.querySelector('.flex') as HTMLElement
+    if (!flexContainer || flexContainer.children.length === 0) return
+
+    // Get the card element at currentIndex to use its offsetLeft (accounts for gaps automatically)
+    const targetCard = flexContainer.children[currentIndex] as HTMLElement
+    if (!targetCard) return
+
+    // Use offsetLeft which already accounts for gaps in flexbox layout
+    const scrollPosition = targetCard.offsetLeft
 
     container.scrollTo({
       left: scrollPosition,
       behavior: 'smooth',
     })
-  }, [currentIndex])
+  }, [currentIndex, isMobile])
 
   return (
     <section className="relative py-12 md:py-16 lg:py-20">
@@ -139,9 +167,9 @@ export default function StatsCounter() {
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 snap-center w-full"
+                  className="flex-shrink-0 snap-center"
                   style={{
-                    minWidth: '100%', // Each stat takes full width (1 visible at a time)
+                    minWidth: isMobile ? '100%' : 'calc((100% - 96px) / 3)', // Full width on mobile, 1/3 minus gaps on desktop (gap-12 = 48px * 2 gaps)
                   }}
                 >
                   <StatItem

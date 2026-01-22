@@ -113,6 +113,11 @@ export default function Testimonials() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
+  // Reset current page when changing categories
+  useEffect(() => {
+    setCurrentPage(0)
+  }, [activeCategory])
+
   // Navigation functions
   const nextPage = () => {
     setCurrentPage((prev) => (prev + 1) % totalPages)
@@ -121,6 +126,17 @@ export default function Testimonials() {
   const prevPage = () => {
     setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages)
   }
+
+  // Auto-scroll carousel - only on mobile (matching residential page timing)
+  useEffect(() => {
+    if (!isMobile) return
+
+    const interval = setInterval(() => {
+      setCurrentPage((prev) => (prev + 1) % totalPages)
+    }, 8000) // Change testimonial every 8 seconds (matching residential page)
+
+    return () => clearInterval(interval)
+  }, [isMobile, totalPages])
 
   // Get current cards
   const getCurrentCards = () => {
@@ -215,9 +231,9 @@ export default function Testimonials() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentPage}
-                initial={{ opacity: 0, x: isMobile ? 100 : 0 }}
+                initial={{ opacity: 0, x: isMobile ? 40 : 0 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: isMobile ? -100 : 0 }}
+                exit={{ opacity: 0, x: isMobile ? -40 : 0 }}
                 transition={{ duration: 0.5 }}
                 className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4"
               >

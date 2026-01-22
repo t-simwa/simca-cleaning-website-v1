@@ -40,7 +40,7 @@ export default function ScrollToTop() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 10 }}
           transition={{ duration: 0.2 }}
-          className="fixed bottom-14 md:bottom-20 right-3 md:right-4 z-40"
+          className="fixed bottom-20 md:bottom-24 right-3 md:right-4 z-40"
           aria-label="Scroll to top"
         >
           <motion.div

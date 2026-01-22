@@ -127,9 +127,9 @@ export default function WhatsAppWidget() {
         <div className="absolute inset-0 bg-green-500/20 rounded-lg blur-sm opacity-0 hover:opacity-100 transition-opacity" />
         <div className="relative">
           {isOpen ? (
-            <X className="h-3.5 w-3.5 md:h-4 md:w-4" />
+            <X className="h-4.5 w-4.5 md:h-5.5 md:w-5.5" />
           ) : (
-            <FaWhatsapp className="h-3.5 w-3.5 md:h-4 md:w-4" />
+            <FaWhatsapp className="h-4.5 w-4.5 md:h-5.5 md:w-5.5" />
           )}
         </div>
       </motion.button>
