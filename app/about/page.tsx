@@ -430,7 +430,7 @@ export default function AboutPage() {
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        It all began in Nairobi with a small but dedicated team of 15 professionals and a big goal: to make homes and businesses feel welcoming and clean. We were thrilled to partner with our first 25+ residential and commercial clients, building relationships one spotless space at a time by offering everything from home cleaning to specialized office maintenance.
+                        It all began in Mombasa with a small but dedicated team of 15 professionals and a big goal: to make homes and businesses feel welcoming and clean. We were thrilled to partner with our first 25+ residential and commercial clients, building relationships one spotless space at a time by offering everything from home cleaning to specialized office maintenance.
                       </motion.p>
                       <motion.div 
                         className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
@@ -705,9 +705,9 @@ export default function AboutPage() {
                               </div>
                             </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Nairobi</h3>
+                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Lamu</h3>
                         </div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">In the heart of the capital, we help businesses shine and homes feel like a sanctuary. We're here for you 24/7.</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Preserving heritage while maintaining modern cleanliness standards in this UNESCO World Heritage site. We specialize in coastal property maintenance and hospitality cleaning.</p>
                       </div>
                     </motion.div>
 
@@ -737,7 +737,7 @@ export default function AboutPage() {
                           </motion.div>
                           <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Mombasa</h3>
                         </div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">From bustling hotels to peaceful seaside homes, we provide a fresh, clean environment for the coastal community.</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Our headquarters. From bustling hotels to peaceful seaside homes, we provide a fresh, clean environment for the coastal community.</p>
                       </div>
                     </motion.div>
 
@@ -795,9 +795,9 @@ export default function AboutPage() {
                               </div>
                             </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Eldoret</h3>
+                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Lodwar</h3>
                         </div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">In the City of Champions, we deliver championship-level cleaning for everything from sports complexes to industrial sites.</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Serving Northern Kenya with specialized cleaning solutions for arid region facilities. We understand the unique challenges of desert climate maintenance.</p>
                       </div>
                     </motion.div>
 
@@ -831,35 +831,6 @@ export default function AboutPage() {
                       </div>
                     </motion.div>
 
-                    <motion.div 
-                      className="group relative bg-white dark:bg-gray-900/50 p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: 0.5 }}
-                      whileHover={{ 
-                        y: -2,
-                        transition: { duration: 0.2 }
-                      }}
-                    >
-                      <div className="relative z-10">
-                        <div className="flex items-center gap-2 mb-2">
-                          <motion.div 
-                            className="relative"
-                            whileHover={{ scale: 1.1 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <div className="relative">
-                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
-                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
-                                <FaMapMarkerAlt className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
-                              </div>
-                            </div>
-                          </motion.div>
-                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Nakuru</h3>
-                        </div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">In the heart of the Rift Valley, we're proud to offer our reliable cleaning services to this bustling, growing city.</p>
-                      </div>
-                    </motion.div>
                   </div>
 
                   <motion.div 

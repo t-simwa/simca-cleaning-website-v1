@@ -35,7 +35,7 @@ export default function ServicesOverview() {
   const services: Service[] = [
     {
       title: "Residential Cleaning",
-      description: "Enjoy a sparkling home, your way. We tailor every clean to your schedule and preferences, using safe, eco-friendly products. No contracts—just reliable, flexible service and a healthier home for your family.",
+      description: "Sparkling homes tailored to your schedule. Safe, eco-friendly products. No contracts—just reliable, flexible service for a healthier home.",
       icon: FaHome,
       link: "/services/residential",
       image: "/services/residential-cleaning.webp",
@@ -52,7 +52,7 @@ export default function ServicesOverview() {
     },
     {
       title: "Commercial Cleaning",
-      description: "Keep your business spotless and productive. We work around your hours to minimize disruption, with trained staff and custom plans for offices, shops, schools, and more. Affordable rates, no long-term contracts, and a cleaner, safer workplace.",
+      description: "Keep your business spotless and productive. We work around your hours with trained staff and custom plans for offices, shops, and schools. Affordable rates, no long-term contracts.",
       icon: MdBusiness,
       link: "/services/commercial",
       image: "/services/commercial-service.png",
@@ -69,7 +69,7 @@ export default function ServicesOverview() {
     },
     {
       title: "Carpet & Upholstery",
-      description: "Breathe new life into your carpets and furniture. We use advanced stain removal and gentle, deep-cleaning methods to protect your fabrics and leave everything fresh, clean, and safe for your family or staff.",
+      description: "Breathe new life into your carpets and furniture. Advanced stain removal and gentle deep-cleaning methods protect your fabrics, leaving everything fresh and safe.",
       icon: FaCouch,
       link: "/services/carpet-upholstery",
       image: "/services/carpet-cleaning.png",
@@ -86,7 +86,7 @@ export default function ServicesOverview() {
     },
     {
       title: "Fumigation & Pest Control",
-      description: "Eliminate pests and protect your property with our professional fumigation and pest control services. We use safe and effective treatment methods to ensure complete pest elimination and long-term prevention.",
+      description: "Eliminate pests and protect your property with professional fumigation services. Safe, effective treatment methods ensure complete pest elimination and long-term prevention.",
       icon: FaBug,
       link: "/services/fumigation-pest-control",
       image: "/services/sanitization.webp",
@@ -103,7 +103,7 @@ export default function ServicesOverview() {
     },
     {
       title: "Landscaping Services",
-      description: "Transform your outdoor spaces into beautiful, well-maintained landscapes with our professional landscaping services. We create and maintain stunning gardens, lawns, and outdoor environments.",
+      description: "Transform your outdoor spaces into beautiful, well-maintained landscapes. We create and maintain stunning gardens, lawns, and outdoor environments.",
       icon: FaLeaf,
       link: "/services/landscaping-services",
       image: "/services/landscaping.webp",
@@ -181,7 +181,7 @@ export default function ServicesOverview() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Simca Agencies delivers expert cleaning with a personal touch—customized for your needs, always affordable, and backed by our satisfaction guarantee. Our skilled, friendly team uses the latest equipment to give you a spotless space and total peace of mind.
+            Expert cleaning services customized for your needs, always affordable, and backed by our satisfaction guarantee. Our skilled team uses the latest equipment to deliver spotless results and peace of mind.
           </motion.p>
         </div>
 

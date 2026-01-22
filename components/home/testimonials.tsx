@@ -27,13 +27,13 @@ export default function Testimonials() {
   const testimonials = [
     {
       name: "Jane Mwangi",
-      role: "Homeowner, Nairobi",
+      role: "Homeowner, Mombasa",
       image: "/home-testimonials/jane-mwangi.jpg?height=200&width=200",
       quote:
         "Coming home used to mean sneezing fits, but since Simca started cleaning, it finally feels fresh and breathable. They listened to our concerns about allergies and now, our home is our sanctuary again. It's not just clean, it's a healthier, happier space for my family.",
       category: "residential",
       highlights: ["Healthier Home", "Allergy Relief"],
-      location: "Nairobi",
+      location: "Mombasa",
       response: "Jane, stories like yours are why we do what we do! We're so happy your family is breathing easier and feeling healthier at home. Thank you for trusting us.",
     },
     {
@@ -49,13 +49,13 @@ export default function Testimonials() {
     },
     {
       name: "Amina Hussein",
-      role: "Restaurant Owner, Nairobi",
+      role: "Restaurant Owner, Mombasa",
       image: "/home-testimonials/amina-hussein.png?height=200&width=200",
       quote:
         "In the restaurant business, clean isn't just about appearances—it's about health and safety. Simca gets that. Their team is meticulous, and I can always count on them to leave our kitchen and dining areas spotless. Our customers notice, and so do the health inspectors!",
       category: "commercial",
       highlights: ["Restaurant Cleaning", "Health & Safety"],
-      location: "Nairobi",
+      location: "Mombasa",
       response: "Amina, we love being part of your success story! A clean restaurant is a safe restaurant, and we're proud to help you uphold that standard for your customers.",
     },
     {

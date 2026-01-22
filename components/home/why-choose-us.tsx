@@ -65,32 +65,32 @@ export default function WhyChooseUs() {
             {
               title: "Personalized Cleaning, Every Time:",
               icon: FaUserCog,
-              text: "At Simca Agencies, we know every home and business is unique, and so are your cleaning needs. We take the time to listen to your requests, preferences, and priorities—whether it's a special area that needs extra care or a routine that fits your busy schedule. Our team creates a custom cleaning plan just for you, so you always get the results you want. With us, you'll never feel like just another client—your space is cleaned your way, every time."
+              text: "Every home and business is unique, and so are your cleaning needs. We listen to your requests and preferences, creating a custom cleaning plan that fits your schedule. Your space is cleaned your way, every time."
             },
             {
               title: "Affordable Services:",
               icon: FaTags,
-              text: "We believe everyone deserves a clean, healthy space—no matter their budget. That's why we keep our prices fair, honest, and easy to understand, with no hidden fees or surprises. If you have a specific budget in mind, just let us know: we'll work with you to create a cleaning plan that fits your needs and your wallet. Our goal is to make quality cleaning accessible and stress-free, so you can enjoy a spotless home or office without worrying about the cost. With Simca, you always know what you're paying for, and you always get real value for your money."
+              text: "Everyone deserves a clean, healthy space. We keep our prices fair and honest with no hidden fees. We'll work with your budget to create a cleaning plan that fits your needs and wallet. Quality cleaning that's accessible and stress-free."
             },
             {
               title: "A Team You Can Trust:",
               icon: MdGroups,
-              text: "We're proud to be a local company, and our staff are friendly, reliable people you can count on. You'll see the same faces at every visit, so you always know who's in your home or office. We treat your property with respect, keep you informed, and are always happy to answer your questions or adjust to your needs. Our goal is to build a relationship with you based on honesty, care, and real service."
+              text: "We're a local company with friendly, reliable staff you can count on. You'll see the same faces at every visit. We treat your property with respect, keep you informed, and are always happy to answer questions or adjust to your needs."
             },
             {
               title: "Satisfaction Guaranteed:",
               icon: HiShieldCheck,
-              text: "Your peace of mind is our top priority. If you're ever less than 100% satisfied with our work, just let us know within 24 hours and we'll return to make it right—at no extra cost and with no hassle. We stand by our promise because we want you to feel confident and valued every time you choose Simca. Your feedback matters, and we're always here to listen and improve."
+              text: "Your peace of mind is our priority. If you're ever less than 100% satisfied, let us know within 24 hours and we'll return to make it right—at no extra cost. We stand by our promise because we want you to feel confident and valued every time."
             },
             {
               title: "Spotless Results, Every Visit:",
               icon: MdAutoAwesome,
-              text: "We believe a truly clean space is one you can see, feel, and enjoy. Our team pays close attention to every detail, from the obvious to the overlooked, so your home or business always looks its best. We use safe, effective products and proven techniques to deliver a deep, lasting clean. You'll notice the difference right away—and so will your family, guests, or clients."
+              text: "A truly clean space is one you can see, feel, and enjoy. Our team pays attention to every detail, using safe, effective products and proven techniques to deliver a deep, lasting clean. You'll notice the difference right away."
             },
             {
               title: "No Contracts, No Worries:",
               icon: HiLockOpen,
-              text: "We want you to stay with us because you love our service, not because you're locked into a contract. That's why we offer total flexibility: you can pause, cancel, or change your cleaning schedule at any time, for any reason. There are no hidden fees or long-term commitments—just honest, straightforward service. We make it easy to get the help you need, when you need it."
+              text: "Stay with us because you love our service, not because you're locked into a contract. Total flexibility—pause, cancel, or change your schedule anytime. No hidden fees or long-term commitments, just honest, straightforward service."
             }
           ].map((para, i) => (
             <motion.div 

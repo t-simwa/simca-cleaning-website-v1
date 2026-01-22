@@ -57,16 +57,16 @@ export default function WhoWeAre() {
               </div>
             </div>
             <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-              Simca Agencies is a <span className="font-semibold text-gray-800 dark:text-white">registered and professional cleaning services company in Kenya</span>. We deliver customized cleaning solutions for homes, offices, and businesses, always prioritizing quality, reliability, and client satisfaction at affordable costs.
+              Simca Agencies is a <span className="font-semibold text-gray-800 dark:text-white">registered professional cleaning company in Kenya</span>. We deliver customized cleaning solutions for homes, offices, and businesses, prioritizing quality, reliability, and client satisfaction at affordable costs.
             </p>
             <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-              With 15 years of experience in the cleaning industry, we ensure you always get the best results for all your cleaning needs. We put every effort into giving our clients the best value for money. Our team is made up of skilled and well-trained employees who handle every job with professionalism and care. We strive to use the latest cleaning machine technology for outstanding results every time.
+              With 15 years of experience, we ensure the best results for all your cleaning needs. Our skilled, well-trained team handles every job with professionalism and care, using the latest cleaning technology for outstanding results every time.
             </p>
             <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-              As a result, we have made a tremendous impact in the lives of people in Nairobi and its environs. That is why we are considered one of the most trusted and best cleaning services companies in Kenya.
+              We've made a significant impact across coastal and inland regions, establishing ourselves as one of Kenya's most trusted cleaning services companies.
             </p>
             <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-              We continue to set standards by offering outstanding cleaning services and are fully committed to delivering quality, affordable, efficient, and reliable cleaning solutions to our ever-growing base of clients. Our mission is to set the benchmark for cleaning excellence in Kenya—helping homes and businesses thrive with a spotless environment.
+              We continue to set standards by offering outstanding cleaning services, committed to delivering quality, affordable, and reliable solutions. Our mission is to set the benchmark for cleaning excellence in Kenya—helping homes and businesses thrive with spotless environments.
             </p>
             <div className="mt-6 hidden">
               <Link 

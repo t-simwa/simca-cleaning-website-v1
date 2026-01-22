@@ -207,7 +207,7 @@ export default function Hero() {
                 willChange: 'auto',
               }}
             >
-              Enjoy peace of mind with our professional, fully customized cleaning services for homes and businesses across Kenya. No contracts, no hassle—just sparkling results, flexible scheduling, and a 100% satisfaction guarantee. Discover why families and companies trust Simca Agencies for quality, affordability, and care.
+              Professional cleaning services for homes and businesses across Kenya. Customized solutions, flexible scheduling, and 100% satisfaction guarantee. Trusted by families and companies for quality, affordable cleaning services in Mombasa, Kisumu, and beyond.
             </p>
 
             {/* Minimalist Stats Section */}

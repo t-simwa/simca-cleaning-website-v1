@@ -36,7 +36,7 @@ const faqs = [
   {
     question: "What areas do you serve?",
     answer:
-      "We proudly serve Nairobi and all major cities and towns across Kenya, including but not limited to Kiambu, Machakos, Kajiado, Mombasa, Kisumu, Nakuru, Eldoret, and Nanyuki. We are continually expanding our reach. If you are unsure whether we cover your area, please contact us to confirm availability.",
+      "We proudly serve Mombasa (our headquarters), Kisumu, Lamu, Lodwar, Kaimosi, and surrounding areas across Kenya. We are continually expanding our reach. If you are unsure whether we cover your area, please contact us to confirm availability.",
   },
   {
     question: "What payment methods do you accept?",
