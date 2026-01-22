@@ -82,7 +82,7 @@ export default function WhoWeAre() {
           <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
             <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
               <Image
-                src="/commercial/who-we-are.webp"
+                src="/who-we-are/hero.webp"
                 alt="Simca Agencies Team"
                 width={800}
                 height={600}
