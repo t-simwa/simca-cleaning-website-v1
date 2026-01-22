@@ -295,7 +295,7 @@ const BlogPage = () => {
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
                 className="text-sm md:text-base lg:text-base text-gray-200 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed tracking-wide"
               >
-                Our blog delivers expert cleaning insights, proven techniques, and practical solutions you can trust. Every article is crafted by professionals to help you achieve spotless, healthy spaces at home or at work with confidence and ease. Discover actionable tips, industry secrets, and step-by-step guides that transform your cleaning routine. Whether you're maintaining a home, managing a business, or tackling specialized cleaning challenges, our comprehensive content covers everything from basic maintenance to advanced professional methods. Learn from our experienced team's years of expertise and stay updated with the latest cleaning trends, eco-friendly solutions, and time-saving strategies that make cleaning simpler and more effective.
+                Expert cleaning insights, proven techniques, and practical solutions you can trust. Professional articles crafted to help you achieve spotless, healthy spaces at home or work. Discover actionable tips, step-by-step guides, and the latest cleaning trends—from basic maintenance to advanced professional methods.
               </motion.p>
 
               {/* Minimalist Stats Section */}
