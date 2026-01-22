@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import React, { useState, useEffect } from "react"
-import { Home, Building2, HardHat, SprayCanIcon as Spray, ShieldCheck, Sofa, Bug, CheckCircle2, Sparkles, Users, Phone, Mail, MapPin, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { Home, Building2, HardHat, SprayCanIcon as Spray, ShieldCheck, Sofa, Bug, Sprout, CheckCircle2, Sparkles, Users, Phone, Mail, MapPin, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import TrustedClients from "@/components/trusted-clients"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion, AnimatePresence } from "framer-motion"
@@ -160,6 +160,33 @@ export default function ServicesPage() {
         "Follow-up inspection and preventive measures"
       ],
       availability: "Available upon request, including emergency services"
+    },
+    {
+      id: "landscaping-services",
+      title: "Landscaping Services",
+      description: "Transform your outdoor spaces into beautiful, well-maintained landscapes with our professional landscaping services. We create and maintain stunning gardens, lawns, and outdoor environments.",
+      icon: <Sprout className="h-12 w-12 text-add8e6" />,
+      image: "/placeholder.svg?height=600&width=800",
+      features: [
+        "Garden design and installation",
+        "Lawn care and maintenance",
+        "Irrigation system installation",
+        "Seasonal maintenance programs"
+      ],
+      benefits: [
+        "Enhance property value with beautiful landscapes",
+        "Create peaceful outdoor retreats",
+        "Efficient irrigation systems for water conservation",
+        "Regular maintenance for year-round beauty",
+        "Custom designs tailored to your preferences"
+      ],
+      process: [
+        "Site assessment and design consultation",
+        "Custom landscaping plan development",
+        "Professional installation of plants and features",
+        "Ongoing maintenance and seasonal care"
+      ],
+      availability: "Flexible scheduling, including weekends"
     },
   ]
 

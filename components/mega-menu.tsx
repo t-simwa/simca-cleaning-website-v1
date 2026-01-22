@@ -7,6 +7,7 @@ import {
   Building2,
   Sofa,
   Bug,
+  Sprout,
   MapPin,
   Info,
   Users,
@@ -48,6 +49,13 @@ export default function MegaMenu({ type, onClose }: MegaMenuProps) {
       icon: <Bug className="h-6 w-6 text-add8e6" />,
       link: "/services/fumigation-pest-control",
       image: "/images/pest-control.png",
+    },
+    {
+      title: "Landscaping Services",
+      description: "Professional landscaping and garden maintenance services.",
+      icon: <Sprout className="h-6 w-6 text-add8e6" />,
+      link: "/services/landscaping-services",
+      image: "/images/landscaping.png",
     },
   ]
 

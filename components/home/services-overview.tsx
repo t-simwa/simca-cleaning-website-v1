@@ -8,6 +8,7 @@ import { FaHome } from "react-icons/fa" // Font Awesome - Home
 import { MdBusiness } from "react-icons/md" // Material Design - Business
 import { FaCouch } from "react-icons/fa" // Font Awesome - Upholstery
 import { FaBug } from "react-icons/fa" // Font Awesome - Bug
+import { FaLeaf } from "react-icons/fa" // Font Awesome - Leaf
 import { MdStars } from "react-icons/md" // Material Design - Specialized
 import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Shield
 import { useState, useEffect } from "react"
@@ -99,6 +100,23 @@ export default function ServicesOverview() {
       rating: 4.8,
       reviews: 89,
       availability: "Available upon request, including emergency services"
+    },
+    {
+      title: "Landscaping Services",
+      description: "Transform your outdoor spaces into beautiful, well-maintained landscapes with our professional landscaping services. We create and maintain stunning gardens, lawns, and outdoor environments.",
+      icon: FaLeaf,
+      link: "/services/landscaping-services",
+      image: "/services/landscaping.png",
+      features: [
+        "Garden design and installation",
+        "Lawn care and maintenance",
+        "Irrigation system installation",
+        "Seasonal maintenance programs"
+      ],
+      category: "specialized",
+      rating: 4.7,
+      reviews: 76,
+      availability: "Flexible scheduling, including weekends"
     },
   ]
 

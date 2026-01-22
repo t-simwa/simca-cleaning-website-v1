@@ -118,6 +118,7 @@ export default function Header() {
         { name: "Commercial Cleaning", href: "/services/commercial" },
         { name: "Carpet & Upholstery Cleaning", href: "/services/carpet-upholstery" },
         { name: "Fumigation & Pest Control", href: "/services/fumigation-pest-control" },
+        { name: "Landscaping Services", href: "/services/landscaping-services" },
       ],
     },
     { name: "Locations", href: "/locations" },

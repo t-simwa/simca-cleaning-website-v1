@@ -100,6 +100,7 @@ export default function Footer() {
                 { href: "/services/commercial", label: "Commercial Cleaning" },
                 { href: "/services/carpet-upholstery", label: "Carpet & Upholstery Cleaning" },
                 { href: "/services/fumigation-pest-control", label: "Fumigation & Pest Control" },
+                { href: "/services/landscaping-services", label: "Landscaping Services" },
               ].map((service) => (
                 <li key={service.href}>
                   <Link
