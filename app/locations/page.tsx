@@ -167,7 +167,7 @@ export default function LocationsPage() {
       image: "/locations/lamu.webp",
       description:
         "Lamu's premier cleaning service provider, specializing in heritage property maintenance and coastal facility cleaning. Our expert team understands the unique requirements of preserving historical buildings while maintaining modern cleanliness standards in this UNESCO World Heritage site.",
-      valueProposition: "Trusted cleaning partner for heritage and coastal properties in Lamu",
+      valueProposition: "",
       specialServices: [
         "Heritage building cleaning with preservation protocols",
         "Coastal property maintenance with specialized equipment",
@@ -177,7 +177,7 @@ export default function LocationsPage() {
       certifications: ["Heritage Property Specialist", "Coastal Cleaning Certified", "Cultural Preservation Certified"],
       localExpertise: "Experts in heritage property maintenance and coastal facility cleaning",
       serviceAreas: "Lamu Old Town, Shela, Manda Island, and surrounding areas",
-      responseTime: "60 minutes for emergency services",
+      responseTime: "",
     },
     {
       id: "lodwar",
