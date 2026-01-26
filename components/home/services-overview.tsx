@@ -72,7 +72,7 @@ export default function ServicesOverview() {
       description: "Breathe new life into your carpets and furniture. Advanced stain removal and gentle deep-cleaning methods protect your fabrics, leaving everything fresh and safe.",
       icon: FaCouch,
       link: "/services/carpet-upholstery",
-      image: "/services/carpet-cleaning.png",
+      image: "/services/carpet-cleaning.jpeg",
       features: [
         "Deep carpet cleaning and stain removal",
         "Sofa and chair upholstery cleaning",
@@ -89,7 +89,7 @@ export default function ServicesOverview() {
       description: "Eliminate pests and protect your property with professional fumigation services. Safe, effective treatment methods ensure complete pest elimination and long-term prevention.",
       icon: FaBug,
       link: "/services/fumigation-pest-control",
-      image: "/services/sanitization.webp",
+      image: "/services/fumigation.jpeg",
       features: [
         "Comprehensive pest elimination",
         "Safe and eco-friendly treatments",

@@ -55,28 +55,28 @@ export default function Hero() {
 
   const images = [
     { 
-      src: "/home-hero/cleaner-home.webp", 
+      src: "/home-hero/residential-cleaning.webp", 
       alt: "Professional cleaning services in Kenya",
       caption: "Residential Cleaning",
       description: "Transform your home with our thorough, eco-friendly cleaning solutions. Perfect for busy families and professionals.",
       category: "residential"
     },
     { 
-      src: "/home-hero/office-cleaning.jpg", 
+      src: "/home-hero/commercial-cleaning.webp", 
       alt: "Office cleaning services",
       caption: "Commercial Cleaning",
       description: "Maintain a pristine workspace with our flexible scheduling and specialized corporate cleaning protocols.",
       category: "commercial"
     },
     { 
-      src: "/home-hero/industrial-cleaning.jpg", 
+      src: "/home-hero/industrial-cleaning.webp", 
       alt: "Industrial cleaning services",
       caption: "Industrial Cleaning",
       description: "Expert industrial cleaning with advanced equipment and safety-certified professionals for your facility.",
       category: "industrial"
     },
     { 
-      src: "/home-hero/specialized-cleaning.jpg", 
+      src: "/home-hero/specialized-cleaning.webp", 
       alt: "Specialized cleaning services",
       caption: "Specialized Services",
       description: "Custom cleaning solutions for post-construction, deep cleaning, and special events with attention to detail.",
@@ -138,7 +138,7 @@ export default function Hero() {
 
   // Remove carousel logic and use only the first image
   const heroImage = {
-    src: "/home-hero/cleaner-home.webp",
+    src: "/home-hero/hero-main.jpg",
     alt: "Professional cleaning services in Kenya"
   }
 
