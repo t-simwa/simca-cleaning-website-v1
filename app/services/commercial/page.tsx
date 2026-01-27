@@ -307,15 +307,15 @@ export default function CommercialCleaningPage() {
   }
 
   const whyChooseUsImage = {
-    src: "/commercial/why-choose-us.webp",
+    src: "/commercial/why-choose-simca.jpg",
     alt: "Professional commercial cleaning team at work",
   }
 
   const whatsIncludedImages = [
-    { src: "/commercial/workstation.webp", alt: "Office space cleaning" },
-    { src: "/commercial/common-area.webp", alt: "Bathroom sanitization" },
-    { src: "/commercial/floor.webp", alt: "Common areas maintenance" },
-    { src: "/commercial/general.webp", alt: "Equipment cleaning" },
+    { src: "/commercial/commercial-01.jpeg", alt: "Office space cleaning" },
+    { src: "/commercial/commercial-02.jpeg", alt: "Bathroom sanitization" },
+    { src: "/commercial/commercial-03.jpeg", alt: "Common areas maintenance" },
+    { src: "/commercial/commercial-04.jpeg", alt: "Equipment cleaning" },
   ];
 
   const [carouselIndex, setCarouselIndex] = useState(0);
