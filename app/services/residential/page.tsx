@@ -310,25 +310,25 @@ export default function ResidentialCleaningPage() {
   }
 
   const whyChooseUsImage = {
-    src: "/residential/why-choose-us.webp",
+    src: "/residential/why-choose-simca.webp",
     alt: "Professional residential cleaning services"
   };
 
   const whatsIncludedImages = [
     {
-      src: "/residential/living-cleaning.webp",
+      src: "/residential/residential-01.jpeg",
       alt: "Professional residential cleaning services - living room"
     },
     {
-      src: "/residential/kitchen-cleaning.webp",
+      src: "/residential/residential-02.jpeg",
       alt: "Residential cleaning - kitchen"
     },
     {
-      src: "/residential/bedroom-cleaning.webp",
+      src: "/residential/residential-03.webp",
       alt: "Residential cleaning - bedroom"
     },
     {
-      src: "/residential/bathroom-cleaning.webp",
+      src: "/residential/residential-03.jpeg",
       alt: "Residential cleaning - bathroom"
     }
   ];
