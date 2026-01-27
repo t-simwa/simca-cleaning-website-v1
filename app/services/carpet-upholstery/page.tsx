@@ -286,15 +286,14 @@ export default function CarpetUpholsteryCleaningPage() {
   }
 
   const whyChooseUsImage = {
-    src: "/carpet/why-choose-us.webp",
+    src: "/carpet/why-choose-us.jpeg",
     alt: "Professional carpet and upholstery cleaning team at work",
   }
 
   const whatsIncludedImages = [
     { src: "/carpet/carpet-01.webp", alt: "Carpet cleaning" },
     { src: "/carpet/carpet-02.webp", alt: "Upholstery cleaning" },
-    { src: "/carpet/carpet-03.webp", alt: "Stain removal" },
-    { src: "/carpet/carpet-04.webp", alt: "Fabric protection" }
+    { src: "/carpet/carpet-03.jpeg", alt: "Stain removal" },
   ];
 
   const [carouselIndex, setCarouselIndex] = useState(0);
