@@ -303,26 +303,22 @@ export default function FumigationPestControlPage() {
   }
 
   const whyChooseUsImage = {
-    src: "/sanitization/why-choose-us.webp",
+    src: "/sanitization/santization-01.jpeg",
     alt: "Professional fumigation and pest control team at work",
   }
 
   const whatsIncludedImages = [
     {
-      src: "/sanitization/sanitization-01.webp",
+      src: "/sanitization/fumigation-01.jpeg",
       alt: "Professional fumigation and pest control services - treatment areas"
     },
     {
-      src: "/sanitization/sanitization-02.webp",
+      src: "/sanitization/fumigation-02.webp",
       alt: "Fumigation and pest control - kitchen treatment"
     },
     {
-      src: "/sanitization/sanitization-03.webp",
+      src: "/sanitization/fumigation-03.webp",
       alt: "Fumigation and pest control - bathroom treatment"
-    },
-    {
-      src: "/sanitization/sanitization-04.webp",
-      alt: "Fumigation and pest control - living space treatment"
     }
   ];
   const [carouselIndex, setCarouselIndex] = useState(0);
