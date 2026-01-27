@@ -302,22 +302,26 @@ export default function LandscapingServicesPage() {
   }
 
   const whyChooseUsImage = {
-    src: "/landscaping/landscaping.webp",
+    src: "/landscaping/landscaping.jpeg",
     alt: "Professional landscaping team at work",
   }
 
   const whatsIncludedImages = [
     {
-      src: "/landscaping/landscaping-01.webp",
+      src: "/landscaping/landscaping-01.jpeg",
       alt: "Professional landscaping services - garden design"
     },
     {
-      src: "/landscaping/landscaping-02.webp",
+      src: "/landscaping/landscaping-02.jpeg",
       alt: "Landscaping - lawn installation"
     },
     {
-      src: "/landscaping/landscaping-04.webp",
+      src: "/landscaping/landscaping-03.jpeg",
       alt: "Landscaping - plant installation"
+    },
+    {
+      src: "/landscaping/landscaping-04.jpeg",
+      alt: "Landscaping - irrigation system installation"
     }
   ];
   const [carouselIndex, setCarouselIndex] = useState(0);

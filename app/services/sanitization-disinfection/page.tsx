@@ -297,33 +297,28 @@ export default function SanitizationDisinfectionPage() {
     },
   }
 
-
   const heroImage = {
     src: "/sanitization/hero.webp",
-    alt: "Professional sanitization and disinfection services in Kenya",
+    alt: "Professional fumigation and pest control services in Kenya",
   }
 
   const whyChooseUsImage = {
-    src: "/sanitization/why-choose-us.webp",
-    alt: "Professional sanitization and disinfection team at work",
+    src: "/sanitization/santization-01.jpeg",
+    alt: "Professional fumigation and pest control team at work",
   }
 
   const whatsIncludedImages = [
     {
-      src: "/sanitization/sanitization-01.webp",
-      alt: "Professional sanitization and disinfection services - high-touch surfaces"
+      src: "/sanitization/fumigation-01.jpeg",
+      alt: "Professional fumigation and pest control services - treatment areas"
     },
     {
-      src: "/sanitization/sanitization-02.webp",
-      alt: "Sanitization and disinfection - kitchen"
+      src: "/sanitization/fumigation-02.webp",
+      alt: "Fumigation and pest control - kitchen treatment"
     },
     {
-      src: "/sanitization/sanitization-03.webp",
-      alt: "Sanitization and disinfection - bathroom"
-    },
-    {
-      src: "/sanitization/sanitization-04.webp",
-      alt: "Sanitization and disinfection - living space"
+      src: "/sanitization/fumigation-03.webp",
+      alt: "Fumigation and pest control - bathroom treatment"
     }
   ];
   const [carouselIndex, setCarouselIndex] = useState(0);

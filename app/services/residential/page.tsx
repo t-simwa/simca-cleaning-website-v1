@@ -466,7 +466,7 @@ export default function ResidentialCleaningPage() {
               <div className="w-full mb-6 md:hidden">
                 <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[20rem] xs:h-[24rem] sm:h-[28rem] mx-auto">
                   <Image
-                    src="/residential/why-choose-us.webp"
+                    src="/residential/why-choose-simca.webp"
                     alt="Professional residential cleaning services"
                     width={800}
                     height={600}
