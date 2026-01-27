@@ -145,7 +145,7 @@ export default function AboutPage() {
 
 
   const heroImage = {
-    src: "/about/about-hero.jpg",
+    src: "/about/about-hero.webp",
     alt: "Professional cleaning services in Kenya",
   }
 
