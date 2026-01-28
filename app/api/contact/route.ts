@@ -1,19 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Initialize Resend lazily to avoid build-time errors
+const getResend = () => {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    throw new Error('RESEND_API_KEY is not configured')
+  }
+  return new Resend(apiKey)
+}
 
 export async function POST(request: NextRequest) {
   try {
-    // Check if API key is set
-    if (!process.env.RESEND_API_KEY) {
-      console.error('RESEND_API_KEY is not set')
-      return NextResponse.json(
-        { error: 'Email service is not configured. Please contact support.' },
-        { status: 500 }
-      )
-    }
-
     const body = await request.json()
     const { name, email, phone, service, location, preferredDate, referralSource, message } = body
 
@@ -357,6 +355,7 @@ export async function POST(request: NextRequest) {
     `
 
     // Send email to customer (critical - wait for this)
+    const resend = getResend()
     const { data, error } = await resend.emails.send({
       from: `Simca Cleaning <${fromEmail}>`,
       to: [email],
@@ -373,7 +372,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send owner notification email asynchronously (non-blocking)
-    resend.emails.send({
+    getResend().emails.send({
       from: `Simca Cleaning <${fromEmail}>`,
       to: ['simwated@gmail.com'],
       subject: `[NEW BOOKING] - ${service} - ${location}`,
