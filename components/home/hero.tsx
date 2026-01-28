@@ -138,8 +138,8 @@ export default function Hero() {
 
   // Remove carousel logic and use only the first image
   const heroImage = {
-    src: "/home-hero/hero-main.jpg",
-    alt: "Professional cleaning services in Kenya"
+    src: "/gallery/team-photos/team-01.jpeg",
+    alt: "Simca Agencies team - Professional cleaning services in Kenya"
   }
 
   return (

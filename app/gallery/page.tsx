@@ -9,7 +9,9 @@ import { MdStars } from "react-icons/md" // Material Design - All/Sparkles
 import { FaHome } from "react-icons/fa" // Font Awesome - Residential
 import { MdBusiness } from "react-icons/md" // Material Design - Commercial
 import { FaCouch } from "react-icons/fa" // Font Awesome - Carpet & Upholstery
-import { MdAccessTime } from "react-icons/md" // Material Design - Before & After
+import { FaBug } from "react-icons/fa" // Font Awesome - Fumigation & Pest Control
+import { FaLeaf } from "react-icons/fa" // Font Awesome - Landscaping
+import { FaUsers } from "react-icons/fa" // Font Awesome - Our Team
 import { FaCamera } from "react-icons/fa" // Font Awesome - Camera
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import Link from "next/link"
@@ -98,7 +100,7 @@ function StatsSectionWithAnimation() {
           label: "PROJECTS COMPLETED",
         },
         {
-          value: "4",
+          value: "5",
           label: "SERVICE CATEGORIES",
         },
         {
@@ -131,108 +133,236 @@ export default function GalleryPage() {
 
   const categories = [
     { id: "all", name: "All", icon: MdStars },
+    { id: "team", name: "Our Team", icon: FaUsers },
     { id: "residential", name: "Residential", icon: FaHome },
     { id: "commercial", name: "Commercial", icon: MdBusiness },
     { id: "carpet", name: "Carpet & Upholstery", icon: FaCouch },
-    { id: "before-after", name: "Before & After", icon: MdAccessTime },
+    { id: "fumigation", name: "Fumigation & Pest Control", icon: FaBug },
+    { id: "landscaping", name: "Landscaping", icon: FaLeaf },
   ]
 
   const galleryImages = [
+    // Our Team Photos
     {
       id: 1,
-      src: "/gallery/office-cleaning.webp?height=600&width=800",
-      alt: "Office cleaning in Nairobi",
-      category: "commercial",
-      title: "Office Cleaning",
-      description: "Professional cleaning of a corporate office in Nairobi CBD",
+      src: "/gallery/team-photos/team-01.jpeg",
+      alt: "Simca Agencies team",
+      category: "team",
+      title: "Simca Agencies Team",
+      description: "Simca Agencies team",
     },
     {
       id: 2,
-      src: "/gallery/residential-cleaning.webp?height=600&width=800",
-      alt: "Residential deep cleaning",
-      category: "residential",
-      title: "Home Deep Cleaning",
-      description: "Complete deep cleaning of a family home in Kaimosi",
+      src: "/gallery/team-photos/team-02.jpeg",
+      alt: "Simca Agencies team",
+      category: "team",
+      title: "Simca Agencies Team",
+      description: "Simca Agencies team",
     },
     {
       id: 3,
-      src: "/gallery/carpet-cleaning.webp?height=600&width=800",
-      alt: "Carpet cleaning",
-      category: "carpet",
-      title: "Carpet Cleaning",
-      description: "Professional carpet cleaning for a hotel in Mombasa",
+      src: "/gallery/team-photos/team-03.jpeg",
+      alt: "Simca Agencies team",
+      category: "team",
+      title: "Simca Agencies Team",
+      description: "Simca Agencies team",
     },
     {
       id: 4,
-      src: "/gallery/clean-kitchen.webp?height=600&width=800",
-      alt: "Before and after kitchen cleaning",
-      category: "before-after",
-      title: "Kitchen Transformation",
-      description: "Kitchen deep cleaning in Eldoret",
+      src: "/gallery/team-photos/team-04.jpeg",
+      alt: "Simca Agencies team",
+      category: "team",
+      title: "Simca Agencies Team",
+      description: "Simca Agencies team",
     },
+    // Residential Cleaning Images
     {
       id: 5,
-      src: "/gallery/window-cleaning.webp?height=600&width=800",
-      alt: "Commercial window cleaning",
-      category: "commercial",
-      title: "Window Cleaning",
-      description: "High-rise window cleaning in Nairobi",
+      src: "/residential/why-choose-simca.webp",
+      alt: "Professional residential cleaning services",
+      category: "residential",
+      title: "Professional Residential Cleaning Services",
+      description: "Professional residential cleaning services",
     },
     {
       id: 6,
-      src: "/gallery/bathroom-cleaning.webp?height=600&width=800",
-      alt: "Residential bathroom cleaning",
+      src: "/residential/residential-01.jpeg",
+      alt: "Professional residential cleaning services",
       category: "residential",
-      title: "Bathroom Sanitization",
-      description: "Complete bathroom cleaning and sanitization",
+      title: "Professional Residential Cleaning Services",
+      description: "Professional residential cleaning services",
     },
     {
       id: 7,
-      src: "/gallery/sofa-cleaning.webp?height=600&width=800",
-      alt: "Upholstery cleaning",
-      category: "carpet",
-      title: "Sofa Cleaning",
-      description: "Upholstery cleaning for a residential client",
+      src: "/residential/residential-02.jpeg",
+      alt: "Professional residential cleaning services",
+      category: "residential",
+      title: "Professional Residential Cleaning Services",
+      description: "Professional residential cleaning services",
     },
     {
       id: 8,
-      src: "/gallery/clean-office.webp?height=600&width=800",
-      alt: "Before and after office cleaning",
-      category: "before-after",
-      title: "Office Transformation",
-      description: "Complete office cleaning and organization",
+      src: "/residential/residential-03.webp",
+      alt: "Professional residential cleaning services",
+      category: "residential",
+      title: "Professional Residential Cleaning Services",
+      description: "Professional residential cleaning services",
     },
     {
       id: 9,
-      src: "/gallery/construction-cleaning.webp?height=600&width=800",
-      alt: "Post-construction cleaning",
-      category: "commercial",
-      title: "Post-construction Cleanup",
-      description: "Cleaning after construction in a new office building",
-    },
-    {
-      id: 10,
-      src: "/gallery/kitchen-cleaning.webp?height=600&width=800",
-      alt: "Residential kitchen cleaning",
+      src: "/residential/residential-03.jpeg",
+      alt: "Professional residential cleaning services",
       category: "residential",
-      title: "Kitchen Cleaning",
-      description: "Deep kitchen cleaning for a family in Nairobi",
+      title: "Professional Residential Cleaning Services",
+      description: "Professional residential cleaning services",
     },
+    // Commercial Cleaning Images
     {
       id: 11,
-      src: "/gallery/clean-carpet.webp?height=600&width=800",
-      alt: "Before and after carpet cleaning",
-      category: "before-after",
-      title: "Carpet Transformation",
-      description: "Carpet cleaning for a hotel in Mombasa",
+      src: "/commercial/why-choose-simca.jpg",
+      alt: "Professional commercial cleaning services",
+      category: "commercial",
+      title: "Professional Commercial Cleaning Services",
+      description: "Professional commercial cleaning services",
     },
     {
       id: 12,
-      src: "/gallery/floor-polishing.webp?height=600&width=800",
-      alt: "Commercial floor cleaning",
+      src: "/commercial/commercial-01.jpeg",
+      alt: "Professional commercial cleaning services",
       category: "commercial",
-      title: "Floor Polishing",
-      description: "Commercial floor cleaning and polishing",
+      title: "Professional Commercial Cleaning Services",
+      description: "Professional commercial cleaning services",
+    },
+    {
+      id: 13,
+      src: "/commercial/commercial-02.jpeg",
+      alt: "Professional commercial cleaning services",
+      category: "commercial",
+      title: "Professional Commercial Cleaning Services",
+      description: "Professional commercial cleaning services",
+    },
+    {
+      id: 14,
+      src: "/commercial/commercial-03.jpeg",
+      alt: "Professional commercial cleaning services",
+      category: "commercial",
+      title: "Professional Commercial Cleaning Services",
+      description: "Professional commercial cleaning services",
+    },
+    {
+      id: 15,
+      src: "/commercial/commercial-04.jpeg",
+      alt: "Professional commercial cleaning services",
+      category: "commercial",
+      title: "Professional Commercial Cleaning Services",
+      description: "Professional commercial cleaning services",
+    },
+    // Carpet & Upholstery Cleaning Images
+    {
+      id: 17,
+      src: "/carpet/why-choose-us.jpeg",
+      alt: "Professional carpet and upholstery cleaning services",
+      category: "carpet",
+      title: "Professional Carpet and Upholstery Cleaning Services",
+      description: "Professional carpet and upholstery cleaning services",
+    },
+    {
+      id: 18,
+      src: "/carpet/carpet-01.webp",
+      alt: "Professional carpet and upholstery cleaning services",
+      category: "carpet",
+      title: "Professional Carpet and Upholstery Cleaning Services",
+      description: "Professional carpet and upholstery cleaning services",
+    },
+    {
+      id: 19,
+      src: "/carpet/carpet-02.webp",
+      alt: "Professional carpet and upholstery cleaning services",
+      category: "carpet",
+      title: "Professional Carpet and Upholstery Cleaning Services",
+      description: "Professional carpet and upholstery cleaning services",
+    },
+    {
+      id: 20,
+      src: "/carpet/carpet-03.jpeg",
+      alt: "Professional carpet and upholstery cleaning services",
+      category: "carpet",
+      title: "Professional Carpet and Upholstery Cleaning Services",
+      description: "Professional carpet and upholstery cleaning services",
+    },
+    // Fumigation & Pest Control Images
+    {
+      id: 22,
+      src: "/sanitization/santization-01.jpeg",
+      alt: "Professional fumigation and pest control services",
+      category: "fumigation",
+      title: "Professional Fumigation and Pest Control Services",
+      description: "Professional fumigation and pest control services",
+    },
+    {
+      id: 23,
+      src: "/sanitization/fumigation-01.jpeg",
+      alt: "Professional fumigation and pest control services",
+      category: "fumigation",
+      title: "Professional Fumigation and Pest Control Services",
+      description: "Professional fumigation and pest control services",
+    },
+    {
+      id: 24,
+      src: "/sanitization/fumigation-02.webp",
+      alt: "Professional fumigation and pest control services",
+      category: "fumigation",
+      title: "Professional Fumigation and Pest Control Services",
+      description: "Professional fumigation and pest control services",
+    },
+    {
+      id: 25,
+      src: "/sanitization/fumigation-03.webp",
+      alt: "Professional fumigation and pest control services",
+      category: "fumigation",
+      title: "Professional Fumigation and Pest Control Services",
+      description: "Professional fumigation and pest control services",
+    },
+    // Landscaping Services Images
+    {
+      id: 27,
+      src: "/landscaping/landscaping.jpeg",
+      alt: "Professional landscaping services",
+      category: "landscaping",
+      title: "Professional Landscaping Services",
+      description: "Professional landscaping services",
+    },
+    {
+      id: 28,
+      src: "/landscaping/landscaping-01.jpeg",
+      alt: "Professional landscaping services",
+      category: "landscaping",
+      title: "Professional Landscaping Services",
+      description: "Professional landscaping services",
+    },
+    {
+      id: 29,
+      src: "/landscaping/landscaping-02.jpeg",
+      alt: "Professional landscaping services",
+      category: "landscaping",
+      title: "Professional Landscaping Services",
+      description: "Professional landscaping services",
+    },
+    {
+      id: 30,
+      src: "/landscaping/landscaping-03.jpeg",
+      alt: "Professional landscaping services",
+      category: "landscaping",
+      title: "Professional Landscaping Services",
+      description: "Professional landscaping services",
+    },
+    {
+      id: 31,
+      src: "/landscaping/landscaping-04.jpeg",
+      alt: "Professional landscaping services",
+      category: "landscaping",
+      title: "Professional Landscaping Services",
+      description: "Professional landscaping services",
     },
   ]
 
@@ -347,7 +477,8 @@ export default function GalleryPage() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.4, delay: index * 0.05 }}
-                          className="group relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800/50"
+                          className="group relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800/50 cursor-pointer"
+                          onClick={() => setSelectedImage(image.id)}
                         >
                           <div className="relative h-40 sm:h-48 md:h-56 w-full">
                             <Image
@@ -363,7 +494,10 @@ export default function GalleryPage() {
                               className="absolute top-2 right-2 p-1.5 rounded-md bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-add8e6 hover:text-white"
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
-                              onClick={() => setSelectedImage(image.id)}
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                setSelectedImage(image.id)
+                              }}
                               aria-label="View full size image"
                             >
                               <ZoomIn className="w-3.5 h-3.5" />
