@@ -109,7 +109,7 @@ export default function Home() {
 
       {/* Contact Form - White with diagonal pattern */}
       <ScrollAnimation>
-        <div className="relative bg-white dark:bg-gray-900">
+        <div id="home-contact-form" className="relative bg-white dark:bg-gray-900 scroll-mt-24">
           <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
           <ContactForm />
           {/* Section Divider */}

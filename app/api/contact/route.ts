@@ -13,7 +13,7 @@ const getResend = () => {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, phone, service, location, preferredDate, referralSource, message } = body
+    const { name, email, phone, service, servicePackage, location, preferredDate, referralSource, message } = body
 
     // Validate required fields
     if (!name || !email || !phone || !service || !location || !preferredDate) {
@@ -310,6 +310,12 @@ export async function POST(request: NextRequest) {
           <span class="detail-label">Service:</span>
           <span class="detail-value">${service}</span>
         </div>
+        ${servicePackage ? `
+        <div class="detail-row">
+          <span class="detail-label">Package:</span>
+          <span class="detail-value">${servicePackage}</span>
+        </div>
+        ` : ''}
         <div class="detail-row">
           <span class="detail-label">Location:</span>
           <span class="detail-value">${location}</span>
@@ -393,7 +399,7 @@ export async function POST(request: NextRequest) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           to: ownerWhatsAppNumber,
-          message: `🔔 NEW BOOKING REQUEST\n\n👤 Name: ${name}\n📋 Service: ${service}\n📍 Location: ${location}\n📅 Date: ${formattedDate}\n📞 Phone: ${phone}\n📧 Email: ${email}${message ? `\n💬 Message: ${message}` : ''}\n\nClick to call: tel:+${formattedPhone}\nClick to WhatsApp: https://wa.me/${formattedPhone}`,
+            message: `🔔 NEW BOOKING REQUEST\n\n👤 Name: ${name}\n📋 Service: ${service}${servicePackage ? `\n📦 Package: ${servicePackage}` : ''}\n📍 Location: ${location}\n📅 Date: ${formattedDate}\n📞 Phone: ${phone}\n📧 Email: ${email}${message ? `\n💬 Message: ${message}` : ''}\n\nClick to call: tel:+${formattedPhone}\nClick to WhatsApp: https://wa.me/${formattedPhone}`,
         }),
       }).catch((whatsappError) => {
         console.error('Failed to send WhatsApp notification:', whatsappError)

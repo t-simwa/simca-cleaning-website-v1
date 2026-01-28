@@ -12,17 +12,40 @@ import { FaCouch } from "react-icons/fa" // Font Awesome - Upholstery
 import { FaBug } from "react-icons/fa" // Font Awesome - Bug
 import { FaLeaf } from "react-icons/fa" // Font Awesome - Leaf
 
-export default function ContactForm() {
+interface ContactFormProps {
+  preselectedService?: string
+  preselectedPackage?: string
+  packages?: { name: string; price: string; features: string[] }[]
+  formId?: string
+}
+
+export default function ContactForm({ 
+  preselectedService = "", 
+  preselectedPackage = "",
+  packages = [],
+  formId = "contact-form"
+}: ContactFormProps = {}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    service: "",
+    service: preselectedService,
+    servicePackage: preselectedPackage,
     location: "",
     preferredDate: "",
     referralSource: "",
     message: "",
   })
+
+  // Update form when preselected values change (e.g., from URL params)
+  useEffect(() => {
+    if (preselectedService) {
+      setFormData(prev => ({ ...prev, service: preselectedService }))
+    }
+    if (preselectedPackage) {
+      setFormData(prev => ({ ...prev, servicePackage: preselectedPackage }))
+    }
+  }, [preselectedService, preselectedPackage])
 
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
@@ -30,9 +53,12 @@ export default function ContactForm() {
   const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false)
   const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false)
   const [isReferralDropdownOpen, setIsReferralDropdownOpen] = useState(false)
+  const [isPackageDropdownOpen, setIsPackageDropdownOpen] = useState(false)
   const serviceDropdownRef = useRef<HTMLDivElement>(null)
   const locationDropdownRef = useRef<HTMLDivElement>(null)
   const referralDropdownRef = useRef<HTMLDivElement>(null)
+  const packageDropdownRef = useRef<HTMLDivElement>(null)
+  const formRef = useRef<HTMLFormElement>(null)
   const [focusedField, setFocusedField] = useState<string | null>(null)
 
   const services = [
@@ -80,6 +106,20 @@ export default function ContactForm() {
     setIsReferralDropdownOpen(false)
   }
 
+  const handlePackageSelect = (packageValue: string) => {
+    setFormData((prev) => ({ ...prev, servicePackage: packageValue }))
+    setIsPackageDropdownOpen(false)
+  }
+
+  // Expose scroll function for parent components
+  useEffect(() => {
+    if (preselectedPackage && formRef.current) {
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 100)
+    }
+  }, [preselectedPackage])
+
   // Get minimum date (today) for date picker
   const getMinDate = () => {
     const today = new Date()
@@ -101,12 +141,13 @@ export default function ContactForm() {
     setSubmitSuccess(true)
     setSubmitError(null)
 
-    // Reset form immediately
+    // Reset form immediately (preserve preselected service)
     setFormData({
       name: "",
       email: "",
       phone: "",
-      service: "",
+      service: preselectedService || "",
+      servicePackage: "",
       location: "",
       preferredDate: "",
       referralSource: "",
@@ -119,16 +160,17 @@ export default function ContactForm() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        name: submittedName,
-        email: formData.email,
-        phone: formData.phone,
-        service: submittedService,
-        location: formData.location,
-        preferredDate: formData.preferredDate,
-        referralSource: formData.referralSource,
-        message: formData.message,
-      }),
+        body: JSON.stringify({
+          name: submittedName,
+          email: formData.email,
+          phone: formData.phone,
+          service: submittedService,
+          servicePackage: formData.servicePackage,
+          location: formData.location,
+          preferredDate: formData.preferredDate,
+          referralSource: formData.referralSource,
+          message: formData.message,
+        }),
     }).catch((error) => {
       // Silently handle errors in background (emails will retry or be logged server-side)
       console.error('Background email send error:', error)
@@ -153,7 +195,7 @@ export default function ContactForm() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [serviceDropdownRef, locationDropdownRef, referralDropdownRef])
+  }, [serviceDropdownRef, locationDropdownRef, referralDropdownRef, packageDropdownRef])
 
   const selectedServiceLabel = services.find(s => s.value === submittedData?.service)?.label || submittedData?.service || "your service"
 
@@ -177,7 +219,7 @@ export default function ContactForm() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+      <form id={formId} ref={formRef} onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className="group">
             <label htmlFor="name" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-200 group-focus-within:text-add8e6">
@@ -297,6 +339,68 @@ export default function ContactForm() {
             )}
           </div>
         </div>
+        {packages.length > 0 && (
+          <div className="relative group" ref={packageDropdownRef}>
+            <label htmlFor="servicePackage" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-200 group-focus-within:text-add8e6">
+              Service Package <span className="text-gray-500 text-xs">(Optional)</span>
+            </label>
+            <button
+              type="button"
+              id="servicePackage"
+              aria-haspopup="listbox"
+              aria-expanded={isPackageDropdownOpen}
+              className={`w-full flex items-center justify-between px-3 py-2 rounded-md border bg-white dark:bg-gray-900/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6/30 transition-all duration-200 text-left text-xs ${
+                isPackageDropdownOpen || focusedField === 'servicePackage'
+                  ? 'ring-2 ring-add8e6/30 border-add8e6/50' 
+                  : 'border-gray-200 dark:border-gray-700'
+              }`}
+              onClick={() => {
+                setIsPackageDropdownOpen(!isPackageDropdownOpen)
+                setFocusedField(isPackageDropdownOpen ? null : 'servicePackage')
+              }}
+              onBlur={() => setTimeout(() => {
+                setIsPackageDropdownOpen(false)
+                setFocusedField(null)
+              }, 100)}
+            >
+              {formData.servicePackage ? (
+                <span className="text-xs">{formData.servicePackage}</span>
+              ) : (
+                <span className="text-gray-400 dark:text-gray-500 text-xs">Select a package</span>
+              )}
+              <svg className="w-3 h-3 ml-2 text-gray-400 dark:text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            {isPackageDropdownOpen && (
+              <ul
+                tabIndex={-1}
+                role="listbox"
+                className="absolute z-10 mt-1 w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg py-1 max-h-60 overflow-auto"
+              >
+                {packages.map((pkg) => (
+                  <li
+                    key={pkg.name}
+                    role="option"
+                    aria-selected={formData.servicePackage === pkg.name}
+                    className={`px-3 py-1.5 cursor-pointer text-xs hover:bg-add8e6/10 dark:hover:bg-add8e6/20 transition-colors ${
+                      formData.servicePackage === pkg.name 
+                        ? 'bg-add8e6/10 dark:bg-add8e6/20 text-add8e6 font-medium' 
+                        : 'text-gray-900 dark:text-white'
+                    }`}
+                    onClick={() => {
+                      handlePackageSelect(pkg.name)
+                      setFocusedField(null)
+                    }}
+                  >
+                    <div className="flex flex-col">
+                      <span className="font-medium">{pkg.name}</span>
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">{pkg.price}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className="relative group" ref={locationDropdownRef}>
             <label htmlFor="location" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-200 group-focus-within:text-add8e6">

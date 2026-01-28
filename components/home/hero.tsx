@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
@@ -251,13 +250,18 @@ export default function Hero() {
               variants={itemVariants}
               className="flex justify-center mb-6"
             >
-              <Link 
-                href="/contact"
+              <button 
+                onClick={() => {
+                  const contactForm = document.getElementById('home-contact-form')
+                  if (contactForm) {
+                    contactForm.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }}
                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-2.5 md:py-3 font-medium transition-all duration-300 group text-center text-xs sm:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50"
               >
                 Get Your Free Quote
                 <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+              </button>
             </motion.div>
           </motion.div>
         </div>

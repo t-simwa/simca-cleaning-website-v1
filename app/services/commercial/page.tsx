@@ -185,36 +185,39 @@ const commercialService: ServiceDetail = {
     title: "Transparent Pricing",
     packages: [
       {
-        name: "Basic Office Clean",
-        price: "From KES 5,000",
+        name: "Small Office / Startup",
+        price: "KES 5,000 – 10,000",
         features: [
-          "Daily cleaning service",
-          "Common areas maintenance",
-          "Bathroom sanitization",
-          "Basic floor care",
-          "Up to 1,000 sq ft"
+          "Basic office cleaning services",
+          "Up to 1,000 sq ft facility",
+          "Daily or weekly maintenance"
         ]
       },
       {
-        name: "Premium Office Clean",
-        price: "From KES 10,000",
+        name: "Medium Business / Office",
+        price: "KES 10,000 – 20,000",
         features: [
-          "All Basic Clean services",
-          "Detailed cleaning of all areas",
-          "Specialized surface cleaning",
-          "Equipment maintenance",
-          "Up to 3,000 sq ft"
+          "Standard commercial cleaning",
+          "Up to 3,000 sq ft facility",
+          "Regular maintenance schedule"
         ]
       },
       {
-        name: "Enterprise Clean",
-        price: "Custom Quote",
+        name: "Large Facility / Enterprise",
+        price: "KES 20,000 – 50,000",
         features: [
-          "All Premium Clean services",
-          "24/7 availability",
-          "Emergency response",
-          "Custom requirements",
-          "Unlimited square footage"
+          "Comprehensive commercial cleaning",
+          "Unlimited square footage",
+          "24/7 availability options"
+        ]
+      },
+      {
+        name: "Specialized / Custom Solutions",
+        price: "Negotiable / Custom Quote",
+        features: [
+          "Industrial, retail, or specialized facilities",
+          "Custom cleaning plans for unique requirements",
+          "Emergency response and after-hours services"
         ]
       }
     ]
@@ -261,6 +264,19 @@ const commercialService: ServiceDetail = {
 
 export default function CommercialCleaningPage() {
   const [isMobile, setIsMobile] = useState(false)
+  const [selectedPackage, setSelectedPackage] = useState<string>("")
+  
+  // Handle "Get a Quote" button click
+  const handleGetQuote = (packageName: string) => {
+    setSelectedPackage(packageName)
+    // Scroll to Pricing & Packages section first
+    setTimeout(() => {
+      const pricingSection = document.getElementById('pricing')
+      if (pricingSection) {
+        pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
+  }
 
   // Handle window resize
   useEffect(() => {
@@ -890,13 +906,13 @@ export default function CommercialCleaningPage() {
                         <span>Daily or weekly maintenance</span>
                       </li>
                       </ul>
-                      <Link
-                        href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      <button
+                        onClick={() => handleGetQuote("Small Office / Startup")}
+                        className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                       >
                         Get a Quote
                         <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                      </Link>
+                      </button>
                     </div>
                   </motion.div>
               <motion.div
@@ -928,13 +944,13 @@ export default function CommercialCleaningPage() {
                         <span>Flexible scheduling options</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Medium Business / Office")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                   </div>
               </motion.div>
               <motion.div
@@ -966,13 +982,13 @@ export default function CommercialCleaningPage() {
                         <span>24/7 availability options</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Large Facility / Enterprise")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                   </div>
                 </motion.div>
               </div>
@@ -1007,13 +1023,13 @@ export default function CommercialCleaningPage() {
                         <span>Emergency response and after-hours services</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Specialized / Custom Solutions")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                     </div>
                   </motion.div>
               </div>
@@ -1056,7 +1072,12 @@ export default function CommercialCleaningPage() {
             </p>
           </div>
           <div className="max-w-2xl mx-auto">
-            <ContactForm />
+            <ContactForm 
+              preselectedService="Commercial Cleaning"
+              preselectedPackage={selectedPackage}
+              packages={commercialService.pricing.packages}
+              formId="contact-form"
+            />
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />

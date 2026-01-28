@@ -186,33 +186,39 @@ const fumigationPestControlService: ServiceDetail = {
     title: "Service Pricing",
     packages: [
       {
-        name: "Basic Pest Control",
-        price: "From KES 150 per sq meter",
+        name: "Small Area / Basic Pest Control",
+        price: "KES 150 – 300 per sq meter",
         features: [
-          "Standard pest treatment",
+          "Basic pest treatment",
           "Common pest elimination",
-          "Single treatment session",
-          "Suitable for minor infestations"
+          "Up to 100 sq meters"
         ]
       },
       {
-        name: "Comprehensive Fumigation",
-        price: "Custom Quote",
+        name: "Medium Area / Standard Fumigation",
+        price: "KES 300 – 500 per sq meter",
         features: [
-          "All Basic features",
-          "Full property fumigation",
+          "Comprehensive pest treatment",
           "Multiple pest types",
-          "Extended coverage"
+          "100-300 sq meters"
         ]
       },
       {
-        name: "Emergency Response",
-        price: "Custom Quote",
+        name: "Large Area / Comprehensive Treatment",
+        price: "KES 500+ per sq meter",
         features: [
-          "Rapid deployment",
-          "Urgent pest elimination",
-          "24/7 availability",
-          "Detailed post-service report"
+          "Complete pest elimination",
+          "Advanced treatment technology",
+          "300+ sq meters"
+        ]
+      },
+      {
+        name: "Specialized / Emergency Response",
+        price: "Negotiable / Custom Quote",
+        features: [
+          "Emergency pest elimination",
+          "Custom pest control protocols",
+          "24/7 availability and rapid deployment"
         ]
       }
     ]
@@ -257,6 +263,19 @@ const fumigationPestControlService: ServiceDetail = {
 
 export default function FumigationPestControlPage() {
   const [isMobile, setIsMobile] = useState(false)
+  const [selectedPackage, setSelectedPackage] = useState<string>("")
+  
+  // Handle "Get a Quote" button click
+  const handleGetQuote = (packageName: string) => {
+    setSelectedPackage(packageName)
+    // Scroll to Pricing & Packages section first
+    setTimeout(() => {
+      const pricingSection = document.getElementById('pricing')
+      if (pricingSection) {
+        pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
+  }
 
   // Handle window resize
   useEffect(() => {
@@ -883,13 +902,13 @@ export default function FumigationPestControlPage() {
                         <span>Up to 100 sq meters</span>
                       </li>
                       </ul>
-                      <Link
-                        href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      <button
+                        onClick={() => handleGetQuote("Small Area / Basic Pest Control")}
+                        className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                       >
                         Get a Quote
                         <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                      </Link>
+                      </button>
                     </div>
                   </motion.div>
               <motion.div
@@ -921,13 +940,13 @@ export default function FumigationPestControlPage() {
                         <span>100-300 sq meters</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Medium Area / Standard Fumigation")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                   </div>
               </motion.div>
               <motion.div
@@ -959,13 +978,13 @@ export default function FumigationPestControlPage() {
                         <span>300+ sq meters</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Large Area / Comprehensive Treatment")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                   </div>
                 </motion.div>
               </div>
@@ -1000,13 +1019,13 @@ export default function FumigationPestControlPage() {
                         <span>24/7 availability and rapid deployment</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Specialized / Emergency Response")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                     </div>
                   </motion.div>
               </div>
@@ -1049,7 +1068,12 @@ export default function FumigationPestControlPage() {
             </p>
               </div>
           <div className="max-w-2xl mx-auto">
-            <ContactForm />
+            <ContactForm 
+              preselectedService="Fumigation & Pest Control"
+              preselectedPackage={selectedPackage}
+              packages={fumigationPestControlService.pricing.packages}
+              formId="contact-form"
+            />
             </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />

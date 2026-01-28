@@ -188,36 +188,39 @@ const residentialService: ServiceDetail = {
     title: "Transparent Pricing",
     packages: [
       {
-        name: "Basic Clean",
-        price: "From KES 2,500",
+        name: "Small Apartment / Bedsitter",
+        price: "KES 3,000 – 6,000",
         features: [
-          "General dusting and wiping",
-          "Floor cleaning",
-          "Bathroom sanitization",
-          "Kitchen cleaning",
-          "Up to 2 bedrooms"
+          "General cleaning of all rooms",
+          "Kitchen, bathroom, and living area",
+          "Up to 1 bedroom"
         ]
       },
       {
-        name: "Deep Clean",
-        price: "From KES 4,500",
+        name: "Medium Home / 2-3 Bedrooms",
+        price: "KES 6,500 – 12,000",
         features: [
-          "All Basic Clean services",
-          "Detailed cleaning of all rooms",
-          "Inside cabinets and drawers",
-          "Appliance cleaning",
-          "Up to 4 bedrooms"
+          "Full home cleaning (all rooms)",
+          "Kitchen, bathrooms, living areas",
+          "2-3 bedrooms"
         ]
       },
       {
-        name: "Premium Clean",
-        price: "Custom Quote",
+        name: "Large House / 4+ Bedrooms",
+        price: "KES 13,000 – 25,000",
         features: [
-          "All Deep Clean services",
-          "Specialized surface cleaning",
-          "Upholstery cleaning",
-          "Window cleaning",
-          "Custom requirements"
+          "Full home deep cleaning",
+          "Kitchen, bathrooms, living areas",
+          "4+ bedrooms"
+        ]
+      },
+      {
+        name: "Specialized / Custom Cleaning",
+        price: "Negotiable / Custom Quote",
+        features: [
+          "Post-construction, move-in/out, or special requests",
+          "Custom cleaning plans for unique homes",
+          "Flexible scheduling and tailored services"
         ]
       }
     ]
@@ -264,6 +267,19 @@ const residentialService: ServiceDetail = {
 
 export default function ResidentialCleaningPage() {
   const [isMobile, setIsMobile] = useState(false)
+  const [selectedPackage, setSelectedPackage] = useState<string>("")
+  
+  // Handle "Get a Quote" button click
+  const handleGetQuote = (packageName: string) => {
+    setSelectedPackage(packageName)
+    // Scroll to Pricing & Packages section first
+    setTimeout(() => {
+      const pricingSection = document.getElementById('pricing')
+      if (pricingSection) {
+        pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
+  }
 
   // Handle window resize
   useEffect(() => {
@@ -896,13 +912,13 @@ export default function ResidentialCleaningPage() {
                         <span>Up to 1 bedroom</span>
                       </li>
                       </ul>
-                      <Link
-                        href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      <button
+                        onClick={() => handleGetQuote("Small Apartment / Bedsitter")}
+                        className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                       >
                         Get a Quote
                         <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                      </Link>
+                      </button>
                     </div>
                   </motion.div>
               <motion.div
@@ -934,13 +950,13 @@ export default function ResidentialCleaningPage() {
                         <span>2-3 bedrooms</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Medium Home / 2-3 Bedrooms")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                   </div>
               </motion.div>
               <motion.div
@@ -972,13 +988,13 @@ export default function ResidentialCleaningPage() {
                         <span>4+ bedrooms</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Large House / 4+ Bedrooms")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                   </div>
                 </motion.div>
               </div>
@@ -1013,13 +1029,13 @@ export default function ResidentialCleaningPage() {
                         <span>Flexible scheduling and tailored services</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Specialized / Custom Cleaning")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                     </div>
                   </motion.div>
               </div>
@@ -1062,7 +1078,12 @@ export default function ResidentialCleaningPage() {
             </p>
               </div>
           <div className="max-w-2xl mx-auto">
-            <ContactForm />
+            <ContactForm 
+              preselectedService="Residential Cleaning"
+              preselectedPackage={selectedPackage}
+              packages={residentialService.pricing.packages}
+              formId="contact-form"
+            />
             </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />

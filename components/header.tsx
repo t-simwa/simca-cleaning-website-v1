@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { Menu, X, Phone, Moon, Sun, Sparkles, Mail, ChevronDown, ArrowRight, Globe } from "lucide-react"
 import Logo from "./logo"
 import { useTheme } from "next-themes"
@@ -70,12 +71,18 @@ function MobileLanguageToggle() {
 }
 
 export default function Header() {
+  const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false)
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+
+  const handleGetQuoteClick = () => {
+    router.push('/contact#contact-form')
+    // Scroll will be handled by the contact page after navigation
+  }
 
   // Handle scroll effect for sticky header
   useEffect(() => {
@@ -266,13 +273,13 @@ export default function Header() {
 
           {/* Contact Button */}
           <div className="hidden md:flex items-center">
-            <Link
-              href="/contact"
+            <button
+              onClick={handleGetQuoteClick}
               className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-2.5 md:py-3 font-medium transition-all duration-300 group text-center text-xs sm:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50"
             >
               Get Your Free Quote
               <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}

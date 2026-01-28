@@ -185,33 +185,39 @@ const carpetUpholsteryService: ServiceDetail = {
     title: "Service Pricing",
     packages: [
       {
-        name: "Standard Carpet Clean",
-        price: "From KES 200 per sq meter",
+        name: "Small Carpet / Single Room",
+        price: "KES 2,000 – 4,500",
         features: [
-          "Deep cleaning",
+          "Deep steam cleaning",
           "Basic stain treatment",
-          "Odor refresh",
-          "Suitable for most carpets"
+          "Up to 20 sq meters"
         ]
       },
       {
-        name: "Premium Carpet & Upholstery",
-        price: "Custom Quote",
+        name: "Medium Carpet / 2-3 Rooms",
+        price: "KES 4,500 – 8,000",
         features: [
-          "All Standard features",
           "Advanced stain removal",
-          "Upholstery cleaning",
-          "Fabric protection"
+          "Fabric protection application",
+          "20-50 sq meters"
         ]
       },
       {
-        name: "Deluxe Package",
-        price: "Custom Quote",
+        name: "Large Carpet / 4+ Rooms",
+        price: "KES 8,000 – 15,000",
         features: [
-          "All Premium features",
+          "Comprehensive deep cleaning",
           "Pet stain & odor treatment",
-          "Sanitization",
-          "Extended lifespan treatment"
+          "50+ sq meters"
+        ]
+      },
+      {
+        name: "Specialized / Custom Cleaning",
+        price: "Negotiable / Custom Quote",
+        features: [
+          "Antique furniture, delicate fabrics, or special requests",
+          "Custom cleaning plans for unique fabrics",
+          "Flexible scheduling and tailored services"
         ]
       }
     ]
@@ -254,6 +260,20 @@ const carpetUpholsteryService: ServiceDetail = {
 };
 
 export default function CarpetUpholsteryCleaningPage() {
+  const [selectedPackage, setSelectedPackage] = useState<string>("")
+  
+  // Handle "Get a Quote" button click
+  const handleGetQuote = (packageName: string) => {
+    setSelectedPackage(packageName)
+    // Scroll to Pricing & Packages section first
+    setTimeout(() => {
+      const pricingSection = document.getElementById('pricing')
+      if (pricingSection) {
+        pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
+  }
+
   // Animation variants for the hero section
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -867,13 +887,13 @@ export default function CarpetUpholsteryCleaningPage() {
                         <span>Up to 20 sq meters</span>
                       </li>
                       </ul>
-                      <Link
-                        href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      <button
+                        onClick={() => handleGetQuote("Small Carpet / Single Room")}
+                        className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                       >
                         Get a Quote
                         <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                      </Link>
+                      </button>
                     </div>
                   </motion.div>
               <motion.div
@@ -905,13 +925,13 @@ export default function CarpetUpholsteryCleaningPage() {
                         <span>20-50 sq meters</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Medium Carpet / 2-3 Rooms")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                   </div>
               </motion.div>
               <motion.div
@@ -943,13 +963,13 @@ export default function CarpetUpholsteryCleaningPage() {
                         <span>50+ sq meters</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Large Carpet / 4+ Rooms")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                   </div>
                 </motion.div>
               </div>
@@ -984,13 +1004,13 @@ export default function CarpetUpholsteryCleaningPage() {
                         <span>Flexible scheduling and tailored services</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Specialized / Custom Cleaning")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                     </div>
                   </motion.div>
               </div>
@@ -1033,7 +1053,12 @@ export default function CarpetUpholsteryCleaningPage() {
             </p>
               </div>
           <div className="max-w-2xl mx-auto">
-            <ContactForm />
+            <ContactForm 
+              preselectedService="Carpet & Upholstery Cleaning"
+              preselectedPackage={selectedPackage}
+              packages={carpetUpholsteryService.pricing.packages}
+              formId="contact-form"
+            />
             </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />

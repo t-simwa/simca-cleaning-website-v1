@@ -256,6 +256,19 @@ const landscapingService: ServiceDetail = {
 
 export default function LandscapingServicesPage() {
   const [isMobile, setIsMobile] = useState(false)
+  const [selectedPackage, setSelectedPackage] = useState<string>("")
+  
+  // Handle "Get a Quote" button click
+  const handleGetQuote = (packageName: string) => {
+    setSelectedPackage(packageName)
+    // Scroll to Pricing & Packages section first
+    setTimeout(() => {
+      const pricingSection = document.getElementById('pricing')
+      if (pricingSection) {
+        pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
+  }
 
   // Handle window resize
   useEffect(() => {
@@ -887,13 +900,13 @@ export default function LandscapingServicesPage() {
                         <span>Simple plant selection</span>
                       </li>
                       </ul>
-                      <Link
-                        href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                      <button
+                        onClick={() => handleGetQuote("Basic Landscaping")}
+                        className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                       >
                         Get a Quote
                         <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                      </Link>
+                      </button>
                     </div>
                   </motion.div>
               <motion.div
@@ -925,13 +938,13 @@ export default function LandscapingServicesPage() {
                         <span>Irrigation system and maintenance</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Standard Landscaping")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                   </div>
               </motion.div>
               <motion.div
@@ -963,13 +976,13 @@ export default function LandscapingServicesPage() {
                         <span>Comprehensive maintenance programs</span>
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
+                    <button
+                      onClick={() => handleGetQuote("Premium Landscaping")}
                       className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-5 py-2 font-medium transition-all duration-300 text-center text-xs tracking-wide border-b-2 border-transparent hover:border-white/50 group"
                     >
                       Get a Quote
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </button>
                   </div>
                 </motion.div>
               </div>
@@ -1012,7 +1025,12 @@ export default function LandscapingServicesPage() {
             </p>
               </div>
           <div className="max-w-2xl mx-auto">
-            <ContactForm />
+            <ContactForm 
+              preselectedService="Landscaping Services"
+              preselectedPackage={selectedPackage}
+              packages={landscapingService.pricing.packages}
+              formId="contact-form"
+            />
             </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />

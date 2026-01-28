@@ -126,6 +126,32 @@ function StatsSectionWithAnimation() {
 }
 
 export default function ContactPage() {
+  // Handle scroll to form when navigating with hash
+  useEffect(() => {
+    const handleScroll = () => {
+      const hash = window.location.hash
+      if (hash === '#contact-form') {
+        // Wait for page to fully render
+        setTimeout(() => {
+          const formSection = document.getElementById('contact-form-section')
+          if (formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }, 300)
+      }
+    }
+    
+    // Check on mount
+    handleScroll()
+    
+    // Also listen for hash changes
+    window.addEventListener('hashchange', handleScroll)
+    
+    return () => {
+      window.removeEventListener('hashchange', handleScroll)
+    }
+  }, [])
+
   const locations = [
     {
       name: "Mombasa",
@@ -320,7 +346,7 @@ export default function ContactPage() {
 
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 {/* Contact Form Section */}
-                <div className="bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800/50">
+                <div id="contact-form-section" className="bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800/50 scroll-mt-24">
                   <div className="mb-4">
                     <h3 className="text-sm font-semibold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
                       <motion.div 
@@ -341,7 +367,7 @@ export default function ContactPage() {
                       Tell us what you need—no request is too big or too small. We'll listen, offer honest advice, and respond quickly with a quote that fits your needs. Your privacy and trust are always respected.
                     </p>
                   </div>
-                  <ContactForm />
+                  <ContactForm formId="contact-form" />
                 </div>
 
                 {/* Contact Information Section */}
