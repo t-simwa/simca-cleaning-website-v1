@@ -37,7 +37,7 @@ export default function ServicesOverview() {
       title: "Contract Cleaning",
       description: "Daily maintenance cleaning for hospitals, hotels, government offices, schools, industrial premises, and commercial buildings. Our trained staff deliver consistent, quality results you can count on.",
       icon: FaBuilding,
-      link: "/services/commercial",
+      link: "/services/contract-cleaning",
       image: "/services/commercial-service.png",
       features: [
         "Hospitals and healthcare facilities",
@@ -54,7 +54,7 @@ export default function ServicesOverview() {
       title: "Specialized Cleaning",
       description: "Expert deep cleaning services using modern equipment. From carpet care to post-construction cleanup, our skilled team handles every detail with professionalism and care.",
       icon: MdCleaningServices,
-      link: "/services/carpet-upholstery",
+      link: "/services/specialized",
       image: "/services/carpet-cleaning.jpeg",
       features: [
         "Carpet and upholstery deep cleaning",
@@ -71,7 +71,7 @@ export default function ServicesOverview() {
       title: "Hygiene Supplies",
       description: "Complete hygiene solutions for your facility. We supply and service quality dispensers, sanitary products, and consumables to keep your spaces fresh, clean, and welcoming.",
       icon: FaPumpSoap,
-      link: "/services/commercial",
+      link: "/services/hygiene-supplies",
       image: "/services/residential-cleaning.webp",
       features: [
         "Towel dispensers and hand dryers",
@@ -105,7 +105,7 @@ export default function ServicesOverview() {
       title: "Labour Outsourcing",
       description: "Access trained, reliable cleaning staff and machine operators when you need them. Whether permanent or temporary, we provide skilled personnel who meet our high standards.",
       icon: FaUsers,
-      link: "/services/commercial",
+      link: "/services/labour-outsourcing",
       image: "/commercial/commercial-01.webp",
       features: [
         "Trained cleaning staff placement",

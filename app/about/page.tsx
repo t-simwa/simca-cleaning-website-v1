@@ -91,16 +91,16 @@ function StatsSectionWithAnimation() {
     >
       {[
         { 
-          value: "15", 
-          label: "YEARS OF EXCELLENCE", 
-        },
-        { 
-          value: "188", 
-          label: "TRAINED PROFESSIONALS", 
+          value: "19+", 
+          label: "YEARS IN SERVICE", 
         },
         { 
           value: "6+", 
-          label: "CITIES SERVED", 
+          label: "SECTORS SERVED", 
+        },
+        { 
+          value: "100%", 
+          label: "KENYAN OWNED", 
         }
       ].map((stat, index) => (
         <motion.div
@@ -124,22 +124,37 @@ function StatsSectionWithAnimation() {
 
 export default function AboutPage() {
 
-  // Cards data for the "Our Mission & Values" section
+  // Cards data for the "Why Choose SIMCA" section
   const cards = [
     {
       icon: FaUserFriends,
-      title: "A Personal Touch",
-      description: "We treat your space with the same care we'd give our own. Our friendly, reliable team gets to know you and your needs, so we can deliver a clean that's just right for you."
+      title: "Highly Trained & Disciplined Staff",
+      description: "Our team members are carefully selected, thoroughly trained, and committed to excellence. All our staff are Kenyan citizens who take pride in delivering exceptional service."
     },
     {
-      icon: FaTags,
-      title: "Honest & Fair",
-      description: "We believe in clear, upfront pricing with no surprises. You get top-quality service at a fair price, so you can enjoy a clean home or office without any stress."
+      icon: MdAutoAwesome,
+      title: "Eco-Friendly Products & Modern Equipment",
+      description: "We use environmentally responsible products and state-of-the-art machinery to deliver superior results while caring for our planet and your health."
     },
     {
       icon: HiShieldCheck,
-      title: "Reliable & Trustworthy",
-      description: "Your peace of mind is our priority. Our team is carefully vetted, trained, and dedicated to delivering spotless results you can count on, every single time."
+      title: "Regular Supervision & Quality Inspections",
+      description: "Our dedicated supervisors conduct regular quality checks to ensure every space meets our high standards. We never compromise on the results you deserve."
+    },
+    {
+      icon: FaAward,
+      title: "Fast Response to Your Needs",
+      description: "When you need us, we are there. Our team responds quickly to your requests because we understand that timely service matters to you."
+    },
+    {
+      icon: MdGroups,
+      title: "Occupational Health & Safety Compliant",
+      description: "Your safety is our priority. We follow strict OHS protocols and ensure all our operations meet the highest safety standards in the industry."
+    },
+    {
+      icon: FaTags,
+      title: "Comprehensive Insurance Coverage",
+      description: "We provide complete peace of mind with third party and public liability insurance, employer's liability, workman's compensation, and insurance against loss and damage to property."
     }
   ]
 
@@ -211,7 +226,7 @@ export default function AboutPage() {
                 variants={itemVariants}
                 className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto"
               >
-                We started Simca in 2011 with a simple goal: to offer a cleaning service you can truly count on. We're not just about cleaning; we're about creating a healthier, more comfortable space for you and your family. We're your local team, dedicated to providing a personal touch and a spotless result, every single time.
+                Since 2005, Simca Agencies has been a fully Kenyan-owned professional cleaning company dedicated to delivering world-class standards. From government institutions and hospitals to hotels, schools, and industrial facilities, we care for Kenya's most important spaces with trained teams, modern equipment, and a genuine commitment to excellence.
               </motion.p>
 
               {/* Minimalist Stats Section */}
@@ -245,17 +260,17 @@ export default function AboutPage() {
                 >
                   <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm">
                     <MdStars className="w-3.5 h-3.5" />
-                    Our Core Values
+                    Our Vision & Mission
                   </span>
                 </motion.div>
                 <motion.h2 
                   className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
                 >
-                  Our Mission &{" "}
+                  Why Choose{" "}
                   <motion.span 
                     className="text-add8e6 relative inline-block"
                   >
-                    Values
+                    SIMCA
                     <motion.span 
                       className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                       initial={{ scaleX: 0 }}
@@ -265,14 +280,45 @@ export default function AboutPage() {
                     />
                   </motion.span>
                 </motion.h2>
-                <motion.p 
-                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-4"
+                {/* Vision Statement */}
+                <motion.div 
+                  className="mb-4 p-4 bg-add8e6/5 rounded-lg border border-add8e6/10"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <p className="text-xs font-semibold text-add8e6 uppercase tracking-wider mb-2">Our Vision</p>
+                  <p className="text-sm md:text-base text-gray-700 dark:text-gray-200">
+                    To be the most respected and trusted professional cleaning services provider in Kenya, delivering world-class standards through innovation, excellence, and a highly motivated workforce.
+                  </p>
+                </motion.div>
+                {/* Mission Statement */}
+                <motion.div 
+                  className="text-left p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  Our mission is simple: to make your space feel like new again. We believe a clean environment isn't just about looking good—it's about creating a place where you can relax, be productive, and feel your best. We're dedicated to delivering a spotless, healthy, and happy space for you, every time.
-                </motion.p>
+                  <p className="text-xs font-semibold text-add8e6 uppercase tracking-wider mb-3">Our Mission</p>
+                  <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-add8e6 rounded-full mt-1.5 flex-shrink-0"></span>
+                      <span>Deliver superior quality through modern technology and efficient systems</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-add8e6 rounded-full mt-1.5 flex-shrink-0"></span>
+                      <span>Build long-term client relationships based on trust and consistency</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-add8e6 rounded-full mt-1.5 flex-shrink-0"></span>
+                      <span>Empower staff through continuous training and motivation</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-add8e6 rounded-full mt-1.5 flex-shrink-0"></span>
+                      <span>Uphold the highest standards of hygiene, safety, and professionalism</span>
+                    </li>
+                  </ul>
+                </motion.div>
               </div>
 
               {/* Values Grid */}
@@ -381,7 +427,7 @@ export default function AboutPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  Our journey started with a simple idea: to provide a cleaning service our community could trust. Here's a look at how we've grown, thanks to wonderful clients like you.
+                  From humble beginnings in Mombasa to becoming one of Kenya's largest and most specialized cleaning companies, our journey is built on trust, dedication, and a genuine passion for excellence.
                 </motion.p>
               </div>
 
@@ -391,7 +437,7 @@ export default function AboutPage() {
                 <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-add8e6/20 dark:bg-add8e6/30 hidden md:block" />
 
                 <div className="space-y-4 md:space-y-6">
-                  {/* 2011 */}
+                  {/* 2005 */}
                   <motion.div 
                     className="relative pl-6 md:pl-8 pb-4 md:pb-6 group"
                     initial={{ opacity: 0, x: -20 }}
@@ -415,14 +461,14 @@ export default function AboutPage() {
                           className="text-add8e6 font-bold text-xs md:text-sm"
                           whileHover={{ scale: 1.05 }}
                         >
-                          2011
+                          2005
                         </motion.span>
                         <motion.h3 
                           className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
                           whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
-                          Our Humble Start
+                          A Dream Takes Root in Mombasa
                         </motion.h3>
                       </div>
                       <motion.p 
@@ -430,7 +476,7 @@ export default function AboutPage() {
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        It all began in Mombasa with a small but dedicated team of 15 professionals and a big goal: to make homes and businesses feel welcoming and clean. We were thrilled to partner with our first 25+ residential and commercial clients, building relationships one spotless space at a time by offering everything from home cleaning to specialized office maintenance.
+                        Simca Agencies was born from a simple vision: to create a professional cleaning company that Kenyans could truly rely on. Starting in Mombasa with a dedicated team and a passion for excellence, we set out to serve our community with care, integrity, and a commitment to spotless results.
                       </motion.p>
                       <motion.div 
                         className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
@@ -438,12 +484,12 @@ export default function AboutPage() {
                         transition={{ duration: 0.2 }}
                       >
                         <span className="w-1 h-1 bg-add8e6 rounded-full"></span>
-                        <span>25+ Foundational Clients</span>
+                        <span>100% Kenyan-Owned from Day One</span>
                       </motion.div>
                     </motion.div>
                   </motion.div>
 
-                  {/* 2017 */}
+                  {/* 2009 */}
                   <motion.div 
                     className="relative pl-6 md:pl-8 pb-4 md:pb-6 group"
                     initial={{ opacity: 0, x: -20 }}
@@ -467,14 +513,14 @@ export default function AboutPage() {
                           className="text-add8e6 font-bold text-xs md:text-sm"
                           whileHover={{ scale: 1.05 }}
                         >
-                          2017
+                          2009
                         </motion.span>
                         <motion.h3 
                           className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
                           whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
-                          Growing & Learning
+                          Officially Registered & Growing
                         </motion.h3>
                       </div>
                       <motion.p 
@@ -482,12 +528,20 @@ export default function AboutPage() {
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        As more people trusted us with their spaces, our family grew! We expanded our services to Mombasa and Eldoret, welcoming over 50 new commercial clients in hospitality and healthcare. To ensure we always delivered the best, we maintained our commitment to top-quality, reliable service.
+                        After four years of building trust and serving our clients with excellence, Simca Agencies was officially registered (CPR/2009/10398). This milestone marked our commitment to professional standards and opened doors to serve government institutions, hospitals, and larger commercial clients.
                       </motion.p>
+                      <motion.div 
+                        className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
+                        whileHover={{ x: 2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <span className="w-1 h-1 bg-add8e6 rounded-full"></span>
+                        <span>Company Registration: CPR/2009/10398</span>
+                      </motion.div>
                     </motion.div>
                   </motion.div>
 
-                  {/* 2020 */}
+                  {/* Growth Years */}
                   <motion.div 
                     className="relative pl-6 md:pl-8 pb-4 md:pb-6 group"
                     initial={{ opacity: 0, x: -20 }}
@@ -511,14 +565,14 @@ export default function AboutPage() {
                           className="text-add8e6 font-bold text-xs md:text-sm"
                           whileHover={{ scale: 1.05 }}
                         >
-                          2020
+                          2010s
                         </motion.span>
                         <motion.h3 
                           className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
                           whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
-                          Caring for Your Home & Our Planet
+                          Expanding Our Reach & Services
                         </motion.h3>
                       </div>
                       <motion.p 
@@ -526,7 +580,7 @@ export default function AboutPage() {
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        We've always believed in cleaning that's safe for your family and our planet. In 2020, we officially launched our Green Seal certified eco-friendly solutions. We also embraced new technology to ensure consistent, top-notch results, which helped us achieve a 98% client satisfaction rate that we're incredibly proud of.
+                        As more organizations trusted us with their facilities, we expanded our services beyond contract cleaning to include specialized cleaning, hygiene supplies, landscaping, and labour outsourcing. Our team grew, our equipment modernized, and we invested heavily in training our staff to meet the stringent standards demanded by hospitals, hotels, and government institutions.
                       </motion.p>
                       <motion.div 
                         className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
@@ -534,12 +588,12 @@ export default function AboutPage() {
                         transition={{ duration: 0.2 }}
                       >
                         <span className="w-1 h-1 bg-add8e6 rounded-full"></span>
-                        <span>Green Seal Certified</span>
+                        <span>5 Core Service Areas Established</span>
                       </motion.div>
                     </motion.div>
                   </motion.div>
 
-                  {/* 2023 */}
+                  {/* Today */}
                   <motion.div 
                     className="relative pl-6 md:pl-8 group"
                     initial={{ opacity: 0, x: -20 }}
@@ -563,14 +617,14 @@ export default function AboutPage() {
                           className="text-add8e6 font-bold text-xs md:text-sm"
                           whileHover={{ scale: 1.05 }}
                         >
-                          2023
+                          Today
                         </motion.span>
                         <motion.h3 
                           className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
                           whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
-                          A Trusted Name in Cleaning
+                          Kenya's Trusted Cleaning Partner
                         </motion.h3>
                       </div>
                       <motion.p 
@@ -578,7 +632,7 @@ export default function AboutPage() {
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        Today, our team of 188 dedicated professionals serves more than 200 clients across 6 major cities. Being named 'Best Cleaning Service Provider 2023' by the Kenya Business Awards was a wonderful honor, but our greatest achievement is the daily trust you place in us to care for your spaces.
+                        After nearly two decades, Simca Agencies has evolved to become one of the largest and most specialized cleaning companies in Kenya. We are proud to serve prestigious organizations including Kenya Ports Authority, Kenya Maritime Authority, and Mombasa Polytechnic University. Our success lies in our ability to train and manage staff to achieve the stringent standards our clients deserve.
                       </motion.p>
                       <motion.div 
                         className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
@@ -586,7 +640,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.2 }}
                       >
                         <span className="w-1 h-1 bg-add8e6 rounded-full"></span>
-                        <span>Kenya's Best Cleaning Service 2023</span>
+                        <span>Trusted by Kenya's Leading Institutions</span>
                       </motion.div>
                     </motion.div>
                   </motion.div>
@@ -646,7 +700,7 @@ export default function AboutPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  Whether you're in the city or by the coast, our promise is the same: a spotless clean with a personal touch. We're proud to bring our trusted services to communities all across Kenya.
+                  From our headquarters in Mombasa, we extend our professional cleaning and facility services to communities across Kenya. Wherever we serve, our promise remains the same: world-class standards delivered with genuine care.
                 </motion.p>
               </div>
 
@@ -712,7 +766,7 @@ export default function AboutPage() {
                     </motion.div>
 
                     <motion.div 
-                      className="group relative bg-white dark:bg-gray-900/50 p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
+                      className="group relative bg-white dark:bg-gray-900/50 p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border-2 border-add8e6/30 dark:border-add8e6/20"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
@@ -735,9 +789,10 @@ export default function AboutPage() {
                               </div>
                             </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Mombasa</h3>
+                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Mombasa (Headquarters)</h3>
+                          <span className="text-[10px] bg-add8e6/10 text-add8e6 px-2 py-0.5 rounded-full">HQ</span>
                         </div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Our headquarters. From bustling hotels to peaceful seaside homes, we provide a fresh, clean environment for the coastal community.</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">New Canon Towers, Moi Avenue. Our home base where it all began. We proudly serve Kenya Ports Authority, Kenya Maritime Authority, and other leading institutions across the coastal region.</p>
                       </div>
                     </motion.div>
 
@@ -858,9 +913,9 @@ export default function AboutPage() {
                           </div>
                         </motion.div>
                         <div>
-                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Coming Soon to a Town Near You!</h3>
+                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Growing Across Kenya</h3>
                           <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                            We're excited to be growing! Our goal is to bring our friendly, reliable cleaning services to more communities across Kenya, with plans to reach 10 major cities by 2025.
+                            Our vision is to be the most respected and trusted professional cleaning services provider in Kenya. We continue to expand our reach, bringing world-class standards and genuine care to more communities every year.
                           </p>
                         </div>
                       </div>
@@ -963,7 +1018,7 @@ export default function AboutPage() {
                     >
                       <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-add8e6/20 rounded-full" />
                       <div className="pl-3">
-                        When I started Simca Agencies, my goal was simple: to create a cleaning service I'd want for my own family. I believe a clean home is more than just a tidy space—it's a place where you can feel happy, healthy, and at peace. We're not just a company; we're your neighbors, a team of caring people dedicated to making your life a little easier and your home a lot brighter. Thank you for trusting us. It means the world to us, and we'll always work our hardest to earn that trust, one spotless room at a time.
+                        When I founded Simca Agencies in 2005, my vision was clear: to build a professional cleaning company that Kenyans could truly rely on. A company where every staff member is trained, disciplined, and treats every facility with the same care they would give their own home. Today, I am proud that we serve some of Kenya's most important institutions, from hospitals and government offices to hotels and universities. Our success is built on the trust our clients place in us, and we work every day to honor that trust through excellence, innovation, and genuine care.
                       </div>
                     </motion.blockquote>
 
@@ -989,8 +1044,8 @@ export default function AboutPage() {
                             </div>
                           </motion.div>
                           <div>
-                            <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Our Promise to You</h3>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Our certifications are our promise that you'll always receive a reliable, top-quality clean you can trust.</p>
+                            <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Our Commitment to Excellence</h3>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">We invest deeply in training our staff to meet the stringent standards demanded by Kenya's leading institutions.</p>
                           </div>
                         </div>
                       </motion.div>
@@ -1016,8 +1071,8 @@ export default function AboutPage() {
                             </div>
                           </motion.div>
                           <div>
-                            <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">A Fresh Approach</h3>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">We love finding new ways to make your space shine, including using eco-friendly products that are safe for your family.</p>
+                            <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Innovation & Modern Technology</h3>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">We embrace modern equipment and eco-friendly products to deliver superior quality through efficient systems.</p>
                           </div>
                         </div>
                       </motion.div>
@@ -1043,8 +1098,8 @@ export default function AboutPage() {
                             </div>
                           </motion.div>
                           <div>
-                            <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Always Here for You</h3>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">With 200+ happy clients and 24/7 support, we're always ready to create a custom cleaning plan that fits your life.</p>
+                            <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Our Kenyan Family</h3>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">All our staff are Kenyan citizens. We are proud to provide employment and empower our people through continuous training and motivation.</p>
                           </div>
                         </div>
                       </motion.div>
