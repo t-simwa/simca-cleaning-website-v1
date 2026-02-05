@@ -78,15 +78,15 @@ function StatsSectionWithAnimation() {
       {[
         {
           value: "5",
-          label: "CITIES SERVED",
+          label: "SERVICE LOCATIONS",
         },
         {
-          value: "200+",
-          label: "CORPORATE CLIENTS",
+          value: "19+",
+          label: "YEARS IN SERVICE",
         },
         {
-          value: "1hr",
-          label: "RESPONSE TIME",
+          value: "100%",
+          label: "KENYAN OWNED",
         }
       ].map((stat, index) => (
         <motion.div
@@ -112,118 +112,118 @@ export default function LocationsPage() {
   const locations = [
     {
       id: "mombasa",
-      name: "Mombasa",
-      address: "PO BOX 16584, 80100, Mombasa",
+      name: "Mombasa (Headquarters)",
+      address: "New Canon Towers, Moi Avenue, Mombasa | P.O. Box: 93169-80102",
       phone: "+254 721525901",
-      emergencyPhone: "+254 735772968",
+      emergencyPhone: "041-2316600",
       whatsapp: "+254 721525901",
-      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
+      hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
       image: "/locations/mombasa.webp",
       description:
-        "Mombasa's premier cleaning service provider, specializing in coastal property maintenance. Our expert team understands the unique challenges of the coastal environment, offering specialized solutions for salt damage prevention, humidity control, and tropical climate maintenance.",
-      valueProposition: "Leading provider of coastal property maintenance in Mombasa",
+        "Our headquarters and the heart of Simca Agencies since 2005. From here, we serve Kenya's leading institutions including Kenya Ports Authority, Kenya Maritime Authority, and Mombasa Polytechnic University. Our trained teams deliver world-class cleaning standards with modern equipment, eco-friendly products, and comprehensive insurance coverage.",
+      valueProposition: "Headquarters serving Kenya's leading coastal institutions",
       specialServices: [
-        "Salt residue removal with specialized equipment",
-        "Luxury hotel and resort cleaning with international standards",
-        "Beach property maintenance with anti-corrosion treatment",
-        "Humidity damage prevention with advanced dehumidification",
+        "Contract cleaning for hospitals, hotels, and government offices",
+        "Specialized cleaning including carpet, window, and post-construction",
+        "Hygiene supplies and sanitary solutions",
+        "Labour outsourcing with trained, disciplined staff",
       ],
-      certifications: ["Coastal Property Specialist", "Hotel Cleaning Certified", "Environmental Safety Certified"],
-      localExpertise: "Experts in coastal property maintenance and hospitality cleaning",
-      serviceAreas: "CBD, Nyali, Bamburi, Shanzu, and surrounding areas",
-      responseTime: "45 minutes for emergency services",
+      certifications: ["OHS Compliant", "Fully Insured", "Trained Kenyan Staff"],
+      localExpertise: "Serving hospitals, hotels, government, schools, and industrial facilities",
+      serviceAreas: "Mombasa CBD, Nyali, Bamburi, Shanzu, and surrounding areas",
+      responseTime: "Fast response to client needs",
     },
     {
       id: "kisumu",
       name: "Kisumu",
-      address: "Oginga Odinga Street, Kisumu CBD, Kisumu County, Kenya",
+      address: "Kisumu CBD, Kisumu County, Kenya",
       phone: "+254 721525901",
-      emergencyPhone: "+254 735772968",
+      emergencyPhone: "041-2316600",
       whatsapp: "+254 721525901",
-      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
+      hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
       image: "/locations/kisumu.webp",
       description:
-        "Kisumu's trusted cleaning partner, delivering specialized services for lakeside properties and industrial facilities. Our team combines local expertise with advanced cleaning technologies to maintain the highest standards in the Lake Region's unique environment.",
-      valueProposition: "Preferred cleaning partner for lakeside properties in Kisumu",
+        "Bringing world-class cleaning standards to the vibrant lakeside city. Our trained teams serve hospitals, hotels, schools, and commercial facilities with the same dedication and professionalism that has made Simca Agencies a trusted name since 2005. We care for your space with eco-friendly products and modern equipment.",
+      valueProposition: "Professional cleaning services for the Lake Region",
       specialServices: [
-        "Lakeside property maintenance with specialized equipment",
-        "Industrial facility cleaning with safety certification",
-        "Hospitality sector services with international standards",
-        "Marina and dock cleaning with environmental compliance",
+        "Contract cleaning for hospitals, hotels, and institutions",
+        "Specialized deep cleaning and floor maintenance",
+        "Hygiene supplies and sanitary solutions",
+        "Trained staff placement and labour outsourcing",
       ],
-      certifications: ["Industrial Cleaning Certified", "Environmental Compliance", "Safety First Certified"],
-      localExpertise: "Specialists in lakeside property maintenance and industrial cleaning",
-      serviceAreas: "CBD, Milimani, Nyalenda, and surrounding areas",
-      responseTime: "40 minutes for emergency services",
+      certifications: ["OHS Compliant", "Fully Insured", "Trained Kenyan Staff"],
+      localExpertise: "Serving hospitals, hotels, schools, and commercial facilities",
+      serviceAreas: "Kisumu CBD, Milimani, Nyalenda, and surrounding areas",
+      responseTime: "Fast response to client needs",
     },
     {
       id: "lamu",
       name: "Lamu",
-      address: "Lamu Old Town, Lamu Island, Lamu County, Kenya",
+      address: "Lamu Island, Lamu County, Kenya",
       phone: "+254 721525901",
-      emergencyPhone: "+254 735772968",
+      emergencyPhone: "041-2316600",
       whatsapp: "+254 721525901",
-      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
+      hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
       image: "/locations/lamu.webp",
       description:
-        "Lamu's premier cleaning service provider, specializing in heritage property maintenance and coastal facility cleaning. Our expert team understands the unique requirements of preserving historical buildings while maintaining modern cleanliness standards in this UNESCO World Heritage site.",
-      valueProposition: "",
+        "Preserving heritage while maintaining modern cleanliness standards in this UNESCO World Heritage site. Our trained teams understand the unique requirements of coastal properties and heritage buildings, delivering professional cleaning with cultural sensitivity and genuine care for your space.",
+      valueProposition: "Professional cleaning for heritage and coastal properties",
       specialServices: [
-        "Heritage building cleaning with preservation protocols",
-        "Coastal property maintenance with specialized equipment",
-        "Hotel and resort cleaning with international standards",
-        "Traditional architecture cleaning with cultural sensitivity",
+        "Contract cleaning for hotels and hospitality venues",
+        "Heritage building maintenance with care",
+        "Coastal property cleaning and upkeep",
+        "Hygiene supplies and sanitary solutions",
       ],
-      certifications: ["Heritage Property Specialist", "Coastal Cleaning Certified", "Cultural Preservation Certified"],
-      localExpertise: "Experts in heritage property maintenance and coastal facility cleaning",
+      certifications: ["OHS Compliant", "Fully Insured", "Trained Kenyan Staff"],
+      localExpertise: "Serving hotels, heritage properties, and coastal facilities",
       serviceAreas: "Lamu Old Town, Shela, Manda Island, and surrounding areas",
-      responseTime: "",
+      responseTime: "Fast response to client needs",
     },
     {
       id: "lodwar",
       name: "Lodwar",
-      address: "Lodwar Town, Turkana County, Northern Kenya",
+      address: "Lodwar Town, Turkana County, Kenya",
       phone: "+254 721525901",
-      emergencyPhone: "+254 735772968",
+      emergencyPhone: "041-2316600",
       whatsapp: "+254 721525901",
-      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
+      hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
       image: "/locations/lodwar.webp",
       description:
-        "Lodwar's trusted cleaning service provider, specializing in arid region facility maintenance. Our expert team understands the unique challenges of the northern Kenya environment, offering specialized solutions for dust control, desert climate maintenance, and facility cleaning in challenging conditions.",
-      valueProposition: "Leading provider of cleaning services in Northern Kenya",
+        "Serving Northern Kenya with the same professional standards and genuine care that defines Simca Agencies. Our trained teams understand the unique challenges of the arid climate, delivering reliable cleaning services for government offices, healthcare facilities, and commercial buildings with modern equipment and eco-friendly products.",
+      valueProposition: "Professional cleaning services for Northern Kenya",
       specialServices: [
-        "Dust and sand removal with specialized equipment",
-        "Arid climate facility maintenance with advanced techniques",
-        "Commercial and institutional cleaning with reliability",
-        "Emergency response cleaning with rapid deployment",
+        "Contract cleaning for government and institutional facilities",
+        "Healthcare facility cleaning and sanitization",
+        "Commercial building maintenance",
+        "Hygiene supplies and sanitary solutions",
       ],
-      certifications: ["Arid Region Specialist", "Commercial Cleaning Certified", "Emergency Response Certified"],
-      localExpertise: "Experts in arid region facility maintenance and challenging environment cleaning",
+      certifications: ["OHS Compliant", "Fully Insured", "Trained Kenyan Staff"],
+      localExpertise: "Serving government offices, healthcare facilities, and commercial buildings",
       serviceAreas: "Lodwar Town, Turkana County, and surrounding areas",
-      responseTime: "45 minutes for emergency services",
+      responseTime: "Fast response to client needs",
     },
     {
       id: "kaimosi",
       name: "Kaimosi",
-      address: "Kaimosi Friends University, Kaimosi Town, Vihiga County, Western Kenya",
+      address: "Kaimosi Town, Vihiga County, Western Kenya",
       phone: "+254 721525901",
-      emergencyPhone: "+254 735772968",
+      emergencyPhone: "041-2316600",
       whatsapp: "+254 721525901",
-      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
+      hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
       image: "/locations/kaimosi.webp",
       description:
-        "Western Kenya's trusted cleaning partner, specializing in educational and healthcare facility maintenance. Our team combines local expertise with specialized training to maintain the highest standards of cleanliness in sensitive environments.",
-      valueProposition: "Leading provider of institutional cleaning in Western Kenya",
+        "We are honored to support the places that matter most in Western Kenya. Our trained teams provide professional cleaning services for schools, universities, healthcare facilities, and community institutions with the same dedication, eco-friendly products, and modern equipment that has made Simca Agencies a trusted name since 2005.",
+      valueProposition: "Professional cleaning for educational and healthcare facilities",
       specialServices: [
-        "School and university cleaning with educational standards",
-        "Healthcare facility sanitization with medical certification",
-        "Residential deep cleaning with eco-friendly products",
-        "Church and community center maintenance with cultural sensitivity",
+        "Contract cleaning for schools and universities",
+        "Healthcare facility cleaning and sanitization",
+        "Institutional building maintenance",
+        "Hygiene supplies and sanitary solutions",
       ],
-      certifications: ["Healthcare Cleaning Certified", "Educational Facility Specialist", "Eco-Friendly Certified"],
-      localExpertise: "Specialists in educational and healthcare facility cleaning",
+      certifications: ["OHS Compliant", "Fully Insured", "Trained Kenyan Staff"],
+      localExpertise: "Serving schools, universities, and healthcare facilities",
       serviceAreas: "Kaimosi Town, Vihiga County, and surrounding areas",
-      responseTime: "50 minutes for emergency services",
+      responseTime: "Fast response to client needs",
     },
   ]
 
@@ -302,7 +302,7 @@ export default function LocationsPage() {
                 variants={itemVariants}
                 className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
               >
-                Wherever you call home or do business, Simca Agencies is right there with you—bringing a caring, local touch to every city we serve. Our teams are part of your community, ready to listen, adapt, and deliver the spotless results you deserve. We believe in building real relationships, so you always know who to trust for a cleaner, healthier space.
+                From our headquarters in Mombasa, we extend our professional cleaning and facility services across Kenya. With trained staff, modern equipment, and a genuine commitment to excellence, we bring world-class standards to hospitals, hotels, government institutions, schools, and industrial facilities in every community we serve.
               </motion.p>
               {/* Minimalist Stats Section */}
               <StatsSectionWithAnimation />
@@ -351,7 +351,7 @@ export default function LocationsPage() {
                   </span>
                 </motion.h2>
                 <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                  Wherever you call home or do business, Simca Agencies is right there with you—bringing a caring, local touch to every city we serve. Our teams are part of your community, ready to listen, adapt, and deliver the spotless results you deserve. We believe in building real relationships, so you always know who to trust for a cleaner, healthier space.
+                  From our headquarters in Mombasa to communities across Kenya, Simca Agencies brings professional cleaning excellence with a caring, local touch. Our trained teams are part of your community, ready to deliver the world-class standards that hospitals, hotels, schools, and institutions deserve.
                 </p>
               </div>
 
@@ -452,7 +452,7 @@ export default function LocationsPage() {
                     <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2.5 md:p-3 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
                       <h3 className="text-xs md:text-sm font-bold text-gray-800 dark:text-white mb-1.5">Click on any marker to discover our local expertise</h3>
                       <p className="text-[10px] md:text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-                        Our map shows just how close help is—each marker is a team that cares about your space as much as you do. Click a city to meet your local Simca experts and discover how we make cleaning personal, reliable, and worry-free.
+                        Our map shows just how close professional help is. Each marker represents a trained team that cares about your space as much as you do. Click a city to meet your local Simca experts.
                       </p>
                     </div>
                   </div>
@@ -658,24 +658,6 @@ export default function LocationsPage() {
                               fill 
                               className="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
-                            <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-20">
-                              <motion.div 
-                                className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2.5 md:p-3 rounded-lg border border-gray-100 dark:border-gray-700"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.4 }}
-                              >
-                                <div className="flex items-center justify-between gap-2">
-                                  <p className="text-[10px] md:text-xs text-gray-600 dark:text-gray-400 leading-relaxed flex-1">
-                                    {location.valueProposition}
-                                  </p>
-                                  <span className="text-[10px] md:text-xs text-add8e6 font-medium whitespace-nowrap ml-2">
-                                    {location.responseTime}
-                                  </span>
-                                </div>
-                              </motion.div>
-                            </div>
                           </motion.div>
                         </div>
                       </div>
