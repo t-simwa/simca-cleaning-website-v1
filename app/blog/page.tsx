@@ -9,11 +9,10 @@ import { useState, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import React from "react"
 // Unique icons from different icon libraries matching home page style
-import { FaHome } from "react-icons/fa" // Font Awesome - Home/Residential
-import { MdBusiness } from "react-icons/md" // Material Design - Business/Commercial
-import { FaHardHat } from "react-icons/fa" // Font Awesome - Construction
-import { FaCouch } from "react-icons/fa" // Font Awesome - Carpet/Upholstery
-import { FaLeaf } from "react-icons/fa" // Font Awesome - Green Cleaning
+import { FaBuilding } from "react-icons/fa" // Font Awesome - Contract Cleaning
+import { MdCleaningServices } from "react-icons/md" // Material Design - Specialized Cleaning
+import { FaPumpSoap } from "react-icons/fa" // Font Awesome - Hygiene
+import { FaLeaf } from "react-icons/fa" // Font Awesome - Green/Eco-friendly
 import { MdLightbulb } from "react-icons/md" // Material Design - Tips
 import { MdBook } from "react-icons/md" // Material Design - Book/Articles
 import { MdStars } from "react-icons/md" // Material Design - Stars/Featured
@@ -95,16 +94,16 @@ function StatsSectionWithAnimation() {
     >
       {[
         {
-          value: "50+",
-          label: "EXPERT ARTICLES",
+          value: "19+",
+          label: "YEARS EXPERIENCE",
         },
         {
-          value: "6",
-          label: "CATEGORIES",
+          value: "5",
+          label: "CORE SERVICES",
         },
         {
-          value: "10k+",
-          label: "MONTHLY READERS",
+          value: "100%",
+          label: "KENYAN OWNED",
         }
       ].map((stat, index) => (
         <motion.div
@@ -132,94 +131,89 @@ const BlogPage = () => {
   const blogPosts = [
     {
       id: 1,
-      title: "The Ultimate Guide to Spring Cleaning Your Home",
+      title: "Contract Cleaning for Healthcare Facilities: Best Practices",
       excerpt:
-        "Learn the best techniques and tips for a thorough spring cleaning that will leave your home fresh and spotless.",
-      date: "May 15, 2025",
-      author: "Jane Mwangi",
-      category: "Residential",
-      image: "/blog/spring-cleaning.jpg?height=600&width=800",
-    },
-    {
-      id: 2,
-      title: "How to Maintain a Clean Office Environment",
-      excerpt:
-        "Discover strategies for keeping your workplace clean and organized, boosting productivity and employee satisfaction.",
-      date: "April 28, 2025",
-      author: "John Kamau",
-      category: "Commercial",
+        "Discover the essential protocols and standards for maintaining hygiene in hospitals and clinics. Learn how professional contract cleaning protects patients and staff.",
+      date: "January 15, 2026",
+      author: "Simca Team",
+      category: "Contract Cleaning",
       image: "/blog/office-cleaning.jpg?height=600&width=800",
     },
     {
-      id: 3,
-      title: "The Benefits of Professional Carpet Cleaning",
+      id: 2,
+      title: "Why OHS Compliance Matters in Professional Cleaning",
       excerpt:
-        "Why professional carpet cleaning is essential for extending the life of your carpets and maintaining a healthy home.",
-      date: "April 10, 2025",
-      author: "Sarah Ochieng",
-      category: "Carpet Care",
+        "Understanding Occupational Health and Safety standards in the cleaning industry. How compliance protects your staff and clients while delivering better results.",
+      date: "January 8, 2026",
+      author: "Simca Team",
+      category: "Professional Tips",
+      image: "/blog/cleaning-services.png?height=600&width=800",
+    },
+    {
+      id: 3,
+      title: "The Complete Guide to Floor Strip and Seal",
+      excerpt:
+        "Professional insights into strip and seal services. Learn when your floors need this treatment and what to expect from the process.",
+      date: "December 20, 2025",
+      author: "Simca Team",
+      category: "Specialized Cleaning",
       image: "/blog/carpet-cleaning.jpg?height=600&width=800",
     },
     {
       id: 4,
-      title: "Eco-Friendly Cleaning Solutions for Your Home",
+      title: "Eco-Friendly Cleaning Products: Better for Your Facility",
       excerpt:
-        "Explore environmentally friendly cleaning products and methods that are safe for your family and the planet.",
-      date: "March 22, 2025",
-      author: "David Njoroge",
-      category: "Green Cleaning",
+        "How modern eco-friendly cleaning products deliver superior results while protecting the environment and the health of building occupants.",
+      date: "December 10, 2025",
+      author: "Simca Team",
+      category: "Eco-Friendly",
       image: "/blog/eco-friendly.jpg?height=600&width=800",
     },
     {
       id: 5,
-      title: "Post-Construction Cleaning: What to Expect",
+      title: "Post-Construction Cleaning: What Facility Managers Need to Know",
       excerpt:
-        "A comprehensive guide to post-construction cleaning services and why they are essential after any building project.",
-      date: "March 5, 2025",
-      author: "Peter Wanjiku",
-      category: "Construction",
+        "A comprehensive guide to post-construction cleaning for commercial and institutional buildings. Essential steps for a safe handover.",
+      date: "November 25, 2025",
+      author: "Simca Team",
+      category: "Specialized Cleaning",
       image: "/blog/post-construction.jpeg?height=600&width=800",
     },
     {
       id: 6,
-      title: "How to Choose the Right Cleaning Service for Your Needs",
-      excerpt: "Factors to consider when selecting a professional cleaning service for your home or business in Kenya.",
-      date: "February 18, 2025",
-      author: "Mary Akinyi",
-      category: "Tips",
-      image: "/blog/cleaning-services.png?height=600&width=800",
+      title: "Hygiene Supplies: Choosing the Right Solutions for Your Facility",
+      excerpt: "From soap dispensers to sanitary bins, learn how to select and maintain hygiene supplies that meet your facility's needs.",
+      date: "November 15, 2025",
+      author: "Simca Team",
+      category: "Hygiene",
+      image: "/blog/spring-cleaning.jpg?height=600&width=800",
     },
   ]
 
   const categories = [
     { 
-      name: "Residential", 
-      count: blogPosts.filter(post => post.category === "Residential").length,
-      icon: FaHome 
+      name: "Contract Cleaning", 
+      count: blogPosts.filter(post => post.category === "Contract Cleaning").length,
+      icon: FaBuilding 
     },
     { 
-      name: "Commercial", 
-      count: blogPosts.filter(post => post.category === "Commercial").length,
-      icon: MdBusiness 
+      name: "Specialized Cleaning", 
+      count: blogPosts.filter(post => post.category === "Specialized Cleaning").length,
+      icon: MdCleaningServices 
     },
     { 
-      name: "Carpet Care", 
-      count: blogPosts.filter(post => post.category === "Carpet Care").length,
-      icon: FaCouch 
+      name: "Hygiene", 
+      count: blogPosts.filter(post => post.category === "Hygiene").length,
+      icon: FaPumpSoap 
     },
     { 
-      name: "Green Cleaning", 
-      count: blogPosts.filter(post => post.category === "Green Cleaning").length,
+      name: "Eco-Friendly", 
+      count: blogPosts.filter(post => post.category === "Eco-Friendly").length,
       icon: FaLeaf 
     },
     { 
-      name: "Construction", 
-      count: blogPosts.filter(post => post.category === "Construction").length,
-      icon: FaHardHat 
-    },
-    { 
-      name: "Tips", 
-      count: blogPosts.filter(post => post.category === "Tips").length,
+      name: "Professional Tips", 
+      count: blogPosts.filter(post => post.category === "Professional Tips").length,
       icon: MdLightbulb 
     },
   ]
@@ -295,7 +289,7 @@ const BlogPage = () => {
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
                 className="text-sm md:text-base lg:text-base text-gray-200 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed tracking-wide"
               >
-                Expert cleaning insights, proven techniques, and practical solutions you can trust. Professional articles crafted to help you achieve spotless, healthy spaces at home or work. Discover actionable tips, step-by-step guides, and the latest cleaning trends—from basic maintenance to advanced professional methods.
+                Expert cleaning insights from nearly two decades of professional experience. From contract cleaning for hospitals and hotels to specialized floor care and hygiene solutions, discover practical knowledge that helps facility managers and institutions maintain world-class cleanliness standards.
               </motion.p>
 
               {/* Minimalist Stats Section */}
