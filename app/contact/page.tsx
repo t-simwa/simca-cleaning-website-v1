@@ -94,16 +94,16 @@ function StatsSectionWithAnimation() {
     >
       {[
         {
+          value: "19+",
+          label: "YEARS IN SERVICE",
+        },
+        {
           value: "5",
-          label: "LOCATIONS",
+          label: "SERVICE LOCATIONS",
         },
         {
-          value: "24/7",
-          label: "SUPPORT",
-        },
-        {
-          value: "1hr",
-          label: "RESPONSE TIME",
+          value: "100%",
+          label: "KENYAN OWNED",
         }
       ].map((stat, index) => (
         <motion.div
@@ -154,39 +154,39 @@ export default function ContactPage() {
 
   const locations = [
     {
-      name: "Mombasa",
-      address: "PO BOX 16584, 80100, Mombasa",
-      phone: "+254 721525901",
-      email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
+      name: "Mombasa (Headquarters)",
+      address: "New Canon Towers, Moi Avenue, Mombasa | P.O. Box: 93169-80102",
+      phone: "041-2316600",
+      email: "info@simcaagencies.com",
+      hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
     },
     {
       name: "Kisumu",
       address: "Oginga Odinga Street, Kisumu CBD, Kisumu County",
       phone: "+254 721525901",
-      email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
+      email: "info@simcaagencies.com",
+      hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
     },
     {
       name: "Lamu",
       address: "Lamu Old Town, Lamu Island, Lamu County",
       phone: "+254 721525901",
-      email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
+      email: "info@simcaagencies.com",
+      hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
     },
     {
       name: "Lodwar",
       address: "Lodwar Town, Turkana County",
       phone: "+254 721525901",
-      email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
+      email: "info@simcaagencies.com",
+      hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
     },
     {
       name: "Kaimosi",
       address: "Kaimosi Friends University, Kaimosi Town, Vihiga County",
       phone: "+254 721525901",
-      email: "Info@simcaagencies.co.ke",
-      hours: "Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm",
+      email: "info@simcaagencies.com",
+      hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
     },
   ]
 
@@ -288,7 +288,7 @@ export default function ContactPage() {
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
                 className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
               >
-                We're here to make connecting with us easy and welcoming—no matter your cleaning needs or questions. Whether you're looking for a one-time service or ongoing support, our friendly team is always ready to listen, offer honest advice, and create a solution that fits your unique space. Reach out today and experience the personal care, attention, and reliability that set Simca Agencies apart.
+                We are here to make connecting with us easy and welcoming. Whether you need ongoing contract cleaning, specialized services, or hygiene solutions for your facility, our friendly team is always ready to listen, offer honest advice, and create a solution that fits your unique space. Reach out today and experience the personal care, attention, and reliability that have made Simca Agencies Kenya's trusted cleaning partner since 2005.
               </motion.p>
 
               {/* Minimalist Stats Section */}
@@ -340,7 +340,7 @@ export default function ContactPage() {
                   </span>
                 </motion.h2>
                 <p className="text-sm md:text-base lg:text-sm text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-                  We're here to make your experience easy and personal—whether you have a quick question or need a custom cleaning plan. Reach out and let us know what matters most to you. We'll listen, guide you honestly, and make sure you always feel valued and cared for.
+                  We are here to make your experience easy and personal. Whether you have a quick question or need a custom cleaning plan for your facility, reach out and let us know what matters most to you. We will listen, guide you honestly, and make sure you always feel valued and cared for.
                 </p>
               </div>
 
@@ -363,9 +363,6 @@ export default function ContactPage() {
                       </motion.div>
                       Send Us a Message
                     </h3>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                      Tell us what you need—no request is too big or too small. We'll listen, offer honest advice, and respond quickly with a quote that fits your needs. Your privacy and trust are always respected.
-                    </p>
                   </div>
                   <ContactForm formId="contact-form" />
                 </div>
@@ -387,9 +384,6 @@ export default function ContactPage() {
                     </motion.div>
                     Quick Contact
                   </h3>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                    Need help fast, or just want to talk to a real person? Our friendly team is here for you 24/7—whether it's an urgent cleaning or a simple question. We serve all major cities in Kenya and always put your needs first.
-                  </p>
                   <div className="space-y-3 flex-grow">
                     <div className="flex items-start group/item">
                       <motion.div 
@@ -405,12 +399,12 @@ export default function ContactPage() {
                         </div>
                       </motion.div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Emergency Line</p>
-                        <a href="tel:+254721525901" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
-                          Call us anytime—day or night: +254 721525901
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Call Us</p>
+                        <a href="tel:0412316600" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
+                          Landline: 041-2316600
                         </a>
-                        <a href="tel:+254735772968" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
-                          Or reach us on: +254 735772968
+                        <a href="tel:+254721525901" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
+                          Mobile: +254 721 525 901
                         </a>
                       </div>
                     </div>
@@ -429,11 +423,11 @@ export default function ContactPage() {
                       </motion.div>
                       <div className="flex-1 min-w-0">
                         <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Email Us</p>
-                        <a href="mailto:Info@simcaagencies.co.ke" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed mb-1">
-                          We reply quickly: Info@simcaagencies.co.ke
+                        <a href="mailto:info@simcaagencies.com" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed mb-1">
+                          We reply quickly: info@simcaagencies.com
                         </a>
                         <a href="mailto:simka1974@hotmail.com" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
-                          Or reach us on: simka1974@hotmail.com
+                          Or reach us at: simka1974@hotmail.com
                         </a>
                       </div>
                     </div>
@@ -453,10 +447,10 @@ export default function ContactPage() {
                       <div className="flex-1 min-w-0">
                         <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Service Hours</p>
                         <p className="text-xs text-gray-800 dark:text-white leading-relaxed">
-                          Mon-Fri: 7am-5pm, Sat & Sun: 7am-2pm
+                          Mon-Fri: 7am-5pm, Sat: 7am-2pm
                         </p>
                         <p className="text-xs text-add8e6 mt-1 leading-relaxed">
-                          After-hours? We're still here for you.
+                          We respond promptly to all enquiries.
                         </p>
                       </div>
                     </div>
@@ -479,7 +473,7 @@ export default function ContactPage() {
                       Our Commitment
                     </h4>
                     <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                      We treat every client like family and every space like our own. If you're ever less than thrilled with our service, just let us know—we'll make it right, no questions asked. Your happiness and peace of mind are our promise, every single time.
+                      We treat every client like family and every space like our own. With comprehensive insurance coverage, OHS compliance, and a team of trained Kenyan professionals, your facility is in safe hands. Your satisfaction and peace of mind are our promise, every single time.
                     </p>
                   </div>
                 </div>
@@ -526,7 +520,7 @@ export default function ContactPage() {
                   </span>
                 </h2>
                 <p className="text-sm md:text-base lg:text-sm text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                  Wherever you are in Kenya, you're never far from a Simca team that cares. Drop by any of our branches or reach out—our friendly experts are always ready to listen, answer your questions, and help you find the perfect cleaning solution for your space.
+                  Wherever you are in Kenya, you are never far from a Simca team that cares. Drop by any of our branches or reach out. Our friendly experts are always ready to listen, answer your questions, and help you find the perfect cleaning solution for your facility.
                 </p>
               </div>
 
