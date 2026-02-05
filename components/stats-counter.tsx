@@ -40,34 +40,34 @@ export default function StatsCounter() {
 
   const stats = [
     {
-      value: 15,
-      label: "Years Serving Our Community",
-      suffix: "",
-    },
-    {
-      value: 250,
-      label: "Happy Clients & Counting",
+      value: 19,
+      label: "Years in Service",
       suffix: "+",
     },
     {
-      value: 12,
-      label: "Communities Cared For",
-      suffix: "",
-    },
-    {
-      value: 188,
-      label: "Dedicated Team Members",
-      suffix: "",
-    },
-    {
-      value: 2,
-      label: "Average Response Time",
-      suffix: " Hours",
+      value: 6,
+      label: "Sectors We Serve",
+      suffix: "+",
     },
     {
       value: 100,
-      label: "Eco-Friendly Cleaning",
+      label: "Kenyan Owned",
       suffix: "%",
+    },
+    {
+      value: 100,
+      label: "OHS Compliant",
+      suffix: "%",
+    },
+    {
+      value: 100,
+      label: "Staff Fully Insured",
+      suffix: "%",
+    },
+    {
+      value: 5,
+      label: "Core Service Areas",
+      suffix: "",
     },
   ]
 
@@ -146,7 +146,7 @@ export default function StatsCounter() {
             </span>
           </h2>
           <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-            Every number tells a story of trust, care, and sparkling spaces. Discover how we make a difference for families and businesses across our community—one clean at a time.
+            Every number reflects our commitment to quality, safety, and the trust our clients place in us. Nearly two decades of caring for Kenya's leading institutions.
           </p>
         </div>
 

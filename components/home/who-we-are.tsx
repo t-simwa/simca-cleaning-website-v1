@@ -57,16 +57,16 @@ export default function WhoWeAre() {
               </div>
             </div>
             <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-              Simca Agencies is a <span className="font-semibold text-gray-800 dark:text-white">registered professional cleaning company in Kenya</span>. We deliver customized cleaning solutions for homes, offices, and businesses, prioritizing quality, reliability, and client satisfaction at affordable costs.
+              Simca Agencies Ltd is a <span className="font-semibold text-gray-800 dark:text-white">fully Kenyan-owned professional cleaning company</span>, proudly serving our community since 2005. What began as a commitment to quality has grown into one of Kenya's largest and most specialized cleaning companies, because we believe every space deserves care.
             </p>
             <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-              With 15 years of experience, we ensure the best results for all your cleaning needs. Our skilled, well-trained team handles every job with professionalism and care, using the latest cleaning technology for outstanding results every time.
+              With nearly two decades of experience, our success lies in our people. We invest deeply in training and developing our staff to meet the highest standards our clients expect: hospitals, hotels, government institutions, schools, banks, and industrial facilities. Every team member brings skill, discipline, and heart to every job.
             </p>
             <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-              We've made a significant impact across coastal and inland regions, establishing ourselves as one of Kenya's most trusted cleaning services companies.
+              We're trusted by organizations across Kenya, including shopping centres, commercial premises, and office buildings. Not just for our cleaning expertise, but for the relationships we build. When you choose Simca, you're choosing a partner who treats your space as if it were our own.
             </p>
             <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-              We continue to set standards by offering outstanding cleaning services, committed to delivering quality, affordable, and reliable solutions. Our mission is to set the benchmark for cleaning excellence in Kenya—helping homes and businesses thrive with spotless environments.
+              Our commitment goes beyond spotless floors and sparkling windows. We deliver eco-friendly solutions, modern equipment, comprehensive insurance coverage, and full OHS compliance, because your peace of mind matters as much as your clean space.
             </p>
             <div className="mt-6 hidden">
               <Link 

@@ -19,148 +19,58 @@ export default function TrustedClients() {
 
   const clients = [
     {
-      name: "Kenya Revenue Authority",
-      logo: "/trusted-clients/kra-logo.png",
-      link: "https://www.kra.go.ke/",
-      description: "Official tax collection agency of Kenya",
-      years: "5+",
-      rating: 4.9,
-      services: {
-        primary: ["Office Cleaning", "Sanitization", "Waste Management"],
-        testimonials: [
-          "Reduced cleaning-related incidents by 95% through strict security protocols",
-          "Achieved 99.8% compliance with government facility standards",
-          "Saved 30% on cleaning costs while improving service quality"
-        ]
-      },
-      impact: "Reduced cleaning-related incidents by 95%",
-      testimonial: "Simca's implementation of our security protocols while maintaining immaculate standards has been exceptional."
-    },
-    {
-      name: "Nairobi Hospital",
-      logo: "/trusted-clients/nairobi-hospital.png",
-      link: "https://www.nairobihospital.org/",
-      description: "Leading private healthcare facility",
-      years: "4+",
-      rating: 4.8,
-      services: {
-        primary: ["Healthcare Cleaning", "Biohazard Management", "Sterilization Support"],
-        testimonials: [
-          "Improved hospital cleanliness ratings by 40% in first 6 months",
-          "Reduced infection rates by 25% through enhanced cleaning protocols",
-          "Achieved 100% compliance with WHO healthcare standards"
-        ]
-      },
-      impact: "Improved hospital cleanliness ratings by 40%",
-      testimonial: "Their understanding of healthcare cleaning protocols and ability to maintain sterile environments has been crucial to our patient safety standards."
-    },
-    {
-      name: "Safaricom",
-      logo: "/trusted-clients/safaricom-logo.png",
-      link: "https://www.safaricom.co.ke/",
-      description: "Leading telecommunications company",
-      years: "6+",
-      rating: 4.9,
-      services: {
-        primary: ["Corporate Cleaning", "Data Center Maintenance", "Specialized Equipment Cleaning"],
-        testimonials: [
-          "Zero cleaning-related service disruptions in 6 years",
-          "Reduced equipment maintenance costs by 35%",
-          "Achieved 99.9% uptime in data center cleanliness"
-        ]
-      },
-      impact: "Zero cleaning-related service disruptions",
-      testimonial: "Their ability to clean our data centers without disrupting operations has been remarkable."
-    },
-    {
-      name: "Kempinski Hotel",
-      logo: "/trusted-clients/kempinski-logo.png",
-      link: "https://www.kempinski.com/",
-      description: "Luxury 5-star hotel",
-      years: "3+",
-      rating: 4.9,
-      services: {
-        primary: ["Hotel Cleaning", "Luxury Suite Maintenance", "Public Area Management"],
-        testimonials: [
-          "Maintained 5-star cleanliness ratings for 36 consecutive months",
-          "Improved guest satisfaction scores by 45%",
-          "Reduced cleaning-related complaints by 90%"
-        ]
-      },
-      impact: "Consistent 5-star cleanliness ratings",
-      testimonial: "Their attention to detail and understanding of luxury standards has elevated our guest experience."
-    },
-    {
-      name: "Standard Chartered Bank",
-      logo: "/trusted-clients/standard-logo.png",
-      link: "https://www.sc.com/ke/",
-      description: "International banking institution",
-      years: "4+",
-      rating: 4.8,
-      services: {
-        primary: ["Bank Cleaning", "Secure Area Maintenance", "Cash Handling Area Cleaning"],
-        testimonials: [
-          "Zero security breaches related to cleaning operations",
-          "Achieved 100% compliance with banking security standards",
-          "Reduced cleaning costs by 25% while improving service quality"
-        ]
-      },
-      impact: "Zero security breaches related to cleaning",
-      testimonial: "Their understanding of banking security protocols while maintaining impeccable standards has been crucial to our operations."
-    },
-    {
       name: "Kenya Ports Authority",
       logo: "/trusted-clients/kpa-logo.png",
       link: "https://www.kpa.co.ke/",
       description: "National port authority",
-      years: "3+",
-      rating: 4.8,
+      years: "10+",
+      rating: 4.9,
       services: {
         primary: ["Port Facility Cleaning", "Industrial Area Maintenance", "Waste Management"],
         testimonials: [
-          "Improved port cleanliness ratings by 35%",
-          "Reduced environmental incidents by 40%",
-          "Achieved 100% compliance with maritime standards"
+          "Long-standing partnership built on trust and reliability",
+          "Consistent quality across all port facilities",
+          "Dedicated team that understands our operational needs"
         ]
       },
-      impact: "Improved port cleanliness ratings by 35%",
-      testimonial: "Their industrial cleaning expertise has significantly improved our port facilities' standards."
+      impact: "Trusted partner for over a decade",
+      testimonial: "Simca has been a reliable partner for our port facilities, delivering consistent quality and understanding our unique operational requirements."
     },
-    // {
-    //   name: "Kenya Power",
-    //   logo: "/trusted-clients/kplc-logo.jpg",
-    //   link: "https://www.kplc.co.ke/",
-    //   description: "National electricity provider",
-    //   years: "4+",
-    //   rating: 4.7,
-    //   services: {
-    //     primary: ["Power Station Cleaning", "Office Maintenance", "Specialized Equipment Cleaning"],
-    //     testimonials: [
-    //       "Zero cleaning-related power disruptions",
-    //       "Reduced maintenance costs by 30%",
-    //       "Improved facility safety ratings by 45%"
-    //     ]
-    //   },
-    //   impact: "Zero cleaning-related power disruptions",
-    //   testimonial: "Their understanding of power facility requirements has been crucial to our operations."
-    // },
     {
-      name: "NHIF",
-      logo: "/trusted-clients/nhif-logo.png",
-      link: "https://www.nhif.or.ke/",
-      description: "National health insurance fund",
-      years: "3+",
+      name: "Kenya Maritime Authority",
+      logo: "/trusted-clients/kpa-logo.png",
+      link: "https://www.kma.go.ke/",
+      description: "National maritime regulatory body",
+      years: "5+",
       rating: 4.8,
       services: {
-        primary: ["Healthcare Facility Cleaning", "Office Maintenance", "Public Area Management"],
+        primary: ["Office Cleaning", "Facility Maintenance", "Hygiene Solutions"],
         testimonials: [
-          "Improved facility hygiene ratings by 40%",
-          "Reduced cleaning-related complaints by 85%",
-          "Achieved 100% compliance with healthcare standards"
+          "Professional team that respects our protocols",
+          "Reliable service we can count on",
+          "Clean, welcoming environment for staff and visitors"
         ]
       },
-      impact: "Improved facility hygiene ratings by 40%",
-      testimonial: "Their healthcare cleaning expertise has significantly improved our facility standards."
+      impact: "Consistent, professional service",
+      testimonial: "Simca's team brings professionalism and care to every visit, helping us maintain a clean, welcoming environment for our staff and stakeholders."
+    },
+    {
+      name: "Mombasa Polytechnic University",
+      logo: "/trusted-clients/kpa-logo.png",
+      link: "https://www.tum.ac.ke/",
+      description: "Leading technical university in Mombasa",
+      years: "5+",
+      rating: 4.8,
+      services: {
+        primary: ["Campus Cleaning", "Facility Maintenance", "Landscaping"],
+        testimonials: [
+          "Clean learning environments for our students",
+          "Responsive team that works around academic schedules",
+          "Trusted partner for campus facility care"
+        ]
+      },
+      impact: "Supporting quality education through clean facilities",
+      testimonial: "Simca understands the importance of clean, healthy learning environments. Their team works seamlessly with our academic schedule to keep our campus spotless."
     }
   ]
 
@@ -248,7 +158,7 @@ export default function TrustedClients() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              We're honored to be the cleaning partner of choice for organizations that value care, trust, and a spotless result—every time. Our clients aren't just names on a list; they're part of the Simca family, and we treat their spaces as if they were our own.
+              We're honored to partner with organizations that value care, trust, and consistent quality. Our clients are part of the Simca family, and we treat their spaces as our own.
             </motion.p>
 
             <motion.p 
@@ -257,7 +167,7 @@ export default function TrustedClients() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              Discover how we build lasting relationships—one clean, cared-for space at a time.
+              Building lasting relationships, one clean space at a time.
             </motion.p>
           </div>
 
@@ -337,20 +247,12 @@ export default function TrustedClients() {
                           <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                             {(() => {
                               switch (client.name) {
-                                case "Kenya Revenue Authority":
-                                  return "A valued partner who trusts us to keep their offices spotless, secure, and welcoming for every visitor and staff member.";
-                                case "Nairobi Hospital":
-                                  return "We're proud to help create a safe, healing environment for patients and staff, supporting their mission of care with every clean.";
-                                case "Safaricom":
-                                  return "A forward-thinking team that relies on us to keep their spaces and sensitive equipment clean, so they can focus on connecting Kenya.";
-                                case "Kempinski Hotel":
-                                  return "A luxury destination where we help ensure every guest feels special, with sparkling suites and flawless public spaces.";
-                                case "Standard Chartered Bank":
-                                  return "A trusted financial institution that counts on us for secure, reliable cleaning—so their team and clients always feel at ease.";
                                 case "Kenya Ports Authority":
-                                  return "A vital hub for trade, where we help maintain high standards of cleanliness and safety for all who pass through.";
-                                case "NHIF":
-                                  return "A national leader in health, where we support a clean, healthy workplace for staff and visitors alike.";
+                                  return "A vital hub for Kenya's trade, where we help maintain high standards of cleanliness and safety across all port facilities.";
+                                case "Kenya Maritime Authority":
+                                  return "A trusted government partner where we ensure clean, professional environments for staff and visitors every day.";
+                                case "Mombasa Polytechnic University":
+                                  return "Supporting the next generation by keeping learning spaces clean, healthy, and conducive to academic excellence.";
                                 default:
                                   return client.description;
                               }
@@ -363,20 +265,12 @@ export default function TrustedClients() {
                           <p className="text-xs text-gray-600 dark:text-gray-400 italic leading-relaxed">
                             {(() => {
                               switch (client.name) {
-                                case "Kenya Revenue Authority":
-                                  return "Simca's team always goes the extra mile to keep our offices secure and sparkling. We feel truly cared for.";
-                                case "Nairobi Hospital":
-                                  return "Simca's attention to detail and commitment to our patients' safety gives us peace of mind every day.";
-                                case "Safaricom":
-                                  return "We trust Simca to keep our spaces and equipment spotless, so we can focus on what matters most—our customers.";
-                                case "Kempinski Hotel":
-                                  return "Every guest experience is elevated by Simca's care and dedication. They're part of our hospitality family.";
-                                case "Standard Chartered Bank":
-                                  return "Simca's respect for our security and their friendly, reliable service make them a true partner.";
                                 case "Kenya Ports Authority":
-                                  return "Our port runs smoother and feels safer thanks to Simca's hardworking, attentive team.";
-                                case "NHIF":
-                                  return "Simca's cleaning team helps us create a healthy, welcoming space for everyone who walks through our doors.";
+                                  return "Our port facilities run smoother and feel safer thanks to Simca's hardworking, attentive team. A true long-term partner.";
+                                case "Kenya Maritime Authority":
+                                  return "Simca brings professionalism and care to every visit. Their team understands our needs and delivers consistently.";
+                                case "Mombasa Polytechnic University":
+                                  return "Clean learning environments matter for our students. Simca's team works seamlessly with our schedule and delivers every time.";
                                 default:
                                   return client.testimonial;
                               }

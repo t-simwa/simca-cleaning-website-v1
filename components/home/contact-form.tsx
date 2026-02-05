@@ -7,11 +7,11 @@ import SuccessModal from "@/components/success-modal"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 // Unique icons from different icon libraries
 import { MdEmail } from "react-icons/md" // Material Design - Email/Contact
-import { FaHome } from "react-icons/fa" // Font Awesome - Home
-import { MdBusiness } from "react-icons/md" // Material Design - Business
-import { FaCouch } from "react-icons/fa" // Font Awesome - Upholstery
-import { FaBug } from "react-icons/fa" // Font Awesome - Bug
+import { FaBuilding } from "react-icons/fa" // Font Awesome - Building
+import { MdCleaningServices } from "react-icons/md" // Material Design - Cleaning
+import { FaPumpSoap } from "react-icons/fa" // Font Awesome - Hygiene
 import { FaLeaf } from "react-icons/fa" // Font Awesome - Leaf
+import { FaUsers } from "react-icons/fa" // Font Awesome - Staff
 import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Shield
 import { HiClock } from "react-icons/hi2" // Heroicons v2 - Clock
 
@@ -45,19 +45,15 @@ export default function ContactForm() {
   }, [])
 
   const services = [
-    { value: "Residential Cleaning", label: "Residential Cleaning", icon: FaHome },
-    { value: "Commercial Cleaning", label: "Commercial Cleaning", icon: MdBusiness },
-    { value: "Carpet & Upholstery Cleaning", label: "Carpet & Upholstery Cleaning", icon: FaCouch },
-    { value: "Fumigation & Pest Control", label: "Fumigation & Pest Control", icon: FaBug },
-    { value: "Landscaping Services", label: "Landscaping Services", icon: FaLeaf },
+    { value: "Contract Cleaning", label: "Contract Cleaning", icon: FaBuilding },
+    { value: "Specialized Cleaning", label: "Specialized Cleaning", icon: MdCleaningServices },
+    { value: "Hygiene Supplies", label: "Hygiene Supplies", icon: FaPumpSoap },
+    { value: "Landscaping & Gardening", label: "Landscaping & Gardening", icon: FaLeaf },
+    { value: "Labour Outsourcing", label: "Labour Outsourcing", icon: FaUsers },
   ]
 
   const locations = [
     "Mombasa",
-    "Kisumu",
-    "Lamu",
-    "Lodwar",
-    "Kaimosi",
   ]
 
   const referralSources = [

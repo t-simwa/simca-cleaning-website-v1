@@ -57,40 +57,40 @@ export default function WhyChooseUs() {
             </span>
           </h2>
           <p className="text-sm md:text-base lg:text-sm text-gray-600 dark:text-gray-300 tracking-wide">
-            We care for your space like it's our own. Friendly service, fair prices, and a spotless result—every time.
+            We care for your space like it's our own. Trained teams, modern equipment, and the peace of mind that comes with full insurance and safety compliance.
           </p>
         </motion.div>
         <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 space-y-3 md:space-y-4">
           {[
             {
-              title: "Personalized Cleaning, Every Time:",
-              icon: FaUserCog,
-              text: "Every home and business is unique, and so are your cleaning needs. We listen to your requests and preferences, creating a custom cleaning plan that fits your schedule. Your space is cleaned your way, every time."
-            },
-            {
-              title: "Affordable Services:",
-              icon: FaTags,
-              text: "Everyone deserves a clean, healthy space. We keep our prices fair and honest with no hidden fees. We'll work with your budget to create a cleaning plan that fits your needs and wallet. Quality cleaning that's accessible and stress-free."
-            },
-            {
-              title: "A Team You Can Trust:",
+              title: "Highly Trained & Disciplined Staff",
               icon: MdGroups,
-              text: "We're a local company with friendly, reliable staff you can count on. You'll see the same faces at every visit. We treat your property with respect, keep you informed, and are always happy to answer questions or adjust to your needs."
+              text: "Our people are our strength. Every team member is carefully selected, thoroughly trained, and committed to the highest standards. All our staff are Kenyan citizens who bring skill, discipline, and genuine care to every job."
             },
             {
-              title: "Satisfaction Guaranteed:",
-              icon: HiShieldCheck,
-              text: "Your peace of mind is our priority. If you're ever less than 100% satisfied, let us know within 24 hours and we'll return to make it right—at no extra cost. We stand by our promise because we want you to feel confident and valued every time."
-            },
-            {
-              title: "Spotless Results, Every Visit:",
+              title: "Eco-Friendly Products & Modern Equipment",
               icon: MdAutoAwesome,
-              text: "A truly clean space is one you can see, feel, and enjoy. Our team pays attention to every detail, using safe, effective products and proven techniques to deliver a deep, lasting clean. You'll notice the difference right away."
+              text: "We invest in the latest cleaning technology and environmentally responsible products. From industrial scrubbers to specialized floor care machines, our equipment delivers exceptional results while protecting your space and our planet."
             },
             {
-              title: "No Contracts, No Worries:",
+              title: "Regular Supervision & Quality Inspections",
+              icon: FaUserCog,
+              text: "Quality is never left to chance. Our supervisors conduct regular inspections to ensure consistent, high standards. We monitor every detail, follow strict cleaning protocols, and maintain open communication with our clients."
+            },
+            {
+              title: "Fast Response to Your Needs",
+              icon: FaTags,
+              text: "When you need us, we're there. Our team responds quickly to requests, adjustments, and emergencies. We understand that your time matters, and we work around your schedule to minimize disruption to your operations."
+            },
+            {
+              title: "Occupational Health & Safety Compliant",
+              icon: HiShieldCheck,
+              text: "Your safety and ours is paramount. We follow strict OHS standards, train our staff in safe work practices, and maintain a health-conscious approach to every job. You can trust that your facility is in responsible hands."
+            },
+            {
+              title: "Comprehensive Insurance Coverage",
               icon: HiLockOpen,
-              text: "Stay with us because you love our service, not because you're locked into a contract. Total flexibility—pause, cancel, or change your schedule anytime. No hidden fees or long-term commitments, just honest, straightforward service."
+              text: "Complete peace of mind, guaranteed. We carry third party and public liability insurance, employer's liability, workman's compensation, and coverage against loss or damage to property. Your facility is fully protected."
             }
           ].map((para, i) => (
             <motion.div 

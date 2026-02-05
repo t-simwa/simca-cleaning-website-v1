@@ -4,11 +4,11 @@ import Link from "next/link"
 import { ArrowRight, LucideProps } from "lucide-react"
 import React from "react"
 // Unique icons from different icon libraries
-import { FaHome } from "react-icons/fa" // Font Awesome - Home
-import { MdBusiness } from "react-icons/md" // Material Design - Business
-import { FaCouch } from "react-icons/fa" // Font Awesome - Upholstery
-import { FaBug } from "react-icons/fa" // Font Awesome - Bug
+import { FaBuilding } from "react-icons/fa" // Font Awesome - Building
+import { MdCleaningServices } from "react-icons/md" // Material Design - Cleaning
+import { FaPumpSoap } from "react-icons/fa" // Font Awesome - Hygiene
 import { FaLeaf } from "react-icons/fa" // Font Awesome - Leaf
+import { FaUsers } from "react-icons/fa" // Font Awesome - Staff/Labour
 import { MdStars } from "react-icons/md" // Material Design - Specialized
 import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Shield
 import { useState, useEffect } from "react"
@@ -34,89 +34,89 @@ export default function ServicesOverview() {
 
   const services: Service[] = [
     {
-      title: "Residential Cleaning",
-      description: "Sparkling homes tailored to your schedule. Safe, eco-friendly products. No contracts—just reliable, flexible service for a healthier home.",
-      icon: FaHome,
-      link: "/services/residential",
-      image: "/services/residential-cleaning.webp",
-      features: [
-        "Kitchen cleaning (counters, appliances, sinks, cabinets)",
-        "Bathroom sanitization (toilets, showers, mirrors, floors)",
-        "Living areas (dusting, vacuuming, mopping, surfaces)",
-        "Bedroom cleaning (beds, furniture, floors, windows)"
-      ],
-      category: "residential",
-      rating: 4.9,
-      reviews: 128,
-      availability: "Available 7 days a week"
-    },
-    {
-      title: "Commercial Cleaning",
-      description: "Keep your business spotless and productive. We work around your hours with trained staff and custom plans for offices, shops, and schools. Affordable rates, no long-term contracts.",
-      icon: MdBusiness,
+      title: "Contract Cleaning",
+      description: "Daily maintenance cleaning for hospitals, hotels, government offices, schools, industrial premises, and commercial buildings. Our trained staff deliver consistent, quality results you can count on.",
+      icon: FaBuilding,
       link: "/services/commercial",
       image: "/services/commercial-service.png",
       features: [
-        "Office spaces (desks, floors, common areas, kitchens)",
-        "Restroom sanitization and maintenance",
-        "Reception and lobby cleaning",
-        "Break room and kitchen area cleaning"
+        "Hospitals and healthcare facilities",
+        "Hotels and hospitality venues",
+        "Government and institutional offices",
+        "Schools, colleges, and industrial premises"
       ],
       category: "commercial",
-      rating: 4.8,
-      reviews: 95,
-      availability: "Available 24/7 for emergencies"
+      rating: 4.9,
+      reviews: 128,
+      availability: "Flexible scheduling around your operations"
     },
     {
-      title: "Carpet & Upholstery",
-      description: "Breathe new life into your carpets and furniture. Advanced stain removal and gentle deep-cleaning methods protect your fabrics, leaving everything fresh and safe.",
-      icon: FaCouch,
+      title: "Specialized Cleaning",
+      description: "Expert deep cleaning services using modern equipment. From carpet care to post-construction cleanup, our skilled team handles every detail with professionalism and care.",
+      icon: MdCleaningServices,
       link: "/services/carpet-upholstery",
       image: "/services/carpet-cleaning.jpeg",
       features: [
-        "Deep carpet cleaning and stain removal",
-        "Sofa and chair upholstery cleaning",
-        "Area rug cleaning and treatment",
-        "Odor elimination and fabric protection"
-      ],
-      category: "specialized",
-      rating: 4.7,
-      reviews: 112,
-      availability: "Satisfaction guaranteed or we'll reclean"
-    },
-    {
-      title: "Fumigation & Pest Control",
-      description: "Eliminate pests and protect your property with professional fumigation services. Safe, effective treatment methods ensure complete pest elimination and long-term prevention.",
-      icon: FaBug,
-      link: "/services/fumigation-pest-control",
-      image: "/services/fumigation.jpeg",
-      features: [
-        "Comprehensive pest elimination",
-        "Safe and eco-friendly treatments",
-        "Rodent and insect control",
-        "Preventive maintenance programs"
+        "Carpet and upholstery deep cleaning",
+        "Strip and seal of floors, buffing, and polishing",
+        "High-pressure and window cleaning",
+        "Post-construction and flood/fire restoration"
       ],
       category: "specialized",
       rating: 4.8,
-      reviews: 89,
-      availability: "Available upon request, including emergency services"
+      reviews: 112,
+      availability: "One-time or scheduled deep cleans"
     },
     {
-      title: "Landscaping Services",
-      description: "Transform your outdoor spaces into beautiful, well-maintained landscapes. We create and maintain stunning gardens, lawns, and outdoor environments.",
+      title: "Hygiene Supplies",
+      description: "Complete hygiene solutions for your facility. We supply and service quality dispensers, sanitary products, and consumables to keep your spaces fresh, clean, and welcoming.",
+      icon: FaPumpSoap,
+      link: "/services/commercial",
+      image: "/services/residential-cleaning.webp",
+      features: [
+        "Towel dispensers and hand dryers",
+        "Soap dispensers and sanitary bins",
+        "Air fresheners and sanitizers",
+        "Toilet rolls, paper towels, and liquid soap"
+      ],
+      category: "supplies",
+      rating: 4.8,
+      reviews: 95,
+      availability: "Regular supply and restocking services"
+    },
+    {
+      title: "Landscaping & Gardening",
+      description: "Beautiful, well-maintained outdoor spaces that reflect the care you put into your facility. From grounds maintenance to office plant care, we help your environment thrive.",
       icon: FaLeaf,
       link: "/services/landscaping-services",
       image: "/services/landscaping.webp",
       features: [
-        "Garden design and installation",
-        "Lawn care and maintenance",
-        "Irrigation system installation",
-        "Seasonal maintenance programs"
+        "Grounds maintenance and lawn care",
+        "Office plant supply and care",
+        "Garden design and upkeep",
+        "Seasonal planting and maintenance"
       ],
       category: "specialized",
       rating: 4.7,
       reviews: 76,
       availability: "Flexible scheduling, including weekends"
+    },
+    {
+      title: "Labour Outsourcing",
+      description: "Access trained, reliable cleaning staff and machine operators when you need them. Whether permanent or temporary, we provide skilled personnel who meet our high standards.",
+      icon: FaUsers,
+      link: "/services/commercial",
+      image: "/commercial/commercial-01.webp",
+      features: [
+        "Trained cleaning staff placement",
+        "Skilled machine operators",
+        "Permanent and temporary recruitment",
+        "Supervised and quality-assured teams"
+      ],
+      category: "staffing",
+      rating: 4.9,
+      reviews: 89,
+      availability: "Flexible staffing solutions"
     },
   ]
 
@@ -126,9 +126,10 @@ export default function ServicesOverview() {
 
   const categories = [
     { id: "all", label: "All Services", icon: MdStars, description: "Complete range of professional cleaning solutions" },
-    { id: "residential", label: "Residential", icon: FaHome, description: "Personalized home cleaning solutions" },
-    { id: "commercial", label: "Commercial", icon: MdBusiness, description: "Business-focused cleaning services" },
-    { id: "specialized", label: "Premium Services", icon: HiShieldCheck, description: "Advanced cleaning for special requirements" },
+    { id: "commercial", label: "Contract Cleaning", icon: FaBuilding, description: "Daily maintenance for institutions" },
+    { id: "specialized", label: "Specialized", icon: MdCleaningServices, description: "Deep cleaning and restoration" },
+    { id: "supplies", label: "Hygiene Supplies", icon: FaPumpSoap, description: "Dispensers and consumables" },
+    { id: "staffing", label: "Labour Outsourcing", icon: FaUsers, description: "Trained staff placement" },
   ]
 
   return (
@@ -160,9 +161,9 @@ export default function ServicesOverview() {
           <motion.h2 
             className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
           >
-            <span className="block mb-1">Affordable, Professional</span>
+            <span className="block mb-1">Complete Cleaning &</span>
             <span className="text-add8e6 relative inline-block block mb-1 ml-2">
-              Cleaning Services
+              Facility Solutions
               <motion.span
                 className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                 initial={{ scaleX: 0 }}
@@ -172,7 +173,7 @@ export default function ServicesOverview() {
                 style={{ display: 'block' }}
               />
             </span>
-            <span className="inline-block ml-2">for Homes & Businesses</span>
+            <span className="inline-block ml-2">You Can Rely On</span>
           </motion.h2>
 
           <motion.p 
@@ -181,7 +182,7 @@ export default function ServicesOverview() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Expert cleaning services customized for your needs, always affordable, and backed by our satisfaction guarantee. Our skilled team uses the latest equipment to deliver spotless results and peace of mind.
+            From daily maintenance to specialized deep cleaning, hygiene supplies to trained staff placement. We provide everything your facility needs to stay clean, safe, and welcoming.
           </motion.p>
         </div>
 

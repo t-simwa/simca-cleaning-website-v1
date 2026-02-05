@@ -121,11 +121,11 @@ export default function Header() {
       name: "Services",
       href: "/services",
       subNav: [
-        { name: "Residential Cleaning", href: "/services/residential" },
-        { name: "Commercial Cleaning", href: "/services/commercial" },
-        { name: "Carpet & Upholstery Cleaning", href: "/services/carpet-upholstery" },
-        { name: "Fumigation & Pest Control", href: "/services/fumigation-pest-control" },
-        { name: "Landscaping Services", href: "/services/landscaping-services" },
+        { name: "Contract Cleaning", href: "/services/commercial" },
+        { name: "Specialized Cleaning", href: "/services/carpet-upholstery" },
+        { name: "Hygiene Supplies", href: "/services/commercial" },
+        { name: "Landscaping & Gardening", href: "/services/landscaping-services" },
+        { name: "Labour Outsourcing", href: "/services/commercial" },
       ],
     },
     { name: "Locations", href: "/locations" },
@@ -158,26 +158,26 @@ export default function Header() {
                 className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
                 <Phone className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Call Us: +254 721525901</span>
+                <span>Call Us: +254 721 525 901</span>
               </a>
               <span className="text-gray-400 dark:text-gray-600">|</span>
               <a
-                href="tel:+254735772968"
+                href="tel:+254412316600"
                 className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
                 <Phone className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
-                <span>+254 735772968</span>
+                <span>041-2316600</span>
               </a>
             </div>
 
             {/* Center Section - Email */}
             <div className="flex items-center justify-center gap-3">
               <a
-                href="mailto:Info@simcaagencies.co.ke"
+                href="mailto:info@simcaagencies.com"
                 className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
                 <Mail className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Email Us: Info@simcaagencies.co.ke</span>
+                <span>Email Us: info@simcaagencies.com</span>
               </a>
               <span className="text-gray-400 dark:text-gray-600">|</span>
               <a
@@ -384,21 +384,21 @@ export default function Header() {
                         <Phone className="h-4 w-4 md:h-4 md:w-4 mr-2" />
                         Call Us
                       </span>
-                      <span className="text-xs md:text-sm text-gray-500">+254 721525901</span>
+                      <span className="text-xs md:text-sm text-gray-500">+254 721 525 901</span>
                     </a>
                     <a
-                      href="tel:+254735772968"
+                      href="tel:+254412316600"
                       className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="flex items-center">
                         <Phone className="h-4 w-4 md:h-4 md:w-4 mr-2" />
-                        Emergency Line
+                        Office Line
                       </span>
-                      <span className="text-xs md:text-sm text-gray-500">+254 735772968</span>
+                      <span className="text-xs md:text-sm text-gray-500">041-2316600</span>
                     </a>
                     <a
-                      href="mailto:Info@simcaagencies.co.ke"
+                      href="mailto:info@simcaagencies.com"
                       className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -406,7 +406,7 @@ export default function Header() {
                         <Mail className="h-4 w-4 md:h-4 md:w-4 mr-2" />
                         Email Us
                       </span>
-                      <span className="text-xs md:text-sm text-gray-500">Info@simcaagencies.co.ke</span>
+                      <span className="text-xs md:text-sm text-gray-500">info@simcaagencies.com</span>
                     </a>
                     <a
                       href="mailto:simka1974@hotmail.com"

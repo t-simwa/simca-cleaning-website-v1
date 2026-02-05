@@ -177,7 +177,7 @@ export default function Hero() {
             >
               <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
                 <HiShieldCheck className="w-3.5 h-3.5" />
-                Kenya's Trusted Cleaning Partner
+                Where Quality Meets Care, Since 2005
               </span>
             </motion.div>
 
@@ -185,9 +185,9 @@ export default function Hero() {
               variants={itemVariants}
               className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
             >
-              Experience a Cleaner, Healthier Space with{" "}
+              Professional Cleaning, Hygiene Solutions &{" "}
               <span className="text-fff relative inline-block">
-                Simca Agencies
+                Facility Services
                 <motion.span
                   className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                   initial={{ scaleX: 0 }}
@@ -196,7 +196,7 @@ export default function Hero() {
                   transition={{ duration: 1, ease: 'easeOut' }}
                 />
               </span>{" "}
-              - Kenya's Trusted Cleaning Experts
+              You Can Trust
             </motion.h1>
 
             {/* LCP Optimized Paragraph - Renders immediately */}
@@ -206,7 +206,7 @@ export default function Hero() {
                 willChange: 'auto',
               }}
             >
-              Professional cleaning services for homes and businesses across Kenya. Customized solutions, flexible scheduling, and 100% satisfaction guarantee. Trusted by families and companies for quality, affordable cleaning services in Mombasa, Kisumu, and beyond.
+              Kenya's leading cleaning company serving hospitals, government institutions, hotels, schools, and industrial facilities. We deliver world-class standards with eco-friendly products, modern equipment, and fully insured, OHS-compliant services.
             </p>
 
             {/* Minimalist Stats Section */}
@@ -216,16 +216,16 @@ export default function Hero() {
             >
               {[
                 { 
-                  value: "98%", 
-                  label: "CLIENT SATISFACTION", 
+                  value: "19+", 
+                  label: "YEARS IN SERVICE", 
                 },
                 { 
-                  value: "5", 
-                  label: "CORPORATE OFFICES", 
+                  value: "6+", 
+                  label: "SECTORS SERVED", 
                 },
                 { 
-                  value: "15", 
-                  label: "YEARS EXPERIENCE", 
+                  value: "100%", 
+                  label: "KENYAN OWNED", 
                 }
               ].map((stat, index) => (
                 <motion.div
