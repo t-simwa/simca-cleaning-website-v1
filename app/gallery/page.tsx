@@ -6,12 +6,11 @@ import { ZoomIn } from "lucide-react"
 import React from "react"
 // Beautiful styled icons from react-icons
 import { MdStars } from "react-icons/md" // Material Design - All/Sparkles
-import { FaHome } from "react-icons/fa" // Font Awesome - Residential
-import { MdBusiness } from "react-icons/md" // Material Design - Commercial
-import { FaCouch } from "react-icons/fa" // Font Awesome - Carpet & Upholstery
-import { FaBug } from "react-icons/fa" // Font Awesome - Fumigation & Pest Control
+import { FaBuilding } from "react-icons/fa" // Font Awesome - Contract Cleaning
+import { MdCleaningServices } from "react-icons/md" // Material Design - Specialized Cleaning
 import { FaLeaf } from "react-icons/fa" // Font Awesome - Landscaping
 import { FaUsers } from "react-icons/fa" // Font Awesome - Our Team
+import { FaSprayCan } from "react-icons/fa" // Font Awesome - Sanitization
 import { FaCamera } from "react-icons/fa" // Font Awesome - Camera
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import Link from "next/link"
@@ -96,16 +95,16 @@ function StatsSectionWithAnimation() {
     >
       {[
         {
-          value: "100+",
-          label: "PROJECTS COMPLETED",
+          value: "19+",
+          label: "YEARS IN SERVICE",
         },
         {
           value: "5",
-          label: "SERVICE CATEGORIES",
+          label: "CORE SERVICES",
         },
         {
           value: "100%",
-          label: "CLIENT SATISFACTION",
+          label: "KENYAN OWNED",
         }
       ].map((stat, index) => (
         <motion.div
@@ -134,10 +133,9 @@ export default function GalleryPage() {
   const categories = [
     { id: "all", name: "All", icon: MdStars },
     { id: "team", name: "Our Team", icon: FaUsers },
-    { id: "residential", name: "Residential", icon: FaHome },
-    { id: "commercial", name: "Commercial", icon: MdBusiness },
-    { id: "carpet", name: "Carpet & Upholstery", icon: FaCouch },
-    { id: "fumigation", name: "Fumigation & Pest Control", icon: FaBug },
+    { id: "contract", name: "Contract Cleaning", icon: FaBuilding },
+    { id: "specialized", name: "Specialized Cleaning", icon: MdCleaningServices },
+    { id: "sanitization", name: "Sanitization", icon: FaSprayCan },
     { id: "landscaping", name: "Landscaping", icon: FaLeaf },
   ]
 
@@ -146,223 +144,222 @@ export default function GalleryPage() {
     {
       id: 1,
       src: "/gallery/team-photos/team-01.jpeg",
-      alt: "Simca Agencies team",
+      alt: "Simca Agencies trained cleaning staff",
       category: "team",
-      title: "Simca Agencies Team",
-      description: "Simca Agencies team",
+      title: "Our Trained Professionals",
+      description: "Dedicated Kenyan staff delivering excellence since 2005",
     },
     {
       id: 2,
       src: "/gallery/team-photos/team-02.jpeg",
-      alt: "Simca Agencies team",
+      alt: "Simca Agencies team at work",
       category: "team",
-      title: "Simca Agencies Team",
-      description: "Simca Agencies team",
+      title: "Team in Action",
+      description: "Our disciplined team serving Kenya's leading institutions",
     },
     {
       id: 3,
       src: "/gallery/team-photos/team-03.jpeg",
-      alt: "Simca Agencies team",
+      alt: "Simca Agencies professional staff",
       category: "team",
-      title: "Simca Agencies Team",
-      description: "Simca Agencies team",
+      title: "Professional Excellence",
+      description: "Highly trained and OHS compliant team members",
     },
     {
       id: 4,
       src: "/gallery/team-photos/team-04.jpeg",
-      alt: "Simca Agencies team",
+      alt: "Simca Agencies cleaning crew",
       category: "team",
-      title: "Simca Agencies Team",
-      description: "Simca Agencies team",
+      title: "The Simca Family",
+      description: "100% Kenyan-owned, 100% dedicated to quality",
     },
-    // Residential Cleaning Images
+    // Contract Cleaning Images (Offices, Institutions, Commercial)
     {
       id: 5,
       src: "/residential/why-choose-simca.webp",
-      alt: "Professional residential cleaning services",
-      category: "residential",
-      title: "Professional Residential Cleaning Services",
-      description: "Professional residential cleaning services",
+      alt: "Contract cleaning for offices and institutions",
+      category: "contract",
+      title: "Daily Maintenance Cleaning",
+      description: "Professional contract cleaning for offices and commercial spaces",
     },
     {
       id: 6,
       src: "/residential/residential-01.jpeg",
-      alt: "Professional residential cleaning services",
-      category: "residential",
-      title: "Professional Residential Cleaning Services",
-      description: "Professional residential cleaning services",
+      alt: "Contract cleaning services",
+      category: "contract",
+      title: "Office Cleaning Services",
+      description: "Maintaining clean and healthy work environments",
     },
     {
       id: 7,
       src: "/residential/residential-02.jpeg",
-      alt: "Professional residential cleaning services",
-      category: "residential",
-      title: "Professional Residential Cleaning Services",
-      description: "Professional residential cleaning services",
+      alt: "Contract cleaning services",
+      category: "contract",
+      title: "Institutional Facility Cleaning",
+      description: "Professional cleaning for schools and healthcare facilities",
     },
     {
       id: 8,
       src: "/residential/residential-03.webp",
-      alt: "Professional residential cleaning services",
-      category: "residential",
-      title: "Professional Residential Cleaning Services",
-      description: "Professional residential cleaning services",
+      alt: "Contract cleaning services",
+      category: "contract",
+      title: "Commercial Space Maintenance",
+      description: "Keeping commercial spaces spotless and welcoming",
     },
     {
       id: 9,
       src: "/residential/residential-03.jpeg",
-      alt: "Professional residential cleaning services",
-      category: "residential",
-      title: "Professional Residential Cleaning Services",
-      description: "Professional residential cleaning services",
+      alt: "Contract cleaning services",
+      category: "contract",
+      title: "Professional Facility Care",
+      description: "Trained staff delivering quality cleaning services",
     },
-    // Commercial Cleaning Images
     {
       id: 11,
       src: "/commercial/why-choose-simca.jpg",
-      alt: "Professional commercial cleaning services",
-      category: "commercial",
-      title: "Professional Commercial Cleaning Services",
-      description: "Professional commercial cleaning services",
+      alt: "Contract cleaning for commercial buildings",
+      category: "contract",
+      title: "Commercial Building Cleaning",
+      description: "Professional cleaning for hotels, hospitals, and government offices",
     },
     {
       id: 12,
       src: "/commercial/commercial-01.jpeg",
-      alt: "Professional commercial cleaning services",
-      category: "commercial",
-      title: "Professional Commercial Cleaning Services",
-      description: "Professional commercial cleaning services",
+      alt: "Contract cleaning services",
+      category: "contract",
+      title: "Hotel and Hospitality Cleaning",
+      description: "Maintaining world-class cleanliness standards",
     },
     {
       id: 13,
       src: "/commercial/commercial-02.jpeg",
-      alt: "Professional commercial cleaning services",
-      category: "commercial",
-      title: "Professional Commercial Cleaning Services",
-      description: "Professional commercial cleaning services",
+      alt: "Contract cleaning services",
+      category: "contract",
+      title: "Government Office Cleaning",
+      description: "Trusted by Kenya's leading institutions",
     },
     {
       id: 14,
       src: "/commercial/commercial-03.jpeg",
-      alt: "Professional commercial cleaning services",
-      category: "commercial",
-      title: "Professional Commercial Cleaning Services",
-      description: "Professional commercial cleaning services",
+      alt: "Contract cleaning services",
+      category: "contract",
+      title: "Industrial Premises Cleaning",
+      description: "Professional maintenance for industrial facilities",
     },
     {
       id: 15,
       src: "/commercial/commercial-04.jpeg",
-      alt: "Professional commercial cleaning services",
-      category: "commercial",
-      title: "Professional Commercial Cleaning Services",
-      description: "Professional commercial cleaning services",
+      alt: "Contract cleaning services",
+      category: "contract",
+      title: "School and University Cleaning",
+      description: "Creating clean learning environments",
     },
-    // Carpet & Upholstery Cleaning Images
+    // Specialized Cleaning Images (Carpet, Deep Cleaning, Floor Care)
     {
       id: 17,
       src: "/carpet/why-choose-us.jpeg",
-      alt: "Professional carpet and upholstery cleaning services",
-      category: "carpet",
-      title: "Professional Carpet and Upholstery Cleaning Services",
-      description: "Professional carpet and upholstery cleaning services",
+      alt: "Specialized carpet and upholstery cleaning",
+      category: "specialized",
+      title: "Carpet Deep Cleaning",
+      description: "Professional carpet and upholstery deep cleaning services",
     },
     {
       id: 18,
       src: "/carpet/carpet-01.webp",
-      alt: "Professional carpet and upholstery cleaning services",
-      category: "carpet",
-      title: "Professional Carpet and Upholstery Cleaning Services",
-      description: "Professional carpet and upholstery cleaning services",
+      alt: "Specialized floor cleaning",
+      category: "specialized",
+      title: "Floor Strip and Seal",
+      description: "Expert strip and seal services for all floor types",
     },
     {
       id: 19,
       src: "/carpet/carpet-02.webp",
-      alt: "Professional carpet and upholstery cleaning services",
-      category: "carpet",
-      title: "Professional Carpet and Upholstery Cleaning Services",
-      description: "Professional carpet and upholstery cleaning services",
+      alt: "Specialized cleaning services",
+      category: "specialized",
+      title: "Upholstery Care",
+      description: "Professional upholstery cleaning and maintenance",
     },
     {
       id: 20,
       src: "/carpet/carpet-03.jpeg",
-      alt: "Professional carpet and upholstery cleaning services",
-      category: "carpet",
-      title: "Professional Carpet and Upholstery Cleaning Services",
-      description: "Professional carpet and upholstery cleaning services",
+      alt: "Specialized cleaning equipment",
+      category: "specialized",
+      title: "Modern Cleaning Equipment",
+      description: "Using advanced equipment for superior results",
     },
-    // Fumigation & Pest Control Images
+    // Sanitization Images
     {
       id: 22,
       src: "/sanitization/santization-01.jpeg",
-      alt: "Professional fumigation and pest control services",
-      category: "fumigation",
-      title: "Professional Fumigation and Pest Control Services",
-      description: "Professional fumigation and pest control services",
+      alt: "Professional sanitization services",
+      category: "sanitization",
+      title: "Facility Sanitization",
+      description: "Comprehensive sanitization for healthy environments",
     },
     {
       id: 23,
       src: "/sanitization/fumigation-01.jpeg",
-      alt: "Professional fumigation and pest control services",
-      category: "fumigation",
-      title: "Professional Fumigation and Pest Control Services",
-      description: "Professional fumigation and pest control services",
+      alt: "Professional sanitization services",
+      category: "sanitization",
+      title: "Deep Sanitization",
+      description: "Thorough sanitization using eco-friendly products",
     },
     {
       id: 24,
       src: "/sanitization/fumigation-02.webp",
-      alt: "Professional fumigation and pest control services",
-      category: "fumigation",
-      title: "Professional Fumigation and Pest Control Services",
-      description: "Professional fumigation and pest control services",
+      alt: "Professional sanitization services",
+      category: "sanitization",
+      title: "Healthcare Facility Sanitization",
+      description: "Meeting the highest hygiene standards for healthcare",
     },
     {
       id: 25,
       src: "/sanitization/fumigation-03.webp",
-      alt: "Professional fumigation and pest control services",
-      category: "fumigation",
-      title: "Professional Fumigation and Pest Control Services",
-      description: "Professional fumigation and pest control services",
+      alt: "Professional sanitization services",
+      category: "sanitization",
+      title: "Commercial Sanitization",
+      description: "Keeping commercial spaces safe and hygienic",
     },
-    // Landscaping Services Images
+    // Landscaping & Gardening Images
     {
       id: 27,
       src: "/landscaping/landscaping.jpeg",
-      alt: "Professional landscaping services",
+      alt: "Professional landscaping and gardening",
       category: "landscaping",
-      title: "Professional Landscaping Services",
-      description: "Professional landscaping services",
+      title: "Grounds Maintenance",
+      description: "Professional grounds maintenance for commercial properties",
     },
     {
       id: 28,
       src: "/landscaping/landscaping-01.jpeg",
-      alt: "Professional landscaping services",
+      alt: "Office plant care",
       category: "landscaping",
-      title: "Professional Landscaping Services",
-      description: "Professional landscaping services",
+      title: "Office Plant Care",
+      description: "Keeping indoor plants healthy and thriving",
     },
     {
       id: 29,
       src: "/landscaping/landscaping-02.jpeg",
-      alt: "Professional landscaping services",
+      alt: "Garden maintenance",
       category: "landscaping",
-      title: "Professional Landscaping Services",
-      description: "Professional landscaping services",
+      title: "Garden Design and Upkeep",
+      description: "Beautiful, well-maintained outdoor spaces",
     },
     {
       id: 30,
       src: "/landscaping/landscaping-03.jpeg",
-      alt: "Professional landscaping services",
+      alt: "Lawn care services",
       category: "landscaping",
-      title: "Professional Landscaping Services",
-      description: "Professional landscaping services",
+      title: "Lawn Care Services",
+      description: "Professional lawn maintenance and care",
     },
     {
       id: 31,
       src: "/landscaping/landscaping-04.jpeg",
-      alt: "Professional landscaping services",
+      alt: "Seasonal landscaping",
       category: "landscaping",
-      title: "Professional Landscaping Services",
-      description: "Professional landscaping services",
+      title: "Seasonal Planting",
+      description: "Seasonal planting and landscape maintenance",
     },
   ]
 
@@ -420,7 +417,7 @@ export default function GalleryPage() {
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
                 className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
               >
-                Every photo in our gallery tells a story of care, trust, and attention to detail. We treat every space as if it were our own, working closely with you to deliver results you can see and feel. Whether it's a home, office, or something in between, our team is dedicated to making your environment shine—no shortcuts, no surprises, just honest work and real results. See what's possible when you choose a cleaning partner who truly cares.
+                Every photo in our gallery tells a story of professionalism, dedication, and attention to detail. From hospitals and hotels to government offices and schools, our trained teams deliver world-class cleaning standards across Kenya. See the quality that has made Simca Agencies the trusted choice for leading institutions since 2005.
               </motion.p>
               {/* Minimalist Stats Section */}
               <StatsSectionWithAnimation />
