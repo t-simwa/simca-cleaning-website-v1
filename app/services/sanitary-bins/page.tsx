@@ -63,9 +63,15 @@ function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: st
     if (match) {
       textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
     }
-    if (end.includes('%')) display = `${count.toFixed(1)}%`;
+    if (end.includes('%')) {
+      const numPart = parseFloat(end);
+      display = Number.isInteger(numPart) ? `${Math.round(count)}%` : `${count.toFixed(1)}%`;
+    }
     else if (end.includes('+')) display = `${Math.floor(count)}+`;
-    else if (textSuffix) display = `${count.toFixed(1)}${textSuffix}`;
+    else if (textSuffix) {
+      const numPart = parseFloat(end);
+      display = Number.isInteger(numPart) ? `${Math.round(count)}${textSuffix}` : `${count.toFixed(1)}${textSuffix}`;
+    }
     else if (end.includes('.')) display = count.toFixed(1);
   }
   return <span>{display}{suffix}</span>;
