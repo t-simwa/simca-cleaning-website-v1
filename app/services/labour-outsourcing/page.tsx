@@ -249,7 +249,7 @@ export default function LabourOutsourcingPage() {
   }
 
   const heroImage = {
-    src: "/commercial/hero.webp",
+    src: "/home-hero/hero-main.jpg",
     alt: "Professional labour outsourcing services in Kenya",
   }
 

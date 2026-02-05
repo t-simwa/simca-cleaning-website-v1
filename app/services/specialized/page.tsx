@@ -283,7 +283,7 @@ export default function SpecializedCleaningPage() {
 
 
   const heroImage = {
-    src: "/home-hero/cleaner-home.jpg",
+    src: "/services/specialized-cleaning.png",
     alt: "Professional specialized cleaning services in Kenya",
   }
 

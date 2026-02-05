@@ -38,7 +38,7 @@ export default function TrustedClients() {
     },
     {
       name: "Kenya Maritime Authority",
-      logo: "/trusted-clients/kpa-logo.png",
+      logo: "/trusted-clients/kma-logo.png",
       link: "https://www.kma.go.ke/",
       description: "National maritime regulatory body",
       years: "5+",
@@ -56,7 +56,7 @@ export default function TrustedClients() {
     },
     {
       name: "Mombasa Polytechnic University",
-      logo: "/trusted-clients/kpa-logo.png",
+      logo: "/trusted-clients/mp-logo.jpg",
       link: "https://www.tum.ac.ke/",
       description: "Leading technical university in Mombasa",
       years: "5+",

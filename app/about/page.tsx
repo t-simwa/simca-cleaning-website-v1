@@ -990,7 +990,7 @@ export default function AboutPage() {
                   >
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
                     <Image
-                      src="/ceo.jpg?height=800&width=600"
+                      src="/about/david-ceo.jpeg"
                       alt="David Simwa - Founder & CEO of Simca Agencies"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"

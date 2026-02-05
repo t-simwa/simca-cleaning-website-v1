@@ -72,7 +72,7 @@ export default function ServicesOverview() {
       description: "Complete hygiene solutions for your facility. We supply and service quality dispensers, sanitary products, and consumables to keep your spaces fresh, clean, and welcoming.",
       icon: FaPumpSoap,
       link: "/services/hygiene-supplies",
-      image: "/services/residential-cleaning.webp",
+      image: "/sanitization/hero.webp",
       features: [
         "Towel dispensers and hand dryers",
         "Soap dispensers and sanitary bins",
@@ -106,7 +106,7 @@ export default function ServicesOverview() {
       description: "Access trained, reliable cleaning staff and machine operators when you need them. Whether permanent or temporary, we provide skilled personnel who meet our high standards.",
       icon: FaUsers,
       link: "/services/labour-outsourcing",
-      image: "/commercial/commercial-01.webp",
+      image: "/home-hero/hero-main.jpg",
       features: [
         "Trained cleaning staff placement",
         "Skilled machine operators",

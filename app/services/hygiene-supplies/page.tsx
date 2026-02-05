@@ -251,7 +251,7 @@ export default function HygieneSuppliesPage() {
   }
 
   const heroImage = {
-    src: "/sanitization/sanitization-hero.webp",
+    src: "/sanitization/hero.webp",
     alt: "Professional hygiene supplies and solutions in Kenya",
   }
 

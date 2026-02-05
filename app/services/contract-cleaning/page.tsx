@@ -276,7 +276,7 @@ export default function ContractCleaningPage() {
   }
 
   const heroImage = {
-    src: "/commercial/hero.webp",
+    src: "/services/window-cleaning.png",
     alt: "Professional contract cleaning services in Kenya",
   }
 
