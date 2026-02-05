@@ -86,16 +86,16 @@ function StatsSectionWithAnimation() {
     >
       {[
         { 
+          value: "19+", 
+          label: "YEARS OF EXPERIENCE", 
+        },
+        { 
           value: "100%", 
-          label: "SATISFACTION GUARANTEED", 
+          label: "OHS COMPLIANT", 
         },
         { 
-          value: "500+", 
-          label: "HAPPY CLIENTS", 
-        },
-        { 
-          value: "4.9", 
-          label: "AVERAGE RATING", 
+          value: "100%", 
+          label: "FULLY INSURED", 
         }
       ].map((stat, index) => (
         <motion.div
@@ -288,11 +288,11 @@ export default function SpecializedCleaningPage() {
   }
 
   const whatsIncludedImages = [
-    { src: "/home-hero/cleaner-home.jpg", alt: "Image 1" },
-    { src: "/home-hero/cleaner-home.jpg", alt: "Image 2" },
-    { src: "/home-hero/cleaner-home.jpg", alt: "Image 3" },
-    { src: "/home-hero/cleaner-home.jpg", alt: "Image 4" },
-    { src: "/home-hero/cleaner-home.jpg", alt: "Image 5" },
+    { src: "/carpet/carpet-01.webp", alt: "Professional carpet cleaning" },
+    { src: "/commercial/commercial-01.jpeg", alt: "Commercial floor maintenance" },
+    { src: "/carpet/carpet-02.webp", alt: "Deep upholstery cleaning" },
+    { src: "/commercial/commercial-02.jpeg", alt: "Industrial cleaning equipment" },
+    { src: "/carpet/carpet-03.jpeg", alt: "Specialized stain removal" },
   ];
 
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -434,7 +434,7 @@ export default function SpecializedCleaningPage() {
               <div className="w-full mb-6 md:hidden">
                 <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[20rem] xs:h-[24rem] sm:h-[28rem] mx-auto">
                   <Image
-                    src="/home-hero/cleaner-home.jpg"
+                    src="/commercial/why-choose-simca.jpg"
                     alt="Professional specialized cleaning services"
                     width={800}
                     height={600}
@@ -456,7 +456,7 @@ export default function SpecializedCleaningPage() {
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
               <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
                     <Image
-                      src="/home-hero/cleaner-home.jpg"
+                      src="/commercial/why-choose-simca.jpg"
                       alt="Professional specialized cleaning services"
                       width={800}
                       height={600}

@@ -94,16 +94,16 @@ function StatsSectionWithAnimation() {
     >
       {[
         { 
+          value: "19+", 
+          label: "YEARS OF EXPERIENCE", 
+        },
+        { 
           value: "100%", 
-          label: "QUALITY GUARANTEED", 
+          label: "ECO-FRIENDLY", 
         },
         { 
-          value: "500+", 
-          label: "PROJECTS COMPLETED", 
-        },
-        { 
-          value: "4.9", 
-          label: "AVERAGE RATING", 
+          value: "100%", 
+          label: "FULLY INSURED", 
         }
       ].map((stat, index) => (
         <motion.div
