@@ -1,15 +1,15 @@
 "use client";
 
-import { Sprout, ArrowRight, MapPin, Phone, Mail, Users, Calendar, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
-import { FaLeaf } from "react-icons/fa"; // Font Awesome - Leaf
-// Unique icons from different icon libraries - matching home page style
-import { HiClock } from "react-icons/hi2"; // Heroicons v2 - Clock/Time
-import { MdStars } from "react-icons/md"; // Material Design - Quality/Star
-import { FaCog } from "react-icons/fa"; // Font Awesome - Settings/Customization
-import { HiShieldCheck } from "react-icons/hi2"; // Heroicons v2 - Shield/Reliability
-import { FaAward } from "react-icons/fa"; // Font Awesome - Award/Professionalism
-import { FaTags } from "react-icons/fa"; // Font Awesome - Tags/Cost-effective
-import { MdAutoAwesome } from "react-icons/md"; // Material Design - Benefits/Excellence
+import { Building2, ArrowRight, Phone, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
+import { MdBusiness } from "react-icons/md";
+import { HiClock } from "react-icons/hi2";
+import { MdStars } from "react-icons/md";
+import { FaLeaf } from "react-icons/fa";
+import { FaCog } from "react-icons/fa";
+import { HiShieldCheck } from "react-icons/hi2";
+import { FaAward } from "react-icons/fa";
+import { FaTags } from "react-icons/fa";
+import { MdAutoAwesome } from "react-icons/md";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -25,20 +25,16 @@ function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: st
   const [count, setCount] = useState(0)
   useEffect(() => {
     if (!inView) return;
-    // Handle non-numeric values (like "24/7", "1hr")
     if (typeof end === 'string' && !end.match(/^\d+/)) {
       return;
     }
-    // Extract numeric value and any text suffix
     let numericEnd: number;
-    let textSuffix = '';
     if (typeof end === 'number') {
       numericEnd = end;
     } else {
       const match = end.match(/^(\d+)(.*)$/);
       if (match) {
         numericEnd = parseInt(match[1]);
-        textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
       } else {
         numericEnd = parseInt(end);
       }
@@ -59,18 +55,16 @@ function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: st
     return () => {};
   }, [end, duration, inView]);
   
-  // Handle non-numeric values (like "24/7", "1hr")
   if (typeof end === 'string' && !end.match(/^\d+/)) {
     return <span>{end}{suffix}</span>;
   }
   
-  // Extract numeric value and any text suffix
   let display: string | number = count;
   let textSuffix = '';
   if (typeof end === 'string') {
     const match = end.match(/^(\d+)(.*)$/);
     if (match) {
-      textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
+      textSuffix = match[2];
     }
     if (end.includes('%')) display = `${count}%`;
     else if (end.includes('+')) display = `${count}+`;
@@ -94,16 +88,16 @@ function StatsSectionWithAnimation() {
     >
       {[
         { 
+          value: "19+", 
+          label: "YEARS OF EXPERIENCE", 
+        },
+        { 
+          value: "6+", 
+          label: "SECTORS SERVED", 
+        },
+        { 
           value: "100%", 
-          label: "QUALITY GUARANTEED", 
-        },
-        { 
-          value: "500+", 
-          label: "PROJECTS COMPLETED", 
-        },
-        { 
-          value: "4.9", 
-          label: "AVERAGE RATING", 
+          label: "OHS COMPLIANT", 
         }
       ].map((stat, index) => (
         <motion.div
@@ -144,73 +138,79 @@ interface ServiceDetail {
   whatsIncluded: { title: string; description: string; items: string[] };
 }
 
-const landscapingService: ServiceDetail = {
-  title: "Landscaping & Gardening",
-  description: "Professional grounds maintenance and office plant care services to keep your outdoor spaces and indoor environments green, healthy, and beautifully maintained.",
-  icon: <Sprout className="h-8 w-8 md:h-10 md:w-10 text-add8e6" />,
+const contractCleaningService: ServiceDetail = {
+  title: "Contract Cleaning",
+  description: "Reliable day-to-day maintenance cleaning services for hospitals, hotels, government offices, industrial premises, schools, banks, and commercial buildings. Our trained staff and modern equipment ensure your facility stays clean and professional.",
+  icon: <Building2 className="h-8 w-8 md:h-10 md:w-10 text-add8e6" />,
   features: [
-    "Grounds maintenance",
-    "Office plant care",
-    "Lawn care and mowing",
-    "Garden maintenance",
-    "Hedge and shrub trimming",
-    "Weed control",
-    "Seasonal planting",
-    "Irrigation management"
+    "Daily maintenance cleaning",
+    "Trained and disciplined staff",
+    "Modern cleaning equipment",
+    "Regular supervision and quality inspections",
+    "Eco-friendly cleaning products",
+    "OHS compliant operations",
+    "Comprehensive insurance coverage",
+    "Customized cleaning schedules"
   ],
-  availability: "Flexible scheduling to suit your facility",
+  availability: "Available 24/7 with flexible scheduling",
   process: {
-    title: "Our Landscaping Process",
+    title: "Our Cleaning Process",
     steps: [
       {
         title: "Site Assessment",
-        description: "We evaluate your grounds and indoor plant needs to understand the maintenance requirements."
+        description: "We conduct a comprehensive evaluation of your facility to understand its unique cleaning requirements."
       },
       {
-        title: "Maintenance Plan",
-        description: "A customized maintenance schedule is developed based on your facility and landscaping needs."
+        title: "Customized Plan",
+        description: "We develop a detailed cleaning plan tailored to your operations and schedule."
       },
       {
-        title: "Professional Care",
-        description: "Our trained staff provide regular grounds maintenance and plant care services."
+        title: "Professional Execution",
+        description: "Our trained team follows the plan with attention to detail and quality standards."
       },
       {
-        title: "Ongoing Support",
-        description: "Continuous maintenance to keep your grounds and plants healthy and well-maintained."
+        title: "Quality Assurance",
+        description: "Regular inspections and quality checks ensure consistent, high-standard results."
       }
     ]
   },
   pricing: {
-    title: "Landscaping Service Packages",
+    title: "Transparent Pricing",
     packages: [
       {
-        name: "Grounds Maintenance",
+        name: "Small Office / Clinic",
         price: "Custom Quote",
         features: [
-          "Lawn care and mowing",
-          "Hedge and shrub trimming",
-          "Weed control",
-          "General grounds upkeep"
+          "Daily maintenance cleaning",
+          "Up to 1,000 sq ft facility",
+          "Trained cleaning staff"
         ]
       },
       {
-        name: "Office Plant Care",
+        name: "Medium Facility",
         price: "Custom Quote",
         features: [
-          "Indoor plant maintenance",
-          "Watering and feeding",
-          "Plant health monitoring",
-          "Plant replacement as needed"
+          "Comprehensive daily cleaning",
+          "Up to 5,000 sq ft facility",
+          "Dedicated supervisor"
         ]
       },
       {
-        name: "Full Landscaping Package",
+        name: "Large Institution",
         price: "Custom Quote",
         features: [
-          "Grounds maintenance",
-          "Office plant care",
-          "Seasonal planting",
-          "Regular maintenance schedule"
+          "Full contract cleaning services",
+          "Unlimited square footage",
+          "24/7 availability options"
+        ]
+      },
+      {
+        name: "Custom Solutions",
+        price: "Negotiable",
+        features: [
+          "Hospitals, hotels, government facilities",
+          "Custom cleaning plans",
+          "Machine operators included"
         ]
       }
     ]
@@ -220,53 +220,37 @@ const landscapingService: ServiceDetail = {
     "Other areas upon consultation"
   ],
   whyChooseUs: {
-    title: "Why Choose Our Landscaping Services",
-    description: "We provide reliable grounds maintenance and plant care services with trained staff and consistent quality.",
+    title: "Why Choose Our Contract Cleaning",
+    description: "We care for your facility like it's our own. Trained teams, modern equipment, and complete peace of mind with full insurance and safety compliance.",
     points: [
-      "Experienced grounds maintenance staff",
-      "Regular and reliable service",
-      "Trained in plant care",
-      "Eco-friendly practices",
-      "OHS compliant operations",
+      "Highly trained and disciplined staff",
+      "All staff are Kenyan citizens",
+      "Eco-friendly products and modern equipment",
+      "Regular supervision and quality inspections",
+      "Occupational Health and Safety compliant",
       "Comprehensive insurance coverage",
-      "Flexible scheduling"
+      "Fast response to client needs"
     ]
   },
   whatsIncluded: {
     title: "What's Included in Our",
-    description: "Our landscaping and gardening service covers all aspects of grounds maintenance and office plant care.",
+    description: "Our comprehensive contract cleaning service covers every aspect of your facility maintenance.",
     items: [
-      "Lawn care and mowing",
-      "Hedge and shrub trimming",
-      "Weed control and removal",
-      "Garden bed maintenance",
-      "Office plant watering and care",
-      "Plant health monitoring",
-      "Seasonal planting",
-      "Debris removal and cleanup",
-      "Irrigation system checks",
-      "Regular maintenance visits"
+      "General housekeeping",
+      "Sweeping and mopping floors",
+      "Dusting fixtures and surfaces",
+      "Bathroom sanitization",
+      "Kitchen/tea room cleaning",
+      "Window and glass cleaning",
+      "Waste separation and disposal",
+      "Carpet vacuuming",
+      "High-touch point disinfection",
+      "Office plant care"
     ]
   }
 };
 
-export default function LandscapingServicesPage() {
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Handle window resize
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 640)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
-  
-  // Animation variants for the hero section
+export default function ContractCleaningPage() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -291,44 +275,37 @@ export default function LandscapingServicesPage() {
     },
   }
 
-
   const heroImage = {
-    src: "/landscaping/landscaping-hero.webp",
-    alt: "Professional landscaping services in Kenya",
+    src: "/commercial/hero.webp",
+    alt: "Professional contract cleaning services in Kenya",
   }
 
   const whyChooseUsImage = {
-    src: "/landscaping/landscaping.jpeg",
-    alt: "Professional landscaping team at work",
+    src: "/commercial/why-choose-simca.webp",
+    alt: "Professional contract cleaning team at work",
   }
 
   const whatsIncludedImages = [
-    {
-      src: "/landscaping/landscaping-01.jpeg",
-      alt: "Professional landscaping services - garden design"
-    },
-    {
-      src: "/landscaping/landscaping-02.jpeg",
-      alt: "Landscaping - lawn installation"
-    },
-    {
-      src: "/landscaping/landscaping-03.jpeg",
-      alt: "Landscaping - plant installation"
-    },
-    {
-      src: "/landscaping/landscaping-04.jpeg",
-      alt: "Landscaping - irrigation system installation"
-    }
+    { src: "/commercial/commercial-01.jpeg", alt: "Office cleaning" },
+    { src: "/commercial/commercial-02.jpeg", alt: "Bathroom sanitization" },
+    { src: "/commercial/commercial-03.jpeg", alt: "Common areas maintenance" },
+    { src: "/commercial/commercial-04.jpeg", alt: "Equipment cleaning" },
   ];
-  const [carouselIndex, setCarouselIndex] = useState(0);
-  const nextImage = () => setCarouselIndex((prev) => (prev + 1) % whatsIncludedImages.length);
-  const prevImage = () => setCarouselIndex((prev) => (prev - 1 + whatsIncludedImages.length) % whatsIncludedImages.length);
 
-  // Auto-scroll carousel
+  const [carouselIndex, setCarouselIndex] = useState(0);
+
+  const prevImage = () => {
+    setCarouselIndex((carouselIndex - 1 + whatsIncludedImages.length) % whatsIncludedImages.length);
+  };
+
+  const nextImage = () => {
+    setCarouselIndex((carouselIndex + 1) % whatsIncludedImages.length);
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCarouselIndex((prev) => (prev + 1) % whatsIncludedImages.length);
-    }, 8000); // Change image every 8 seconds
+    }, 8000);
 
     return () => clearInterval(interval);
   }, [whatsIncludedImages.length]);
@@ -337,7 +314,6 @@ export default function LandscapingServicesPage() {
     <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-        {/* Background Image */}
         <MotionImage
           src={heroImage.src}
           alt={heroImage.alt}
@@ -349,13 +325,11 @@ export default function LandscapingServicesPage() {
           animate={{ scale: 1.05 }}
           transition={{ duration: 10, ease: "easeOut" }}
         />
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/55" />
 
         <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
-            {/* Centered Content */}
-                <motion.div 
+            <motion.div 
               variants={containerVariants}
               initial="hidden"
               animate="visible"
@@ -364,14 +338,14 @@ export default function LandscapingServicesPage() {
               <motion.div
                 variants={itemVariants}
                 className="inline-block mb-6 sm:mb-4 md:mb-8"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
-                    <FaLeaf className="w-3.5 h-3.5" />
-                  Landscaping Services
-                  </span>
-                </motion.div>
+                  <MdBusiness className="w-3.5 h-3.5" />
+                  Contract Cleaning Services
+                </span>
+              </motion.div>
 
               <motion.h1
                 variants={itemVariants}
@@ -379,30 +353,28 @@ export default function LandscapingServicesPage() {
               >
                 Professional{" "}
                 <span className="text-fff relative inline-block">
-                  Landscaping
+                  Contract
                   <motion.span 
                     className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
-                      initial={{ scaleX: 0 }}
+                    initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, ease: 'easeOut' }}
                   />
                 </span>{" "}
-                Services
+                Cleaning
               </motion.h1>
 
-                <motion.p 
+              <motion.p 
                 variants={itemVariants}
                 className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
               >
-                Transform your outdoor spaces into beautiful, well-maintained landscapes with our professional landscaping services. Our experienced team creates stunning gardens, lawns, and outdoor environments that enhance your property value and provide a peaceful retreat for you and your family.
-                </motion.p>
+                Reliable day-to-day maintenance cleaning for hospitals, hotels, government offices, schools, banks, and industrial premises. Our trained staff deliver consistent, high-quality results with eco-friendly products, modern equipment, and full OHS compliance.
+              </motion.p>
 
-              {/* Minimalist Stats Section */}
               <StatsSectionWithAnimation />
 
-              {/* CTA Button */}
-                  <motion.div
+              <motion.div
                 variants={itemVariants}
                 className="flex justify-center mb-6"
               >
@@ -413,46 +385,43 @@ export default function LandscapingServicesPage() {
                   Get Your Free Quote
                   <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
-                      </motion.div>
-                  </motion.div>
-              </div>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Section Divider */}
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
-      {/* Why Choose Our Landscaping Services Section */}
+      {/* Why Choose Our Contract Cleaning Services Section */}
       <section className="relative py-12 md:py-16 lg:py-20">
-        {/* Background matching home page pattern */}
         <div className="absolute inset-0 bg-white dark:bg-gray-900">
           <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
-            {/* Text Column */}
             <div className="w-full md:w-1/2 max-w-3xl md:pl-14 flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-6 w-full flex justify-center md:justify-start">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm">
-                    <FaLeaf className="w-3.5 h-3.5" />
+                  <MdBusiness className="w-3.5 h-3.5" />
                   Why Choose Us
-                  </span>
-                </div>
+                </span>
+              </div>
               <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">Why Choose Our</span>
                 <span className="text-add8e6 relative inline-block block mb-4 ml-2">
-                  Landscaping Services?
+                  Contract
                   <motion.span 
                     className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
-                      initial={{ scaleX: 0 }}
+                    initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, ease: 'easeOut' }}
                     style={{ display: 'block' }}
-                    />
-                </span>
+                  />
+                </span>{" "}
+                <span>Cleaning Services?</span>
               </h2>
-              {/* Mobile image below heading, above paragraphs */}
               <div className="w-full mb-6 md:hidden">
                 <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[20rem] xs:h-[24rem] sm:h-[28rem] mx-auto">
                   <Image
@@ -462,152 +431,147 @@ export default function LandscapingServicesPage() {
                     height={600}
                     className="object-cover w-full h-full"
                   />
+                </div>
               </div>
-                    </div>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                A well-designed and maintained landscape enhances the beauty and value of your property while creating a peaceful outdoor environment. Whether you're looking to create a new garden, maintain an existing lawn, or transform your outdoor space, professional landscaping services are essential. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers comprehensive landscaping solutions designed to create and maintain beautiful outdoor spaces. We stand out as a trusted partner in bringing your landscaping vision to life.
+                <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies Ltd</Link></span> was established in 2005 and has evolved to become one of the largest and most specialized cleaning companies in Kenya. As a fully Kenyan-owned company, we take pride in delivering reliable, high-quality contract cleaning services to hospitals, hotels, government offices, schools, banks, industrial premises, and commercial buildings.
               </p>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Among professional landscaping services in Kenya, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is recognized for our commitment to quality, creativity, and customer satisfaction. We are pleased to offer top-notch landscaping services using quality plants, efficient irrigation systems, and proven techniques. Our team is dedicated to creating beautiful, sustainable landscapes that thrive and enhance your property for years to come.
+                Our success lies in our ability to train and manage staff to achieve the stringent standards demanded by our customers. We employ highly trained and disciplined staff who are all Kenyan citizens, ensuring accountability and commitment to excellence. Our team is equipped with modern cleaning equipment and uses eco-friendly products to deliver exceptional results.
               </p>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Our comprehensive landscaping services are tailored to meet your specific needs and vision. We pay close attention to soil conditions, climate, and your preferences to create custom designs that reflect your style. From garden design and installation to ongoing maintenance, with Simca, you can trust that every aspect of your landscape will be cared for by experienced professionals who understand the art and science of landscaping.
+                We provide comprehensive insurance coverage including third party/public liability insurance, employer's liability, workman's compensation, and insurance against loss and damage to property. Our operations are fully OHS compliant, and we maintain regular supervision with quality inspections to ensure consistent, high-standard results.
               </p>
-                      </div>
-            {/* Desktop image column */}
+            </div>
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
               <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[40rem] mx-auto">
-                    <Image
-                      src={whyChooseUsImage.src}
-                      alt={whyChooseUsImage.alt}
-                      width={800}
-                      height={600}
-                      className="object-cover w-full h-full"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                
-                
+                <Image
+                  src={whyChooseUsImage.src}
+                  alt={whyChooseUsImage.alt}
+                  width={800}
+                  height={600}
+                  className="object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
             </div>
+          </div>
         </div>
-      </div>
       </section>
 
-      {/* Section Divider */}
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
-      {/* Benefits of Our Landscaping Services Section */}
+      {/* Benefits Section */}
       <section className="relative py-12 md:py-16 lg:py-20">
-        {/* Background matching home page pattern */}
         <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
           <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
-                <motion.div 
+          <motion.div 
             className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-                >
+          >
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6/20 to-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6 backdrop-blur-sm">
-                    <MdAutoAwesome className="w-3.5 h-3.5" />
+              <MdAutoAwesome className="w-3.5 h-3.5" />
               Benefits of Our Services
             </div>
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide">
               <span className="block mb-1">Benefits of Our</span>
               <span className="inline-block block mb-1 ml-2">
-                <span className="text-add8e6 relative inline-block">Landscaping
+                <span className="text-add8e6 relative inline-block">Contract
                   <motion.span 
                     className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
-                      initial={{ scaleX: 0 }}
+                    initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, ease: 'easeOut' }}
                     style={{ display: 'block' }}
-                    />
+                  />
                 </span>{" "}
-                Services
+                Cleaning Services
               </span>
             </h2>
             <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide">
-              Experience the difference that professional landscaping can make in your outdoor space. From property value enhancement to environmental benefits, discover why property owners choose our services.
+              Experience the difference that professional contract cleaning can make in your facility. From improved hygiene to enhanced professional image, discover why leading institutions choose our services.
             </p>
           </motion.div>
           <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 space-y-3 md:space-y-4">
             {[
               {
-                title: "Time-saving Convenience:",
+                title: "Trained and Disciplined Staff:",
                 icon: HiClock,
                 content: (
                   <>
-                    One of the most significant advantages of choosing <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is the time-saving convenience it offers for your landscaping needs. Instead of spending your valuable time researching plants, maintaining gardens, or worrying about proper landscaping techniques, you can leave the work to our trained professionals. Whether it's initial installation or ongoing maintenance, our skilled team works efficiently to keep your landscape beautiful, allowing you to enjoy your outdoor space without the hassle.
+                    All our staff has been trained in the use of cleaning equipment and machines. Our machine operators can operate scrubbers, polishers, burnishers, wet and dry vacuum cleaners, industrial dry vacuum cleaners, and floor boys. Our cleaners are also experienced in strip and seal, buffing, carpet cleaning, upholstery care, and scrubbing. All our staff are Kenyan citizens with proper training in customer care and communication skills.
                   </>
                 )
               },
               {
-                title: "Exceptional Quality Results:",
+                title: "Quality Management System:",
                 icon: MdStars,
                 content: (
                   <>
-                    <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> prides itself on delivering exceptional quality landscaping services in Kenya that exceed expectations. Equipped with quality plants, efficient irrigation systems, and proven techniques, our trained professionals ensure a beautiful and thriving landscape every time. From garden design to lawn maintenance, we guarantee results that enhance your property's beauty and value.
+                    <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> implements a comprehensive quality management system. We use quality, safety, and user-friendly machinery with regular service schedules. Our equipment and chemicals adhere to internationally recognized standards. We provide staff training in safety issues and good work practices, with monitoring tools and cleaning protocols to ensure just-in-time delivery.
                   </>
                 )
               },
               {
-                title: "Enhanced Property Value:",
+                title: "Professional Supervision:",
                 icon: FaLeaf,
                 content: (
                   <>
-                    A well-maintained landscape significantly increases property value, and <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> understands this well. By creating beautiful gardens, maintaining healthy lawns, and implementing efficient irrigation systems, our landscaping solutions enhance your property's curb appeal and market value. This is particularly beneficial for homeowners and businesses looking to maximize their property investment.
+                    Our Area Supervisors oversee all activities on site, communicating with both clients and management. They maintain registers of cleaners, keep service records of machinery and inventory, ensure quality assurance, monitor cleaning standards, and handle health and safety supervision. This structured approach ensures consistent, high-quality results across all our contract cleaning sites.
                   </>
                 )
               },
               {
-                title: "Customized Landscaping Solutions:",
+                title: "Comprehensive Daily Cleaning:",
                 icon: FaCog,
                 content: (
                   <>
-                    <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers flexible and customized landscaping solutions tailored to your specific needs and preferences. Whether you require garden design, lawn installation, irrigation systems, or regular maintenance programs, we can accommodate your requirements. Our personalized approach ensures that every aspect of your landscape reflects your style and meets your functional needs.
+                    Our contract cleaning includes general housekeeping, sweeping and mopping floors, damp dusting of fixtures and surfaces, spot cleaning metal and paintworks, hand basin and dispenser maintenance, waste separation and disposal, carpet vacuuming, window cleaning, telephone sanitization, and thorough bathroom and toilet cleaning with disinfection.
                   </>
                 )
               },
               {
-                title: "Consistency and Reliability:",
+                title: "Full Insurance Coverage:",
                 icon: HiShieldCheck,
                 content: (
                   <>
-                    With <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span>, you can expect consistency and reliability in every landscaping service. Our dedicated team follows strict maintenance protocols and schedules, ensuring that your landscape remains consistently beautiful and well-maintained. Whether it's seasonal planting, irrigation maintenance, or regular care, you can trust us to deliver impeccable results time and time again.
+                    <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> provides comprehensive insurance coverage for your peace of mind. This includes third party/public liability insurance, employer's liability, workman's compensation, and insurance against loss and damage to property. Our operations are fully Occupational Health and Safety compliant.
                   </>
                 )
               },
               {
-                title: "Professionalism and Expertise:",
+                title: "Eco-Friendly and Modern:",
                 icon: FaAward,
                 content: (
                   <>
-                    <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> is staffed by experienced landscaping professionals who possess the expertise and skills needed to handle various landscaping challenges. Our attention to detail, creativity, and commitment to customer satisfaction set us apart in the industry. Whether it's designing custom gardens, installing irrigation systems, or maintaining complex landscapes, our team is equipped to handle projects of any scale.
+                    We use eco-friendly cleaning products and modern equipment to deliver exceptional results while caring for the environment. Our chemicals and machinery adhere to internationally recognized standards, ensuring safe and effective cleaning for your facility, staff, and visitors.
                   </>
                 )
               },
               {
-                title: "Cost-effective Solutions:",
+                title: "Trusted by Leading Institutions:",
                 icon: FaTags,
                 content: (
                   <>
-                    While some may perceive professional landscaping services as a luxury, <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies</Link></span> offers cost-effective solutions that provide excellent value for money. When you consider the property value increase, the quality of service delivered, and the peace of mind that comes with a professionally maintained landscape, investing in our landscaping services becomes a wise decision for your property enhancement needs in Kenya.
+                    Our clients include Kenya Ports Authority, Kenya Maritime Authority, and Mombasa Polytechnic University. We have extensive experience cleaning all types of buildings including schools, offices, industrial premises, hotels, shopping centres, government offices, commercial premises, hospitals, and banks.
                   </>
                 )
               }
             ].map((para, i) => (
-                  <motion.div
+              <motion.div
                 key={i} 
                 className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 md:p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                      >
+              >
                 <div className="flex items-start gap-3">
                   <motion.div 
                     className="relative flex-shrink-0 mt-0.5"
@@ -632,33 +596,30 @@ export default function LandscapingServicesPage() {
                     </p>
                   </div>
                 </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* Section Divider */}
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
-      {/* What's Included in Our Landscaping Services Section */}
+      {/* What's Included Section */}
       <section className="relative py-12 md:py-20">
-        {/* Background matching home page pattern */}
         <div className="absolute inset-0 bg-white dark:bg-gray-900">
           <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-8">
-            {/* Desktop image column (Left Side) */}
             <div className="w-full md:w-1/2 flex justify-center md:pr-2 mb-8 md:mb-0 hidden md:flex">
               <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
                 <AnimatePresence mode="wait">
-              <motion.div
+                  <motion.div 
                     key={whatsIncludedImages[carouselIndex].src}
                     initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
+                    animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.5 }}
                     className="absolute inset-0 w-full h-full"
                   >
                     <Image
@@ -671,7 +632,6 @@ export default function LandscapingServicesPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   </motion.div>
                 </AnimatePresence>
-                {/* Carousel navigation buttons */}
                 <button
                   onClick={prevImage}
                   className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full shadow-md hover:scale-110 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50"
@@ -688,7 +648,6 @@ export default function LandscapingServicesPage() {
                 >
                   <ChevronRight className="w-6 h-6 text-gray-700 dark:text-gray-200" />
                 </button>
-                {/* Pagination dots (desktop only) */}
                 <div className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 gap-2 z-10">
                   {whatsIncludedImages.map((img, idx) => (
                     <button
@@ -700,22 +659,21 @@ export default function LandscapingServicesPage() {
                     />
                   ))}
                 </div>
-                </div>
+              </div>
             </div>
-            {/* Text Column (Right Side) */}
             <div className="w-full md:w-1/2 max-w-3xl md:pl-2 flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-6 w-full flex justify-center md:justify-start">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm">
-                    <FaLeaf className="w-3.5 h-3.5" />
-                    What's Included
-                  </span>
-      </div>
+                  <MdBusiness className="w-3.5 h-3.5" />
+                  What's Included
+                </span>
+              </div>
               <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">What's Included in Our</span>
                 <span className="ml-2">
                   <span className="text-add8e6 relative inline-block block mb-4">
-                    Landscaping Services
-                  <motion.span 
+                    Contract
+                    <motion.span 
                       className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
@@ -723,14 +681,14 @@ export default function LandscapingServicesPage() {
                       transition={{ duration: 1, ease: 'easeOut' }}
                       style={{ display: 'block' }}
                     />
-                  </span>
+                  </span>{' '}
+                  Cleaning Services
                 </span>
               </h2>
-              {/* Mobile image below heading, above paragraphs */}
               <div className="w-full mb-6 md:hidden">
                 <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[20rem] xs:h-[24rem] sm:h-[28rem] mx-auto">
                   <AnimatePresence mode="wait">
-                  <motion.div
+                    <motion.div
                       key={whatsIncludedImages[carouselIndex].src}
                       initial={{ opacity: 0, x: 40 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -746,9 +704,8 @@ export default function LandscapingServicesPage() {
                         className="object-cover w-full h-full"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                      </motion.div>
+                    </motion.div>
                   </AnimatePresence>
-                  {/* Carousel navigation buttons (mobile) */}
                   <button
                     onClick={prevImage}
                     className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full shadow-md hover:scale-110 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50"
@@ -765,7 +722,6 @@ export default function LandscapingServicesPage() {
                   >
                     <ChevronRight className="w-5 h-5 text-gray-700 dark:text-gray-200" />
                   </button>
-                  {/* Pagination dots (mobile) */}
                   <div className="flex absolute bottom-4 left-1/2 -translate-x-1/2 gap-2 z-10">
                     {whatsIncludedImages.map((img, idx) => (
                       <button
@@ -775,43 +731,46 @@ export default function LandscapingServicesPage() {
                         aria-label={`Go to image ${idx + 1}`}
                         type="button"
                       />
-                ))}
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-        </div>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Our landscaping and gardening services keep your facility's outdoor spaces and indoor plants looking their best. We provide professional grounds maintenance and office plant care services.
+                Our contract cleaning services cover comprehensive maintenance of your facility. We handle all aspects of cleaning to keep your space spotless and professional.
               </p>
               <ul className="list-disc pl-5 space-y-2 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-                <li>Grounds maintenance and care</li>
-                <li>Office plant care and maintenance</li>
-                <li>Lawn mowing and trimming</li>
-                <li>Garden bed maintenance</li>
-                <li>Hedge and shrub trimming</li>
-                <li>Weeding and mulching</li>
-                <li>Watering and irrigation</li>
-                <li>Seasonal planting</li>
-                <li>Outdoor area cleaning</li>
-                <li>Regular maintenance schedules</li>
+                <li>General housekeeping</li>
+                <li>Sweeping and mopping floors</li>
+                <li>Damp dusting of fixtures, woodworks, electrical plugs, and light switches</li>
+                <li>Spot cleaning metal, paintworks, and internal glazing</li>
+                <li>Hand basin, soap dispenser, and tissue holder maintenance</li>
+                <li>Waste separation and disposal</li>
+                <li>Carpet vacuuming</li>
+                <li>Window and window seal cleaning</li>
+                <li>Telephone sanitizing</li>
+                <li>Bathroom and toilet cleaning with disinfection</li>
+                <li>Passages and corridors cleaning</li>
+                <li>Store rooms maintenance</li>
+                <li>Kitchen and tea rooms cleaning</li>
+                <li>Office plants care</li>
+                <li>Floor scrubbing, polishing, and shining</li>
+                <li>Interior and exterior window cleaning</li>
               </ul>
-      </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Section Divider */}
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
-      {/* Landscaping Service Plans Section */}
+      {/* Pricing Section */}
       <div id="pricing" className="relative py-12 md:py-20 scroll-mt-24">
-        {/* Background matching home page pattern */}
         <div className="absolute inset-0 bg-gray-50 dark:bg-gray-800/50">
           <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <div className="max-w-6xl mx-auto">
-              {/* Section Header */}
               <div className="text-center mb-8 md:mb-16">
                 <motion.div 
                   className="inline-block mb-3 sm:mb-4 md:mb-6 mt-0 !mt-0"
@@ -827,8 +786,8 @@ export default function LandscapingServicesPage() {
                   className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide mt-0 !mt-0"
                 >
                   <span className="text-add8e6 relative inline-block tracking-wider">
-                    Landscaping
-                  <motion.span 
+                    Contract
+                    <motion.span 
                       className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
@@ -837,16 +796,15 @@ export default function LandscapingServicesPage() {
                       style={{ display: 'block' }}
                     />
                   </span>{' '}
-                  Service Plans
+                  Cleaning Plans
                 </motion.h2>
-                {/* New Introductory Paragraph */}
                 <motion.p 
                   className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6 max-w-2xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <strong>Note:</strong> The landscaping service prices below are approximate and may vary based on the size of your property, the scope of work, your specific requirements, your location, and the landscaping package you choose. For unique projects or special requests, please contact us for a custom quote. All prices are per project.
+                  <strong>Note:</strong> Contract cleaning prices are customized based on the size of your facility, specific requirements, frequency of service, and number of staff required. Contact us for a detailed assessment and personalized quote.
                 </motion.p>
               </div>
 
@@ -860,28 +818,28 @@ export default function LandscapingServicesPage() {
                   <div className="flex flex-col h-full relative z-10">
                     <div className="p-3 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-4">
                       <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors text-center">
-                        Landscaping & Gardening
+                        Contract Cleaning
                       </h3>
                     </div>
                     <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 text-center mb-4">
-                      Professional grounds maintenance and office plant care to keep your facility looking its best.
+                      Day-to-day maintenance cleaning services for offices, hospitals, hotels, government offices, schools, banks, and industrial premises.
                     </p>
                     <ul className="space-y-2 flex-grow mb-6">
                       <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <FaLeaf className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Grounds maintenance</span>
+                        <MdBusiness className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Trained and disciplined staff</span>
                       </li>
                       <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <FaLeaf className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Office plant care</span>
+                        <MdBusiness className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Modern cleaning equipment</span>
                       </li>
                       <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <FaLeaf className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Regular maintenance schedules</span>
+                        <MdBusiness className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Regular supervision and quality inspections</span>
                       </li>
                       <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <FaLeaf className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Trained and equipped staff</span>
+                        <MdBusiness className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
+                        <span>Comprehensive insurance coverage</span>
                       </li>
                     </ul>
                     <button
@@ -900,10 +858,9 @@ export default function LandscapingServicesPage() {
                 </motion.div>
               </div>
 
-              {/* Explanatory Paragraph Below Cards */}
               <div className="max-w-3xl mx-auto mt-8 text-center">
                 <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-                  When comparing landscaping service prices, consider factors such as project scope, plant selection, irrigation systems, and maintenance requirements. Choosing a reputable landscaping company ensures your outdoor space is beautifully designed and well-maintained. For a personalized quote or to discuss your specific landscaping needs, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
+                  Our contract cleaning services include trained staff, equipment, supplies, supervision, and insurance coverage. For a personalized assessment and quote, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
                 </p>
               </div>
             </div>
@@ -911,12 +868,10 @@ export default function LandscapingServicesPage() {
         </div>
       </div>
 
-      {/* Section Divider */}
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
       {/* Contact Section */}
       <section className="relative py-12 md:py-20">
-        {/* Background matching home page pattern */}
         <div className="absolute inset-0 bg-white dark:bg-gray-900">
           <div className="absolute inset-0 bg-[linear-gradient(-45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
@@ -925,24 +880,24 @@ export default function LandscapingServicesPage() {
             <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-4 md:mb-6">
               <MessageCircle className="w-3.5 h-3.5" />
               Contact Us
-              </div>
+            </div>
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
               Get in{' '}
               <span className="text-add8e6 relative">
                 Touch
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
-                </span>
-              </h2>
+              </span>
+            </h2>
             <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-              Have questions about our landscaping services? Get a free landscaping service quote today! We're here to help.
+              Have questions about our contract cleaning services? Get a free assessment and quote today. We're here to help keep your facility clean and professional.
             </p>
-              </div>
+          </div>
           <div className="max-w-2xl mx-auto">
             <ContactForm 
-              preselectedService="Landscaping & Gardening"
+              preselectedService="Contract Cleaning"
               formId="contact-form"
             />
-            </div>
+          </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
       </section>

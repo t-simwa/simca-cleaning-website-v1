@@ -138,37 +138,37 @@ interface ServiceDetail {
 
 const specializedService: ServiceDetail = {
   title: "Specialized Cleaning",
-  description: "For cleaning needs that require extra care and expertise, our specialized cleaning services are tailored to handle unique challenges and delicate items.",
+  description: "Expert specialized cleaning services including carpet and upholstery deep cleaning, strip and seal of floors, high-pressure cleaning, window and façade cleaning, post-construction cleaning, and flood and fire restoration.",
   icon: <Sparkles className="h-8 w-8 md:h-10 md:w-10 text-add8e6" />,
   features: [
-    "Crime scene cleanup",
-    "Hoarding cleanup",
-    "Post-fire/flood restoration cleaning",
-    "High-altitude window cleaning",
-    "Mold remediation support",
-    "Ventilation system cleaning",
-    "Graffiti removal",
-    "Discreet and sensitive service"
+    "Carpet and upholstery deep cleaning",
+    "Strip and seal of floors",
+    "High-pressure cleaning",
+    "Window and façade cleaning",
+    "Post-construction cleaning",
+    "Flood and fire restoration",
+    "Buffing and polishing",
+    "Scrubbing and floor care"
   ],
   availability: "Available upon consultation and scheduling",
   process: {
     title: "Our Cleaning",
     steps: [
       {
-        title: "Consultation & Assessment",
-        description: "We conduct a detailed assessment to understand the specific requirements and challenges of the specialized cleaning task."
+        title: "Site Assessment",
+        description: "We assess the cleaning requirements, surface types, and any special considerations for your project."
       },
       {
-        title: "Customized Plan Development",
-        description: "A tailored cleaning plan is created, outlining the procedures, equipment, and safety protocols."
+        title: "Customized Plan",
+        description: "A detailed cleaning plan is developed with the right equipment, products, and techniques for your needs."
       },
       {
         title: "Expert Execution",
-        description: "Our trained specialists carry out the cleaning with precision, using appropriate techniques and equipment."
+        description: "Our trained specialists execute the cleaning using modern equipment and eco-friendly products."
       },
       {
-        title: "Final Review",
-        description: "A thorough review is conducted to ensure all requirements are met and the area is restored."
+        title: "Quality Inspection",
+        description: "A thorough inspection ensures all work meets our high standards and your satisfaction."
       }
     ]
   },
@@ -176,68 +176,66 @@ const specializedService: ServiceDetail = {
     title: "Service Pricing",
     packages: [
       {
-        name: "Assessment & Planning",
+        name: "Carpet & Upholstery",
         price: "Custom Quote",
         features: [
-          "Initial site visit",
-          "Detailed assessment",
-          "Custom plan creation",
-          "Quotation"
+          "Deep steam cleaning",
+          "Stain and spot removal",
+          "Fabric protection",
+          "Quick drying methods"
         ]
       },
       {
-        name: "Cleaning & Remediation",
+        name: "Floor Care",
         price: "Custom Quote",
         features: [
-          "Execution of the cleaning plan",
-          "Use of specialized equipment",
-          "Safe disposal of waste",
-          "Area restoration"
+          "Strip and seal",
+          "Buffing and polishing",
+          "High-pressure cleaning",
+          "Scrubbing services"
         ]
       },
       {
-        name: "Full Project Management",
+        name: "Restoration Services",
         price: "Custom Quote",
         features: [
-          "End-to-end service",
-          "Coordination with other services (if needed)",
-          "Regular updates",
-          "Final sign-off"
+          "Post-construction cleaning",
+          "Flood restoration",
+          "Fire damage restoration",
+          "Complete area restoration"
         ]
       }
     ]
   },
   serviceAreas: [
-    "Nairobi Metropolitan Area",
-    "Kisumu",
-    "Nakuru",
-    "Selected areas in Kenya upon consultation"
+    "Mombasa",
+    "Other areas upon consultation"
   ],
   whyChooseUs: {
     title: "Why Choose Us for Your Specialized Cleaning Needs",
-    description: "We offer discreet, efficient, and expert cleaning services for situations that require sensitivity and specialized skills.",
+    description: "We deliver expert specialized cleaning with trained staff, modern equipment, and eco-friendly products.",
     points: [
-      "Highly trained specialized cleaning team",
-      "Experience with sensitive cleaning scenarios",
-      "Advanced equipment and safety protocols",
-      "Customized solutions for unique needs",
-      "Discreet and professional service",
-      "Compliance with health and safety regulations",
-      "Rapid response capability"
+      "Trained and experienced specialists",
+      "Modern cleaning equipment",
+      "Eco-friendly products",
+      "Machine operators for scrubbers, polishers, burnishers",
+      "OHS compliant operations",
+      "Comprehensive insurance coverage",
+      "Fast response to client needs"
     ]
   },
   whatsIncluded: {
     title: "What's Included in the",
-    description: "Our services are tailored to the specific needs of each specialized cleaning project.",
+    description: "Our specialized cleaning services cover a wide range of deep cleaning and restoration needs.",
     items: [
-      "Site assessment and consultation",
-      "Development of a detailed action plan",
-      "Safe and effective cleaning procedures",
-      "Use of appropriate PPE and equipment",
-      "Removal and disposal of contaminated materials",
-      "Disinfection and sanitization",
-      "Area restoration (where possible)",
-      "Post-service review"
+      "Carpet and upholstery deep cleaning",
+      "Strip and seal of floors",
+      "Buffing and polishing",
+      "High-pressure cleaning",
+      "Window and façade cleaning",
+      "Post-construction cleaning",
+      "Flood damage restoration",
+      "Fire damage restoration"
     ]
   }
 };
@@ -752,21 +750,17 @@ export default function SpecializedCleaningPage() {
             </div>
         </div>
               <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                If you're looking for a reliable specialized cleaning service in Nairobi, Simca Agencies is your trusted choice. We offer a comprehensive range of specialized cleaning services and always look for new ways to improve your experience. Our team is highly trained, thorough, and ready to accommodate your specific needs—including emergency response and sensitive situation handling.
+                Our specialized cleaning services go beyond routine maintenance to address specific, intensive cleaning needs. Whether you need deep cleaning, restoration, or specialized treatments, our trained team delivers exceptional results using modern equipment and eco-friendly products.
               </p>
-              <ul className="list-disc pl-5 space-y-4 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-                <li>
-                  <span className="font-semibold text-gray-800 dark:text-white">Site assessment and consultation</span> – Comprehensive evaluation of the specialized cleaning requirements, including safety assessments, contamination analysis, and development of detailed action plans. Our specialists conduct thorough inspections to understand the scope and complexity of each specialized cleaning project.
-                </li>
-                <li>
-                  <span className="font-semibold text-gray-800 dark:text-white">Safe and effective cleaning procedures</span> – Implementation of certified cleaning protocols using advanced equipment and specialized techniques. Our team follows strict safety guidelines and uses appropriate PPE while ensuring thorough decontamination and restoration of affected areas.
-                </li>
-                <li>
-                  <span className="font-semibold text-gray-800 dark:text-white">Removal and disposal of contaminated materials</span> – Safe handling and proper disposal of biohazardous materials, contaminated items, and waste according to health and safety regulations. We ensure all materials are disposed of in compliance with local and international standards.
-                </li>
-                <li>
-                  <span className="font-semibold text-gray-800 dark:text-white">Area restoration and post-service review</span> – Complete restoration of affected areas to safe, clean, and functional conditions, followed by thorough quality inspection and documentation. Our specialists provide detailed reports and ensure all requirements are met before project completion.
-                </li>
+              <ul className="list-disc pl-5 space-y-2 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
+                <li>Carpet and upholstery deep cleaning</li>
+                <li>Strip and seal of floors (tiles, terrazzo, wooden floors)</li>
+                <li>High-pressure cleaning</li>
+                <li>Window and façade cleaning</li>
+                <li>Post-construction cleaning</li>
+                <li>Flood and fire restoration</li>
+                <li>Machine operation: Scrubber, Polisher, Burnisher, Wet/Dry vacuum, Industrial vacuum, Floor boy</li>
+                <li>Buffing and floor polishing</li>
               </ul>
       </div>
           </div>
@@ -829,179 +823,58 @@ export default function SpecializedCleaningPage() {
                 </motion.p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8">
-                {/* Main three cards */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0 }}
-                    className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                    <div className="absolute inset-0 opacity-5">
-                      <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                    </div>
-                    <div className="flex flex-col h-full relative z-10">
-                    <div className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
-                        Basic Specialized Cleaning
-                      </h3>
-                      </div>
-                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-2">
-                      KES 15,000 – 35,000
-                    </div>
-                      <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Site assessment and consultation
-                      </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Basic specialized cleaning procedures
-                      </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Standard safety protocols
-                      </li>
-                      </ul>
-                      <Link
-                        href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-2.5 md:py-3 font-semibold transition-all duration-300 text-center text-xs md:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group"
-                      >
-                        Get a Quote
-                        <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                      </Link>
-                    </div>
-                  </motion.div>
-              <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
-                  >
+              <div className="flex justify-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col w-full max-w-md"
+                >
                   <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
                   <div className="absolute inset-0 opacity-5">
                     <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                </div>
-                  <div className="flex flex-col h-full relative z-10">
-                    <div className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
-                        Advanced Specialized Cleaning
-                      </h3>
-                    </div>
-                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-2">
-                      KES 35,000 – 75,000
-                    </div>
-                    <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Comprehensive assessment and planning
-                      </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Advanced cleaning techniques and equipment
-                      </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Enhanced safety and compliance measures
-                      </li>
-                    </ul>
-                    <Link
-                      href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-2.5 md:py-3 font-semibold transition-all duration-300 text-center text-xs md:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group"
-                    >
-                      Get a Quote
-                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
                   </div>
-              </motion.div>
-              <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col"
-                >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                <div className="absolute inset-0 opacity-5">
-                  <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                </div>
                   <div className="flex flex-col h-full relative z-10">
-                    <div className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
-                        Premium Specialized Cleaning
+                    <div className="p-3 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-4">
+                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors text-center">
+                        Specialized Cleaning
                       </h3>
-                </div>
-                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-2">
-                      KES 75,000 – 150,000+
-            </div>
+                    </div>
+                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 text-center mb-4">
+                      Deep cleaning, floor treatment, high-pressure washing, window cleaning, post-construction cleanup, and restoration services.
+                    </p>
                     <ul className="space-y-2 flex-grow mb-6">
                       <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Full project management and coordination
+                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2 flex-shrink-0" />
+                        Professional equipment and techniques
                       </li>
                       <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        State-of-the-art equipment and techniques
+                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2 flex-shrink-0" />
+                        Trained machine operators
                       </li>
                       <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Complete restoration and documentation
+                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2 flex-shrink-0" />
+                        Eco-friendly products
+                      </li>
+                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2 flex-shrink-0" />
+                        Comprehensive insurance coverage
                       </li>
                     </ul>
-                    <Link
-                      href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-2.5 md:py-3 font-semibold transition-all duration-300 text-center text-xs md:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group"
+                    <button
+                      onClick={() => {
+                        const contactSection = document.getElementById('contact-form')
+                        if (contactSection) {
+                          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                        }
+                      }}
+                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-3 font-medium transition-all duration-300 text-center text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group rounded-lg"
                     >
                       Get a Quote
-                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </button>
                   </div>
                 </motion.div>
-              </div>
-              {/* Centered specialized card below */}
-              <div className="flex justify-center mt-8">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-add8e6/50 focus:ring-offset-2 overflow-hidden flex flex-col w-full md:w-1/3"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/50 dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50" />
-                    <div className="absolute inset-0 opacity-5">
-                      <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px]" />
-                    </div>
-                  <div className="flex flex-col h-full relative z-10">
-                    <div className="p-2 md:p-3 bg-add8e6/10 rounded-lg md:rounded-xl group-hover:scale-110 transition-transform duration-500 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">
-                        Emergency / Critical Response
-                      </h3>
-                    </div>
-                    <div className="text-xs md:text-sm text-add8e6 font-bold mb-2">
-                      Custom Quote / Emergency Rate
-                    </div>
-                    <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        24/7 emergency response capability
-                      </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Critical situation handling and restoration
-                      </li>
-                      <li className="flex items-center text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-add8e6 mr-2" />
-                        Immediate deployment and rapid response
-                      </li>
-                    </ul>
-                    <Link
-                      href="/contact"
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-2.5 md:py-3 font-semibold transition-all duration-300 text-center text-xs md:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group"
-                    >
-                      Get a Quote
-                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
-                    </div>
-                  </motion.div>
               </div>
 
               {/* Explanatory Paragraph Below Cards */}
@@ -1047,7 +920,10 @@ export default function SpecializedCleaningPage() {
             </p>
           </div>
           <div className="max-w-2xl mx-auto">
-            <ContactForm />
+            <ContactForm 
+              preselectedService="Specialized Cleaning"
+              formId="contact-form"
+            />
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />

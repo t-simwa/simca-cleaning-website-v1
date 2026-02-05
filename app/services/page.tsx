@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import React, { useState, useEffect } from "react"
-import { Home, Building2, HardHat, SprayCanIcon as Spray, ShieldCheck, Sofa, Bug, Sprout, CheckCircle2, Sparkles, Users, Phone, Mail, MapPin, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { Building2, ShieldCheck, Package, Sprout, CheckCircle2, Sparkles, Users, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import TrustedClients from "@/components/trusted-clients"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion, AnimatePresence } from "framer-motion"
@@ -23,169 +23,140 @@ interface Service {
 export default function ServicesPage() {
   const services: Service[] = [
     {
-      id: "residential",
-      title: "Residential Cleaning",
-      description: "Transform your home into a sanctuary of cleanliness with our award-winning residential cleaning services. Experience our exclusive 5-step cleaning process, trusted by 500+ homeowners with a 98% satisfaction rate.",
-      icon: <Home className="h-12 w-12 text-add8e6" />,
-      image: "/placeholder.svg?height=600&width=800",
-      features: [
-        "Eco-friendly cleaning products (EPA Safer Choice certified)",
-        "Customized cleaning plans with digital scheduling",
-        "100% satisfaction guarantee with 24-hour re-cleaning"
-      ],
-      benefits: [
-        "Save 10+ hours weekly on household cleaning",
-        "Reduce allergens by up to 90% with HEPA filtration",
-        "Extend furniture lifespan with proper maintenance",
-        "Enjoy a healthier living environment with eco-friendly products",
-        "Peace of mind with bonded and insured cleaning professionals"
-      ],
-      process: [
-        "Initial consultation and home assessment (30 mins)",
-        "Customized cleaning plan development with digital checklist",
-        "Professional cleaning execution with quality checkpoints",
-        "Post-cleaning inspection and client feedback",
-        "Regular maintenance schedule with flexible adjustments"
-      ],
-      availability: "Available 7 days a week, 6 AM - 10 PM"
-    },
-    {
-      id: "commercial",
-      title: "Commercial Cleaning",
-      description: "Elevate your business environment with our comprehensive commercial cleaning solutions. Our certified team delivers consistent, high-quality cleaning services with minimal disruption to your operations.",
+      id: "contract-cleaning",
+      title: "Contract Cleaning",
+      description: "Reliable day-to-day maintenance cleaning for hospitals, hotels, government offices, schools, banks, industrial premises, and commercial buildings. Our trained staff deliver consistent, high-quality results.",
       icon: <Building2 className="h-12 w-12 text-add8e6" />,
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/commercial/hero.webp",
       features: [
-        "BOMA-certified cleaning standards",
-        "After-hours cleaning with key-holding service",
-        "Specialized equipment for large spaces",
-        "Digital quality control system"
+        "Daily maintenance cleaning",
+        "Trained and disciplined staff",
+        "Modern cleaning equipment",
+        "OHS compliant operations"
       ],
       benefits: [
-        "Increase employee productivity by 15% with cleaner workspaces",
-        "Reduce sick days with thorough sanitization protocols",
-        "Enhance client perception with consistently clean facilities",
-        "Comply with industry-specific cleaning regulations",
-        "Optimize cleaning schedules to minimize business disruption"
+        "Consistent, high-quality cleaning results",
+        "Reduced sick days with thorough sanitization",
+        "Professional image for your facility",
+        "Comprehensive insurance coverage",
+        "Regular supervision and quality inspections"
       ],
       process: [
-        "Comprehensive facility assessment and cleaning audit",
-        "Customized cleaning proposal with service frequency options",
-        "Dedicated cleaning team assignment and training",
-        "Implementation of cleaning protocols with quality checks",
-        "Monthly performance review and service adjustments"
+        "Site assessment and requirement analysis",
+        "Customized cleaning plan development",
+        "Professional team assignment and training",
+        "Implementation with quality checks",
+        "Regular performance review"
       ],
-      availability: "Available 24/7 with 2-hour emergency response"
-    },
-    {
-      id: "carpet",
-      title: "Carpet & Upholstery Cleaning",
-      description: "Revitalize your carpets and upholstery with our advanced cleaning technology. Our certified technicians use eco-friendly solutions to remove deep-seated dirt, allergens, and stains.",
-      icon: <Sofa className="h-12 w-12 text-add8e6" />,
-      image: "/placeholder.svg?height=600&width=800",
-      features: [
-        "Hot water extraction technology",
-        "Eco-friendly cleaning solutions (Green Seal certified)",
-        "Advanced stain removal techniques",
-        "Fabric protection treatment"
-      ],
-      benefits: [
-        "Extend carpet lifespan by up to 5 years",
-        "Remove 98% of allergens and dust mites",
-        "Eliminate odors with advanced deodorizing",
-        "Protect fabrics with long-lasting treatments",
-        "Improve indoor air quality significantly"
-      ],
-      process: [
-        "Pre-inspection and fiber identification",
-        "Pre-treatment of stains and high-traffic areas",
-        "Deep cleaning with hot water extraction",
-        "Spot treatment and fabric protection",
-        "Post-cleaning inspection and drying verification"
-      ],
-      availability: "Same-day service available with 4-hour window"
+      availability: "Available 24/7 with flexible scheduling"
     },
     {
       id: "specialized",
       title: "Specialized Cleaning",
-      description: "Custom cleaning solutions for unique environments. Our specialized team is trained to handle specific industry requirements with precision and attention to detail.",
+      description: "Expert specialized cleaning including carpet and upholstery deep cleaning, strip and seal of floors, high-pressure cleaning, window and façade cleaning, post-construction cleaning, and flood and fire restoration.",
       icon: <ShieldCheck className="h-12 w-12 text-add8e6" />,
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/carpet/hero.webp",
       features: [
-        "Industry-specific certifications",
-        "Custom cleaning protocols",
-        "Specialized equipment and techniques",
-        "Quality assurance system"
+        "Carpet and upholstery deep cleaning",
+        "Strip and seal of floors",
+        "High-pressure cleaning",
+        "Window and façade cleaning"
       ],
       benefits: [
-        "Meet industry-specific compliance requirements",
-        "Reduce operational risks",
-        "Optimize cleaning efficiency",
-        "Maintain specialized equipment",
-        "Ensure consistent quality standards"
+        "Extend carpet and flooring lifespan",
+        "Restore surfaces to like-new condition",
+        "Remove deep-seated dirt and stains",
+        "Professional post-construction cleanup",
+        "Complete restoration after flood or fire"
       ],
       process: [
-        "Industry-specific needs assessment",
-        "Custom protocol development",
-        "Specialized team training",
-        "Implementation with quality checks",
-        "Regular performance evaluation"
+        "Site assessment and surface analysis",
+        "Custom cleaning plan development",
+        "Professional execution with specialized equipment",
+        "Quality inspection and verification"
       ],
-      availability: "Custom scheduling based on industry requirements"
+      availability: "Custom scheduling based on project requirements"
     },
     {
-      id: "fumigation-pest-control",
-      title: "Fumigation & Pest Control",
-      description: "Eliminate pests and protect your property with our professional fumigation and pest control services. We use safe and effective treatment methods to ensure complete pest elimination and long-term prevention.",
-      icon: <Bug className="h-12 w-12 text-add8e6" />,
-      image: "/placeholder.svg?height=600&width=800",
+      id: "hygiene-supplies",
+      title: "Hygiene Supplies",
+      description: "Complete hygiene solutions including towel dispensers, hand dryers, toilet roll holders, soap dispensers, sanitary bins, air fresheners, sanitizers, and all essential consumables for your facility.",
+      icon: <Package className="h-12 w-12 text-add8e6" />,
+      image: "/sanitization/sanitization-hero.webp",
       features: [
-        "Comprehensive pest elimination",
-        "Safe and eco-friendly treatments",
-        "Residential and commercial services",
-        "Preventive maintenance programs"
+        "Towel dispensers and hand dryers",
+        "Soap dispensers and sanitary bins",
+        "Air fresheners and sanitizers",
+        "Consumables supply and delivery"
       ],
       benefits: [
-        "Eliminate 99.9% of pests and rodents",
-        "Protect property from pest damage",
-        "Create healthier living environments",
-        "Long-term pest prevention solutions",
-        "Safe for occupants and pets"
+        "Never run out of essential hygiene items",
+        "Professional installation and maintenance",
+        "Reliable and timely delivery",
+        "Quality products from trusted brands",
+        "Complete hygiene solution for your facility"
       ],
       process: [
-        "Thorough property inspection and pest identification",
-        "Customized treatment plan development",
-        "Safe and effective pest control application",
-        "Follow-up inspection and preventive measures"
+        "Facility assessment and product recommendations",
+        "Professional installation of dispensers and equipment",
+        "Regular supply and refill schedule",
+        "Ongoing maintenance and support"
       ],
-      availability: "Available upon request, including emergency services"
+      availability: "Flexible delivery schedules"
     },
     {
       id: "landscaping-services",
-      title: "Landscaping Services",
-      description: "Transform your outdoor spaces into beautiful, well-maintained landscapes with our professional landscaping services. We create and maintain stunning gardens, lawns, and outdoor environments.",
+      title: "Landscaping & Gardening",
+      description: "Professional grounds maintenance and office plant care services to keep your outdoor spaces and indoor environments green, healthy, and beautifully maintained.",
       icon: <Sprout className="h-12 w-12 text-add8e6" />,
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/landscaping/landscaping-hero.webp",
       features: [
-        "Garden design and installation",
-        "Lawn care and maintenance",
-        "Irrigation system installation",
-        "Seasonal maintenance programs"
+        "Grounds maintenance",
+        "Office plant care",
+        "Lawn care and mowing",
+        "Hedge and shrub trimming"
       ],
       benefits: [
-        "Enhance property value with beautiful landscapes",
-        "Create peaceful outdoor retreats",
-        "Efficient irrigation systems for water conservation",
-        "Regular maintenance for year-round beauty",
-        "Custom designs tailored to your preferences"
+        "Well-maintained outdoor spaces",
+        "Healthy and thriving plants",
+        "Enhanced property appearance",
+        "Regular and reliable service",
+        "Eco-friendly practices"
       ],
       process: [
-        "Site assessment and design consultation",
-        "Custom landscaping plan development",
-        "Professional installation of plants and features",
-        "Ongoing maintenance and seasonal care"
+        "Site assessment and maintenance planning",
+        "Regular grounds maintenance visits",
+        "Office plant care and monitoring",
+        "Seasonal adjustments and updates"
       ],
-      availability: "Flexible scheduling, including weekends"
+      availability: "Flexible scheduling to suit your facility"
+    },
+    {
+      id: "labour-outsourcing",
+      title: "Labour Outsourcing",
+      description: "Professional staffing solutions including trained cleaning staff, skilled machine operators, and recruitment services. All our staff are Kenyan citizens with comprehensive training and insurance coverage.",
+      icon: <Users className="h-12 w-12 text-add8e6" />,
+      image: "/gallery/team-photos/team-01.jpeg",
+      features: [
+        "Trained cleaning staff",
+        "Skilled machine operators",
+        "Permanent and temporary recruitment",
+        "All staff are Kenyan citizens"
+      ],
+      benefits: [
+        "Reliable and disciplined workforce",
+        "Customer care trained staff",
+        "Full insurance coverage",
+        "OHS compliant operations",
+        "Ongoing supervision and management"
+      ],
+      process: [
+        "Staffing requirements assessment",
+        "Candidate selection and vetting",
+        "Training and orientation",
+        "Deployment with ongoing supervision"
+      ],
+      availability: "Flexible staffing arrangements"
     },
   ]
 
@@ -272,28 +243,28 @@ export default function ServicesPage() {
                 <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
                   <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-add8e6" />
-                    <span className="group-hover:scale-110 transition-transform duration-300">6+</span>
+                    <span className="group-hover:scale-110 transition-transform duration-300">5</span>
                   </div>
                   <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
-                    Service Categories
+                    Core Services
                   </div>
                 </div>
                 <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
                   <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
                     <Users className="w-4 h-4 text-add8e6" />
-                    <span className="group-hover:scale-110 transition-transform duration-300">200+</span>
+                    <span className="group-hover:scale-110 transition-transform duration-300">19+</span>
                   </div>
                   <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
-                    Happy Clients
+                    Years Experience
                   </div>
                 </div>
                 <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group text-center">
                   <div className="text-2xl md:text-3xl font-bold text-add8e6 mb-1 md:mb-2 flex items-center justify-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-add8e6" />
-                    <span className="group-hover:scale-110 transition-transform duration-300">98%</span>
+                    <span className="group-hover:scale-110 transition-transform duration-300">100%</span>
                   </div>
                   <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
-                    Satisfaction Rate
+                    OHS Compliant
                   </div>
                 </div>
               </div>

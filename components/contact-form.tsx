@@ -62,11 +62,11 @@ export default function ContactForm({
   const [focusedField, setFocusedField] = useState<string | null>(null)
 
   const services = [
-    { value: "Residential Cleaning", label: "Residential Cleaning", icon: FaHome },
-    { value: "Commercial Cleaning", label: "Commercial Cleaning", icon: MdBusiness },
-    { value: "Carpet & Upholstery Cleaning", label: "Carpet & Upholstery Cleaning", icon: FaCouch },
-    { value: "Fumigation & Pest Control", label: "Fumigation & Pest Control", icon: FaBug },
-    { value: "Landscaping Services", label: "Landscaping Services", icon: FaLeaf },
+    { value: "Contract Cleaning", label: "Contract Cleaning", icon: MdBusiness },
+    { value: "Specialized Cleaning", label: "Specialized Cleaning", icon: FaCouch },
+    { value: "Hygiene Supplies", label: "Hygiene Supplies", icon: FaHome },
+    { value: "Landscaping & Gardening", label: "Landscaping & Gardening", icon: FaLeaf },
+    { value: "Labour Outsourcing", label: "Labour Outsourcing", icon: FaBug },
   ]
 
   const locations = [
