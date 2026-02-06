@@ -348,106 +348,109 @@ export default function Header() {
             {/* Mobile Menu Content */}
             <div className="h-[calc(100vh-3.5rem)] overflow-y-auto bg-white dark:bg-gray-900">
               {/* Navigation Links */}
-              <div className="px-4 py-2 space-y-0.5">
-                {navItems.map((item) => (
-                  <div key={item.name}>
-                    {item.subNav ? (
-                      <button
-                        className="font-body flex items-center justify-between w-full py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
-                        onClick={toggleMobileServices}
-                      >
-                        <span>{item.name}</span>
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isMobileServicesOpen ? "rotate-180" : ""}`} />
-                      </button>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        <span>{item.name}</span>
-                        <span className="w-1.5 h-1.5 bg-add8e6/50 rounded-full group-hover:scale-150 transition-transform" />
-                      </Link>
-                    )}
-                    {item.subNav && isMobileServicesOpen && (
-                      <div className="pl-8 pr-4 py-0.5 space-y-0.5 bg-gray-50 dark:bg-gray-800">
-                        {item.subNav.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="font-body block py-2 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-                            onClick={() => {
-                              setIsMenuOpen(false)
-                              setIsMobileServicesOpen(false)
-                            }}
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Quick Actions */}
-              <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
-                <h3 className="font-heading text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
-                  Quick Actions
-                </h3>
-                <div className="space-y-2">
-                  <a
-                    href="tel:+254721525901"
-                    className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="flex items-center">
-                      <Phone className="h-4 w-4 mr-2" />
-                      Call Us
-                    </span>
-                    <span className="text-sm text-gray-500">+254 721 525 901</span>
-                  </a>
-                  <a
-                    href="tel:+254412316600"
-                    className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="flex items-center">
-                      <Phone className="h-4 w-4 mr-2" />
-                      Office Line
-                    </span>
-                    <span className="text-sm text-gray-500">041-2316600</span>
-                  </a>
-                  <a
-                    href="mailto:info@simca-agencies.com"
-                    className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="flex items-center">
-                      <Mail className="h-4 w-4 mr-2" />
-                      Email Us
-                    </span>
-                    <span className="text-sm text-gray-500">info@simca-agencies.com</span>
-                  </a>
-                  <a
-                    href="mailto:simka1974@hotmail.com"
-                    className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="flex items-center">
-                      <Mail className="h-4 w-4 mr-2" />
-                      Alternative Email
-                    </span>
-                    <span className="text-sm text-gray-500">simka1974@hotmail.com</span>
-                  </a>
+                <div className="px-4 py-2 space-y-0.5">
+                  {navItems.map((item) => (
+                    <div key={item.name}>
+                      {item.subNav ? (
+                        <button
+                          className="font-body flex items-center justify-between w-full py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                          onClick={toggleMobileServices}
+                        >
+                          <span>{item.name}</span>
+                          <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isMobileServicesOpen ? "rotate-180" : ""}`} />
+                        </button>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          <span>{item.name}</span>
+                          <span className="w-1.5 h-1.5 bg-add8e6/50 rounded-full group-hover:scale-150 transition-transform" />
+                        </Link>
+                      )}
+                      {item.subNav && isMobileServicesOpen && (
+                        <div className="pl-8 pr-4 py-0.5 space-y-0.5 bg-gray-50 dark:bg-gray-800">
+                          {item.subNav.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              href={subItem.href}
+                              className="font-body block py-2 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                              onClick={() => {
+                                setIsMenuOpen(false)
+                                setIsMobileServicesOpen(false)
+                              }}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
-              </div>
+
+                {/* Quick Actions */}
+                <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
+                  <h3 className="font-heading text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
+                    Quick Actions
+                  </h3>
+                  <div className="space-y-2">
+                    <a
+                      href="tel:+254721525901"
+                      className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span className="flex items-center">
+                        <Phone className="h-4 w-4 mr-2" />
+                        Call Us
+                      </span>
+                      <span className="text-sm text-gray-500">+254 721 525 901</span>
+                    </a>
+                    <a
+                      href="tel:+254412316600"
+                      className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span className="flex items-center">
+                        <Phone className="h-4 w-4 mr-2" />
+                        Office Line
+                      </span>
+                      <span className="text-sm text-gray-500">041-2316600</span>
+                    </a>
+                    <a
+                    href="mailto:info@simca-agencies.com"
+                      className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span className="flex items-center">
+                        <Mail className="h-4 w-4 mr-2" />
+                        Email Us
+                      </span>
+                    <span className="text-sm text-gray-500">info@simca-agencies.com</span>
+                    </a>
+                    <a
+                      href="mailto:simka1974@hotmail.com"
+                      className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span className="flex items-center">
+                        <Mail className="h-4 w-4 mr-2" />
+                        Alternative Email
+                      </span>
+                      <span className="text-sm text-gray-500">simka1974@hotmail.com</span>
+                    </a>
+                  </div>
+                </div>
 
               {/* Spacer to ensure content doesn't get hidden behind sticky footer */}
-              <div className="h-28"></div>
+              <div className="h-36"></div>
 
               {/* Sticky Mobile Menu Footer - Always visible at bottom */}
-              <div className="sticky bottom-0 left-0 right-0 border-t border-gray-200 dark:border-gray-700 p-3 bg-gray-50 dark:bg-gray-800/95 backdrop-blur-sm shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+              <div 
+                className="sticky bottom-0 left-0 right-0 border-t border-gray-200 dark:border-gray-700 p-3 bg-gray-50 dark:bg-gray-800/95 backdrop-blur-sm shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]"
+                style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))' }}
+              >
                 {/* Social Icons */}
                 <div className="flex justify-center mb-3">
                   <SocialIcons className="h-5 w-5" />

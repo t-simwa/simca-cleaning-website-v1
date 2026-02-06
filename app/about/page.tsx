@@ -13,6 +13,7 @@ import { FaAward } from "react-icons/fa" // Font Awesome - Award
 import { MdAutoAwesome } from "react-icons/md" // Material Design - Sparkles/Awesome
 import { MdGroups } from "react-icons/md" // Material Design - Users/Team
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
+import GoogleMap from "@/components/google-map"
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
@@ -383,6 +384,190 @@ export default function AboutPage() {
       {/* Section Divider */}
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
+      {/* CEO Message */}
+      <div className="relative py-12 md:py-16 lg:py-20">
+        {/* Background matching home page pattern */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+          <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
+        </div>
+
+        <div className="container mx-auto px-4 relative">
+          <ScrollAnimation>
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-6 md:mb-10">
+                <motion.div 
+                  className="inline-block mb-4 sm:mb-3 md:mb-5"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm">
+                    <MdStars className="w-3.5 h-3.5" />
+                    Leadership
+                  </span>
+                </motion.div>
+                <motion.h2 
+                  className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  A Message from Our{" "}
+                  <motion.span 
+                    className="text-add8e6 relative inline-block"
+                  >
+                    CEO
+                    <motion.span 
+                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: 'easeOut' }}
+                    />
+                  </motion.span>
+                </motion.h2>
+              </div>
+
+              <motion.div 
+                className="bg-white dark:bg-gray-900/50 rounded-lg shadow-md overflow-hidden border border-gray-100 dark:border-gray-800/50"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 md:p-6">
+                  {/* CEO Image */}
+                  <motion.div 
+                    className="relative min-h-[350px] sm:min-h-[400px] md:min-h-[450px] rounded-lg overflow-hidden group bg-gray-100 dark:bg-gray-800"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
+                    <Image
+                      src="/about/david-ceo.jpeg"
+                      alt="David Simwa - Founder & CEO of Simca Agencies"
+                      fill
+                      className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-20">
+                      <motion.div 
+                        className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2 md:p-3 rounded-lg shadow-md"
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <p className="font-heading font-semibold text-sm text-gray-800 dark:text-white">David Simwa</p>
+                        <p className="font-body text-xs text-gray-600 dark:text-gray-300">Founder & CEO</p>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+
+                  {/* Message Content */}
+                  <div className="flex flex-col justify-center h-full">
+                    <motion.blockquote 
+                      className="font-body text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-4 md:mb-6 relative"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-add8e6/20 rounded-full" />
+                      <div className="pl-3">
+                        When I founded Simca Agencies in 2005, my vision was clear: to build a cleaning company Kenyans could truly rely on. Today, we serve Kenya's most important institutions. Our success is built on the trust our clients place in us, and we honor that trust through excellence and genuine care every day.
+                      </div>
+                    </motion.blockquote>
+
+                    <div className="space-y-3 md:space-y-4">
+                      <motion.div 
+                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        whileHover={{ y: -2 }}
+                      >
+                        <div className="relative z-10 flex items-start gap-3">
+                          <motion.div 
+                            className="relative flex-shrink-0"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                <FaAward className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </motion.div>
+                          <div>
+                            <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Commitment to Excellence</h3>
+                            <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Staff trained to meet the highest standards.</p>
+                          </div>
+                        </div>
+                      </motion.div>
+
+                      <motion.div 
+                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        whileHover={{ y: -2 }}
+                      >
+                        <div className="relative z-10 flex items-start gap-3">
+                          <motion.div 
+                            className="relative flex-shrink-0"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                <MdAutoAwesome className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </motion.div>
+                          <div>
+                            <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Innovation & Technology</h3>
+                            <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Modern equipment and eco-friendly products.</p>
+                          </div>
+                        </div>
+                      </motion.div>
+
+                      <motion.div 
+                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        whileHover={{ y: -2 }}
+                      >
+                        <div className="relative z-10 flex items-start gap-3">
+                          <motion.div 
+                            className="relative flex-shrink-0"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
+                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
+                                <MdGroups className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </motion.div>
+                          <div>
+                            <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Our Kenyan Family</h3>
+                            <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">100% Kenyan staff empowered through training.</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </ScrollAnimation>
+        </div>
+      </div>
+      {/* Section Divider */}
+      <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
+
       {/* Company History */}
       <div className="relative py-12 md:py-16 lg:py-20">
         {/* Background matching home page pattern */}
@@ -709,31 +894,12 @@ export default function AboutPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
                 <motion.div 
-                  className="relative h-[250px] md:h-[400px] rounded-lg overflow-hidden shadow-md group"
+                  className="relative h-[350px] md:h-[450px] rounded-lg overflow-hidden shadow-md group z-0"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
-                  whileHover={{ scale: 1.02 }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
-                  <Image
-                    src="/service-location.png?height=800&width=600"
-                    alt="Map of Kenya showing Simca Agencies locations"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-20">
-                    <motion.div 
-                      className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2 md:p-3 rounded-lg"
-                      whileHover={{ y: -2 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <p className="font-body text-sm text-gray-600 dark:text-gray-300">
-                        Your local cleaning experts, wherever you are.
-                      </p>
-                    </motion.div>
-                  </div>
+                  <GoogleMap height="100%" className="rounded-lg" />
                 </motion.div>
 
                 <div className="space-y-3 md:space-y-4">
@@ -930,192 +1096,6 @@ export default function AboutPage() {
           </ScrollAnimation>
         </div>
       </div>
-      {/* Section Divider */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
-
-      {/* CEO Message */}
-      <div className="relative py-12 md:py-16 lg:py-20">
-        {/* Background matching home page pattern */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-          <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
-        </div>
-
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-6 md:mb-10">
-                <motion.div 
-                  className="inline-block mb-4 sm:mb-3 md:mb-5"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm">
-                    <MdStars className="w-3.5 h-3.5" />
-                    Leadership
-                  </span>
-                </motion.div>
-                <motion.h2 
-                  className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  A Message from Our{" "}
-                  <motion.span 
-                    className="text-add8e6 relative inline-block"
-                  >
-                    CEO
-                    <motion.span 
-                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, ease: 'easeOut' }}
-                    />
-                  </motion.span>
-                </motion.h2>
-              </div>
-
-              <motion.div 
-                className="bg-white dark:bg-gray-900/50 rounded-lg shadow-md overflow-hidden border border-gray-100 dark:border-gray-800/50"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 md:p-6">
-                  {/* CEO Image */}
-                  <motion.div 
-                    className="relative min-h-[350px] sm:min-h-[400px] md:min-h-[450px] rounded-lg overflow-hidden group bg-gray-100 dark:bg-gray-800"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
-                    <Image
-                      src="/about/david-ceo.jpeg"
-                      alt="David Simwa - Founder & CEO of Simca Agencies"
-                      fill
-                      className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-20">
-                      <motion.div 
-                        className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2 md:p-3 rounded-lg shadow-md"
-                        whileHover={{ y: -2 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <p className="font-heading font-semibold text-sm text-gray-800 dark:text-white">David Simwa</p>
-                        <p className="font-body text-xs text-gray-600 dark:text-gray-300">Founder & CEO</p>
-                      </motion.div>
-                    </div>
-                  </motion.div>
-
-                  {/* Message Content */}
-                  <div className="flex flex-col justify-center h-full">
-                    <motion.blockquote 
-                      className="font-body text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-4 md:mb-6 relative"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-add8e6/20 rounded-full" />
-                      <div className="pl-3">
-                        When I founded Simca Agencies in 2005, my vision was clear: to build a cleaning company Kenyans could truly rely on. Today, we serve Kenya's most important institutions. Our success is built on the trust our clients place in us, and we honor that trust through excellence and genuine care every day.
-                      </div>
-                    </motion.blockquote>
-
-                    <div className="space-y-3 md:space-y-4">
-                      <motion.div 
-                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
-                        whileHover={{ y: -2 }}
-                      >
-                        <div className="relative z-10 flex items-start gap-3">
-                          <motion.div 
-                            className="relative flex-shrink-0"
-                            whileHover={{ scale: 1.1 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <div className="relative">
-                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
-                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
-                                <FaAward className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
-                              </div>
-                            </div>
-                          </motion.div>
-                          <div>
-                            <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Commitment to Excellence</h3>
-                            <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Staff trained to meet the highest standards.</p>
-                          </div>
-                        </div>
-                      </motion.div>
-
-                      <motion.div 
-                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        whileHover={{ y: -2 }}
-                      >
-                        <div className="relative z-10 flex items-start gap-3">
-                          <motion.div 
-                            className="relative flex-shrink-0"
-                            whileHover={{ scale: 1.1 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <div className="relative">
-                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
-                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
-                                <MdAutoAwesome className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
-                              </div>
-                            </div>
-                          </motion.div>
-                          <div>
-                            <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Innovation & Technology</h3>
-                            <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Modern equipment and eco-friendly products.</p>
-                          </div>
-                        </div>
-                      </motion.div>
-
-                      <motion.div 
-                        className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-800/50"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        whileHover={{ y: -2 }}
-                      >
-                        <div className="relative z-10 flex items-start gap-3">
-                          <motion.div 
-                            className="relative flex-shrink-0"
-                            whileHover={{ scale: 1.1 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <div className="relative">
-                              <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
-                              <div className="relative p-1.5 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
-                                <MdGroups className="h-3 w-3 text-add8e6 group-hover:scale-110 transition-transform duration-300" />
-                              </div>
-                            </div>
-                          </motion.div>
-                          <div>
-                            <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Our Kenyan Family</h3>
-                            <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">100% Kenyan staff empowered through training.</p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </div>
-      {/* Section Divider */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
     </div>
   )
 }

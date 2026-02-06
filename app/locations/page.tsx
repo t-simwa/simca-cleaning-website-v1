@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Phone } from "lucide-react"
-import OpenStreetMap from "@/components/openstreet-map"
+import GoogleMap from "@/components/google-map"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion } from "framer-motion"
 import ContactForm from "@/components/home/contact-form"
@@ -363,46 +363,8 @@ export default function LocationsPage() {
                     </Link>
                   </div>
                 </div>
-                <div className="order-1 lg:order-2 relative h-[300px] md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg group z-0 border border-gray-100 dark:border-gray-800/50">
-                  <div className="absolute inset-0 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm flex items-center justify-center z-10 transition-opacity duration-300 map-loading">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-add8e6"></div>
-                  </div>
-                  <OpenStreetMap 
-                    address="Kenya"
-                    height="600px"
-                    zoom={6}
-                    markers={[
-                      {
-                        position: "Mombasa, Kenya",
-                        popup: "Mombasa"
-                      },
-                      {
-                        position: "Kisumu, Kenya",
-                        popup: "Kisumu"
-                      },
-                      {
-                        position: "Lamu, Kenya",
-                        popup: "Lamu"
-                      },
-                      {
-                        position: "Lodwar, Kenya",
-                        popup: "Lodwar"
-                      },
-                      {
-                        position: "Kaimosi, Kenya",
-                        popup: "Kaimosi"
-                      }
-                    ]}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-20">
-                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2.5 md:p-3 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
-                                      <h3 className="font-heading text-sm md:text-base font-bold text-gray-800 dark:text-white mb-1.5">Click on any marker to discover our local expertise</h3>
-                                      <p className="font-body text-xs md:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                                        Each marker represents a trained team ready to serve you. Click a city to meet your local Simca experts.
-                      </p>
-                    </div>
-                  </div>
+                <div className="order-1 lg:order-2 relative h-[350px] md:h-[450px] lg:h-[500px] rounded-lg overflow-hidden shadow-lg group z-0 border border-gray-100 dark:border-gray-800/50">
+                  <GoogleMap height="100%" className="rounded-lg" />
                 </div>
               </div>
             </div>
