@@ -10,220 +10,13 @@ import { HiShieldCheck } from "react-icons/hi2";
 import { FaAward } from "react-icons/fa";
 import { FaTags } from "react-icons/fa";
 import { MdAutoAwesome } from "react-icons/md";
-import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import ContactForm from "@/components/contact-form";
 
 const MotionImage = motion(Image)
-
-// CountUp component for animated numbers with scroll trigger
-function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: string | number, duration?: number, suffix?: string, inView?: boolean }) {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    if (!inView) return;
-    if (typeof end === 'string' && !end.match(/^\d+/)) {
-      return;
-    }
-    let numericEnd: number;
-    if (typeof end === 'number') {
-      numericEnd = end;
-    } else {
-      const match = end.match(/^(\d+)(.*)$/);
-      if (match) {
-        numericEnd = parseInt(match[1]);
-      } else {
-        numericEnd = parseInt(end);
-      }
-    }
-    const startTime = performance.now();
-    function animate(now: number) {
-      const elapsed = (now - startTime) / 1000;
-      const progress = Math.min(elapsed / duration, 1);
-      const value = Math.floor(progress * numericEnd);
-      setCount(value);
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        setCount(numericEnd);
-      }
-    }
-    requestAnimationFrame(animate);
-    return () => {};
-  }, [end, duration, inView]);
-  
-  if (typeof end === 'string' && !end.match(/^\d+/)) {
-    return <span>{end}{suffix}</span>;
-  }
-  
-  let display: string | number = count;
-  let textSuffix = '';
-  if (typeof end === 'string') {
-    const match = end.match(/^(\d+)(.*)$/);
-    if (match) {
-      textSuffix = match[2];
-    }
-    if (end.includes('%')) display = `${count}%`;
-    else if (end.includes('+')) display = `${count}+`;
-    else if (textSuffix) display = `${count}${textSuffix}`;
-  }
-  return <span>{display}{suffix}</span>;
-}
-
-// Stats Section Component with scroll-triggered animation
-function StatsSectionWithAnimation() {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  })
-
-  return (
-    <motion.div
-      ref={ref}
-      variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-      className="grid grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
-    >
-      {[
-        { 
-          value: "19+", 
-          label: "YEARS OF SERVICE", 
-        },
-        { 
-          value: "100%", 
-          label: "QUALITY PRODUCTS", 
-        },
-        { 
-          value: "100%", 
-          label: "RELIABLE SUPPLY", 
-        }
-      ].map((stat, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1, duration: 0.6 }}
-          className="text-center"
-        >
-          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
-            <CountUp end={stat.value} duration={1.5} inView={inView} />
-          </div>
-          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
-            {stat.label}
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
-  )
-}
-
-interface ServiceDetail {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  features: string[];
-  availability: string;
-  pricing: {
-    title: string;
-    packages: { name: string; price: string; features: string[] }[];
-  };
-  serviceAreas: string[];
-  whyChooseUs: { title: string; description: string; points: string[] };
-  whatsIncluded: { title: string; description: string; items: string[] };
-}
-
-const hygieneSuppliesService: ServiceDetail = {
-  title: "Hygiene Supplies",
-  description: "Complete hygiene solutions for your facility including dispensers, sanitary bins, air fresheners, sanitizers, and all essential consumables to maintain a clean and healthy environment.",
-  icon: <Package className="h-8 w-8 md:h-10 md:w-10 text-add8e6" />,
-  features: [
-    "Towel dispensers and hand dryers",
-    "Toilet roll holders",
-    "Soap dispensers",
-    "Sanitary bins",
-    "Air fresheners and sanitizers",
-    "Paper towels and toilet rolls",
-    "Liquid hand soap",
-    "Regular supply and maintenance"
-  ],
-  availability: "Flexible delivery schedules",
-  pricing: {
-    title: "Supply Packages",
-    packages: [
-      {
-        name: "Essential Package",
-        price: "Custom Quote",
-        features: [
-          "Basic dispensers and holders",
-          "Monthly consumables supply",
-          "Standard installation"
-        ]
-      },
-      {
-        name: "Professional Package",
-        price: "Custom Quote",
-        features: [
-          "Premium dispensers and equipment",
-          "Bi-weekly consumables supply",
-          "Regular maintenance included"
-        ]
-      },
-      {
-        name: "Enterprise Package",
-        price: "Custom Quote",
-        features: [
-          "Full hygiene solution",
-          "Weekly supply and service",
-          "Dedicated account manager"
-        ]
-      },
-      {
-        name: "Custom Solutions",
-        price: "Negotiable",
-        features: [
-          "Tailored to your facility",
-          "Flexible delivery schedule",
-          "Volume discounts available"
-        ]
-      }
-    ]
-  },
-  serviceAreas: [
-    "Mombasa",
-    "Other areas upon consultation"
-  ],
-  whyChooseUs: {
-    title: "Why Choose Our Hygiene Supplies",
-    description: "We provide quality hygiene products with reliable delivery and excellent service to keep your facility clean and compliant.",
-    points: [
-      "Quality products from trusted brands",
-      "Reliable and timely delivery",
-      "Competitive pricing",
-      "Professional installation",
-      "Regular maintenance and refills",
-      "Eco-friendly options available",
-      "Comprehensive hygiene solutions"
-    ]
-  },
-  whatsIncluded: {
-    title: "What's Included in Our",
-    description: "Our hygiene supplies service covers all your facility's hygiene needs.",
-    items: [
-      "Towel dispensers",
-      "Hand dryers",
-      "Toilet roll holders",
-      "Soap dispensers",
-      "Sanitary bins",
-      "Air fresheners",
-      "Sanitizers",
-      "Paper towels",
-      "Toilet rolls",
-      "Liquid hand soap"
-    ]
-  }
-};
 
 export default function HygieneSuppliesPage() {
   const containerVariants = {
@@ -324,7 +117,7 @@ export default function HygieneSuppliesPage() {
 
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
+                className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wide"
               >
                 Complete{" "}
                 <span className="text-fff relative inline-block">
@@ -342,24 +135,34 @@ export default function HygieneSuppliesPage() {
 
               <motion.p 
                 variants={itemVariants}
-                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
+                className="font-body text-base md:text-lg lg:text-xl text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
               >
-                Quality hygiene products and supplies for your facility. From towel dispensers and soap dispensers to sanitary bins and air fresheners, we provide everything you need to maintain a clean, healthy environment for staff and visitors.
+                Quality dispensers, sanitary bins, air fresheners, and consumables to keep your facility clean and well-stocked.
               </motion.p>
-
-              <StatsSectionWithAnimation />
 
               <motion.div
                 variants={itemVariants}
-                className="flex justify-center mb-6"
+                className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <Link 
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-2.5 md:py-3 font-medium transition-all duration-300 group text-center text-xs sm:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50"
+                <button
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact-form')
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                  }}
+                  className="font-body inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
                 >
-                  Get Your Free Quote
-                  <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                  Get a Free Quote
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+                <a
+                  href="tel:+254722839248"
+                  className="font-body inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+                >
+                  <Phone className="w-4 h-4 md:w-5 md:h-5" />
+                  Call Us Now
+                </a>
               </motion.div>
             </motion.div>
           </div>
@@ -382,7 +185,7 @@ export default function HygieneSuppliesPage() {
                   Why Choose Us
                 </span>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">Why Choose Our</span>
                 <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                   Hygiene
@@ -408,14 +211,11 @@ export default function HygieneSuppliesPage() {
                   />
                 </div>
               </div>
-              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Maintaining proper hygiene in your facility is essential for the health and safety of staff, visitors, and customers. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies Ltd</Link></span> provides comprehensive hygiene supply solutions, offering quality products and reliable service to keep your washrooms and facilities fully stocked and hygienic.
+              <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5 leading-relaxed">
+                <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies Ltd</Link></span> provides complete hygiene solutions for hospitals, hotels, offices, schools, and commercial facilities. We supply quality dispensers, sanitary bins, air fresheners, and all essential consumables, with professional installation and regular maintenance to keep your facility fully stocked and compliant.
               </p>
-              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Our hygiene supplies service goes beyond just delivering products. We provide professional installation of dispensers and equipment, regular maintenance checks, and timely refills to ensure your facility never runs out of essential hygiene items. Our team understands the importance of consistent supply and works to maintain your hygiene standards without disruption.
-              </p>
-              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                With nearly two decades of experience serving hospitals, hotels, government offices, schools, and commercial buildings, we understand the unique hygiene requirements of different facilities. We offer customized solutions tailored to your specific needs, whether you need a small office setup or a comprehensive hygiene system for a large institution.
+              <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5 leading-relaxed">
+                With 19+ years of experience, we understand the unique hygiene needs of different facilities. You get reliable delivery schedules, competitive pricing, and dedicated service to ensure your washrooms and common areas always maintain the highest hygiene standards.
               </p>
             </div>
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
@@ -453,7 +253,7 @@ export default function HygieneSuppliesPage() {
               <MdAutoAwesome className="w-3.5 h-3.5" />
               Our Products & Services
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide">
               <span className="block mb-1">Complete</span>
               <span className="inline-block block mb-1 ml-2">
                 <span className="text-add8e6 relative inline-block">Hygiene
@@ -469,8 +269,8 @@ export default function HygieneSuppliesPage() {
                 Solutions
               </span>
             </h2>
-            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide">
-              We provide a comprehensive range of hygiene products and supplies to meet all your facility's needs. From dispensers and equipment to consumables and maintenance.
+            <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide leading-relaxed">
+              Comprehensive hygiene products and supplies to meet all your facility's needs.
             </p>
           </motion.div>
           <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 space-y-3 md:space-y-4">
@@ -480,7 +280,7 @@ export default function HygieneSuppliesPage() {
                 icon: HiClock,
                 content: (
                   <>
-                    We supply and install quality towel dispensers and hand dryers for your washrooms. Our range includes manual and automatic paper towel dispensers, wall-mounted hand dryers, and combination units. Professional installation and regular maintenance ensure your equipment functions optimally and maintains a professional appearance.
+                    Quality towel dispensers and hand dryers for your washrooms. Our range includes manual and automatic paper towel dispensers, wall-mounted hand dryers, and combination units with professional installation and regular maintenance.
                   </>
                 )
               },
@@ -489,7 +289,7 @@ export default function HygieneSuppliesPage() {
                 icon: MdStars,
                 content: (
                   <>
-                    Our selection includes single and multi-roll toilet paper holders, jumbo roll dispensers for high-traffic facilities, manual and automatic soap dispensers, and foam soap systems. We provide both wall-mounted and freestanding options to suit your facility's layout and design requirements.
+                    Single and multi-roll toilet paper holders, jumbo roll dispensers for high-traffic facilities, manual and automatic soap dispensers, and foam soap systems. Wall-mounted and freestanding options available.
                   </>
                 )
               },
@@ -498,7 +298,7 @@ export default function HygieneSuppliesPage() {
                 icon: FaLeaf,
                 content: (
                   <>
-                    We supply hygienic sanitary disposal bins with regular servicing and replacement. Our sanitary bins feature pedal-operated or touch-free designs, odor-control technology, and discreet appearance. Regular collection and replacement services ensure compliance with health and safety standards.
+                    Hygienic sanitary disposal bins with regular servicing and replacement. Pedal-operated or touch-free designs with odor-control technology. Regular collection ensures compliance with health and safety standards.
                   </>
                 )
               },
@@ -507,7 +307,7 @@ export default function HygieneSuppliesPage() {
                 icon: FaCog,
                 content: (
                   <>
-                    Keep your facility smelling fresh and germ-free with our range of air fresheners and sanitizers. We offer automatic air freshener dispensers, urinal sanitizers, surface sanitizers, and hand sanitizer stations. A variety of fragrances and formulations are available to suit your preferences.
+                    Keep your facility fresh and germ-free with automatic air freshener dispensers, urinal sanitizers, surface sanitizers, and hand sanitizer stations. Various fragrances and formulations available.
                   </>
                 )
               },
@@ -516,7 +316,7 @@ export default function HygieneSuppliesPage() {
                 icon: HiShieldCheck,
                 content: (
                   <>
-                    Never run out of essential hygiene consumables. We provide reliable supply of paper towels, toilet rolls (standard and jumbo), liquid hand soap, foam soap, sanitizer refills, and all other consumables your facility needs. Flexible delivery schedules ensure you're always stocked.
+                    Reliable supply of paper towels, toilet rolls, liquid hand soap, foam soap, sanitizer refills, and all consumables your facility needs. Flexible delivery schedules ensure you're always stocked.
                   </>
                 )
               },
@@ -525,7 +325,7 @@ export default function HygieneSuppliesPage() {
                 icon: FaAward,
                 content: (
                   <>
-                    Our team provides professional installation of all hygiene equipment and dispensers. We assess your facility's needs, recommend optimal placement, and install equipment securely and correctly. All installations are completed to high standards with minimal disruption to your operations.
+                    Our team provides professional installation of all hygiene equipment and dispensers. We assess your facility's needs, recommend optimal placement, and install equipment securely with minimal disruption.
                   </>
                 )
               },
@@ -534,7 +334,7 @@ export default function HygieneSuppliesPage() {
                 icon: FaTags,
                 content: (
                   <>
-                    We don't just supply products. We provide ongoing maintenance and refill services to keep your hygiene systems running smoothly. Regular visits ensure dispensers are cleaned, refilled, and functioning properly. Any faulty equipment is repaired or replaced promptly.
+                    Ongoing maintenance and refill services keep your hygiene systems running smoothly. Regular visits ensure dispensers are cleaned, refilled, and functioning properly. Faulty equipment is repaired or replaced promptly.
                   </>
                 )
               }
@@ -563,10 +363,10 @@ export default function HygieneSuppliesPage() {
                     </div>
                   </motion.div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-add8e6 text-xs md:text-sm mb-1.5 group-hover:text-add8e6/80 transition-colors leading-tight">
+                    <h3 className="font-heading font-semibold text-add8e6 text-sm md:text-base mb-1.5 group-hover:text-add8e6/80 transition-colors leading-tight">
                       {para.title}
                     </h3>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                       {para.content}
                     </p>
                   </div>
@@ -643,7 +443,7 @@ export default function HygieneSuppliesPage() {
                   What's Included
                 </span>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">What's Included in Our</span>
                 <span className="ml-2">
                   <span className="text-add8e6 relative inline-block block mb-4">
@@ -710,134 +510,37 @@ export default function HygieneSuppliesPage() {
                   </div>
                 </div>
               </div>
-              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Our hygiene supplies service provides everything your facility needs to maintain a clean and healthy environment. We supply quality products and provide regular maintenance.
+              <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5 leading-relaxed">
+                Complete hygiene equipment and consumables to keep your facility clean and well-stocked.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-                <li>Towel dispensers</li>
-                <li>Hand dryers</li>
-                <li>Toilet roll holders</li>
-                <li>Soap dispensers</li>
-                <li>Sanitary bins</li>
-                <li>Air fresheners</li>
-                <li>Sanitizers</li>
-                <li>Paper towels</li>
-                <li>Toilet rolls</li>
-                <li>Liquid hand soap</li>
+              <ul className="font-body list-disc pl-5 space-y-2 text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8">
+                <li>Towel dispensers and hand dryers</li>
+                <li>Toilet roll holders and soap dispensers</li>
+                <li>Sanitary bins with regular servicing</li>
+                <li>Air fresheners and sanitizer stations</li>
+                <li>Paper towels, toilet rolls, and liquid soap</li>
                 <li>Professional installation and setup</li>
                 <li>Regular maintenance and refills</li>
+                <li>Flexible delivery schedules</li>
               </ul>
+              
+              {/* Get a Quote Button */}
+              <button
+                onClick={() => {
+                  const contactSection = document.getElementById('contact-form')
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }}
+                className="font-body inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+              >
+                Get a Free Quote
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
             </div>
           </div>
         </div>
       </section>
-
-      <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
-
-      {/* Pricing Section */}
-      <div id="pricing" className="relative py-12 md:py-20 scroll-mt-24">
-        <div className="absolute inset-0 bg-gray-50 dark:bg-gray-800/50">
-          <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px] opacity-5" />
-        </div>
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-8 md:mb-16">
-                <motion.div 
-                  className="inline-block mb-3 sm:mb-4 md:mb-6 mt-0 !mt-0"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
-                    <Phone className="w-3.5 h-3.5" />
-                    Pricing & Packages
-                  </span>
-                </motion.div>
-                <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide mt-0 !mt-0"
-                >
-                  <span className="text-add8e6 relative inline-block tracking-wider">
-                    Hygiene
-                    <motion.span 
-                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, ease: 'easeOut' }}
-                      style={{ display: 'block' }}
-                    />
-                  </span>{' '}
-                  Supply Packages
-                </motion.h2>
-                <motion.p 
-                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6 max-w-2xl mx-auto"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <strong>Note:</strong> Hygiene supply packages are customized based on your facility size, number of washrooms, traffic levels, and specific product requirements. Contact us for a detailed assessment and personalized quote.
-                </motion.p>
-              </div>
-
-              <div className="flex justify-center">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50 overflow-hidden flex flex-col w-full max-w-md"
-                >
-                  <div className="flex flex-col h-full relative z-10">
-                    <div className="p-3 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors text-center">
-                        Hygiene Supplies
-                      </h3>
-                    </div>
-                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 text-center mb-4">
-                      Complete hygiene solutions including dispensers, sanitary bins, air fresheners, and all consumables for your facility.
-                    </p>
-                    <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <MdSanitizer className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Quality products from trusted brands</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <MdSanitizer className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Professional installation</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <MdSanitizer className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Regular maintenance and refills</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <MdSanitizer className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Flexible delivery schedules</span>
-                      </li>
-                    </ul>
-                    <button
-                      onClick={() => {
-                        const contactSection = document.getElementById('contact-form')
-                        if (contactSection) {
-                          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                        }
-                      }}
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-3 font-medium transition-all duration-300 text-center text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group rounded-lg"
-                    >
-                      Get a Quote
-                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </button>
-                  </div>
-                </motion.div>
-              </div>
-
-              <div className="max-w-3xl mx-auto mt-8 text-center">
-                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-                  Our hygiene supply packages can be bundled with our contract cleaning services for a complete facility hygiene solution. For a personalized assessment and quote, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
-                </p>
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </div>
 
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
@@ -852,15 +555,15 @@ export default function HygieneSuppliesPage() {
               <MessageCircle className="w-3.5 h-3.5" />
               Contact Us
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
               Get in{' '}
               <span className="text-add8e6 relative">
                 Touch
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
               </span>
             </h2>
-            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-              Need hygiene supplies for your facility? Get a free assessment and quote today. We're here to help keep your facility clean and well-stocked.
+            <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              Get a free assessment and quote for your facility's hygiene needs today.
             </p>
           </div>
           <div className="max-w-2xl mx-auto">
