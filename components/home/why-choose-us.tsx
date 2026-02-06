@@ -1,135 +1,115 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useRef } from "react"
-import React from "react"
-// Unique icons from different icon libraries
-import { FaUserCog } from "react-icons/fa" // Font Awesome - Personalized
-import { FaTags } from "react-icons/fa" // Font Awesome - Affordable
-import { MdGroups } from "react-icons/md" // Material Design - Team Trust
-import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Guarantee
-import { MdAutoAwesome } from "react-icons/md" // Material Design - Quality Results
-import { HiLockOpen } from "react-icons/hi2" // Heroicons v2 - No Contracts
-import { MdFavorite } from "react-icons/md" // Material Design - Favorite/Choice badge
+import { motion } from "framer-motion"
+import { Shield, Users, Leaf, Clock, Award, CheckCircle, Heart } from "lucide-react"
+
+const reasons = [
+  {
+    icon: Users,
+    title: "Trained & Disciplined Staff",
+    description: "Our people are our strength. Every team member is carefully selected, vetted, and trained to meet the highest standards.",
+  },
+  {
+    icon: Leaf,
+    title: "Eco-Friendly Products",
+    description: "We use modern equipment and environmentally responsible products that protect your space and our planet.",
+  },
+  {
+    icon: CheckCircle,
+    title: "Regular Quality Inspections",
+    description: "Our supervisors conduct regular inspections to ensure consistent, high-standard results every time.",
+  },
+  {
+    icon: Clock,
+    title: "Fast Response Time",
+    description: "When you need us, we're there. Our team responds quickly to requests and works around your schedule.",
+  },
+  {
+    icon: Shield,
+    title: "OHS Compliant",
+    description: "We follow strict safety protocols and train our staff in safe work practices for your peace of mind.",
+  },
+  {
+    icon: Award,
+    title: "Fully Insured",
+    description: "Complete coverage including public liability, employer's liability, and property damage protection.",
+  },
+]
 
 export default function WhyChooseUs() {
-  const containerRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  })
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1])
-  const scale = useTransform(scrollYProgress, [0, 0.2], [0.8, 1])
-
   return (
-    <section className="relative py-12 md:py-16 lg:py-20">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
+    <section className="relative py-16 md:py-20 lg:py-24">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-add8e6/5 via-white to-blue-50 dark:from-add8e6/10 dark:via-gray-900 dark:to-blue-900/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(62,65,145,0.05),transparent_70%)]" />
       </div>
-      {/* Floating decorative elements */}
+
+      {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl" />
       </div>
+
       <div className="container mx-auto px-4 relative">
+        {/* Section Header */}
         <motion.div 
-          className="text-center max-w-3xl mx-auto mb-10 md:mb-12"
-          style={{ opacity, scale }}
+          className="text-center max-w-2xl mx-auto mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6/20 to-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6 backdrop-blur-sm">
-            <MdFavorite className="w-3.5 h-3.5" />
-            Why Choose Simca Agencies
+          {/* Badge */}
+          <div className="mb-6">
+            <span className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-4 py-2 rounded-full text-sm font-medium">
+              <Heart className="w-4 h-4" />
+              Why Choose Us
+            </span>
           </div>
-          <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
-            <span className="block mb-1">Why Choose Simca?</span>
-            <span className="inline-block block mb-1 ml-2">
-              Cleaning You Can <span className="text-add8e6 relative inline-block">Trust
-                <motion.span
-                  className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, ease: 'easeOut' }}
-                  style={{ display: 'block' }}
-                />
-              </span>
+
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight">
+            Why Choose{" "}
+            <span className="text-add8e6 relative inline-block">
+              Simca?
+              <motion.span
+                className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-1 bg-add8e6/30 rounded-full origin-left"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+              />
             </span>
           </h2>
-          <p className="text-sm md:text-base lg:text-sm text-gray-600 dark:text-gray-300 tracking-wide">
-            We care for your space like it's our own. Trained teams, modern equipment, and the peace of mind that comes with full insurance and safety compliance.
+          <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300">
+            Professional cleaning backed by experience, quality, and care.
           </p>
         </motion.div>
-        <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 space-y-3 md:space-y-4">
-          {[
-            {
-              title: "Highly Trained & Disciplined Staff",
-              icon: MdGroups,
-              text: "Our people are our strength. Every team member is carefully selected, thoroughly trained, and committed to the highest standards. All our staff are Kenyan citizens who bring skill, discipline, and genuine care to every job."
-            },
-            {
-              title: "Eco-Friendly Products & Modern Equipment",
-              icon: MdAutoAwesome,
-              text: "We invest in the latest cleaning technology and environmentally responsible products. From industrial scrubbers to specialized floor care machines, our equipment delivers exceptional results while protecting your space and our planet."
-            },
-            {
-              title: "Regular Supervision & Quality Inspections",
-              icon: FaUserCog,
-              text: "Quality is never left to chance. Our supervisors conduct regular inspections to ensure consistent, high standards. We monitor every detail, follow strict cleaning protocols, and maintain open communication with our clients."
-            },
-            {
-              title: "Fast Response to Your Needs",
-              icon: FaTags,
-              text: "When you need us, we're there. Our team responds quickly to requests, adjustments, and emergencies. We understand that your time matters, and we work around your schedule to minimize disruption to your operations."
-            },
-            {
-              title: "Occupational Health & Safety Compliant",
-              icon: HiShieldCheck,
-              text: "Your safety and ours is paramount. We follow strict OHS standards, train our staff in safe work practices, and maintain a health-conscious approach to every job. You can trust that your facility is in responsible hands."
-            },
-            {
-              title: "Comprehensive Insurance Coverage",
-              icon: HiLockOpen,
-              text: "Complete peace of mind, guaranteed. We carry third party and public liability insurance, employer's liability, workman's compensation, and coverage against loss or damage to property. Your facility is fully protected."
-            }
-          ].map((para, i) => (
-            <motion.div 
-              key={i} 
-              className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 md:p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50"
+
+        {/* Reasons Grid - 3 columns like Trusted Clients */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+          {reasons.map((reason, index) => (
+            <motion.div
+              key={reason.title}
+              className="group bg-white dark:bg-gray-900/50 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800 hover:-translate-y-1"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
             >
-              <div className="flex items-start gap-3">
-                {/* Beautifully styled icon */}
-                <motion.div 
-                  className="relative flex-shrink-0 mt-0.5"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="relative">
-                    {/* Gradient glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-add8e6/30 via-add8e6/15 to-transparent rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
-                    {/* Icon container */}
-                    <div className="relative p-2 bg-gradient-to-br from-add8e6/8 to-add8e6/4 dark:from-add8e6/12 dark:to-add8e6/6 rounded-lg border border-add8e6/15 group-hover:border-add8e6/30 transition-all duration-300">
-                      {React.createElement(para.icon, { 
-                        className: 'h-3.5 w-3.5 text-add8e6 group-hover:scale-110 transition-transform duration-300'
-                      })}
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Content */}
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-add8e6 text-xs md:text-sm mb-1.5 group-hover:text-add8e6/80 transition-colors leading-tight">
-                    {para.title}
-                  </h3>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                    {para.text}
-                  </p>
-                </div>
+              {/* Icon */}
+              <div className="w-12 h-12 bg-add8e6/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-add8e6/20 transition-colors duration-300">
+                <reason.icon className="w-6 h-6 text-add8e6" />
               </div>
+              
+              {/* Title */}
+              <h3 className="font-heading text-lg font-bold text-gray-800 dark:text-white mb-2 group-hover:text-add8e6 transition-colors">
+                {reason.title}
+              </h3>
+              
+              {/* Description */}
+              <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                {reason.description}
+              </p>
             </motion.div>
           ))}
         </div>

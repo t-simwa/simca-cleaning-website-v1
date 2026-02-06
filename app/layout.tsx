@@ -1,9 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Playfair_Display, Nunito } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import StickyMobileCTA from "@/components/sticky-mobile-cta"
 import { ThemeProvider } from "@/components/theme-provider"
 import { PageTransition } from "@/components/ui/page-transition"
 
@@ -12,7 +13,22 @@ const inter = Inter({
   display: "swap", 
   preload: true,
   adjustFontFallback: true,
-  fallback: ['system-ui', 'arial']
+  fallback: ['system-ui', 'arial'],
+  variable: '--font-inter'
+})
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: '--font-playfair',
+  weight: ['400', '500', '600', '700', '800', '900']
+})
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  display: "swap",
+  variable: '--font-nunito',
+  weight: ['300', '400', '500', '600', '700']
 })
 
 export const metadata: Metadata = {
@@ -95,13 +111,14 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${playfair.variable} ${nunito.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Header />
           <PageTransition>
             <main className="pt-14 md:pt-20">{children}</main>
           </PageTransition>
           <Footer />
+          <StickyMobileCTA />
         </ThemeProvider>
       </body>
     </html>

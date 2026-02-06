@@ -1,322 +1,203 @@
 "use client"
 
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { useState, useEffect } from "react"
-import Link from "next/link"
+import { Star, ExternalLink, MessageSquare } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import React from "react"
-// Unique icons from different icon libraries
-import { FaComments } from "react-icons/fa" // Font Awesome - Comments/Reviews
-import { HiHomeModern } from "react-icons/hi2" // Heroicons v2 - Modern Home
-import { MdCorporateFare } from "react-icons/md" // Material Design - Corporate Building
-import { FaIndustry } from "react-icons/fa" // Font Awesome - Industry
-
-export default function Testimonials() {
-  const [hoveredTestimonial, setHoveredTestimonial] = useState<number | null>(null)
-  const [activeCategory, setActiveCategory] = useState("all")
-  const [currentPage, setCurrentPage] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-
-  const categories = [
-    { id: "all", label: "All Reviews", icon: FaComments },
-    { id: "residential", label: "Residential", icon: HiHomeModern },
-    { id: "commercial", label: "Commercial", icon: MdCorporateFare },
-    { id: "industrial", label: "Industrial", icon: FaIndustry },
-  ]
+import { useState, useEffect } from "react"
 
   const testimonials = [
     {
       name: "Jane Mwangi",
-      role: "Homeowner, Mombasa",
-      image: "/home-testimonials/jane-mwangi.jpg?height=200&width=200",
-      quote:
-        "Coming home used to mean sneezing fits, but since Simca started cleaning, it finally feels fresh and breathable. They listened to our concerns about allergies and now, our home is our sanctuary again. It's not just clean, it's a healthier, happier space for my family.",
-      category: "residential",
-      highlights: ["Healthier Home", "Allergy Relief"],
-      location: "Mombasa",
-      response: "Jane, stories like yours are why we do what we do! We're so happy your family is breathing easier and feeling healthier at home. Thank you for trusting us.",
+    initial: "J",
+    quote: "Since Simca started cleaning, our home finally feels fresh and breathable. It's not just clean—it's healthier for my family.",
+    timeAgo: "2 months ago",
     },
     {
       name: "David Ochieng",
-      role: "Office Manager, Mombasa",
-      image: "/home-testimonials/david-ochieng.jpg?height=200&width=200",
-      quote:
-        "We had a minor flood and panic set in. I called Simca, and they were here in what felt like minutes. They handled everything with such calm and professionalism, turning a potential disaster into a minor hiccup. Their team is reliable, fast, and incredibly reassuring.",
-      category: "commercial",
-      highlights: ["Emergency Response", "Peace of Mind"],
-      location: "Mombasa",
-      response: "David, thank you for calling us. We're built for moments like these—it's our privilege to provide that peace of mind when you need it most.",
+    initial: "D",
+    quote: "We had a flood and Simca was here in minutes. They handled everything with calm professionalism. Incredibly reliable.",
+    timeAgo: "3 months ago",
     },
     {
       name: "Amina Hussein",
-      role: "Restaurant Owner, Mombasa",
-      image: "/home-testimonials/amina-hussein.png?height=200&width=200",
-      quote:
-        "In the restaurant business, clean isn't just about appearances—it's about health and safety. Simca gets that. Their team is meticulous, and I can always count on them to leave our kitchen and dining areas spotless. Our customers notice, and so do the health inspectors!",
-      category: "commercial",
-      highlights: ["Restaurant Cleaning", "Health & Safety"],
-      location: "Mombasa",
-      response: "Amina, we love being part of your success story! A clean restaurant is a safe restaurant, and we're proud to help you uphold that standard for your customers.",
-    },
-    {
-      name: "Sarah Njoroge",
-      role: "Property Manager, Eldoret",
-      image: "/home-testimonials/sarah-njoroge.jpg?height=200&width=200",
-      quote:
-        "Juggling multiple properties is tough, but Simca makes my job easier. Their post-construction cleaning is flawless, and they handle move-in/move-out cleans without a fuss. They're more than a vendor; they're a partner I can rely on. They just get it done right, every time.",
-      category: "industrial",
-      highlights: ["Reliable Partner", "Post-Construction"],
-      location: "Eldoret",
-      response: "Sarah, we truly value our partnership. Knowing you can count on us is the highest compliment. We look forward to many more projects together!",
+    initial: "A",
+    quote: "Their team is meticulous. Our kitchen and dining areas are always spotless. Health inspectors notice the difference!",
+    timeAgo: "1 month ago",
     },
     {
       name: "Michael Kimani",
-      role: "Factory Supervisor, Thika",
-      image: "/home-testimonials/michael-kimani.png?height=200&width=200",
-      quote:
-        "Our factory floor has never been safer or cleaner. Simca's industrial cleaning team understands the unique challenges we face, from machine grease to dust control. They work around our schedule and have made a huge difference in our workplace environment.",
-      category: "industrial",
-      highlights: ["Industrial Safety", "Flexible Scheduling"],
-      location: "Thika",
-      response: "Michael, creating a safe and clean environment for your team is crucial, and we're honored to be your chosen partner for it. Thank you for the trust you place in us.",
+    initial: "M",
+    quote: "Our factory floor has never been safer or cleaner. They work around our schedule and understand industrial challenges.",
+    timeAgo: "4 months ago",
     },
-    {
-      name: "The Patel Family",
-      role: "Kisumu",
-      image: "/home-testimonials/patel-family.png?height=200&width=200",
-      quote:
-        "We needed our carpets and upholstery deep-cleaned before a family celebration, and Simca did a phenomenal job. Stains we thought were permanent are gone! They were so careful with our furniture and the results were just stunning. Our home felt brand new.",
-      category: "residential",
-      highlights: ["Upholstery Care", "Stain Removal"],
-      location: "Kisumu",
-      response: "We're so glad we could help you get ready for your celebration! It's a joy to bring new life to treasured furniture and make your home feel special.",
+]
+
+// Google Business details
+const googleReviews = {
+  rating: 4.9,
+  count: 25,
+  url: "https://g.page/r/CeKUor0iQ1V2EAE/review",
     }
-  ]
 
-  const filteredTestimonials = activeCategory === "all" 
-    ? testimonials 
-    : testimonials.filter(testimonial => testimonial.category === activeCategory)
+export default function Testimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Calculate total pages based on screen size
-  const cardsPerPage = isMobile ? 1 : 3
-  const totalPages = Math.ceil(filteredTestimonials.length / cardsPerPage)
-
-  // Handle window resize
+  // Auto-scroll every 6 seconds (slower than stats counter)
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
-  // Reset current page when changing categories
-  useEffect(() => {
-    setCurrentPage(0)
-  }, [activeCategory])
-
-  // Navigation functions
-  const nextPage = () => {
-    setCurrentPage((prev) => (prev + 1) % totalPages)
-  }
-
-  const prevPage = () => {
-    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages)
-  }
-
-  // Auto-scroll carousel - only on mobile (matching residential page timing)
-  useEffect(() => {
-    if (!isMobile) return
-
     const interval = setInterval(() => {
-      setCurrentPage((prev) => (prev + 1) % totalPages)
-    }, 8000) // Change testimonial every 8 seconds (matching residential page)
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+    }, 6000)
 
     return () => clearInterval(interval)
-  }, [isMobile, totalPages])
+  }, [])
 
-  // Get current cards
-  const getCurrentCards = () => {
-    const start = currentPage * cardsPerPage
-    return filteredTestimonials.slice(start, start + cardsPerPage)
-  }
+  const currentTestimonial = testimonials[currentIndex]
 
   return (
-    <section className="relative py-12 md:py-16 lg:py-20">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
+    <section className="relative py-16 md:py-20 lg:py-24">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)]" />
       </div>
       
-      {/* Floating decorative elements */}
+      {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative">
+        {/* Section Header */}
         <motion.div 
+          className="text-center max-w-2xl mx-auto mb-10"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-10 md:mb-12"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6">
-            <FaComments className="w-3.5 h-3.5" />
-            Client Testimonials
+          {/* Badge */}
+          <div className="mb-6">
+            <span className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-4 py-2 rounded-full text-sm font-medium">
+              <MessageSquare className="w-4 h-4" />
+              Client Reviews
+            </span>
           </div>
-          <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
-            You're in Good{" "}
+
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight">
+            What Our Clients{" "}
             <span className="text-add8e6 relative inline-block">
-              Company
+              Say
               <motion.span 
-                className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/30 rounded-full"
+                className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-1 bg-add8e6/30 rounded-full origin-left"
                 initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
               />
             </span>
           </h2>
-          <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide">
-            Our clients trust us to care for their spaces. Here's what they have to say about the Simca difference.
-          </p>
+
+          {/* Google Reviews Rating */}
+          <div className="flex items-center justify-center gap-2 mt-4">
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className={`w-5 h-5 ${i < Math.floor(googleReviews.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
+                />
+              ))}
+            </div>
+            <span className="font-body text-base font-semibold text-gray-800 dark:text-white">
+              {googleReviews.rating}
+            </span>
+            <span className="font-body text-base text-gray-600 dark:text-gray-400">
+              · Based on {googleReviews.count}+ Google Reviews
+            </span>
+          </div>
         </motion.div>
 
-        {/* Category Tabs - Minimalist */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-6 md:mb-8">
-          {categories.map((category) => {
-            const IconComponent = category.icon
-            return (
-              <motion.button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`group flex items-center gap-1.5 px-3 md:px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
-                  activeCategory === category.id
-                    ? "bg-add8e6 text-white shadow-sm"
-                    : "bg-white dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800/50"
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <IconComponent className={`w-3 h-3 ${activeCategory === category.id ? 'text-white' : 'text-add8e6'}`} />
-                {category.label}
-              </motion.button>
-            )
-          })}
-        </div>
-
-        <div className="relative max-w-6xl mx-auto">
-          {/* Navigation Buttons - Hidden on mobile */}
-          <button
-            onClick={prevPage}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
-            aria-label="Previous testimonials"
-          >
-            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
-          </button>
-
-          <button
-            onClick={nextPage}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-add8e6/50 hidden md:block"
-            aria-label="Next testimonials"
-          >
-            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
-          </button>
-
-          {/* Carousel Container */}
-          <div className="overflow-hidden">
+        {/* Single Testimonial Card with Auto-scroll */}
+        <div className="max-w-2xl mx-auto">
             <AnimatePresence mode="wait">
               <motion.div
-                key={currentPage}
-                initial={{ opacity: 0, x: isMobile ? 40 : 0 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: isMobile ? -40 : 0 }}
-                transition={{ duration: 0.5 }}
-                className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4"
-              >
-                {getCurrentCards().map((testimonial, index) => (
-                  <motion.div
-                    key={`${currentPage}-${index}`}
+              key={currentIndex}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className="group bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100 dark:border-gray-800/50"
-                    onMouseEnter={() => setHoveredTestimonial(index)}
-                    onMouseLeave={() => setHoveredTestimonial(null)}
-                  >
-                    <div className="flex flex-col h-full">
-                      {/* Quote */}
-                      <div className="mb-4">
-                        <p className="text-xs text-gray-600 dark:text-gray-400 italic leading-relaxed">
-                          "{testimonial.quote}"
-                        </p>
-                      </div>
-
-                      {/* Author Info */}
-                      <div className="mt-auto pt-3 border-t border-gray-100 dark:border-gray-800/50">
-                        <div>
-                          <p className="text-xs font-medium text-gray-900 dark:text-white">{testimonial.name}</p>
-                          <p className="text-[10px] text-gray-500 dark:text-gray-400">{testimonial.role}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="bg-white dark:bg-gray-900/50 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-800"
+            >
+              {/* Stars */}
+              <div className="flex items-center justify-center gap-1 mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                 ))}
-              </motion.div>
-            </AnimatePresence>
           </div>
 
-          {/* Mobile Navigation */}
-          <div className="flex flex-col items-center gap-4 mt-8 md:hidden">
-            {/* Mobile Navigation Buttons */}
-            <div className="flex items-center gap-4">
-              <motion.button
-                onClick={prevPage}
-                className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
-                aria-label="Previous testimonial"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-              </motion.button>
-              
-              <span className="text-xs text-gray-600 dark:text-gray-400">
-                {currentPage + 1} of {filteredTestimonials.length}
+              {/* Quote */}
+              <p className="font-body text-lg md:text-xl text-gray-700 dark:text-gray-300 text-center leading-relaxed mb-8">
+                "{currentTestimonial.quote}"
+              </p>
+
+              {/* Author */}
+              <div className="flex flex-col items-center">
+                {/* Initial Avatar */}
+                <div className="w-14 h-14 bg-add8e6/20 rounded-full flex items-center justify-center mb-3">
+                  <span className="font-heading text-xl font-bold text-add8e6">
+                    {currentTestimonial.initial}
               </span>
-
-              <motion.button
-                onClick={nextPage}
-                className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-add8e6/50 active:scale-95"
-                aria-label="Next testimonial"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-              </motion.button>
-            </div>
           </div>
 
-          {/* Desktop Navigation Dots */}
-          <div className="hidden md:flex justify-center items-center gap-2 mt-8">
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <motion.button
+                <p className="font-body text-base font-semibold text-gray-800 dark:text-white">
+                  {currentTestimonial.name}
+                </p>
+                <p className="font-body text-sm text-gray-500 dark:text-gray-400">
+                  {currentTestimonial.timeAgo}
+                </p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Dot Indicators */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {testimonials.map((_, index) => (
+              <button
                 key={index}
-                onClick={() => setCurrentPage(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                  currentPage === index
-                    ? 'bg-add8e6 w-4'
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentIndex === index
+                    ? 'bg-add8e6 w-6'
                     : 'bg-gray-300 dark:bg-gray-600 hover:bg-add8e6/50'
                 }`}
-                aria-label={`Go to page ${index + 1}`}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
+                aria-label={`Go to review ${index + 1}`}
               />
             ))}
           </div>
         </div>
+
+        {/* View Google Reviews CTA */}
+        <motion.div 
+          className="text-center mt-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <a 
+            href={googleReviews.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-800 dark:text-white px-6 py-3 font-semibold transition-all duration-300 text-sm tracking-wide rounded-lg shadow-md hover:shadow-lg border border-gray-200 dark:border-gray-700"
+          >
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            View All Google Reviews
+            <ExternalLink className="w-4 h-4" />
+          </a>
+        </motion.div>
       </div>
     </section>
   )

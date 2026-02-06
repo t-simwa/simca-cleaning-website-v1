@@ -110,10 +110,10 @@ function StatsSectionWithAnimation() {
           transition={{ delay: index * 0.1, duration: 0.6 }}
           className="text-center"
         >
-          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-3 tracking-tight">
+          <div className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-3 tracking-tight">
             <CountUp end={stat.value} duration={1.5} inView={inView} />
           </div>
-          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1 border-b border-gray-400/30 inline-block">
+          <div className="font-body text-xs md:text-sm text-gray-300 uppercase tracking-wider font-medium pb-1 border-b border-add8e6/30 inline-block">
             {stat.label}
           </div>
         </motion.div>
@@ -128,33 +128,33 @@ export default function AboutPage() {
   const cards = [
     {
       icon: FaUserFriends,
-      title: "Highly Trained & Disciplined Staff",
-      description: "Our team members are carefully selected, thoroughly trained, and committed to excellence. All our staff are Kenyan citizens who take pride in delivering exceptional service."
+      title: "Trained & Disciplined Staff",
+      description: "Carefully vetted Kenyan professionals committed to excellence."
     },
     {
       icon: MdAutoAwesome,
-      title: "Eco-Friendly Products & Modern Equipment",
-      description: "We use environmentally responsible products and state-of-the-art machinery to deliver superior results while caring for our planet and your health."
+      title: "Eco-Friendly & Modern",
+      description: "Environmentally responsible products with state-of-the-art equipment."
     },
     {
       icon: HiShieldCheck,
-      title: "Regular Supervision & Quality Inspections",
-      description: "Our dedicated supervisors conduct regular quality checks to ensure every space meets our high standards. We never compromise on the results you deserve."
+      title: "Quality Inspections",
+      description: "Regular supervision ensures consistently high standards."
     },
     {
       icon: FaAward,
-      title: "Fast Response to Your Needs",
-      description: "When you need us, we are there. Our team responds quickly to your requests because we understand that timely service matters to you."
+      title: "Fast Response",
+      description: "Quick, reliable service when you need us most."
     },
     {
       icon: MdGroups,
-      title: "Occupational Health & Safety Compliant",
-      description: "Your safety is our priority. We follow strict OHS protocols and ensure all our operations meet the highest safety standards in the industry."
+      title: "OHS Compliant",
+      description: "Strict health and safety protocols in all operations."
     },
     {
       icon: FaTags,
-      title: "Comprehensive Insurance Coverage",
-      description: "We provide complete peace of mind with third party and public liability insurance, employer's liability, workman's compensation, and insurance against loss and damage to property."
+      title: "Fully Insured",
+      description: "Comprehensive liability and property insurance coverage."
     }
   ]
 
@@ -207,7 +207,7 @@ export default function AboutPage() {
 
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wide"
+                className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wide"
               >
                 About{" "}
                 <span className="text-fff relative inline-block">
@@ -224,9 +224,9 @@ export default function AboutPage() {
 
               <motion.p
                 variants={itemVariants}
-                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto"
+                className="font-body text-base md:text-lg lg:text-xl text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
               >
-                Since 2005, Simca Agencies has been a fully Kenyan-owned professional cleaning company dedicated to delivering world-class standards. From government institutions and hospitals to hotels, schools, and industrial facilities, we care for Kenya's most important spaces with trained teams, modern equipment, and a genuine commitment to excellence.
+                Kenya's trusted professional cleaning company since 2005. We serve hospitals, hotels, government offices, and industrial facilities with trained teams and modern equipment.
               </motion.p>
 
               {/* Minimalist Stats Section */}
@@ -264,7 +264,7 @@ export default function AboutPage() {
                   </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
+                  className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
                 >
                   Why Choose{" "}
                   <motion.span 
@@ -287,9 +287,9 @@ export default function AboutPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
                 >
-                  <p className="text-xs font-semibold text-add8e6 uppercase tracking-wider mb-2">Our Vision</p>
-                  <p className="text-sm md:text-base text-gray-700 dark:text-gray-200">
-                    To be the most respected and trusted professional cleaning services provider in Kenya, delivering world-class standards through innovation, excellence, and a highly motivated workforce.
+                  <p className="font-body text-xs font-semibold text-add8e6 uppercase tracking-wider mb-2">Our Vision</p>
+                  <p className="font-body text-base md:text-lg text-gray-700 dark:text-gray-200">
+                    To be Kenya's most respected cleaning services provider, delivering world-class standards through excellence and innovation.
                   </p>
                 </motion.div>
                 {/* Mission Statement */}
@@ -299,23 +299,23 @@ export default function AboutPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <p className="text-xs font-semibold text-add8e6 uppercase tracking-wider mb-3">Our Mission</p>
-                  <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                  <p className="font-body text-xs font-semibold text-add8e6 uppercase tracking-wider mb-3">Our Mission</p>
+                  <ul className="space-y-2 font-body text-base text-gray-600 dark:text-gray-300">
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-add8e6 rounded-full mt-1.5 flex-shrink-0"></span>
-                      <span>Deliver superior quality through modern technology and efficient systems</span>
+                      <span className="w-1.5 h-1.5 bg-add8e6 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Deliver superior quality through modern technology</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-add8e6 rounded-full mt-1.5 flex-shrink-0"></span>
-                      <span>Build long-term client relationships based on trust and consistency</span>
+                      <span className="w-1.5 h-1.5 bg-add8e6 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Build lasting client relationships on trust</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-add8e6 rounded-full mt-1.5 flex-shrink-0"></span>
-                      <span>Empower staff through continuous training and motivation</span>
+                      <span className="w-1.5 h-1.5 bg-add8e6 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Empower staff through continuous training</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-add8e6 rounded-full mt-1.5 flex-shrink-0"></span>
-                      <span>Uphold the highest standards of hygiene, safety, and professionalism</span>
+                      <span className="w-1.5 h-1.5 bg-add8e6 rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Uphold the highest hygiene and safety standards</span>
                     </li>
                   </ul>
                 </motion.div>
@@ -354,7 +354,7 @@ export default function AboutPage() {
                         </motion.div>
                         
                         <motion.h3 
-                          className="font-semibold text-add8e6 text-xs md:text-sm mb-2 group-hover:text-add8e6/80 transition-colors leading-tight"
+                          className="font-heading font-semibold text-add8e6 text-sm md:text-base mb-2 group-hover:text-add8e6/80 transition-colors leading-tight"
                           whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
@@ -362,7 +362,7 @@ export default function AboutPage() {
                         </motion.h3>
                         
                         <motion.p 
-                          className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                          className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
                           whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
@@ -402,7 +402,7 @@ export default function AboutPage() {
                   </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
+                  className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -422,12 +422,12 @@ export default function AboutPage() {
                   </motion.span>
                 </motion.h2>
                 <motion.p 
-                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
+                  className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  From humble beginnings in Mombasa to becoming one of Kenya's largest and most specialized cleaning companies, our journey is built on trust, dedication, and a genuine passion for excellence.
+                  From humble beginnings in Mombasa to one of Kenya's most specialized cleaning companies, built on trust and dedication.
                 </motion.p>
               </div>
 
@@ -458,28 +458,28 @@ export default function AboutPage() {
                     >
                       <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
                         <motion.span 
-                          className="text-add8e6 font-bold text-xs md:text-sm"
+                          className="font-heading text-add8e6 font-bold text-sm md:text-base"
                           whileHover={{ scale: 1.05 }}
                         >
                           2005
                         </motion.span>
                         <motion.h3 
-                          className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
+                          className="font-heading text-base md:text-lg font-semibold text-gray-800 dark:text-white"
                           whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
-                          A Dream Takes Root in Mombasa
+                          A Dream Takes Root
                         </motion.h3>
                       </div>
                       <motion.p 
-                        className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                        className="font-body text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed"
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        Simca Agencies was born from a simple vision: to create a professional cleaning company that Kenyans could truly rely on. Starting in Mombasa with a dedicated team and a passion for excellence, we set out to serve our community with care, integrity, and a commitment to spotless results.
+                        Founded in Mombasa with a simple vision: to create a professional cleaning company Kenyans could truly rely on.
                       </motion.p>
                       <motion.div 
-                        className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
+                        className="mt-2 md:mt-3 flex items-center gap-2 font-body text-xs md:text-sm text-gray-500 dark:text-gray-400"
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
@@ -510,28 +510,28 @@ export default function AboutPage() {
                     >
                       <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
                         <motion.span 
-                          className="text-add8e6 font-bold text-xs md:text-sm"
+                          className="font-heading text-add8e6 font-bold text-sm md:text-base"
                           whileHover={{ scale: 1.05 }}
                         >
                           2009
                         </motion.span>
                         <motion.h3 
-                          className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
+                          className="font-heading text-base md:text-lg font-semibold text-gray-800 dark:text-white"
                           whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
-                          Officially Registered & Growing
+                          Officially Registered
                         </motion.h3>
                       </div>
                       <motion.p 
-                        className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                        className="font-body text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed"
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        After four years of building trust and serving our clients with excellence, Simca Agencies was officially registered (CPR/2009/10398). This milestone marked our commitment to professional standards and opened doors to serve government institutions, hospitals, and larger commercial clients.
+                        Registered as CPR/2009/10398, opening doors to government institutions and larger commercial clients.
                       </motion.p>
                       <motion.div 
-                        className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
+                        className="mt-2 md:mt-3 flex items-center gap-2 font-body text-xs md:text-sm text-gray-500 dark:text-gray-400"
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
@@ -562,28 +562,28 @@ export default function AboutPage() {
                     >
                       <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
                         <motion.span 
-                          className="text-add8e6 font-bold text-xs md:text-sm"
+                          className="font-heading text-add8e6 font-bold text-sm md:text-base"
                           whileHover={{ scale: 1.05 }}
                         >
                           2010s
                         </motion.span>
                         <motion.h3 
-                          className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
+                          className="font-heading text-base md:text-lg font-semibold text-gray-800 dark:text-white"
                           whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
-                          Expanding Our Reach & Services
+                          Expanding Services
                         </motion.h3>
                       </div>
                       <motion.p 
-                        className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                        className="font-body text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed"
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        As more organizations trusted us with their facilities, we expanded our services beyond contract cleaning to include specialized cleaning, hygiene supplies, landscaping, and labour outsourcing. Our team grew, our equipment modernized, and we invested heavily in training our staff to meet the stringent standards demanded by hospitals, hotels, and government institutions.
+                        Grew beyond contract cleaning to include specialized cleaning, hygiene supplies, landscaping, and labour outsourcing.
                       </motion.p>
                       <motion.div 
-                        className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
+                        className="mt-2 md:mt-3 flex items-center gap-2 font-body text-xs md:text-sm text-gray-500 dark:text-gray-400"
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
@@ -614,28 +614,28 @@ export default function AboutPage() {
                     >
                       <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
                         <motion.span 
-                          className="text-add8e6 font-bold text-xs md:text-sm"
+                          className="font-heading text-add8e6 font-bold text-sm md:text-base"
                           whileHover={{ scale: 1.05 }}
                         >
                           Today
                         </motion.span>
                         <motion.h3 
-                          className="text-sm md:text-base font-semibold text-gray-800 dark:text-white"
+                          className="font-heading text-base md:text-lg font-semibold text-gray-800 dark:text-white"
                           whileHover={{ x: 2 }}
                           transition={{ duration: 0.2 }}
                         >
-                          Kenya's Trusted Cleaning Partner
+                          Kenya's Trusted Partner
                         </motion.h3>
                       </div>
                       <motion.p 
-                        className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                        className="font-body text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed"
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        After nearly two decades, Simca Agencies has evolved to become one of the largest and most specialized cleaning companies in Kenya. We are proud to serve prestigious organizations including Kenya Ports Authority, Kenya Maritime Authority, and Mombasa Polytechnic University. Our success lies in our ability to train and manage staff to achieve the stringent standards our clients deserve.
+                        Serving Kenya Ports Authority, Kenya Maritime Authority, Mombasa Polytechnic University, and other prestigious institutions.
                       </motion.p>
                       <motion.div 
-                        className="mt-2 md:mt-3 flex items-center gap-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400"
+                        className="mt-2 md:mt-3 flex items-center gap-2 font-body text-xs md:text-sm text-gray-500 dark:text-gray-400"
                         whileHover={{ x: 2 }}
                         transition={{ duration: 0.2 }}
                       >
@@ -675,7 +675,7 @@ export default function AboutPage() {
                   </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
+                  className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -695,12 +695,12 @@ export default function AboutPage() {
                   </motion.span>
                 </motion.h2>
                 <motion.p 
-                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
+                  className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  From our headquarters in Mombasa, we extend our professional cleaning and facility services to communities across Kenya. Wherever we serve, our promise remains the same: world-class standards delivered with genuine care.
+                  From Mombasa headquarters, we deliver world-class cleaning services across Kenya.
                 </motion.p>
               </div>
 
@@ -726,7 +726,7 @@ export default function AboutPage() {
                       whileHover={{ y: -2 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <p className="text-xs text-gray-600 dark:text-gray-300">
+                      <p className="font-body text-sm text-gray-600 dark:text-gray-300">
                         Your local cleaning experts, wherever you are.
                       </p>
                     </motion.div>
@@ -759,9 +759,9 @@ export default function AboutPage() {
                               </div>
                             </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Lamu</h3>
+                          <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Lamu</h3>
                         </div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Preserving heritage while maintaining modern cleanliness standards in this UNESCO World Heritage site. We specialize in coastal property maintenance and hospitality cleaning.</p>
+                        <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Coastal property and hospitality cleaning in this UNESCO World Heritage site.</p>
                       </div>
                     </motion.div>
 
@@ -789,10 +789,10 @@ export default function AboutPage() {
                               </div>
                             </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Mombasa (Headquarters)</h3>
-                          <span className="text-[10px] bg-add8e6/10 text-add8e6 px-2 py-0.5 rounded-full">HQ</span>
+                          <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Mombasa (Headquarters)</h3>
+                          <span className="font-body text-xs bg-add8e6/10 text-add8e6 px-2 py-0.5 rounded-full">HQ</span>
                         </div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">New Canon Towers, Moi Avenue. Our home base where it all began. We proudly serve Kenya Ports Authority, Kenya Maritime Authority, and other leading institutions across the coastal region.</p>
+                        <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">New Canon Towers, Moi Avenue. Serving Kenya Ports Authority, Kenya Maritime Authority, and coastal institutions.</p>
                       </div>
                     </motion.div>
 
@@ -820,9 +820,9 @@ export default function AboutPage() {
                               </div>
                             </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Kaimosi</h3>
+                          <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Kaimosi</h3>
                         </div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">We're honored to support the places that matter most, providing top-tier cleaning for schools and healthcare facilities.</p>
+                        <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Top-tier cleaning for schools and healthcare facilities.</p>
                       </div>
                     </motion.div>
 
@@ -850,9 +850,9 @@ export default function AboutPage() {
                               </div>
                             </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Lodwar</h3>
+                          <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Lodwar</h3>
                         </div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Serving Northern Kenya with specialized cleaning solutions for arid region facilities. We understand the unique challenges of desert climate maintenance.</p>
+                        <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Specialized cleaning for arid region facilities in Northern Kenya.</p>
                       </div>
                     </motion.div>
 
@@ -880,9 +880,9 @@ export default function AboutPage() {
                               </div>
                             </div>
                           </motion.div>
-                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Kisumu</h3>
+                          <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors">Kisumu</h3>
                         </div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Bringing a fresh sparkle to the vibrant lakeside city, we serve homes and businesses with care and dedication.</p>
+                        <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Serving homes and businesses in the vibrant lakeside city.</p>
                       </div>
                     </motion.div>
 
@@ -913,9 +913,9 @@ export default function AboutPage() {
                           </div>
                         </motion.div>
                         <div>
-                          <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Growing Across Kenya</h3>
-                          <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Our vision is to be the most respected and trusted professional cleaning services provider in Kenya. We continue to expand our reach, bringing world-class standards and genuine care to more communities every year.
+                          <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Growing Across Kenya</h3>
+                          <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Expanding our reach to bring world-class cleaning services to more communities every year.
                           </p>
                         </div>
                       </div>
@@ -952,7 +952,7 @@ export default function AboutPage() {
                   </span>
                 </motion.div>
                 <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
+                  className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -1002,8 +1002,8 @@ export default function AboutPage() {
                         whileHover={{ y: -2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <p className="font-semibold text-xs text-gray-800 dark:text-white">David Simwa</p>
-                        <p className="text-[10px] text-gray-600 dark:text-gray-300">Founder & CEO</p>
+                        <p className="font-heading font-semibold text-sm text-gray-800 dark:text-white">David Simwa</p>
+                        <p className="font-body text-xs text-gray-600 dark:text-gray-300">Founder & CEO</p>
                       </motion.div>
                     </div>
                   </motion.div>
@@ -1011,14 +1011,14 @@ export default function AboutPage() {
                   {/* Message Content */}
                   <div className="flex flex-col justify-center h-full">
                     <motion.blockquote 
-                      className="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4 md:mb-6 relative"
+                      className="font-body text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-4 md:mb-6 relative"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5 }}
                     >
                       <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-add8e6/20 rounded-full" />
                       <div className="pl-3">
-                        When I founded Simca Agencies in 2005, my vision was clear: to build a professional cleaning company that Kenyans could truly rely on. A company where every staff member is trained, disciplined, and treats every facility with the same care they would give their own home. Today, I am proud that we serve some of Kenya's most important institutions, from hospitals and government offices to hotels and universities. Our success is built on the trust our clients place in us, and we work every day to honor that trust through excellence, innovation, and genuine care.
+                        When I founded Simca Agencies in 2005, my vision was clear: to build a cleaning company Kenyans could truly rely on. Today, we serve Kenya's most important institutions. Our success is built on the trust our clients place in us, and we honor that trust through excellence and genuine care every day.
                       </div>
                     </motion.blockquote>
 
@@ -1044,8 +1044,8 @@ export default function AboutPage() {
                             </div>
                           </motion.div>
                           <div>
-                            <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Our Commitment to Excellence</h3>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">We invest deeply in training our staff to meet the stringent standards demanded by Kenya's leading institutions.</p>
+                            <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Commitment to Excellence</h3>
+                            <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Staff trained to meet the highest standards.</p>
                           </div>
                         </div>
                       </motion.div>
@@ -1071,8 +1071,8 @@ export default function AboutPage() {
                             </div>
                           </motion.div>
                           <div>
-                            <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Innovation & Modern Technology</h3>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">We embrace modern equipment and eco-friendly products to deliver superior quality through efficient systems.</p>
+                            <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Innovation & Technology</h3>
+                            <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Modern equipment and eco-friendly products.</p>
                           </div>
                         </div>
                       </motion.div>
@@ -1098,8 +1098,8 @@ export default function AboutPage() {
                             </div>
                           </motion.div>
                           <div>
-                            <h3 className="font-semibold text-xs md:text-sm text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Our Kenyan Family</h3>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">All our staff are Kenyan citizens. We are proud to provide employment and empower our people through continuous training and motivation.</p>
+                            <h3 className="font-heading font-semibold text-sm md:text-base text-gray-800 dark:text-white mb-1 group-hover:text-add8e6 transition-colors">Our Kenyan Family</h3>
+                            <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">100% Kenyan staff empowered through training.</p>
                           </div>
                         </div>
                       </motion.div>

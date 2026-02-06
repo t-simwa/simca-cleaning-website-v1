@@ -4,8 +4,7 @@ import React from "react"
 import { useEffect, useState, useRef } from "react"
 import { useInView } from "react-intersection-observer"
 import { motion } from "framer-motion"
-// Unique icon for header
-import { MdBarChart } from "react-icons/md" // Material Design - Bar Chart
+import { BarChart3 } from "lucide-react"
 
 // Hook to detect mobile devices
 function useIsMobile() {
@@ -126,29 +125,38 @@ export default function StatsCounter() {
       </div>
 
       <div className="container mx-auto px-4 relative">
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
-          <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6">
-            <MdBarChart className="w-3.5 h-3.5" />
-            By the Numbers
+        <motion.div 
+          className="text-center max-w-2xl mx-auto mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          {/* Badge */}
+          <div className="mb-6">
+            <span className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-4 py-2 rounded-full text-sm font-medium">
+              <BarChart3 className="w-4 h-4" />
+              Our Impact
+            </span>
           </div>
-          <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight">
-            Our Story in{' '}
+
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight">
+            Our Story in{" "}
             <span className="text-add8e6 relative inline-block">
               Numbers
               <motion.span
-                className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
+                className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-1 bg-add8e6/30 rounded-full origin-left"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1, ease: 'easeOut' }}
-                style={{ display: 'block' }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
               />
             </span>
           </h2>
-          <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-            Every number reflects our commitment to quality, safety, and the trust our clients place in us. Nearly two decades of caring for Kenya's leading institutions.
+          <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300">
+            Nearly two decades of caring for Kenya's leading institutions.
           </p>
-        </div>
+        </motion.div>
 
         <div className="relative max-w-6xl mx-auto">
           {/* Auto-scrolling horizontal container */}
@@ -243,14 +251,14 @@ function StatItem({ value, label, suffix, animate, delay }: StatItemProps) {
       animate={animate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ delay: delay / 1000, duration: 0.6 }}
     >
-      {/* Number - Matching hero style */}
-      <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-3 md:mb-4 tracking-tight">
+      {/* Number */}
+      <div className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-3 tracking-tight">
         {animate ? count : 0}
         {suffix}
       </div>
 
-      {/* Label - Matching hero style */}
-      <div className="text-[10px] md:text-xs text-gray-600 dark:text-gray-400 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 dark:border-gray-500/40 inline-block">
+      {/* Label */}
+      <div className="font-body text-xs md:text-sm text-gray-600 dark:text-gray-400 uppercase tracking-wider font-medium pb-2 border-b-2 border-add8e6/30 inline-block">
         {label}
       </div>
     </motion.div>

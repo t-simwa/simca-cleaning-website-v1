@@ -2,18 +2,14 @@
 
 import React from "react"
 import { useState, useRef } from "react"
-import { ArrowRight, Calendar, MapPin } from "lucide-react"
+import { ArrowRight, Calendar, MapPin, Mail, Shield, Clock } from "lucide-react"
+import { motion } from "framer-motion"
 import SuccessModal from "@/components/success-modal"
-import { ScrollAnimation } from "@/components/ui/scroll-animation"
-// Unique icons from different icon libraries
-import { MdEmail } from "react-icons/md" // Material Design - Email/Contact
-import { FaBuilding } from "react-icons/fa" // Font Awesome - Building
-import { MdCleaningServices } from "react-icons/md" // Material Design - Cleaning
-import { FaPumpSoap } from "react-icons/fa" // Font Awesome - Hygiene
-import { FaLeaf } from "react-icons/fa" // Font Awesome - Leaf
-import { FaUsers } from "react-icons/fa" // Font Awesome - Staff
-import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Shield
-import { HiClock } from "react-icons/hi2" // Heroicons v2 - Clock
+import { FaBuilding } from "react-icons/fa"
+import { MdCleaningServices } from "react-icons/md"
+import { FaPumpSoap } from "react-icons/fa"
+import { FaLeaf } from "react-icons/fa"
+import { FaUsers } from "react-icons/fa"
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -144,35 +140,52 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="relative py-12 md:py-16 lg:py-20">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20 animate-gradient">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)] animate-pulse" />
+    <section id="home-contact-form" className="relative py-16 md:py-20 lg:py-24">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-blue-900/20 dark:via-gray-900 dark:to-blue-800/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(173,216,230,0.1),transparent_70%)]" />
         </div>
         
-        {/* Floating decorative elements */}
+      {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl animate-float-delayed" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/10 dark:bg-blue-400/5 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto px-4 relative">
-          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
-            <div className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-4 md:mb-6">
-              <MdEmail className="w-3.5 h-3.5" />
+        {/* Section Header */}
+        <motion.div 
+          className="text-center max-w-2xl mx-auto mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          {/* Badge */}
+          <div className="mb-6">
+            <span className="inline-flex items-center gap-2 bg-add8e6/10 text-add8e6 px-4 py-2 rounded-full text-sm font-medium">
+              <Mail className="w-4 h-4" />
               Contact Us
-            </div>
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
-              Get in{" "}
-              <span className="text-add8e6 relative">
-                Touch
-                <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
               </span>
-            </h2>
-            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-              Have questions about our services? Get a free cleaning service quote today! We're here to help.
-            </p>
           </div>
+
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight">
+            Get a Free{" "}
+            <span className="text-add8e6 relative inline-block">
+              Quote
+              <motion.span
+                className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-1 bg-add8e6/30 rounded-full origin-left"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+              />
+            </span>
+          </h2>
+          <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300">
+            Tell us about your cleaning needs and we'll get back to you within 24 hours.
+          </p>
+        </motion.div>
 
           <div className="max-w-xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
@@ -443,25 +456,25 @@ export default function ContactForm() {
               )}
             </div>
 
-            {/* Trust Indicators - Minimalist */}
-            <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-gray-600 dark:text-gray-400">
-              <div className="flex items-center gap-1">
-                <HiShieldCheck className="w-3.5 h-3.5 text-add8e6" />
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap items-center justify-center gap-4 font-body text-sm text-gray-600 dark:text-gray-400">
+              <div className="flex items-center gap-1.5">
+                <Shield className="w-4 h-4 text-add8e6" />
                 <span>Secure & Private</span>
               </div>
-              <div className="flex items-center gap-1">
-                <HiClock className="w-3.5 h-3.5 text-add8e6" />
-                <span>24h Response Time</span>
+              <div className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-add8e6" />
+                <span>24h Response</span>
               </div>
             </div>
 
               <div className="flex justify-center">
               <button
                 type="submit"
-                className="inline-flex items-center gap-1.5 bg-add8e6 text-white px-5 py-2 font-medium rounded-md transition-all duration-200 group text-xs hover:bg-add8e6/90"
+                className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 font-semibold rounded-lg transition-all duration-300 group text-sm shadow-md hover:shadow-lg"
               >
                 <span>Get Your Free Quote</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
           </form>

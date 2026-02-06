@@ -155,17 +155,17 @@ export default function Header() {
             <div className="flex items-center gap-3">
               <a
                 href="tel:+254721525901"
-                className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+                className="font-body flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
-                <Phone className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
+                <Phone className="h-3.5 w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Call Us: +254 721 525 901</span>
               </a>
               <span className="text-gray-400 dark:text-gray-600">|</span>
               <a
                 href="tel:+254412316600"
-                className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+                className="font-body flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
-                <Phone className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
+                <Phone className="h-3.5 w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
                 <span>041-2316600</span>
               </a>
             </div>
@@ -174,17 +174,17 @@ export default function Header() {
             <div className="flex items-center justify-center gap-3">
               <a
                 href="mailto:info@simcaagencies.com"
-                className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+                className="font-body flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
-                <Mail className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
+                <Mail className="h-3.5 w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Email Us: info@simcaagencies.com</span>
               </a>
               <span className="text-gray-400 dark:text-gray-600">|</span>
               <a
                 href="mailto:simka1974@hotmail.com"
-                className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
+                className="font-body flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
-                <Mail className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
+                <Mail className="h-3.5 w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
                 <span>simka1974@hotmail.com</span>
               </a>
             </div>
@@ -234,7 +234,7 @@ export default function Header() {
               <div key={item.name} className="relative group">
                 {item.subNav ? (
                   <button
-                    className="inline-flex items-center gap-1 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)] appearance-none bg-transparent border-none"
+                    className="font-body inline-flex items-center gap-1 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)] appearance-none bg-transparent border-none"
                     onClick={toggleServicesDropdown}
                   >
                     {item.name}
@@ -243,7 +243,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)]"
+                    className="font-body text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium py-2 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)]"
                   >
                     {item.name}
                   </Link>
@@ -258,7 +258,7 @@ export default function Header() {
                         <Link
                           key={subItem.name}
                           href={subItem.href}
-                          className="block px-4 py-2 text-xs text-gray-700 dark:text-gray-200 hover:text-add8e6 dark:hover:text-add8e6 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-add8e6 after:transition-all hover:after:w-full hover:after:shadow-[0_0_8px_rgba(173,216,230,0.5)]"
+                          className="font-body block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:text-add8e6 dark:hover:text-add8e6 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                           onClick={() => setIsServicesDropdownOpen(false)}
                         >
                           {subItem.name}
@@ -271,25 +271,46 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Contact Button */}
-          <div className="hidden md:flex items-center">
+          {/* Dual CTA Buttons - Desktop */}
+          <div className="hidden md:flex items-center gap-2">
+            {/* Secondary - Call Now (matches hero style) */}
+            <a
+              href="tel:+254721525901"
+              className="font-body inline-flex items-center justify-center gap-1.5 bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 px-4 py-2.5 font-semibold transition-all duration-300 text-sm tracking-wide rounded-lg shadow-sm hover:shadow-md"
+            >
+              <Phone className="w-4 h-4" />
+              Call Us Now
+            </a>
+            {/* Primary - Get Quote */}
             <button
               onClick={handleGetQuoteClick}
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-2.5 md:py-3 font-medium transition-all duration-300 group text-center text-xs sm:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50"
+              className="font-body inline-flex items-center justify-center gap-1.5 bg-teal-500 hover:bg-teal-600 text-white px-5 py-2.5 font-semibold transition-all duration-300 group text-sm tracking-wide rounded-lg shadow-md hover:shadow-lg"
             >
-              Get Your Free Quote
-              <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              Get a Free Quote
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-600 dark:text-gray-300 p-1.5 md:p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X className="h-5 w-5 md:h-5 md:w-5" /> : <Menu className="h-5 w-5 md:h-5 md:w-5" />}
-          </button>
+          {/* Mobile Header Actions */}
+          <div className="md:hidden flex items-center gap-2">
+            {/* Phone Icon - Click to Call */}
+            <a
+              href="tel:+254721525901"
+              className="flex items-center justify-center w-10 h-10 rounded-full bg-teal-500 text-white shadow-md hover:bg-teal-600 transition-all duration-300 hover:scale-105"
+              aria-label="Call us"
+            >
+              <Phone className="h-4 w-4" />
+            </a>
+            
+            {/* Menu Button */}
+            <button
+              className="text-gray-600 dark:text-gray-300 p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
 
           {/* Mobile Menu Backdrop */}
           {isMenuOpen && (
@@ -332,7 +353,7 @@ export default function Header() {
                     <div key={item.name}>
                       {item.subNav ? (
                         <button
-                          className="flex items-center justify-between w-full py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                          className="font-body flex items-center justify-between w-full py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
                           onClick={toggleMobileServices}
                         >
                           <span>{item.name}</span>
@@ -341,7 +362,7 @@ export default function Header() {
                       ) : (
                         <Link
                           href={item.href}
-                          className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                          className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           <span>{item.name}</span>
@@ -354,7 +375,7 @@ export default function Header() {
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="block py-1.5 px-4 text-xs text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                              className="font-body block py-2 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
                               onClick={() => {
                                 setIsMenuOpen(false)
                                 setIsMobileServicesOpen(false)
@@ -370,54 +391,54 @@ export default function Header() {
                 </div>
 
                 {/* Quick Actions */}
-                <div className="px-4 py-2 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
-                  <h3 className="text-xs md:text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
+                <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
+                  <h3 className="font-heading text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
                     Quick Actions
                   </h3>
-                  <div className="space-y-1.5">
+                  <div className="space-y-2">
                     <a
                       href="tel:+254721525901"
-                      className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="flex items-center">
-                        <Phone className="h-4 w-4 md:h-4 md:w-4 mr-2" />
+                        <Phone className="h-4 w-4 mr-2" />
                         Call Us
                       </span>
-                      <span className="text-xs md:text-sm text-gray-500">+254 721 525 901</span>
+                      <span className="text-sm text-gray-500">+254 721 525 901</span>
                     </a>
                     <a
                       href="tel:+254412316600"
-                      className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="flex items-center">
-                        <Phone className="h-4 w-4 md:h-4 md:w-4 mr-2" />
+                        <Phone className="h-4 w-4 mr-2" />
                         Office Line
                       </span>
-                      <span className="text-xs md:text-sm text-gray-500">041-2316600</span>
+                      <span className="text-sm text-gray-500">041-2316600</span>
                     </a>
                     <a
                       href="mailto:info@simcaagencies.com"
-                      className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="flex items-center">
-                        <Mail className="h-4 w-4 md:h-4 md:w-4 mr-2" />
+                        <Mail className="h-4 w-4 mr-2" />
                         Email Us
                       </span>
-                      <span className="text-xs md:text-sm text-gray-500">info@simcaagencies.com</span>
+                      <span className="text-sm text-gray-500">info@simcaagencies.com</span>
                     </a>
                     <a
                       href="mailto:simka1974@hotmail.com"
-                      className="flex items-center justify-between py-2 px-4 text-xs md:text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
+                      className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="flex items-center">
-                        <Mail className="h-4 w-4 md:h-4 md:w-4 mr-2" />
+                        <Mail className="h-4 w-4 mr-2" />
                         Alternative Email
                       </span>
-                      <span className="text-xs md:text-sm text-gray-500">simka1974@hotmail.com</span>
+                      <span className="text-sm text-gray-500">simka1974@hotmail.com</span>
                     </a>
                   </div>
                 </div>

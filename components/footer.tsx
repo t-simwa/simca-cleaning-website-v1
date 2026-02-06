@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, Clock, Youtube, Sparkles } from "lucide-react"
+import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, Clock, Youtube, Sparkles, ArrowRight } from "lucide-react"
 import Logo from "./logo"
 import WhatsAppWidget from "./whatsapp-widget"
 import NewsletterSignup from "./newsletter-signup"
@@ -35,10 +35,6 @@ export default function Footer() {
             <div className="flex items-center gap-3 md:gap-4">
               <Logo className="w-60 h-12 md:w-60 md:h-30 transition-transform duration-300 group-hover:scale-105" variant="white" />
             </div>
-            <p className="text-gray-400 leading-relaxed text-xs md:text-sm">
-              Professional cleaning services across Kenya. We provide residential, commercial, and professional cleaning
-              solutions to meet all your needs.
-            </p>
             <div className="flex gap-3 md:gap-4">
               {[
                 { icon: Facebook, href: "#", label: "Facebook" },
@@ -61,8 +57,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-3 md:space-y-5">
-            <h3 className="text-base md:text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
-              <Sparkles className="w-4 h-4 md:h-4 md:w-4 text-add8e6" />
+            <h3 className="text-base md:text-lg font-semibold text-white">
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -90,8 +85,7 @@ export default function Footer() {
 
           {/* Services */}
           <div className="space-y-3 md:space-y-5">
-            <h3 className="text-base md:text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
-              <Sparkles className="w-4 h-4 md:h-4 md:w-4 text-add8e6" />
+            <h3 className="text-base md:text-lg font-semibold text-white">
               Our Services
             </h3>
             <ul className="space-y-3">
@@ -117,8 +111,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-3 md:space-y-5">
-            <h3 className="text-base md:text-lg font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-2">
-              <Sparkles className="w-4 h-4 md:h-4 md:w-4 text-add8e6" />
+            <h3 className="text-base md:text-lg font-semibold text-white">
               Contact Us
             </h3>
             <ul className="space-y-3">
@@ -187,6 +180,36 @@ export default function Footer() {
         </div>
 
         <hr className="border-gray-800 my-5 md:my-6" />
+
+        {/* CTA Section - Before Copyright */}
+        <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-xl p-6 md:p-8 mb-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left">
+              <h3 className="text-lg md:text-xl font-bold text-white mb-2">
+                Ready for a Cleaner Space?
+              </h3>
+              <p className="text-gray-400 text-sm">
+                Get a free quote or call us directly.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/contact#contact-form"
+                className="inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 font-semibold transition-all duration-300 text-sm tracking-wide rounded-lg shadow-lg hover:shadow-xl min-w-[180px]"
+              >
+                Get a Free Quote
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href="tel:+254721525901"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-800 px-6 py-3 font-semibold transition-all duration-300 text-sm tracking-wide rounded-lg shadow-lg hover:shadow-xl min-w-[180px]"
+              >
+                <Phone className="w-4 h-4" />
+                Call Us Now
+              </a>
+            </div>
+          </div>
+        </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 relative">
           <p className="text-gray-400 text-xs text-center md:text-left">
