@@ -2,11 +2,10 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Calendar, User, ArrowRight } from "lucide-react"
+import { Calendar, User, ArrowRight, Phone } from "lucide-react"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
-import { useInView } from "react-intersection-observer"
+import { useState } from "react"
 import React from "react"
 // Unique icons from different icon libraries matching home page style
 import { FaBuilding } from "react-icons/fa" // Font Awesome - Contract Cleaning
@@ -17,178 +16,11 @@ import { MdLightbulb } from "react-icons/md" // Material Design - Tips
 import { MdBook } from "react-icons/md" // Material Design - Book/Articles
 import { MdStars } from "react-icons/md" // Material Design - Stars/Featured
 import { MdAccessTime } from "react-icons/md" // Material Design - Clock/Recent
-
-// CountUp component for animated numbers with scroll trigger
-function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: string | number, duration?: number, suffix?: string, inView?: boolean }) {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    if (!inView) return;
-    // Handle non-numeric values (like "24/7", "1hr")
-    if (typeof end === 'string' && !end.match(/^\d+/)) {
-      return;
-    }
-    const isPercent = typeof end === 'string' && end.includes('%');
-    const isPlus = typeof end === 'string' && end.includes('+');
-    // Extract numeric value and any text suffix
-    let numericEnd: number;
-    let textSuffix = '';
-    if (typeof end === 'number') {
-      numericEnd = end;
-    } else {
-      const match = end.match(/^(\d+)(.*)$/);
-      if (match) {
-        numericEnd = parseInt(match[1]);
-        textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
-      } else {
-        numericEnd = parseInt(end);
-      }
-    }
-    const startTime = performance.now();
-    function animate(now: number) {
-      const elapsed = (now - startTime) / 1000;
-      const progress = Math.min(elapsed / duration, 1);
-      const value = Math.floor(progress * numericEnd);
-      setCount(value);
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        setCount(numericEnd);
-      }
-    }
-    requestAnimationFrame(animate);
-    return () => {};
-  }, [end, duration, inView]);
-  
-  // Handle non-numeric values (like "24/7", "1hr")
-  if (typeof end === 'string' && !end.match(/^\d+/)) {
-    return <span>{end}{suffix}</span>;
-  }
-  
-  // Extract numeric value and any text suffix
-  let display: string | number = count;
-  let textSuffix = '';
-  if (typeof end === 'string') {
-    const match = end.match(/^(\d+)(.*)$/);
-    if (match) {
-      textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
-    }
-    if (end.includes('%')) display = `${count}%`;
-    else if (end.includes('+')) display = `${count}+`;
-    else if (textSuffix) display = `${count}${textSuffix}`;
-  }
-  return <span>{display}{suffix}</span>;
-}
-
-// Stats Section Component with scroll-triggered animation
-function StatsSectionWithAnimation() {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  })
-
-  return (
-    <motion.div
-      ref={ref}
-      variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-      className="grid grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto"
-    >
-      {[
-        {
-          value: "19+",
-          label: "YEARS EXPERIENCE",
-        },
-        {
-          value: "5",
-          label: "CORE SERVICES",
-        },
-        {
-          value: "100%",
-          label: "KENYAN OWNED",
-        }
-      ].map((stat, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1, duration: 0.6 }}
-          className="text-center"
-        >
-          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
-            <CountUp end={stat.value} duration={1.5} inView={inView} />
-          </div>
-          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
-            {stat.label}
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
-  )
-}
+import BreadcrumbSchema, { breadcrumbConfigs } from "@/components/schema/breadcrumb-schema"
+import { blogPosts } from "@/lib/blog-data"
 
 const BlogPage = () => {
   const [activeCategory, setActiveCategory] = useState("all")
-
-  const blogPosts = [
-    {
-      id: 1,
-      title: "Contract Cleaning for Healthcare Facilities: Best Practices",
-      excerpt:
-        "Discover the essential protocols and standards for maintaining hygiene in hospitals and clinics. Learn how professional contract cleaning protects patients and staff.",
-      date: "January 15, 2026",
-      author: "Simca Team",
-      category: "Contract Cleaning",
-      image: "/blog/office-cleaning.jpg?height=600&width=800",
-    },
-    {
-      id: 2,
-      title: "Why OHS Compliance Matters in Professional Cleaning",
-      excerpt:
-        "Understanding Occupational Health and Safety standards in the cleaning industry. How compliance protects your staff and clients while delivering better results.",
-      date: "January 8, 2026",
-      author: "Simca Team",
-      category: "Professional Tips",
-      image: "/blog/cleaning-services.png?height=600&width=800",
-    },
-    {
-      id: 3,
-      title: "The Complete Guide to Floor Strip and Seal",
-      excerpt:
-        "Professional insights into strip and seal services. Learn when your floors need this treatment and what to expect from the process.",
-      date: "December 20, 2025",
-      author: "Simca Team",
-      category: "Specialized Cleaning",
-      image: "/blog/carpet-cleaning.jpg?height=600&width=800",
-    },
-    {
-      id: 4,
-      title: "Eco-Friendly Cleaning Products: Better for Your Facility",
-      excerpt:
-        "How modern eco-friendly cleaning products deliver superior results while protecting the environment and the health of building occupants.",
-      date: "December 10, 2025",
-      author: "Simca Team",
-      category: "Eco-Friendly",
-      image: "/blog/eco-friendly.jpg?height=600&width=800",
-    },
-    {
-      id: 5,
-      title: "Post-Construction Cleaning: What Facility Managers Need to Know",
-      excerpt:
-        "A comprehensive guide to post-construction cleaning for commercial and institutional buildings. Essential steps for a safe handover.",
-      date: "November 25, 2025",
-      author: "Simca Team",
-      category: "Specialized Cleaning",
-      image: "/blog/post-construction.jpeg?height=600&width=800",
-    },
-    {
-      id: 6,
-      title: "Hygiene Supplies: Choosing the Right Solutions for Your Facility",
-      excerpt: "From soap dispensers to sanitary bins, learn how to select and maintain hygiene supplies that meet your facility's needs.",
-      date: "November 15, 2025",
-      author: "Simca Team",
-      category: "Hygiene",
-      image: "/blog/spring-cleaning.jpg?height=600&width=800",
-    },
-  ]
 
   const categories = [
     { 
@@ -207,11 +39,6 @@ const BlogPage = () => {
       icon: FaPumpSoap 
     },
     { 
-      name: "Eco-Friendly", 
-      count: blogPosts.filter(post => post.category === "Eco-Friendly").length,
-      icon: FaLeaf 
-    },
-    { 
       name: "Professional Tips", 
       count: blogPosts.filter(post => post.category === "Professional Tips").length,
       icon: MdLightbulb 
@@ -226,6 +53,9 @@ const BlogPage = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Schema Markup for AI Search Optimization (GEO) */}
+      <BreadcrumbSchema items={breadcrumbConfigs.blog} />
+      
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}
@@ -270,9 +100,9 @@ const BlogPage = () => {
 
               <motion.h1
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wide"
+                className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wide"
               >
-                Cleaning Tips &{' '}
+                Cleaning Tips &{" "}
                 <span className="text-fff relative inline-block">
                   Insights
                   <motion.span
@@ -287,13 +117,35 @@ const BlogPage = () => {
 
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-sm md:text-base lg:text-base text-gray-200 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed tracking-wide"
+                className="font-body text-base md:text-lg lg:text-xl text-gray-200 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed tracking-wide"
               >
-                Expert cleaning insights from nearly two decades of professional experience. From contract cleaning for hospitals and hotels to specialized floor care and hygiene solutions, discover practical knowledge that helps facility managers and institutions maintain world-class cleanliness standards.
+                Expert cleaning insights from nearly two decades of professional experience.
               </motion.p>
 
-              {/* Minimalist Stats Section */}
-              <StatsSectionWithAnimation />
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <button
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact-form')
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                  }}
+                  className="font-body inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+                >
+                  Get a Free Quote
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+                <a
+                  href="tel:+254722839248"
+                  className="font-body inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+                >
+                  <Phone className="w-4 h-4 md:w-5 md:h-5" />
+                  Call Us Now
+                </a>
+              </motion.div>
             </motion.div>
             </div>
         </div>
@@ -328,7 +180,7 @@ const BlogPage = () => {
                   <MdStars className="w-3.5 h-3.5" />
                   Featured Article
                 </span>
-                <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide">
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide">
                   Latest{" "}
                   <span className="text-add8e6 relative inline-block tracking-wider">
                     Insights
@@ -342,8 +194,8 @@ const BlogPage = () => {
                     />
                   </span>
                 </h2>
-                <p className="text-sm md:text-base lg:text-sm text-gray-600 dark:text-gray-300 tracking-wide">
-                  We deliver expert cleaning insights and proven techniques that transform your approach to maintaining pristine spaces.
+                <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide leading-relaxed">
+                  Expert cleaning insights and proven techniques for maintaining pristine spaces.
                 </p>
               </motion.div>
 
@@ -354,7 +206,7 @@ const BlogPage = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <Link href={`/blog/${blogPosts[0].id}`}>
+                  <Link href={`/blog/${blogPosts[0].slug}`}>
                     <div className="relative h-[240px] md:h-[360px] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800/50">
                       <Image
                         src={blogPosts[0].image || "/placeholder.svg"}
@@ -387,10 +239,10 @@ const BlogPage = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4 }}
                     >
-                      <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-add8e6 transition-colors leading-tight">
+                      <h3 className="font-heading text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-add8e6 transition-colors leading-tight">
                         {blogPosts[0].title}
                       </h3>
-                      <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                      <p className="font-body text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                         {blogPosts[0].excerpt}
                       </p>
                     </motion.div>
@@ -437,7 +289,7 @@ const BlogPage = () => {
                       transition={{ delay: 0.6 }}
                     >
                       <Link
-                        href={`/blog/${blogPosts[0].id}`}
+                        href={`/blog/${blogPosts[0].slug}`}
                         className="inline-flex items-center text-add8e6 hover:text-add8e6/80 transition-colors duration-300 group text-xs md:text-sm font-medium"
                       >
                         Read More
@@ -494,7 +346,7 @@ const BlogPage = () => {
                   <MdBook className="w-3.5 h-3.5" />
                   Latest Articles
                 </span>
-                <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide">
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 leading-tight tracking-wide">
                   Explore Our{" "}
                   <span className="text-add8e6 relative inline-block tracking-wider">
                     Articles
@@ -508,8 +360,8 @@ const BlogPage = () => {
                     />
                   </span>
                 </h2>
-                <p className="text-sm md:text-base lg:text-sm text-gray-600 dark:text-gray-300 tracking-wide">
-                  We deliver expert cleaning insights and proven techniques that transform your approach to maintaining pristine spaces.
+                <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide leading-relaxed">
+                  Practical knowledge for facility managers and institutions.
                 </p>
               </motion.div>
 
@@ -565,7 +417,7 @@ const BlogPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                       {filteredPosts.map((post, index) => (
                         <ScrollAnimation key={post.id}>
-                          <Link href={`/blog/${post.id}`}>
+                          <Link href={`/blog/${post.slug}`}>
                             <motion.div 
                               className="group relative bg-white dark:bg-gray-900/50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100 dark:border-gray-800/50"
                               initial={{ opacity: 0, y: 20 }}
@@ -606,10 +458,10 @@ const BlogPage = () => {
                                   </motion.div>
                                   <span className="text-xs text-gray-600 dark:text-gray-400">{post.date}</span>
                                 </div>
-                                <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-add8e6 transition-colors duration-200 leading-tight">
+                                <h3 className="font-heading text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-add8e6 transition-colors duration-200 leading-tight">
                                   {post.title}
                                 </h3>
-                                <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 leading-relaxed line-clamp-2">
+                                <p className="font-body text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed line-clamp-2">
                                   {post.excerpt}
                                 </p>
                                 <div className="pt-2 border-t border-gray-100 dark:border-gray-800/50">
@@ -635,7 +487,7 @@ const BlogPage = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    <h3 className="text-sm font-semibold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                    <h3 className="font-heading text-sm md:text-base font-semibold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
                       <motion.div 
                         className="relative"
                         whileHover={{ scale: 1.1 }}
@@ -741,7 +593,7 @@ const BlogPage = () => {
                     transition={{ duration: 0.5, delay: 0.4 }}
                   >
                     <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-sm font-semibold text-gray-800 dark:text-white flex items-center gap-2">
+                      <h3 className="font-heading text-sm md:text-base font-semibold text-gray-800 dark:text-white flex items-center gap-2">
                         <motion.div 
                           className="relative"
                           whileHover={{ scale: 1.1 }}
@@ -786,7 +638,7 @@ const BlogPage = () => {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
                         >
-                          <Link href={`/blog/${post.id}`} className="block">
+                          <Link href={`/blog/${post.slug}`} className="block">
                             <div className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all duration-300">
                               <div className="relative h-16 w-16 rounded-md overflow-hidden flex-shrink-0">
                                 <Image
@@ -802,7 +654,7 @@ const BlogPage = () => {
                                 <span className="bg-add8e6/10 text-add8e6 px-1.5 py-0.5 rounded-full text-[10px] font-medium mb-1 inline-block">
                                   {post.category}
                                 </span>
-                                <h4 className="text-xs font-semibold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors line-clamp-2 leading-tight">
+                                <h4 className="font-heading text-xs md:text-sm font-semibold text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors line-clamp-2 leading-tight">
                                   {post.title}
                                 </h4>
                               </div>

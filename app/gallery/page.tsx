@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ZoomIn } from "lucide-react"
+import { ZoomIn, ArrowRight, Phone } from "lucide-react"
 import React from "react"
 // Beautiful styled icons from react-icons
 import { MdStars } from "react-icons/md" // Material Design - All/Sparkles
@@ -14,121 +14,15 @@ import { FaSprayCan } from "react-icons/fa" // Font Awesome - Sanitization
 import { FaCamera } from "react-icons/fa" // Font Awesome - Camera
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import Link from "next/link"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { useInView } from "react-intersection-observer"
 import ContactForm from "@/components/home/contact-form"
-
-// CountUp component for animated numbers with scroll trigger
-function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: string | number, duration?: number, suffix?: string, inView?: boolean }) {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    if (!inView) return;
-    // Handle non-numeric values (like "24/7", "1hr")
-    if (typeof end === 'string' && !end.match(/^\d+/)) {
-      return;
-    }
-    const isPercent = typeof end === 'string' && end.includes('%');
-    const isPlus = typeof end === 'string' && end.includes('+');
-    // Extract numeric value and any text suffix
-    let numericEnd: number;
-    let textSuffix = '';
-    if (typeof end === 'number') {
-      numericEnd = end;
-    } else {
-      const match = end.match(/^(\d+)(.*)$/);
-      if (match) {
-        numericEnd = parseInt(match[1]);
-        textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
-      } else {
-        numericEnd = parseInt(end);
-      }
-    }
-    const startTime = performance.now();
-    function animate(now: number) {
-      const elapsed = (now - startTime) / 1000;
-      const progress = Math.min(elapsed / duration, 1);
-      const value = Math.floor(progress * numericEnd);
-      setCount(value);
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        setCount(numericEnd);
-      }
-    }
-    requestAnimationFrame(animate);
-    return () => {};
-  }, [end, duration, inView]);
-  
-  // Handle non-numeric values (like "24/7", "1hr")
-  if (typeof end === 'string' && !end.match(/^\d+/)) {
-    return <span>{end}{suffix}</span>;
-  }
-  
-  // Extract numeric value and any text suffix
-  let display: string | number = count;
-  let textSuffix = '';
-  if (typeof end === 'string') {
-    const match = end.match(/^(\d+)(.*)$/);
-    if (match) {
-      textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
-    }
-    if (end.includes('%')) display = `${count}%`;
-    else if (end.includes('+')) display = `${count}+`;
-    else if (textSuffix) display = `${count}${textSuffix}`;
-  }
-  return <span>{display}{suffix}</span>;
-}
-
-// Stats Section Component with scroll-triggered animation
-function StatsSectionWithAnimation() {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  })
-
-  return (
-    <motion.div
-      ref={ref}
-      variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-      className="grid grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
-    >
-      {[
-        {
-          value: "19+",
-          label: "YEARS IN SERVICE",
-        },
-        {
-          value: "5",
-          label: "CORE SERVICES",
-        },
-        {
-          value: "100%",
-          label: "KENYAN OWNED",
-        }
-      ].map((stat, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1, duration: 0.6 }}
-          className="text-center"
-        >
-          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
-            <CountUp end={stat.value} duration={1.5} inView={inView} />
-          </div>
-          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
-            {stat.label}
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
-  )
-}
+import BreadcrumbSchema, { breadcrumbConfigs } from "@/components/schema/breadcrumb-schema"
 
 export default function GalleryPage() {
   const [activeTab, setActiveTab] = useState("all")
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
+  const [mobileVisibleCount, setMobileVisibleCount] = useState(5)
 
   const categories = [
     { id: "all", name: "All", icon: MdStars },
@@ -365,6 +259,9 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Schema Markup for AI Search Optimization (GEO) */}
+      <BreadcrumbSchema items={breadcrumbConfigs.gallery} />
+      
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}
@@ -401,9 +298,11 @@ export default function GalleryPage() {
               </motion.div>
               <motion.h1
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
+                className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wide"
               >
-                Our Work at <span className="text-fff relative inline-block">Simca Agencies
+                Our Work at{" "}
+                <span className="text-fff relative inline-block">
+                  Simca Agencies
                   <motion.span
                     className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                     initial={{ scaleX: 0 }}
@@ -415,12 +314,35 @@ export default function GalleryPage() {
               </motion.h1>
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
+                className="font-body text-base md:text-lg lg:text-xl text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
               >
-                Every photo in our gallery tells a story of professionalism, dedication, and attention to detail. From hospitals and hotels to government offices and schools, our trained teams deliver world-class cleaning standards across Kenya. See the quality that has made Simca Agencies the trusted choice for leading institutions since 2005.
+                See the quality that has made us Kenya's trusted choice for professional cleaning since 2005.
               </motion.p>
-              {/* Minimalist Stats Section */}
-              <StatsSectionWithAnimation />
+              
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <button
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact-form')
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                  }}
+                  className="font-body inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+                >
+                  Get a Free Quote
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+                <a
+                  href="tel:+254722839248"
+                  className="font-body inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+                >
+                  <Phone className="w-4 h-4 md:w-5 md:h-5" />
+                  Call Us Now
+                </a>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -443,7 +365,7 @@ export default function GalleryPage() {
         <div className="container mx-auto px-4 relative">
           <ScrollAnimation>
             <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
-              <TabsList className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 md:mb-12 bg-transparent p-0">
+              <TabsList className="hidden md:flex flex-wrap justify-center gap-2 md:gap-3 mb-10 md:mb-12 bg-transparent p-0">
                 {categories.map((category) => (
                   <TabsTrigger
                     key={category.id}
@@ -458,7 +380,12 @@ export default function GalleryPage() {
                 ))}
               </TabsList>
 
-              {categories.map((category) => (
+              {categories.map((category) => {
+                const filteredImages = galleryImages.filter((img) => category.id === "all" || img.category === category.id)
+                const totalImages = filteredImages.length
+                const hasMoreImages = mobileVisibleCount < totalImages
+                
+                return (
                 <TabsContent key={category.id} value={category.id} className="mt-8 md:mt-12">
                   <motion.div 
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4"
@@ -466,15 +393,14 @@ export default function GalleryPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                   >
-                    {galleryImages
-                      .filter((img) => category.id === "all" || img.category === category.id)
+                    {filteredImages
                       .map((image, index) => (
                         <motion.div
                           key={image.id}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.4, delay: index * 0.05 }}
-                          className="group relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800/50 cursor-pointer"
+                          className={`group relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800/50 cursor-pointer ${index >= mobileVisibleCount ? 'hidden sm:block' : ''}`}
                           onClick={() => setSelectedImage(image.id)}
                         >
                           <div className="relative h-40 sm:h-48 md:h-56 w-full">
@@ -502,12 +428,12 @@ export default function GalleryPage() {
                           </div>
                           <div className="p-3 md:p-4">
                             <h3 
-                              className="text-sm font-semibold text-gray-900 dark:text-white mb-1.5 group-hover:text-add8e6 transition-colors duration-200 leading-tight"
+                              className="font-heading text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-1.5 group-hover:text-add8e6 transition-colors duration-200 leading-tight"
                             >
                               {image.title}
                             </h3>
                             <p 
-                              className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
+                              className="font-body text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
                             >
                               {image.description}
                             </p>
@@ -515,8 +441,21 @@ export default function GalleryPage() {
                         </motion.div>
                       ))}
                   </motion.div>
+                  
+                  {/* View More Button - Mobile Only */}
+                  {hasMoreImages && (
+                    <div className="sm:hidden flex justify-center mt-6">
+                      <button
+                        onClick={() => setMobileVisibleCount(prev => prev + 5)}
+                        className="font-body inline-flex items-center justify-center gap-2 bg-add8e6/10 hover:bg-add8e6/20 text-add8e6 px-6 py-3 font-medium transition-all duration-300 text-sm tracking-wide rounded-lg border border-add8e6/20 hover:border-add8e6/40"
+                      >
+                        View More
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
                 </TabsContent>
-              ))}
+              )})}
             </Tabs>
           </ScrollAnimation>
         </div>
@@ -555,10 +494,10 @@ export default function GalleryPage() {
                   />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 md:p-6 rounded-b-lg">
-                  <h3 className="text-sm md:text-base font-semibold text-white mb-1">
+                  <h3 className="font-heading text-base md:text-lg font-semibold text-white mb-1">
                     {selectedImg.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-gray-200 tracking-wide mt-1">
+                  <p className="font-body text-sm md:text-base text-gray-200 tracking-wide mt-1 leading-relaxed">
                     {selectedImg.description}
                   </p>
                 </div>

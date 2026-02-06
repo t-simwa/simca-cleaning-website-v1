@@ -1,129 +1,21 @@
 "use client"
 
-import { MapPin, Phone, Mail, Clock, MessageCircle, Sparkles, ShieldCheck } from "lucide-react"
+import { ArrowRight, Phone as PhoneIcon } from "lucide-react"
 import ContactForm from "@/components/contact-form"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import OpenStreetMap from "@/components/openstreet-map"
 import { motion } from "framer-motion"
-import { useState, useEffect, useRef } from "react"
-import { useInView } from "react-intersection-observer"
+import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import React from "react"
 // Beautiful styled icons from different libraries
 import { HiChatBubbleLeftRight } from "react-icons/hi2" // Heroicons v2 - Message
-import { MdFavorite } from "react-icons/md" // Material Design - Favorite/Choice badge
 import { FaPhoneAlt } from "react-icons/fa" // Font Awesome - Phone
 import { FaEnvelope } from "react-icons/fa" // Font Awesome - Email
 import { MdAccessTime } from "react-icons/md" // Material Design - Clock
 import { HiShieldCheck } from "react-icons/hi2" // Heroicons v2 - Shield
 import { MdLocationOn } from "react-icons/md" // Material Design - Location
-
-// CountUp component for animated numbers with scroll trigger
-function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: string | number, duration?: number, suffix?: string, inView?: boolean }) {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    if (!inView) return;
-    // Handle non-numeric values (like "24/7", "1hr")
-    if (typeof end === 'string' && !end.match(/^\d+/)) {
-      return;
-    }
-    const isPercent = typeof end === 'string' && end.includes('%');
-    const isPlus = typeof end === 'string' && end.includes('+');
-    // Extract numeric value and any text suffix
-    let numericEnd: number;
-    let textSuffix = '';
-    if (typeof end === 'number') {
-      numericEnd = end;
-    } else {
-      const match = end.match(/^(\d+)(.*)$/);
-      if (match) {
-        numericEnd = parseInt(match[1]);
-        textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
-      } else {
-        numericEnd = parseInt(end);
-      }
-    }
-    const startTime = performance.now();
-    function animate(now: number) {
-      const elapsed = (now - startTime) / 1000;
-      const progress = Math.min(elapsed / duration, 1);
-      const value = Math.floor(progress * numericEnd);
-      setCount(value);
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        setCount(numericEnd);
-      }
-    }
-    requestAnimationFrame(animate);
-    return () => {};
-  }, [end, duration, inView]);
-  
-  // Handle non-numeric values (like "24/7", "1hr")
-  if (typeof end === 'string' && !end.match(/^\d+/)) {
-    return <span>{end}{suffix}</span>;
-  }
-  
-  // Extract numeric value and any text suffix
-  let display: string | number = count;
-  let textSuffix = '';
-  if (typeof end === 'string') {
-    const match = end.match(/^(\d+)(.*)$/);
-    if (match) {
-      textSuffix = match[2]; // Preserve text after number (e.g., "hr" from "1hr")
-    }
-    if (end.includes('%')) display = `${count}%`;
-    else if (end.includes('+')) display = `${count}+`;
-    else if (textSuffix) display = `${count}${textSuffix}`;
-  }
-  return <span>{display}{suffix}</span>;
-}
-
-// Stats Section Component with scroll-triggered animation
-function StatsSectionWithAnimation() {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  })
-
-  return (
-    <motion.div
-      ref={ref}
-      variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-      className="grid grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
-    >
-      {[
-        {
-          value: "19+",
-          label: "YEARS IN SERVICE",
-        },
-        {
-          value: "5",
-          label: "SERVICE LOCATIONS",
-        },
-        {
-          value: "100%",
-          label: "KENYAN OWNED",
-        }
-      ].map((stat, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1, duration: 0.6 }}
-          className="text-center"
-        >
-          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
-            <CountUp end={stat.value} duration={1.5} inView={inView} />
-          </div>
-          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
-            {stat.label}
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
-  )
-}
+import BreadcrumbSchema, { breadcrumbConfigs } from "@/components/schema/breadcrumb-schema"
 
 export default function ContactPage() {
   // Handle scroll to form when navigating with hash
@@ -222,6 +114,9 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen">
+      {/* Schema Markup for AI Search Optimization (GEO) */}
+      <BreadcrumbSchema items={breadcrumbConfigs.contact} />
+      
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}
@@ -269,9 +164,9 @@ export default function ContactPage() {
 
               <motion.h1
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
+                className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wide"
               >
-                Contact{' '}
+                Contact{" "}
                 <span className="text-fff relative inline-block">
                   Us
                   <motion.span
@@ -286,13 +181,35 @@ export default function ContactPage() {
 
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
+                className="font-body text-base md:text-lg lg:text-xl text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
               >
-                We are here to make connecting with us easy and welcoming. Whether you need ongoing contract cleaning, specialized services, or hygiene solutions for your facility, our friendly team is always ready to listen, offer honest advice, and create a solution that fits your unique space. Reach out today and experience the personal care, attention, and reliability that have made Simca Agencies Kenya's trusted cleaning partner since 2005.
+                Kenya's trusted cleaning partner since 2005—reach out and let us care for your space.
               </motion.p>
 
-              {/* Minimalist Stats Section */}
-              <StatsSectionWithAnimation />
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <button
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact-form-section')
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                  }}
+                  className="font-body inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+                >
+                  Get a Free Quote
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+                <a
+                  href="tel:+254722839248"
+                  className="font-body inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+                >
+                  <PhoneIcon className="w-4 h-4 md:w-5 md:h-5" />
+                  Call Us Now
+                </a>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -325,9 +242,9 @@ export default function ContactPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
+                  className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
                 >
-                  Get in{' '}
+                  Get in{" "}
                   <span className="text-add8e6 relative inline-block tracking-wider">
                     Touch
                     <motion.span
@@ -339,8 +256,8 @@ export default function ContactPage() {
                     />
                   </span>
                 </motion.h2>
-                <p className="text-sm md:text-base lg:text-sm text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-                  We are here to make your experience easy and personal. Whether you have a quick question or need a custom cleaning plan for your facility, reach out and let us know what matters most to you. We will listen, guide you honestly, and make sure you always feel valued and cared for.
+                <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6 leading-relaxed">
+                  Reach out and let us know what matters most to you—we're here to help.
                 </p>
               </div>
 
@@ -348,7 +265,7 @@ export default function ContactPage() {
                 {/* Contact Form Section */}
                 <div id="contact-form-section" className="bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800/50 scroll-mt-24">
                   <div className="mb-4">
-                    <h3 className="text-sm font-semibold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                    <h3 className="font-heading text-base md:text-lg font-semibold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
                       <motion.div 
                         className="relative flex-shrink-0"
                         whileHover={{ scale: 1.1 }}
@@ -369,7 +286,7 @@ export default function ContactPage() {
 
                 {/* Contact Information Section */}
                 <div className="bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800/50 flex flex-col">
-                  <h3 className="text-sm font-semibold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                  <h3 className="font-heading text-base md:text-lg font-semibold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
                     <motion.div 
                       className="relative flex-shrink-0"
                       whileHover={{ scale: 1.1 }}
@@ -457,7 +374,7 @@ export default function ContactPage() {
                   </div>
                   {/* Additional Info */}
                   <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800/50">
-                    <h4 className="text-xs font-semibold text-gray-800 dark:text-white mb-2 flex items-center gap-2">
+                    <h4 className="font-heading text-sm md:text-base font-semibold text-gray-800 dark:text-white mb-2 flex items-center gap-2">
                       <motion.div 
                         className="relative flex-shrink-0"
                         whileHover={{ scale: 1.1 }}
@@ -472,8 +389,8 @@ export default function ContactPage() {
                       </motion.div>
                       Our Commitment
                     </h4>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                      We treat every client like family and every space like our own. With comprehensive insurance coverage, OHS compliance, and a team of trained Kenyan professionals, your facility is in safe hands. Your satisfaction and peace of mind are our promise, every single time.
+                    <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                      Comprehensive insurance, OHS compliance, and trained Kenyan professionals—your facility is in safe hands.
                     </p>
                   </div>
                 </div>
@@ -506,7 +423,7 @@ export default function ContactPage() {
                   <MdLocationOn className="w-3.5 h-3.5" />
                   Find Us
                 </span>
-                <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide">
                   Our{" "}
                   <span className="text-add8e6 relative inline-block tracking-wider">
                     Locations
@@ -519,8 +436,8 @@ export default function ContactPage() {
                     />
                   </span>
                 </h2>
-                <p className="text-sm md:text-base lg:text-sm text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                  Wherever you are in Kenya, you are never far from a Simca team that cares. Drop by any of our branches or reach out. Our friendly experts are always ready to listen, answer your questions, and help you find the perfect cleaning solution for your facility.
+                <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                  Wherever you are in Kenya, you're never far from a Simca team that cares.
                 </p>
               </div>
 
@@ -533,7 +450,7 @@ export default function ContactPage() {
                       className="group bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100 dark:border-gray-800/50 flex flex-col h-full"
                     >
                       <div className="text-center mb-3">
-                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-add8e6 transition-colors duration-200 leading-tight">
+                        <h3 className="font-heading text-sm md:text-base font-semibold text-gray-900 dark:text-white group-hover:text-add8e6 transition-colors duration-200 leading-tight">
                           {location.name}
                         </h3>
                       </div>
@@ -619,7 +536,7 @@ export default function ContactPage() {
                   >
                     <div className="group bg-white dark:bg-gray-900/50 rounded-lg p-4 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100 dark:border-gray-800/50 flex flex-col h-full">
                       <div className="text-center mb-3">
-                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-add8e6 transition-colors duration-200 leading-tight">
+                        <h3 className="font-heading text-sm md:text-base font-semibold text-gray-900 dark:text-white group-hover:text-add8e6 transition-colors duration-200 leading-tight">
                           {currentMobileCard.name}
                         </h3>
                       </div>

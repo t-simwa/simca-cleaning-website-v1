@@ -2,51 +2,19 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Phone } from "lucide-react"
 import OpenStreetMap from "@/components/openstreet-map"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import { motion } from "framer-motion"
 import ContactForm from "@/components/home/contact-form"
-import { useState, useEffect } from "react"
-import { useInView } from "react-intersection-observer"
 import React from "react"
 // Unique icons from different icon libraries - matching home page style
 import { MdLocationOn } from "react-icons/md" // Material Design - Location (for badge and main location)
 import { HiPhone } from "react-icons/hi2" // Heroicons v2 - Phone
 import { HiClock } from "react-icons/hi2" // Heroicons v2 - Clock
+import BreadcrumbSchema, { breadcrumbConfigs } from "@/components/schema/breadcrumb-schema"
 
 const MotionImage = motion(Image)
-
-// CountUp component for animated numbers with scroll trigger
-function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: string | number, duration?: number, suffix?: string, inView?: boolean }) {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    if (!inView) return;
-    const isPercent = typeof end === 'string' && end.includes('%');
-    const isPlus = typeof end === 'string' && end.includes('+');
-    const numericEnd = typeof end === 'number' ? end : parseInt(end);
-    const startTime = performance.now();
-    function animate(now: number) {
-      const elapsed = (now - startTime) / 1000;
-      const progress = Math.min(elapsed / duration, 1);
-      const value = Math.floor(progress * numericEnd);
-      setCount(value);
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        setCount(numericEnd);
-      }
-    }
-    requestAnimationFrame(animate);
-    return () => {};
-  }, [end, duration, inView]);
-  let display: string | number = count;
-  if (typeof end === 'string' && end.includes('%')) display = `${count}%`;
-  if (typeof end === 'string' && end.includes('+')) display = `${count}+`;
-  // Handle non-numeric values like "24/7"
-  if (typeof end === 'string' && !end.match(/^\d+/)) return <span>{end}{suffix}</span>;
-  return <span>{display}{suffix}</span>;
-}
 
 // Animation variants
 const itemVariants = {
@@ -60,52 +28,6 @@ const itemVariants = {
       damping: 15,
     },
   },
-}
-
-// Stats Section Component with scroll-triggered animation
-function StatsSectionWithAnimation() {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  })
-
-  return (
-    <motion.div
-      ref={ref}
-      variants={itemVariants}
-      className="grid grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
-    >
-      {[
-        {
-          value: "5",
-          label: "SERVICE LOCATIONS",
-        },
-        {
-          value: "19+",
-          label: "YEARS IN SERVICE",
-        },
-        {
-          value: "100%",
-          label: "KENYAN OWNED",
-        }
-      ].map((stat, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1, duration: 0.6 }}
-          className="text-center"
-        >
-          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
-            <CountUp end={stat.value} duration={1.5} inView={inView} />
-          </div>
-          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
-            {stat.label}
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
-  )
 }
 
 export default function LocationsPage() {
@@ -246,6 +168,8 @@ export default function LocationsPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 overflow-x-hidden">
+      {/* Schema Markup for AI Search Optimization (GEO) */}
+      <BreadcrumbSchema items={breadcrumbConfigs.locations} />
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}
@@ -284,9 +208,9 @@ export default function LocationsPage() {
               </motion.div>
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
+                className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wide"
               >
-                Our Service {" "}
+                Our Service{" "}
                 <span className="text-fff relative inline-block">
                   Locations
                   <motion.span
@@ -300,12 +224,35 @@ export default function LocationsPage() {
               </motion.h1>
               <motion.p
                 variants={itemVariants}
-                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
+                className="font-body text-base md:text-lg lg:text-xl text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
               >
-                From our headquarters in Mombasa, we extend our professional cleaning and facility services across Kenya. With trained staff, modern equipment, and a genuine commitment to excellence, we bring world-class standards to hospitals, hotels, government institutions, schools, and industrial facilities in every community we serve.
+                Professional cleaning excellence from Mombasa to communities across Kenya—trained teams ready to serve you.
               </motion.p>
-              {/* Minimalist Stats Section */}
-              <StatsSectionWithAnimation />
+              
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <button
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact-form')
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                  }}
+                  className="font-body inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+                >
+                  Get a Free Quote
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+                <a
+                  href="tel:+254722839248"
+                  className="font-body inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+                >
+                  <Phone className="w-4 h-4 md:w-5 md:h-5" />
+                  Call Us Now
+                </a>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -335,7 +282,7 @@ export default function LocationsPage() {
                   Our Presence
                 </span>
                 <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
+                  className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0"
                 >
                   <span className="block md:inline md:mb-0 mb-1">Nationwide</span>
                   <span className="text-add8e6 relative inline-block md:inline md:ml-2 block mb-1 md:mb-0">
@@ -350,8 +297,8 @@ export default function LocationsPage() {
                     />
                   </span>
                 </motion.h2>
-                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                  From our headquarters in Mombasa to communities across Kenya, Simca Agencies brings professional cleaning excellence with a caring, local touch. Our trained teams are part of your community, ready to deliver the world-class standards that hospitals, hotels, schools, and institutions deserve.
+                <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                  From Mombasa to communities across Kenya, our trained teams deliver professional cleaning to hospitals, hotels, schools, and institutions.
                 </p>
               </div>
 
@@ -381,11 +328,11 @@ export default function LocationsPage() {
                           </motion.div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between gap-2 mb-1.5">
-                              <h3 className="font-semibold text-xs md:text-sm text-gray-900 dark:text-white group-hover:text-add8e6 transition-colors leading-tight">
+                                              <h3 className="font-heading font-semibold text-sm md:text-base text-gray-900 dark:text-white group-hover:text-add8e6 transition-colors leading-tight">
                                 {location.name}
                               </h3>
                             </div>
-                            <p className="text-[10px] md:text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            <p className="font-body text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                               {(() => {
                                 switch (location.name) {
                                   case "Mombasa":
@@ -450,9 +397,9 @@ export default function LocationsPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-20">
                     <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2.5 md:p-3 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
-                      <h3 className="text-xs md:text-sm font-bold text-gray-800 dark:text-white mb-1.5">Click on any marker to discover our local expertise</h3>
-                      <p className="text-[10px] md:text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-                        Our map shows just how close professional help is. Each marker represents a trained team that cares about your space as much as you do. Click a city to meet your local Simca experts.
+                                      <h3 className="font-heading text-sm md:text-base font-bold text-gray-800 dark:text-white mb-1.5">Click on any marker to discover our local expertise</h3>
+                                      <p className="font-body text-xs md:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                                        Each marker represents a trained team ready to serve you. Click a city to meet your local Simca experts.
                       </p>
                     </div>
                   </div>
@@ -486,15 +433,15 @@ export default function LocationsPage() {
                   <MdLocationOn className="w-3.5 h-3.5" />
                   Local Expertise
                 </span>
-                <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0" >
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6 md:mb-6 leading-tight tracking-wide mt-0 !mt-0" >
                   Our Service{" "}
                   <span className="text-add8e6 relative">
                     Locations
                     <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full" />
                   </span>
                 </h2>
-                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                  Each of our locations is staffed with local experts who understand the unique cleaning needs of their community.
+                <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                  Local experts who understand the unique cleaning needs of each community.
                 </p>
               </div>
 
@@ -542,11 +489,11 @@ export default function LocationsPage() {
                                     </div>
                                   </div>
                                 </motion.div>
-                                <h2 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">
+                                <h2 className="font-heading text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
                                   {location.name}
                                 </h2>
                               </div>
-                              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-5 leading-relaxed">
+                              <p className="font-body text-sm md:text-base text-gray-600 dark:text-gray-400 mb-4 md:mb-5 leading-relaxed">
                                 {location.description}
                               </p>
 
@@ -557,13 +504,13 @@ export default function LocationsPage() {
                                   viewport={{ once: true }}
                                   transition={{ duration: 0.5, delay: 0.1 }}
                                 >
-                                  <h3 className="text-xs md:text-sm font-semibold text-gray-900 dark:text-white mb-2 md:mb-2.5 flex items-center gap-2">
+                                  <h3 className="font-heading text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-2 md:mb-2.5 flex items-center gap-2">
                                     <span className="w-1 h-1 bg-add8e6 rounded-full"></span>
                                     Contact Information
                                   </h3>
                                   <div className="space-y-2">
                                     <motion.div 
-                                      className="group flex items-center text-xs text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm border border-transparent hover:border-add8e6/20 transition-all duration-200"
+                                      className="group flex items-center text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm border border-transparent hover:border-add8e6/20 transition-all duration-200"
                                       whileHover={{ 
                                         x: 3,
                                         backgroundColor: 'rgba(173, 216, 230, 0.1)',
@@ -584,10 +531,10 @@ export default function LocationsPage() {
                                           </div>
                                         </div>
                                       </motion.div>
-                                      <span className="flex-1">{location.address}</span>
+                                      <span className="font-body flex-1">{location.address}</span>
                                     </motion.div>
                                     <motion.div 
-                                      className="group flex items-center text-xs text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm border border-transparent hover:border-add8e6/20 transition-all duration-200"
+                                      className="group flex items-center text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm border border-transparent hover:border-add8e6/20 transition-all duration-200"
                                       whileHover={{ 
                                         x: 3,
                                         backgroundColor: 'rgba(173, 216, 230, 0.1)',
@@ -608,14 +555,14 @@ export default function LocationsPage() {
                                           </div>
                                         </div>
                                       </motion.div>
-                                      <div className="flex-1">
+                                      <div className="font-body flex-1">
                                         <a href={`tel:${location.phone.replace(/\s/g, '')}`} className="hover:text-add8e6 transition-colors">{location.phone}</a>
                                         <span className="mx-1.5 text-gray-400">/</span>
                                         <a href={`tel:${location.emergencyPhone.replace(/\s/g, '')}`} className="hover:text-add8e6 transition-colors">{location.emergencyPhone}</a>
                                       </div>
                                     </motion.div>
                                     <motion.div 
-                                      className="group flex items-center text-xs text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm border border-transparent hover:border-add8e6/20 transition-all duration-200"
+                                      className="group flex items-center text-sm text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-700/30 rounded-lg p-2 backdrop-blur-sm border border-transparent hover:border-add8e6/20 transition-all duration-200"
                                       whileHover={{ 
                                         x: 3,
                                         backgroundColor: 'rgba(173, 216, 230, 0.1)',
@@ -636,10 +583,24 @@ export default function LocationsPage() {
                                           </div>
                                         </div>
                                       </motion.div>
-                                      <span className="flex-1">{location.hours}</span>
+                                      <span className="font-body flex-1">{location.hours}</span>
                                     </motion.div>
                                   </div>
                                 </motion.div>
+
+                                {/* Get a Quote Button */}
+                                <button
+                                  onClick={() => {
+                                    const contactSection = document.getElementById('contact-form')
+                                    if (contactSection) {
+                                      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                                    }
+                                  }}
+                                  className="font-body w-full inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 font-semibold transition-all duration-300 group text-sm tracking-wide rounded-lg shadow-lg hover:shadow-xl mt-4"
+                                >
+                                  Get a Free Quote
+                                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                                </button>
                               </div>
                             </div>
                           </motion.div>

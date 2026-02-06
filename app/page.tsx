@@ -10,9 +10,15 @@ import TikTokFeed from "@/components/instagram-feed"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 import FAQ from "@/components/home/faq"
 import WhoWeAre from "@/components/home/who-we-are"
+import FAQSchema, { homepageFAQs } from "@/components/schema/faq-schema"
+import BreadcrumbSchema, { breadcrumbConfigs } from "@/components/schema/breadcrumb-schema"
 export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+        {/* Schema Markup for AI Search Optimization (GEO) */}
+        <FAQSchema faqs={homepageFAQs} pageUrl="https://simcaagencies.com" />
+        <BreadcrumbSchema items={breadcrumbConfigs.home} />
+        
         {/* Hero Section - Full width with gradient */}
         <div className="relative">
           <Hero />

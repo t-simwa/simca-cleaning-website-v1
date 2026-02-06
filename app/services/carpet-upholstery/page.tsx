@@ -18,6 +18,8 @@ import React, { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import ContactForm from "@/components/contact-form";
+import ServiceSchema, { serviceConfigs } from "@/components/schema/service-schema";
+import BreadcrumbSchema, { breadcrumbConfigs } from "@/components/schema/breadcrumb-schema";
 
 const MotionImage = motion(Image)
 
@@ -337,6 +339,10 @@ export default function CarpetUpholsteryCleaningPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Schema Markup for AI Search Optimization (GEO) */}
+      <ServiceSchema {...serviceConfigs.carpetCleaning} />
+      <BreadcrumbSchema items={breadcrumbConfigs.carpetCleaning} />
+      
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}

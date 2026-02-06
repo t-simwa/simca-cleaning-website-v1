@@ -10,218 +10,15 @@ import { HiShieldCheck } from "react-icons/hi2";
 import { FaAward } from "react-icons/fa";
 import { FaTags } from "react-icons/fa";
 import { MdAutoAwesome } from "react-icons/md";
-import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import ContactForm from "@/components/contact-form";
+import ServiceSchema, { serviceConfigs } from "@/components/schema/service-schema";
+import BreadcrumbSchema, { breadcrumbConfigs } from "@/components/schema/breadcrumb-schema";
 
 const MotionImage = motion(Image)
-
-// CountUp component for animated numbers with scroll trigger
-function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: string | number, duration?: number, suffix?: string, inView?: boolean }) {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    if (!inView) return;
-    if (typeof end === 'string' && !end.match(/^\d+/)) {
-      return;
-    }
-    let numericEnd: number;
-    if (typeof end === 'number') {
-      numericEnd = end;
-    } else {
-      const match = end.match(/^(\d+)(.*)$/);
-      if (match) {
-        numericEnd = parseInt(match[1]);
-      } else {
-        numericEnd = parseInt(end);
-      }
-    }
-    const startTime = performance.now();
-    function animate(now: number) {
-      const elapsed = (now - startTime) / 1000;
-      const progress = Math.min(elapsed / duration, 1);
-      const value = Math.floor(progress * numericEnd);
-      setCount(value);
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        setCount(numericEnd);
-      }
-    }
-    requestAnimationFrame(animate);
-    return () => {};
-  }, [end, duration, inView]);
-  
-  if (typeof end === 'string' && !end.match(/^\d+/)) {
-    return <span>{end}{suffix}</span>;
-  }
-  
-  let display: string | number = count;
-  let textSuffix = '';
-  if (typeof end === 'string') {
-    const match = end.match(/^(\d+)(.*)$/);
-    if (match) {
-      textSuffix = match[2];
-    }
-    if (end.includes('%')) display = `${count}%`;
-    else if (end.includes('+')) display = `${count}+`;
-    else if (textSuffix) display = `${count}${textSuffix}`;
-  }
-  return <span>{display}{suffix}</span>;
-}
-
-// Stats Section Component with scroll-triggered animation
-function StatsSectionWithAnimation() {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  })
-
-  return (
-    <motion.div
-      ref={ref}
-      variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-      className="grid grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
-    >
-      {[
-        { 
-          value: "19+", 
-          label: "YEARS OF EXPERIENCE", 
-        },
-        { 
-          value: "100%", 
-          label: "KENYAN STAFF", 
-        },
-        { 
-          value: "100%", 
-          label: "FULLY INSURED", 
-        }
-      ].map((stat, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1, duration: 0.6 }}
-          className="text-center"
-        >
-          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
-            <CountUp end={stat.value} duration={1.5} inView={inView} />
-          </div>
-          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
-            {stat.label}
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
-  )
-}
-
-interface ServiceDetail {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  features: string[];
-  availability: string;
-  pricing: {
-    title: string;
-    packages: { name: string; price: string; features: string[] }[];
-  };
-  serviceAreas: string[];
-  whyChooseUs: { title: string; description: string; points: string[] };
-  whatsIncluded: { title: string; description: string; items: string[] };
-}
-
-const labourOutsourcingService: ServiceDetail = {
-  title: "Labour Outsourcing",
-  description: "Professional staffing solutions for your cleaning needs. We provide trained cleaning staff, skilled machine operators, and recruitment services for permanent and temporary positions.",
-  icon: <Users className="h-8 w-8 md:h-10 md:w-10 text-add8e6" />,
-  features: [
-    "Trained cleaning staff",
-    "Skilled machine operators",
-    "Permanent recruitment",
-    "Temporary staffing",
-    "All staff are Kenyan citizens",
-    "Comprehensive insurance coverage",
-    "Customer care trained",
-    "Regular training programs"
-  ],
-  availability: "Flexible staffing arrangements",
-  pricing: {
-    title: "Staffing Packages",
-    packages: [
-      {
-        name: "Cleaning Staff",
-        price: "Custom Quote",
-        features: [
-          "Trained cleaning personnel",
-          "Daily or periodic staffing",
-          "Supervised and managed"
-        ]
-      },
-      {
-        name: "Machine Operators",
-        price: "Custom Quote",
-        features: [
-          "Skilled equipment operators",
-          "Scrubber, polisher, burnisher",
-          "Vacuum and floor boy operators"
-        ]
-      },
-      {
-        name: "Permanent Recruitment",
-        price: "Custom Quote",
-        features: [
-          "Full recruitment process",
-          "Vetted and trained candidates",
-          "Ongoing support available"
-        ]
-      },
-      {
-        name: "Custom Staffing",
-        price: "Negotiable",
-        features: [
-          "Tailored to your needs",
-          "Flexible arrangements",
-          "Volume options available"
-        ]
-      }
-    ]
-  },
-  serviceAreas: [
-    "Mombasa",
-    "Other areas upon consultation"
-  ],
-  whyChooseUs: {
-    title: "Why Choose Our Labour Outsourcing",
-    description: "We provide reliable, trained, and insured staff for all your cleaning and facility management needs.",
-    points: [
-      "All staff are Kenyan citizens",
-      "Comprehensive training programs",
-      "Customer care and communication skills",
-      "Full insurance coverage",
-      "OHS compliant operations",
-      "Regular supervision and quality checks",
-      "Flexible staffing arrangements"
-    ]
-  },
-  whatsIncluded: {
-    title: "What's Included in Our",
-    description: "Our labour outsourcing service provides complete staffing solutions for your facility.",
-    items: [
-      "Trained cleaning staff",
-      "Machine operators",
-      "Supervisors",
-      "Recruitment services",
-      "Training programs",
-      "Insurance coverage",
-      "Ongoing management",
-      "Quality assurance"
-    ]
-  }
-};
 
 export default function LabourOutsourcingPage() {
   const containerVariants = {
@@ -285,6 +82,10 @@ export default function LabourOutsourcingPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Schema Markup for AI Search Optimization (GEO) */}
+      <ServiceSchema {...serviceConfigs.labourOutsourcing} />
+      <BreadcrumbSchema items={breadcrumbConfigs.labourOutsourcing} />
+      
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         <MotionImage
@@ -322,7 +123,7 @@ export default function LabourOutsourcingPage() {
 
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
+                className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wide"
               >
                 Professional{" "}
                 <span className="text-fff relative inline-block">
@@ -340,24 +141,34 @@ export default function LabourOutsourcingPage() {
 
               <motion.p 
                 variants={itemVariants}
-                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
+                className="font-body text-base md:text-lg lg:text-xl text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
               >
-                Reliable staffing solutions for your cleaning and facility management needs. We provide trained cleaning staff, skilled machine operators, and recruitment services. All our staff are Kenyan citizens with comprehensive insurance coverage and proper training.
+                Trained Kenyan cleaning staff, skilled machine operators, and recruitment services with full insurance coverage.
               </motion.p>
-
-              <StatsSectionWithAnimation />
 
               <motion.div
                 variants={itemVariants}
-                className="flex justify-center mb-6"
+                className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <Link 
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-2.5 md:py-3 font-medium transition-all duration-300 group text-center text-xs sm:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50"
+                <button
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact-form')
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                  }}
+                  className="font-body inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
                 >
-                  Get Your Free Quote
-                  <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                  Get a Free Quote
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+                <a
+                  href="tel:+254722839248"
+                  className="font-body inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+                >
+                  <Phone className="w-4 h-4 md:w-5 md:h-5" />
+                  Call Us Now
+                </a>
               </motion.div>
             </motion.div>
           </div>
@@ -380,7 +191,7 @@ export default function LabourOutsourcingPage() {
                   Why Choose Us
                 </span>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">Why Choose Our</span>
                 <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                   Labour
@@ -406,14 +217,11 @@ export default function LabourOutsourcingPage() {
                   />
                 </div>
               </div>
-              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                The employees are critical to the services we provide, and we are very selective in taking on new staff. <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies Ltd</Link></span> has built a reputation for providing highly trained, disciplined, and reliable staff for cleaning and facility management. Our staff has an excellent track record and many years of experience, with regular training to maintain high standards.
+              <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5 leading-relaxed">
+                <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies Ltd</Link></span> provides highly trained, disciplined, and reliable staff for cleaning and facility management. All our staff are Kenyan citizens with comprehensive training in customer care, communication skills, and technical operations. Our machine operators are skilled with scrubbers, polishers, burnishers, and all professional cleaning equipment.
               </p>
-              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                All our staff are citizens of Kenya, ensuring local expertise and accountability. We provide comprehensive training programs covering customer care, communication skills, discipline, and technical operations. Our machine operators are skilled in operating scrubbers, polishers, burnishers, wet and dry vacuum cleaners, industrial dry vacuum cleaners, and floor boys.
-              </p>
-              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                We provide full insurance coverage including third party/public liability insurance, employer's liability, workman's compensation, and insurance against loss and damage to property. Our operations are fully OHS compliant, giving you peace of mind when you partner with us for your staffing needs.
+              <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5 leading-relaxed">
+                We provide full insurance coverage including third party liability, employer's liability, workman's compensation, and property damage protection. Our OHS-compliant operations and regular supervision ensure consistent quality, giving you complete peace of mind when you partner with us.
               </p>
             </div>
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
@@ -451,7 +259,7 @@ export default function LabourOutsourcingPage() {
               <MdAutoAwesome className="w-3.5 h-3.5" />
               Our Staff & Services
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide">
               <span className="block mb-1">Trained</span>
               <span className="inline-block block mb-1 ml-2">
                 <span className="text-add8e6 relative inline-block">Professional
@@ -467,8 +275,8 @@ export default function LabourOutsourcingPage() {
                 Staff
               </span>
             </h2>
-            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide">
-              We provide trained, disciplined, and reliable staff for all your cleaning and facility management needs. Our team is equipped with the skills and expertise to handle any challenge.
+            <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide leading-relaxed">
+              Trained, disciplined, and reliable staff for all your cleaning and facility management needs.
             </p>
           </motion.div>
           <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 space-y-3 md:space-y-4">
@@ -478,7 +286,7 @@ export default function LabourOutsourcingPage() {
                 icon: HiClock,
                 content: (
                   <>
-                    All our cleaning staff have been trained in the use of cleaning equipment and machines. They are experienced in general housekeeping, sweeping and mopping floors, damp dusting of fixtures, spot cleaning surfaces, bathroom and toilet cleaning, and waste separation and disposal. Our cleaners are also experienced in specialized activities like strip and seal, buffing, carpet cleaning, upholstery care, and scrubbing.
+                    All our cleaning staff are trained in equipment use, housekeeping, floor maintenance, bathroom cleaning, and specialized activities like strip and seal, buffing, carpet cleaning, and upholstery care.
                   </>
                 )
               },
@@ -487,7 +295,7 @@ export default function LabourOutsourcingPage() {
                 icon: MdStars,
                 content: (
                   <>
-                    Our machine operators have intensive knowledge and experience operating professional cleaning equipment. They can operate scrubbers, polishers, burnishers, wet and dry vacuum cleaners, industrial dry vacuum cleaners, and floor boys. Their technical expertise ensures efficient and thorough cleaning of all types of flooring and surfaces.
+                    Our machine operators have intensive experience with scrubbers, polishers, burnishers, wet/dry vacuum cleaners, industrial vacuums, and floor boys for efficient, thorough cleaning of all surfaces.
                   </>
                 )
               },
@@ -496,7 +304,7 @@ export default function LabourOutsourcingPage() {
                 icon: FaLeaf,
                 content: (
                   <>
-                    Our staff is trained on customer care and the importance of professional conduct to our business and its growth. They are taught discipline, communication skills, and how to interact professionally with clients and their staff. This ensures a positive experience whenever our team is on your premises.
+                    Staff are trained in customer care, professional conduct, discipline, and communication skills to ensure positive interactions with your clients and team members.
                   </>
                 )
               },
@@ -505,7 +313,7 @@ export default function LabourOutsourcingPage() {
                 icon: FaCog,
                 content: (
                   <>
-                    We offer full recruitment services for permanent positions. Our process includes thorough vetting, background checks, and skills assessment. We provide candidates who are pre-trained and ready to contribute to your organization. Ongoing support is available to ensure successful placements.
+                    Full recruitment services including thorough vetting, background checks, skills assessment, and pre-trained candidates ready to contribute to your organization with ongoing support.
                   </>
                 )
               },
@@ -514,7 +322,7 @@ export default function LabourOutsourcingPage() {
                 icon: HiShieldCheck,
                 content: (
                   <>
-                    For short-term needs, events, or fluctuating workloads, we provide temporary staffing solutions. Our temporary staff are fully trained and insured, giving you the flexibility to scale your cleaning workforce up or down as needed without the administrative burden of direct employment.
+                    Flexible temporary staffing for short-term needs, events, or fluctuating workloads. All temporary staff are fully trained and insured, with no administrative burden for you.
                   </>
                 )
               },
@@ -523,16 +331,16 @@ export default function LabourOutsourcingPage() {
                 icon: FaAward,
                 content: (
                   <>
-                    All our staff are covered by comprehensive insurance including third party/public liability insurance, employer's liability, workman's compensation, and insurance against loss and damage to property. This provides complete peace of mind for you as our client.
+                    All staff covered by third party/public liability insurance, employer's liability, workman's compensation, and property damage insurance for complete peace of mind.
                   </>
                 )
               },
               {
-                title: "Ongoing Management & Supervision:",
+                title: "Ongoing Supervision:",
                 icon: FaTags,
                 content: (
                   <>
-                    We provide area supervisors who oversee all activities, communicate with clients and management, maintain staff registers, keep service records, ensure quality assurance, monitor cleaning standards, and handle health and safety supervision. This ensures consistent, high-quality results across all placements.
+                    Area supervisors oversee activities, maintain quality assurance, monitor standards, and handle health and safety supervision for consistent, high-quality results.
                   </>
                 )
               }
@@ -561,10 +369,10 @@ export default function LabourOutsourcingPage() {
                     </div>
                   </motion.div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-add8e6 text-xs md:text-sm mb-1.5 group-hover:text-add8e6/80 transition-colors leading-tight">
+                    <h3 className="font-heading font-semibold text-add8e6 text-sm md:text-base mb-1.5 group-hover:text-add8e6/80 transition-colors leading-tight">
                       {para.title}
                     </h3>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                       {para.content}
                     </p>
                   </div>
@@ -641,7 +449,7 @@ export default function LabourOutsourcingPage() {
                   What's Included
                 </span>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">What's Included in Our</span>
                 <span className="ml-2">
                   <span className="text-add8e6 relative inline-block block mb-4">
@@ -708,132 +516,37 @@ export default function LabourOutsourcingPage() {
                   </div>
                 </div>
               </div>
-              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                We provide trained, disciplined, and reliable staff for your cleaning and facility management needs. All our staff are Kenyan citizens with comprehensive insurance coverage.
+              <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5 leading-relaxed">
+                Complete staffing solutions with trained, insured Kenyan staff for your facility management needs.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
+              <ul className="font-body list-disc pl-5 space-y-2 text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8">
                 <li>Trained cleaning staff</li>
-                <li>Skilled machine operators (Scrubber, Polisher, Burnisher, Wet/Dry Vacuum, Floor Boy)</li>
-                <li>Customer care and communication trained</li>
-                <li>Permanent recruitment services</li>
-                <li>Temporary staffing solutions</li>
+                <li>Skilled machine operators</li>
+                <li>Permanent and temporary staffing</li>
+                <li>Customer care trained personnel</li>
                 <li>Supervisors for quality assurance</li>
-                <li>All staff are Kenyan citizens</li>
                 <li>Comprehensive insurance coverage</li>
                 <li>OHS compliant operations</li>
                 <li>Regular training programs</li>
               </ul>
+              
+              {/* Get a Quote Button */}
+              <button
+                onClick={() => {
+                  const contactSection = document.getElementById('contact-form')
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }}
+                className="font-body inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+              >
+                Get a Free Quote
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
             </div>
           </div>
         </div>
       </section>
-
-      <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
-
-      {/* Pricing Section */}
-      <div id="pricing" className="relative py-12 md:py-20 scroll-mt-24">
-        <div className="absolute inset-0 bg-gray-50 dark:bg-gray-800/50">
-          <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px] opacity-5" />
-        </div>
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-8 md:mb-16">
-                <motion.div 
-                  className="inline-block mb-3 sm:mb-4 md:mb-6 mt-0 !mt-0"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
-                    <Phone className="w-3.5 h-3.5" />
-                    Pricing & Packages
-                  </span>
-                </motion.div>
-                <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide mt-0 !mt-0"
-                >
-                  <span className="text-add8e6 relative inline-block tracking-wider">
-                    Staffing
-                    <motion.span 
-                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, ease: 'easeOut' }}
-                      style={{ display: 'block' }}
-                    />
-                  </span>{' '}
-                  Packages
-                </motion.h2>
-                <motion.p 
-                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6 max-w-2xl mx-auto"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <strong>Note:</strong> Staffing packages are customized based on the number of staff required, skill levels needed, duration of engagement, and specific requirements. Contact us for a detailed assessment and personalized quote.
-                </motion.p>
-              </div>
-
-              <div className="flex justify-center">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50 overflow-hidden flex flex-col w-full max-w-md"
-                >
-                  <div className="flex flex-col h-full relative z-10">
-                    <div className="p-3 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors text-center">
-                        Labour Outsourcing
-                      </h3>
-                    </div>
-                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 text-center mb-4">
-                      Trained cleaning staff, skilled machine operators, and recruitment services for your facility management needs.
-                    </p>
-                    <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <MdPeople className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>All staff are Kenyan citizens</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <MdPeople className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Comprehensive training and supervision</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <MdPeople className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Full insurance coverage</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <MdPeople className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>OHS compliant operations</span>
-                      </li>
-                    </ul>
-                    <button
-                      onClick={() => {
-                        const contactSection = document.getElementById('contact-form')
-                        if (contactSection) {
-                          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                        }
-                      }}
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-3 font-medium transition-all duration-300 text-center text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group rounded-lg"
-                    >
-                      Get a Quote
-                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </button>
-                  </div>
-                </motion.div>
-              </div>
-
-              <div className="max-w-3xl mx-auto mt-8 text-center">
-                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-                  Our staffing solutions can be bundled with our other services for a complete facility management package. For a personalized assessment and quote, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
-                </p>
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </div>
 
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
@@ -848,15 +561,15 @@ export default function LabourOutsourcingPage() {
               <MessageCircle className="w-3.5 h-3.5" />
               Contact Us
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
               Get in{' '}
               <span className="text-add8e6 relative">
                 Touch
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
               </span>
             </h2>
-            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-              Need professional staff for your facility? Get a free assessment and quote today. We're here to help with all your staffing needs.
+            <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              Get a free assessment and quote for your staffing needs today.
             </p>
           </div>
           <div className="max-w-2xl mx-auto">

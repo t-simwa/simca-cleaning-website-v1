@@ -97,7 +97,8 @@ export default function Testimonials() {
           </h2>
 
           {/* Google Reviews Rating */}
-          <div className="flex items-center justify-center gap-2 mt-4">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 mt-4">
+            {/* Stars and Rating - stacked on mobile, inline on desktop */}
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -106,10 +107,11 @@ export default function Testimonials() {
                 />
               ))}
             </div>
-            <span className="font-body text-base font-semibold text-gray-800 dark:text-white">
+            <span className="font-body text-lg md:text-base font-semibold text-gray-800 dark:text-white">
               {googleReviews.rating}
             </span>
-            <span className="font-body text-base text-gray-600 dark:text-gray-400">
+            {/* Hidden on mobile, visible on desktop */}
+            <span className="hidden md:inline font-body text-base text-gray-600 dark:text-gray-400">
               · Based on {googleReviews.count}+ Google Reviews
             </span>
           </div>

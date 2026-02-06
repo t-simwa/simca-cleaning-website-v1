@@ -14,6 +14,8 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import ContactForm from "@/components/contact-form";
+import ServiceSchema, { serviceConfigs } from "@/components/schema/service-schema";
+import BreadcrumbSchema, { breadcrumbConfigs } from "@/components/schema/breadcrumb-schema";
 
 const MotionImage = motion(Image)
 
@@ -80,6 +82,10 @@ export default function SpecializedCleaningPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Schema Markup for AI Search Optimization (GEO) */}
+      <ServiceSchema {...serviceConfigs.specializedCleaning} />
+      <BreadcrumbSchema items={breadcrumbConfigs.specializedCleaning} />
+      
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         <MotionImage
@@ -97,23 +103,23 @@ export default function SpecializedCleaningPage() {
 
         <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 relative flex-grow flex flex-col justify-center">
           <div className="flex flex-col items-center">
-            <motion.div 
+                <motion.div 
               variants={containerVariants}
               initial="hidden"
               animate="visible"
               className="text-center"
             >
-              <motion.div
+                <motion.div 
                 variants={itemVariants}
                 className="inline-block mb-6 sm:mb-4 md:mb-8"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                 <span className="bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5" />
                   Specialized Cleaning Services
-                </span>
-              </motion.div>
+                  </span>
+                </motion.div>
 
               <motion.h1
                 variants={itemVariants}
@@ -124,7 +130,7 @@ export default function SpecializedCleaningPage() {
                   Specialized
                   <motion.span 
                     className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
-                    initial={{ scaleX: 0 }}
+                      initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, ease: 'easeOut' }}
@@ -132,15 +138,15 @@ export default function SpecializedCleaningPage() {
                 </span>{" "}
                 Cleaning
               </motion.h1>
-
-              <motion.p 
+                      
+                <motion.p 
                 variants={itemVariants}
                 className="font-body text-base md:text-lg lg:text-xl text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
-              >
+                      >
                 Expert deep cleaning, floor restoration, and specialized treatments for challenging spaces and surfaces.
-              </motion.p>
+                </motion.p>
 
-              <motion.div
+                  <motion.div
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
@@ -163,9 +169,9 @@ export default function SpecializedCleaningPage() {
                   <Phone className="w-4 h-4 md:w-5 md:h-5" />
                   Call Us Now
                 </a>
-              </motion.div>
-            </motion.div>
-          </div>
+                      </motion.div>
+                  </motion.div>
+              </div>
         </div>
       </div>
 
@@ -183,20 +189,20 @@ export default function SpecializedCleaningPage() {
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm">
                   <Sparkles className="w-3.5 h-3.5" />
                   Why Choose Us
-                </span>
-              </div>
+                  </span>
+                </div>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">Why Choose Our</span>
                 <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                   Specialized
                   <motion.span 
                     className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
-                    initial={{ scaleX: 0 }}
+                      initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, ease: 'easeOut' }}
                     style={{ display: 'block' }}
-                  />
+                    />
                 </span>{" "}
                 <span>Cleaning Services?</span>
               </h2>
@@ -209,29 +215,29 @@ export default function SpecializedCleaningPage() {
                     height={600}
                     className="object-cover w-full h-full"
                   />
-                </div>
               </div>
+                      </div>
               <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5 leading-relaxed">
                 <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies Ltd</Link></span> delivers expert specialized cleaning for situations that demand more than routine maintenance. From deep carpet cleaning and floor restoration to post-construction cleanup and flood damage recovery, our trained specialists use modern equipment and eco-friendly products to restore your spaces to pristine condition.
               </p>
               <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5 leading-relaxed">
                 With 19+ years of experience, full OHS compliance, and comprehensive insurance coverage, you get complete peace of mind. Our machine operators are skilled with scrubbers, polishers, burnishers, and all specialized equipment needed for challenging cleaning tasks. We handle the hard work so your facility always looks its best.
-              </p>
-            </div>
+                      </p>
+                    </div>
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
               <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[40rem] mx-auto">
-                <Image
+                    <Image
                   src={whyChooseUsImage.src}
                   alt={whyChooseUsImage.alt}
-                  width={800}
-                  height={600}
-                  className="object-cover w-full h-full"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                      width={800}
+                      height={600}
+                      className="object-cover w-full h-full"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
             </div>
-          </div>
         </div>
+      </div>
       </section>
 
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
@@ -242,13 +248,13 @@ export default function SpecializedCleaningPage() {
           <div className="absolute inset-0 bg-[linear-gradient(45deg,#add8e6_1px,transparent_1px)] [background-size:20px_20px] opacity-5" />
         </div>
         <div className="container mx-auto px-4 relative">
-          <motion.div 
+                <motion.div 
             className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-          >
+                >
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-add8e6/20 to-add8e6/10 text-add8e6 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-medium mb-6 md:mb-6 backdrop-blur-sm">
               <MdAutoAwesome className="w-3.5 h-3.5" />
               Benefits of Our Services
@@ -259,12 +265,12 @@ export default function SpecializedCleaningPage() {
                 <span className="text-add8e6 relative inline-block">Specialized
                   <motion.span 
                     className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
-                    initial={{ scaleX: 0 }}
+                      initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, ease: 'easeOut' }}
                     style={{ display: 'block' }}
-                  />
+                    />
                 </span>{" "}
                 Cleaning Services
               </span>
@@ -272,7 +278,7 @@ export default function SpecializedCleaningPage() {
             <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide leading-relaxed">
               Expert specialized cleaning that restores surfaces and spaces to like-new condition.
             </p>
-          </motion.div>
+                      </motion.div>
           <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 space-y-3 md:space-y-4">
             {[
               {
@@ -339,14 +345,14 @@ export default function SpecializedCleaningPage() {
                 )
               }
             ].map((para, i) => (
-              <motion.div
-                key={i} 
+                  <motion.div
+                            key={i}
                 className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-3 md:p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-              >
+                      >
                 <div className="flex items-start gap-3">
                   <motion.div 
                     className="relative flex-shrink-0 mt-0.5"
@@ -371,10 +377,10 @@ export default function SpecializedCleaningPage() {
                     </p>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
       </section>
 
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
@@ -389,12 +395,12 @@ export default function SpecializedCleaningPage() {
             <div className="w-full md:w-1/2 flex justify-center md:pr-2 mb-8 md:mb-0 hidden md:flex">
               <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[47rem] mx-auto">
                 <AnimatePresence mode="wait">
-                  <motion.div 
+              <motion.div
                     key={whatsIncludedImages[carouselIndex].src}
                     initial={{ opacity: 0, x: 40 }}
-                    animate={{ opacity: 1, x: 0 }}
+                animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -40 }}
-                    transition={{ duration: 0.5 }}
+                transition={{ duration: 0.5 }}
                     className="absolute inset-0 w-full h-full"
                   >
                     <Image
@@ -440,15 +446,15 @@ export default function SpecializedCleaningPage() {
               <div className="mb-6 w-full flex justify-center md:justify-start">
                 <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-medium inline-flex items-center gap-2 shadow-sm">
                   <Sparkles className="w-3.5 h-3.5" />
-                  What's Included
-                </span>
-              </div>
+                    What's Included
+                  </span>
+      </div>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">What's Included in Our</span>
                 <span className="ml-2">
                   <span className="text-add8e6 relative inline-block block mb-4">
                     Specialized
-                    <motion.span 
+                  <motion.span 
                       className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
@@ -463,7 +469,7 @@ export default function SpecializedCleaningPage() {
               <div className="w-full mb-6 md:hidden">
                 <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-2xl h-[20rem] xs:h-[24rem] sm:h-[28rem] mx-auto">
                   <AnimatePresence mode="wait">
-                    <motion.div
+                  <motion.div
                       key={whatsIncludedImages[carouselIndex].src}
                       initial={{ opacity: 0, x: 40 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -479,7 +485,7 @@ export default function SpecializedCleaningPage() {
                         className="object-cover w-full h-full"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                    </motion.div>
+                      </motion.div>
                   </AnimatePresence>
                   <button
                     onClick={prevImage}
@@ -506,10 +512,10 @@ export default function SpecializedCleaningPage() {
                         aria-label={`Go to image ${idx + 1}`}
                         type="button"
                       />
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
+            </div>
+        </div>
               <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5 leading-relaxed">
                 Comprehensive specialized cleaning for intensive maintenance and restoration needs.
               </p>
@@ -525,18 +531,18 @@ export default function SpecializedCleaningPage() {
               </ul>
               
               {/* Get a Quote Button */}
-              <button
-                onClick={() => {
-                  const contactSection = document.getElementById('contact-form')
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                  }
-                }}
+                    <button
+                      onClick={() => {
+                        const contactSection = document.getElementById('contact-form')
+                        if (contactSection) {
+                          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                        }
+                      }}
                 className="font-body inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
-              >
+                    >
                 Get a Free Quote
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
+                    </button>
             </div>
           </div>
         </div>
@@ -577,4 +583,4 @@ export default function SpecializedCleaningPage() {
       </section>
     </div>
   );
-}
+} 

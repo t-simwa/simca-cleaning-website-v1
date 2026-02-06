@@ -17,6 +17,7 @@ import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import WhoWeAre from "@/components/home/who-we-are"
+import BreadcrumbSchema, { breadcrumbConfigs } from "@/components/schema/breadcrumb-schema"
 
 const MotionImage = motion(Image)
 
@@ -167,6 +168,8 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Schema Markup for AI Search Optimization (GEO) */}
+      <BreadcrumbSchema items={breadcrumbConfigs.about} />
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}
@@ -982,7 +985,7 @@ export default function AboutPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 md:p-6">
                   {/* CEO Image */}
                   <motion.div 
-                    className="relative h-full min-h-[250px] md:min-h-[400px] rounded-lg overflow-hidden group"
+                    className="relative min-h-[350px] sm:min-h-[400px] md:min-h-[450px] rounded-lg overflow-hidden group bg-gray-100 dark:bg-gray-800"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
@@ -993,7 +996,7 @@ export default function AboutPage() {
                       src="/about/david-ceo.jpeg"
                       alt="David Simwa - Founder & CEO of Simca Agencies"
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
                     <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 z-20">

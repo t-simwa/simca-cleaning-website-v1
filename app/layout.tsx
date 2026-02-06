@@ -8,6 +8,7 @@ import StickyMobileCTA from "@/components/sticky-mobile-cta"
 import { ThemeProvider } from "@/components/theme-provider"
 import { PageTransition } from "@/components/ui/page-transition"
 import { MobileMenuProvider } from "@/contexts/mobile-menu-context"
+import OrganizationSchema from "@/components/schema/organization-schema"
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -33,11 +34,68 @@ const nunito = Nunito({
 })
 
 export const metadata: Metadata = {
-  title: "Simca Agencies Company | Professional Cleaning Services in Kenya",
+  title: "Simca Agencies Ltd | Professional Cleaning Services in Kenya | Since 2005",
   description:
-    "Simca Agencies Company offers professional cleaning services across Kenya including Nairobi, Mombasa, Kaimosi, and Eldoret. Residential, commercial, and specialized cleaning services.",
+    "Simca Agencies Ltd offers professional cleaning services across Kenya including Mombasa, Kisumu, Lamu, and more. Contract cleaning, specialized cleaning, hygiene supplies, landscaping, and labour outsourcing for hospitals, hotels, offices, and industrial facilities.",
+  keywords: [
+    "cleaning services Kenya",
+    "contract cleaning Mombasa",
+    "professional cleaning Kenya",
+    "hospital cleaning Kenya",
+    "hotel cleaning services",
+    "office cleaning Mombasa",
+    "fumigation services Kenya",
+    "pest control Mombasa",
+    "hygiene supplies Kenya",
+    "landscaping services Kenya",
+    "labour outsourcing Kenya",
+    "Simca Agencies"
+  ],
+  authors: [{ name: "Simca Agencies Ltd" }],
+  creator: "Simca Agencies Ltd",
+  publisher: "Simca Agencies Ltd",
   icons: {
     icon: "/simca-logo.png",
+    apple: "/simca-logo.png"
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_KE",
+    url: "https://simcaagencies.com",
+    siteName: "Simca Agencies Ltd",
+    title: "Simca Agencies Ltd | Professional Cleaning Services in Kenya",
+    description: "Professional cleaning services across Kenya since 2005. Contract cleaning, specialized cleaning, hygiene supplies, landscaping, and labour outsourcing.",
+    images: [
+      {
+        url: "/simca-logo.png",
+        width: 512,
+        height: 512,
+        alt: "Simca Agencies Ltd Logo"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Simca Agencies Ltd | Professional Cleaning Services in Kenya",
+    description: "Professional cleaning services across Kenya since 2005. Contract cleaning, specialized cleaning, hygiene supplies, landscaping, and labour outsourcing.",
+    images: ["/simca-logo.png"]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
+  },
+  verification: {
+    google: "your-google-verification-code" // Replace with actual verification code
+  },
+  alternates: {
+    canonical: "https://simcaagencies.com"
   },
   generator: 'v0.dev',
   other: {
@@ -53,6 +111,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head suppressHydrationWarning>
+        {/* Global Organization & LocalBusiness Schema for AI Search Optimization */}
+        <OrganizationSchema />
         <style
           dangerouslySetInnerHTML={{
             __html: `
@@ -115,12 +175,12 @@ export default function RootLayout({
       <body className={`${inter.variable} ${playfair.variable} ${nunito.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <MobileMenuProvider>
-            <Header />
-            <PageTransition>
-              <main className="pt-14 md:pt-20">{children}</main>
-            </PageTransition>
-            <Footer />
-            <StickyMobileCTA />
+          <Header />
+          <PageTransition>
+            <main className="pt-14 md:pt-20">{children}</main>
+          </PageTransition>
+          <Footer />
+          <StickyMobileCTA />
           </MobileMenuProvider>
         </ThemeProvider>
       </body>

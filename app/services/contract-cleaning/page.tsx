@@ -16,6 +16,9 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import ContactForm from "@/components/contact-form";
+import ServiceSchema, { serviceConfigs } from "@/components/schema/service-schema";
+import BreadcrumbSchema, { breadcrumbConfigs } from "@/components/schema/breadcrumb-schema";
+import FAQSchema, { contractCleaningFAQs } from "@/components/schema/faq-schema";
 
 const MotionImage = motion(Image)
 
@@ -212,6 +215,11 @@ export default function ContractCleaningPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Schema Markup for AI Search Optimization (GEO) */}
+      <ServiceSchema {...serviceConfigs.contractCleaning} />
+      <BreadcrumbSchema items={breadcrumbConfigs.contractCleaning} />
+      <FAQSchema faqs={contractCleaningFAQs} pageUrl="https://simcaagencies.com/services/contract-cleaning" />
+      
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         <MotionImage
