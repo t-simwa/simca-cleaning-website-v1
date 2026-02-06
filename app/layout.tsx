@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_KE",
-    url: "https://simcaagencies.com",
+    url: "https://simca-agencies.com",
     siteName: "Simca Agencies Ltd",
     title: "Simca Agencies Ltd | Professional Cleaning Services in Kenya",
     description: "Professional cleaning services across Kenya since 2005. Contract cleaning, specialized cleaning, hygiene supplies, landscaping, and labour outsourcing.",
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     google: "your-google-verification-code" // Replace with actual verification code
   },
   alternates: {
-    canonical: "https://simcaagencies.com"
+    canonical: "https://simca-agencies.com"
   },
   generator: 'v0.dev',
   other: {

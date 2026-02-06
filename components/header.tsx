@@ -174,11 +174,11 @@ export default function Header() {
             {/* Center Section - Email */}
             <div className="flex items-center justify-center gap-3">
               <a
-                href="mailto:info@simcaagencies.com"
+                href="mailto:info@simca-agencies.com"
                 className="font-body flex items-center text-xs font-medium text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-all duration-300 group"
               >
                 <Mail className="h-3.5 w-3.5 mr-1.5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Email Us: info@simcaagencies.com</span>
+                <span>Email Us: info@simca-agencies.com</span>
               </a>
               <span className="text-gray-400 dark:text-gray-600">|</span>
               <a
@@ -419,7 +419,7 @@ export default function Header() {
                     <span className="text-sm text-gray-500">041-2316600</span>
                   </a>
                   <a
-                    href="mailto:info@simcaagencies.com"
+                    href="mailto:info@simca-agencies.com"
                     className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -427,7 +427,7 @@ export default function Header() {
                       <Mail className="h-4 w-4 mr-2" />
                       Email Us
                     </span>
-                    <span className="text-sm text-gray-500">info@simcaagencies.com</span>
+                    <span className="text-sm text-gray-500">info@simca-agencies.com</span>
                   </a>
                   <a
                     href="mailto:simka1974@hotmail.com"

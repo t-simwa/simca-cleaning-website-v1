@@ -29,27 +29,27 @@ export default function ArticleSchema({
     "@type": "Article",
     "headline": title,
     "description": description,
-    "image": image.startsWith("http") ? image : `https://simcaagencies.com${image}`,
-    "url": url.startsWith("http") ? url : `https://simcaagencies.com${url}`,
+    "image": image.startsWith("http") ? image : `https://simca-agencies.com${image}`,
+    "url": url.startsWith("http") ? url : `https://simca-agencies.com${url}`,
     "datePublished": datePublished,
     "dateModified": dateModified || datePublished,
     "author": {
       "@type": "Organization",
       "name": author === "Simca Team" ? "Simca Agencies Ltd" : author,
-      "@id": "https://simcaagencies.com/#organization"
+      "@id": "https://simca-agencies.com/#organization"
     },
     "publisher": {
       "@type": "Organization",
-      "@id": "https://simcaagencies.com/#organization",
+      "@id": "https://simca-agencies.com/#organization",
       "name": "Simca Agencies Ltd",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://simcaagencies.com/simca-logo.png"
+        "url": "https://simca-agencies.com/simca-logo.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": url.startsWith("http") ? url : `https://simcaagencies.com${url}`
+      "@id": url.startsWith("http") ? url : `https://simca-agencies.com${url}`
     },
     "articleSection": category,
     "inLanguage": "en-KE"
@@ -96,19 +96,19 @@ export function HowToSchema({
     "@type": "HowTo",
     "name": title,
     "description": description,
-    "image": image.startsWith("http") ? image : `https://simcaagencies.com${image}`,
-    "url": url.startsWith("http") ? url : `https://simcaagencies.com${url}`,
+    "image": image.startsWith("http") ? image : `https://simca-agencies.com${image}`,
+    "url": url.startsWith("http") ? url : `https://simca-agencies.com${url}`,
     "totalTime": totalTime,
     "step": steps.map((step, index) => ({
       "@type": "HowToStep",
       "position": index + 1,
       "name": step.name,
       "text": step.text,
-      "image": step.image ? (step.image.startsWith("http") ? step.image : `https://simcaagencies.com${step.image}`) : undefined
+      "image": step.image ? (step.image.startsWith("http") ? step.image : `https://simca-agencies.com${step.image}`) : undefined
     })),
     "author": {
       "@type": "Organization",
-      "@id": "https://simcaagencies.com/#organization"
+      "@id": "https://simca-agencies.com/#organization"
     }
   }
 

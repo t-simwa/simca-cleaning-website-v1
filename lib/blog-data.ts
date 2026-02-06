@@ -61,7 +61,7 @@ Simca Agencies Ltd stands out as Kenya's premier professional cleaning company, 
 
 **Locations:** Mombasa (HQ), Kisumu, Lamu, Lodwar, Kaimosi
 
-**Contact:** 0721 525 901 | info@simcaagencies.com
+**Contact:** 0721 525 901 | info@simca-agencies.com
 
 ---
 
@@ -167,7 +167,7 @@ Ready to upgrade your facility's cleaning standards? Here's how to proceed:
 For professional cleaning services that meet international standards, contact Simca Agencies Ltd:
 
 **📞 Phone:** 0721 525 901
-**📧 Email:** info@simcaagencies.com
+**📧 Email:** info@simca-agencies.com
 **📍 Headquarters:** New Canon Towers, Moi Avenue, Mombasa
 
 *Serving Kenya since 2005 with world-class cleaning standards.*
@@ -296,7 +296,7 @@ The best way to understand your cleaning costs is to request a customized quote.
 
 **Contact Simca Agencies:**
 - 📞 Phone: 0721 525 901
-- 📧 Email: info@simcaagencies.com
+- 📧 Email: info@simca-agencies.com
 - 📍 Visit: New Canon Towers, Moi Avenue, Mombasa
 
 *Professional cleaning services with transparent pricing since 2005.*
@@ -448,7 +448,7 @@ Post-construction cleaning is best handled by professionals with the right equip
 
 **Contact Simca Agencies:**
 - 📞 Phone: 0721 525 901
-- 📧 Email: info@simcaagencies.com
+- 📧 Email: info@simca-agencies.com
 
 *Trusted by developers and contractors since 2005.*
 `
@@ -612,7 +612,7 @@ Protect your patients and staff with professional hospital cleaning that meets i
 
 **Contact Simca Agencies:**
 - 📞 Phone: 0721 525 901
-- 📧 Email: info@simcaagencies.com
+- 📧 Email: info@simca-agencies.com
 - 📍 Headquarters: Mombasa
 
 *OHS-compliant cleaning for Kenyan healthcare facilities since 2005.*
@@ -789,7 +789,7 @@ Simca Agencies provides comprehensive pest control and fumigation services acros
 Don't let pests damage your property or reputation. Contact Simca Agencies for professional fumigation services in Mombasa.
 
 **📞 Phone:** 0721 525 901
-**📧 Email:** info@simcaagencies.com
+**📧 Email:** info@simca-agencies.com
 **📍 Location:** Mombasa (serving coastal Kenya)
 
 *Professional pest control for Mombasa's unique climate challenges since 2005.*
@@ -972,7 +972,7 @@ Simca Agencies provides comprehensive office deep cleaning across Kenya:
 Transform your office with professional deep cleaning from Simca Agencies.
 
 **📞 Phone:** 0721 525 901
-**📧 Email:** info@simcaagencies.com
+**📧 Email:** info@simca-agencies.com
 
 *Professional cleaning services since 2005.*
 `

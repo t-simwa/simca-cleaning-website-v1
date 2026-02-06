@@ -172,11 +172,11 @@ function OpenStreetMapComponent({ address, height = "400px", zoom = 15, markers 
   return (
     <div
       ref={mapRef}
-      style={{ height, width: "100%", zIndex: 'auto', position: 'static' }}
-      className="rounded-lg overflow-hidden shadow-lg leaflet-no-zindex"
+      style={{ height, width: "100%", zIndex: 0, position: 'relative' }}
+      className="rounded-lg overflow-hidden shadow-lg"
     >
       {isLoading && (
-        <div className="flex items-center justify-center bg-gray-100 dark:bg-gray-800" style={{height: '100%', width: '100%', zIndex: 'auto', position: 'static'}}>
+        <div className="flex items-center justify-center bg-gray-100 dark:bg-gray-800" style={{height: '100%', width: '100%', zIndex: 0, position: 'relative'}}>
           <div className="text-gray-500 dark:text-gray-400">Loading map...</div>
         </div>
       )}

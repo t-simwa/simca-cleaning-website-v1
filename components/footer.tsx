@@ -158,10 +158,10 @@ export default function Footer() {
                   <Mail className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
                 </div>
                 <a
-                  href="mailto:info@simcaagencies.com"
+                  href="mailto:info@simca-agencies.com"
                   className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm"
                 >
-                  info@simcaagencies.com
+                  info@simca-agencies.com
                 </a>
               </li>
               <li className="flex items-center gap-3 md:gap-4 group">

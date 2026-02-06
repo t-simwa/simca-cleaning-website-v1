@@ -13,7 +13,7 @@ interface FAQSchemaProps {
   pageUrl?: string
 }
 
-export default function FAQSchema({ faqs, pageUrl = "https://simcaagencies.com" }: FAQSchemaProps) {
+export default function FAQSchema({ faqs, pageUrl = "https://simca-agencies.com" }: FAQSchemaProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -56,7 +56,7 @@ export const homepageFAQs: FAQItem[] = [
   },
   {
     question: "How can I get a cleaning quote from Simca Agencies?",
-    answer: "You can get a free, no-obligation quote by calling us at 0721 525 901, emailing info@simcaagencies.com, or filling out our online contact form. We respond quickly to all inquiries."
+    answer: "You can get a free, no-obligation quote by calling us at 0721 525 901, emailing info@simca-agencies.com, or filling out our online contact form. We respond quickly to all inquiries."
   },
   {
     question: "Where is Simca Agencies located?",

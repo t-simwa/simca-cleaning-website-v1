@@ -9,17 +9,17 @@ export default function OrganizationSchema() {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://simcaagencies.com/#organization",
+        "@id": "https://simca-agencies.com/#organization",
         "name": "Simca Agencies Ltd",
         "alternateName": ["SIMCA Agencies Limited", "Simca Agencies", "SIMCA"],
-        "url": "https://simcaagencies.com",
+        "url": "https://simca-agencies.com",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://simcaagencies.com/simca-logo.png",
+          "url": "https://simca-agencies.com/simca-logo.png",
           "width": 512,
           "height": 512
         },
-        "image": "https://simcaagencies.com/simca-logo.png",
+        "image": "https://simca-agencies.com/simca-logo.png",
         "description": "Professional cleaning company in Kenya offering contract cleaning, specialized cleaning, hygiene supplies, landscaping, and labour outsourcing services since 2005.",
         "foundingDate": "2005",
         "founder": {
@@ -27,7 +27,7 @@ export default function OrganizationSchema() {
           "name": "David Simwa"
         },
         "telephone": "+254721525901",
-        "email": "info@simcaagencies.com",
+        "email": "info@simca-agencies.com",
         "sameAs": [
           "https://www.facebook.com/simcaagencies",
           "https://www.instagram.com/simcaagencies",
@@ -86,12 +86,12 @@ export default function OrganizationSchema() {
       },
       {
         "@type": "LocalBusiness",
-        "@id": "https://simcaagencies.com/#localbusiness",
+        "@id": "https://simca-agencies.com/#localbusiness",
         "name": "Simca Agencies Ltd - Mombasa Headquarters",
-        "image": "https://simcaagencies.com/simca-logo.png",
-        "url": "https://simcaagencies.com",
+        "image": "https://simca-agencies.com/simca-logo.png",
+        "url": "https://simca-agencies.com",
         "telephone": "+254721525901",
-        "email": "info@simcaagencies.com",
+        "email": "info@simca-agencies.com",
         "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
@@ -171,18 +171,18 @@ export default function OrganizationSchema() {
       },
       {
         "@type": "WebSite",
-        "@id": "https://simcaagencies.com/#website",
-        "url": "https://simcaagencies.com",
+        "@id": "https://simca-agencies.com/#website",
+        "url": "https://simca-agencies.com",
         "name": "Simca Agencies Ltd",
         "description": "Professional Cleaning Services in Kenya",
         "publisher": {
-          "@id": "https://simcaagencies.com/#organization"
+          "@id": "https://simca-agencies.com/#organization"
         },
         "potentialAction": {
           "@type": "SearchAction",
           "target": {
             "@type": "EntryPoint",
-            "urlTemplate": "https://simcaagencies.com/search?q={search_term_string}"
+            "urlTemplate": "https://simca-agencies.com/search?q={search_term_string}"
           },
           "query-input": "required name=search_term_string"
         }

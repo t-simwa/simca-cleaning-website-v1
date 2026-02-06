@@ -367,7 +367,7 @@ export default function FumigationPestControlPage() {
       {/* Schema Markup for AI Search Optimization (GEO) */}
       <ServiceSchema {...serviceConfigs.fumigation} />
       <BreadcrumbSchema items={breadcrumbConfigs.fumigation} />
-      <FAQSchema faqs={pestControlFAQs} pageUrl="https://simcaagencies.com/services/fumigation-pest-control" />
+      <FAQSchema faqs={pestControlFAQs} pageUrl="https://simca-agencies.com/services/fumigation-pest-control" />
       
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">

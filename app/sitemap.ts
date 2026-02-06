@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { blogPosts } from '@/lib/blog-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://simcaagencies.com'
+  const baseUrl = 'https://simca-agencies.com'
 
   // Static pages
   const staticRoutes: MetadataRoute.Sitemap = [

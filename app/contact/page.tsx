@@ -3,7 +3,7 @@
 import { ArrowRight, Phone as PhoneIcon } from "lucide-react"
 import ContactForm from "@/components/contact-form"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
-import OpenStreetMap from "@/components/openstreet-map"
+import GoogleMap from "@/components/google-map"
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -49,35 +49,35 @@ export default function ContactPage() {
       name: "Mombasa (Headquarters)",
       address: "New Canon Towers, Moi Avenue, Mombasa | P.O. Box: 93169-80102",
       phone: "041-2316600",
-      email: "info@simcaagencies.com",
+      email: "info@simca-agencies.com",
       hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
     },
     {
       name: "Kisumu",
       address: "Oginga Odinga Street, Kisumu CBD, Kisumu County",
       phone: "+254 721525901",
-      email: "info@simcaagencies.com",
+      email: "info@simca-agencies.com",
       hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
     },
     {
       name: "Lamu",
       address: "Lamu Old Town, Lamu Island, Lamu County",
       phone: "+254 721525901",
-      email: "info@simcaagencies.com",
+      email: "info@simca-agencies.com",
       hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
     },
     {
       name: "Lodwar",
       address: "Lodwar Town, Turkana County",
       phone: "+254 721525901",
-      email: "info@simcaagencies.com",
+      email: "info@simca-agencies.com",
       hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
     },
     {
       name: "Kaimosi",
       address: "Kaimosi Friends University, Kaimosi Town, Vihiga County",
       phone: "+254 721525901",
-      email: "info@simcaagencies.com",
+      email: "info@simca-agencies.com",
       hours: "Mon-Fri: 7am-5pm, Sat: 7am-2pm",
     },
   ]
@@ -340,8 +340,8 @@ export default function ContactPage() {
                       </motion.div>
                       <div className="flex-1 min-w-0">
                         <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Email Us</p>
-                        <a href="mailto:info@simcaagencies.com" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed mb-1">
-                          We reply quickly: info@simcaagencies.com
+                        <a href="mailto:info@simca-agencies.com" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed mb-1">
+                          We reply quickly: info@simca-agencies.com
                         </a>
                         <a href="mailto:simka1974@hotmail.com" className="text-xs text-gray-800 dark:text-white hover:text-add8e6 transition-colors block leading-relaxed">
                           Or reach us at: simka1974@hotmail.com
@@ -660,16 +660,8 @@ export default function ContactPage() {
                 </div>
               )}
 
-              <div className="bg-white dark:bg-gray-900/50 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden h-[400px] md:h-[500px] lg:h-[600px] mt-8 md:mt-12 border border-gray-100 dark:border-gray-800/50">
-                <OpenStreetMap
-                  address="Kenya"
-                  height="100%"
-                  zoom={6}
-                  markers={locations.map(location => ({
-                    position: location.address + ', Kenya',
-                    popup: location.name
-                  }))}
-                />
+              <div className="bg-white dark:bg-gray-900/50 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden h-[300px] md:h-[350px] lg:h-[400px] mt-8 md:mt-12 border border-gray-100 dark:border-gray-800/50 relative z-0">
+                <GoogleMap height="100%" className="rounded-lg" />
               </div>
             </div>
           </ScrollAnimation>

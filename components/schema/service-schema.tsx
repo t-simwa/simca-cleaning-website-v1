@@ -18,25 +18,25 @@ export default function ServiceSchema({
   serviceType,
   description,
   url,
-  image = "https://simcaagencies.com/simca-logo.png",
+  image = "https://simca-agencies.com/simca-logo.png",
   areaServed = ["Mombasa", "Kisumu", "Lamu", "Lodwar", "Kaimosi", "Kenya"],
   features = []
 }: ServiceSchemaProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `https://simcaagencies.com${url}#service`,
+    "@id": `https://simca-agencies.com${url}#service`,
     "name": serviceName,
     "serviceType": serviceType,
     "description": description,
-    "url": `https://simcaagencies.com${url}`,
+    "url": `https://simca-agencies.com${url}`,
     "image": image,
     "provider": {
       "@type": "LocalBusiness",
-      "@id": "https://simcaagencies.com/#localbusiness",
+      "@id": "https://simca-agencies.com/#localbusiness",
       "name": "Simca Agencies Ltd",
       "telephone": "+254721525901",
-      "email": "info@simcaagencies.com"
+      "email": "info@simca-agencies.com"
     },
     "areaServed": areaServed.map(area => ({
       "@type": area === "Kenya" ? "Country" : "City",
@@ -66,12 +66,12 @@ export default function ServiceSchema({
         }
       }
     },
-    "termsOfService": "https://simcaagencies.com/terms",
+    "termsOfService": "https://simca-agencies.com/terms",
     "potentialAction": {
       "@type": "OrderAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://simcaagencies.com/contact",
+        "urlTemplate": "https://simca-agencies.com/contact",
         "actionPlatform": [
           "http://schema.org/DesktopWebPlatform",
           "http://schema.org/MobileWebPlatform"

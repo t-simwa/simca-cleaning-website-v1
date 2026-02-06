@@ -218,7 +218,7 @@ export default function ContractCleaningPage() {
       {/* Schema Markup for AI Search Optimization (GEO) */}
       <ServiceSchema {...serviceConfigs.contractCleaning} />
       <BreadcrumbSchema items={breadcrumbConfigs.contractCleaning} />
-      <FAQSchema faqs={contractCleaningFAQs} pageUrl="https://simcaagencies.com/services/contract-cleaning" />
+      <FAQSchema faqs={contractCleaningFAQs} pageUrl="https://simca-agencies.com/services/contract-cleaning" />
       
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">

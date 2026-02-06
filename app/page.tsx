@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
         {/* Schema Markup for AI Search Optimization (GEO) */}
-        <FAQSchema faqs={homepageFAQs} pageUrl="https://simcaagencies.com" />
+        <FAQSchema faqs={homepageFAQs} pageUrl="https://simca-agencies.com" />
         <BreadcrumbSchema items={breadcrumbConfigs.home} />
         
         {/* Hero Section - Full width with gradient */}

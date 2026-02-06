@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "How do I get a quote?",
-    answer: "Call us at 0721 525 901, email info@simcaagencies.com, or fill out our contact form. We offer free, no-obligation quotes.",
+    answer: "Call us at 0721 525 901, email info@simca-agencies.com, or fill out our contact form. We offer free, no-obligation quotes.",
   },
   {
     question: "Where are you located?",
