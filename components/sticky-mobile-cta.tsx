@@ -3,12 +3,14 @@
 import { Phone, MessageSquare } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useState, useEffect } from "react"
+import { useMobileMenu } from "@/contexts/mobile-menu-context"
 
 export default function StickyMobileCTA() {
   const router = useRouter()
   const [isVisible, setIsVisible] = useState(false)
+  const { isMenuOpen } = useMobileMenu()
 
-  // Show sticky bar after scrolling down a bit
+  // Show sticky bar after scrolling down a bit (but hide when mobile menu is open)
   useEffect(() => {
     const handleScroll = () => {
       // Show after scrolling 300px
@@ -33,10 +35,10 @@ export default function StickyMobileCTA() {
 
   return (
     <>
-      {/* Sticky Mobile Footer Bar - Only visible on mobile */}
+      {/* Sticky Mobile Footer Bar - Only visible on mobile, hidden when menu is open */}
       <div
         className={`md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] transition-transform duration-300 ${
-          isVisible ? "translate-y-0" : "translate-y-full"
+          isVisible && !isMenuOpen ? "translate-y-0" : "translate-y-full"
         }`}
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >

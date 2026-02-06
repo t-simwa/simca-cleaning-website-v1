@@ -8,6 +8,7 @@ import Logo from "./logo"
 import { useTheme } from "next-themes"
 import SocialIcons from "./social-icons"
 import LanguageToggle from "./language-toggle"
+import { useMobileMenu } from "@/contexts/mobile-menu-context"
 
 // Mobile Language Toggle Component
 function MobileLanguageToggle() {
@@ -72,7 +73,7 @@ function MobileLanguageToggle() {
 
 export default function Header() {
   const router = useRouter()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { isMenuOpen, setIsMenuOpen } = useMobileMenu()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false)
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
@@ -315,7 +316,7 @@ export default function Header() {
           {/* Mobile Menu Backdrop */}
           {isMenuOpen && (
             <div 
-              className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300"
+              className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] transition-opacity duration-300"
               onClick={toggleMenu}
               aria-hidden="true"
             />
@@ -323,7 +324,7 @@ export default function Header() {
 
           {/* Mobile Menu */}
           <div 
-            className={`md:hidden fixed inset-y-0 right-0 w-full max-w-sm bg-white dark:bg-gray-900 z-50 transform transition-transform duration-300 ease-in-out shadow-2xl ${
+            className={`md:hidden fixed inset-y-0 right-0 w-full max-w-sm bg-white dark:bg-gray-900 z-[70] transform transition-transform duration-300 ease-in-out shadow-2xl ${
               isMenuOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
           >

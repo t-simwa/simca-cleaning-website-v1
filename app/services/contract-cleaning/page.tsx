@@ -14,110 +14,10 @@ import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import ContactForm from "@/components/contact-form";
 
 const MotionImage = motion(Image)
-
-// CountUp component for animated numbers with scroll trigger
-function CountUp({ end, duration = 1.5, suffix = "", inView = false }: { end: string | number, duration?: number, suffix?: string, inView?: boolean }) {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    if (!inView) return;
-    if (typeof end === 'string' && !end.match(/^\d+/)) {
-      return;
-    }
-    let numericEnd: number;
-    if (typeof end === 'number') {
-      numericEnd = end;
-    } else {
-      const match = end.match(/^(\d+)(.*)$/);
-      if (match) {
-        numericEnd = parseInt(match[1]);
-      } else {
-        numericEnd = parseInt(end);
-      }
-    }
-    const startTime = performance.now();
-    function animate(now: number) {
-      const elapsed = (now - startTime) / 1000;
-      const progress = Math.min(elapsed / duration, 1);
-      const value = Math.floor(progress * numericEnd);
-      setCount(value);
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        setCount(numericEnd);
-      }
-    }
-    requestAnimationFrame(animate);
-    return () => {};
-  }, [end, duration, inView]);
-  
-  if (typeof end === 'string' && !end.match(/^\d+/)) {
-    return <span>{end}{suffix}</span>;
-  }
-  
-  let display: string | number = count;
-  let textSuffix = '';
-  if (typeof end === 'string') {
-    const match = end.match(/^(\d+)(.*)$/);
-    if (match) {
-      textSuffix = match[2];
-    }
-    if (end.includes('%')) display = `${count}%`;
-    else if (end.includes('+')) display = `${count}+`;
-    else if (textSuffix) display = `${count}${textSuffix}`;
-  }
-  return <span>{display}{suffix}</span>;
-}
-
-// Stats Section Component with scroll-triggered animation
-function StatsSectionWithAnimation() {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  })
-
-  return (
-    <motion.div
-      ref={ref}
-      variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
-      className="grid grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto mb-8 md:mb-12"
-    >
-      {[
-        { 
-          value: "19+", 
-          label: "YEARS OF EXPERIENCE", 
-        },
-        { 
-          value: "6+", 
-          label: "SECTORS SERVED", 
-        },
-        { 
-          value: "100%", 
-          label: "OHS COMPLIANT", 
-        }
-      ].map((stat, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1, duration: 0.6 }}
-          className="text-center"
-        >
-          <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 tracking-tight">
-            <CountUp end={stat.value} duration={1.5} inView={inView} />
-          </div>
-          <div className="text-[10px] md:text-xs text-gray-300 uppercase tracking-wider font-medium pb-1.5 border-b border-gray-400/40 inline-block">
-            {stat.label}
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
-  )
-}
 
 interface ServiceDetail {
   title: string;
@@ -349,7 +249,7 @@ export default function ContractCleaningPage() {
 
               <motion.h1
                 variants={itemVariants}
-                className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-wide"
+                className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wide"
               >
                 Professional{" "}
                 <span className="text-fff relative inline-block">
@@ -367,24 +267,34 @@ export default function ContractCleaningPage() {
 
               <motion.p 
                 variants={itemVariants}
-                className="text-sm md:text-base lg:text-base text-gray-200 tracking-wide mb-10 md:mb-12 max-w-2xl mx-auto"
+                className="font-body text-base md:text-lg lg:text-xl text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
               >
-                Reliable day-to-day maintenance cleaning for hospitals, hotels, government offices, schools, banks, and industrial premises. Our trained staff deliver consistent, high-quality results with eco-friendly products, modern equipment, and full OHS compliance.
+                Kenya's trusted professional cleaners for hospitals, hotels, offices, and industrial facilities.
               </motion.p>
-
-              <StatsSectionWithAnimation />
 
               <motion.div
                 variants={itemVariants}
-                className="flex justify-center mb-6"
+                className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <Link 
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-add8e6 to-add8e6/90 text-white px-6 md:px-8 py-2.5 md:py-3 font-medium transition-all duration-300 group text-center text-xs sm:text-sm tracking-wide border-b-2 border-transparent hover:border-white/50"
+                <button
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact-form')
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                  }}
+                  className="font-body inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
                 >
-                  Get Your Free Quote
-                  <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                  Get a Free Quote
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+                <a
+                  href="tel:+254722839248"
+                  className="font-body inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+                >
+                  <Phone className="w-4 h-4 md:w-5 md:h-5" />
+                  Call Us Now
+                </a>
               </motion.div>
             </motion.div>
           </div>
@@ -407,7 +317,7 @@ export default function ContractCleaningPage() {
                   Why Choose Us
                 </span>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">Why Choose Our</span>
                 <span className="text-add8e6 relative inline-block block mb-4 ml-2">
                   Contract
@@ -433,14 +343,11 @@ export default function ContractCleaningPage() {
                   />
                 </div>
               </div>
-              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies Ltd</Link></span> was established in 2005 and has evolved to become one of the largest and most specialized cleaning companies in Kenya. As a fully Kenyan-owned company, we take pride in delivering reliable, high-quality contract cleaning services to hospitals, hotels, government offices, schools, banks, industrial premises, and commercial buildings.
+              <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5 leading-relaxed">
+                <span className="font-semibold text-gray-800 dark:text-white"><Link href="/" className="text-add8e6 hover:text-add8e6/80 transition-colors duration-300">Simca Agencies Ltd</Link></span> has been Kenya's trusted cleaning company since 2005. We deliver reliable, high-quality contract cleaning to hospitals, hotels, government offices, schools, banks, and industrial facilities. Our clients enjoy peace of mind knowing their facilities are maintained to the highest standards, creating healthier environments for staff and visitors.
               </p>
-              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Our success lies in our ability to train and manage staff to achieve the stringent standards demanded by our customers. We employ highly trained and disciplined staff who are all Kenyan citizens, ensuring accountability and commitment to excellence. Our team is equipped with modern cleaning equipment and uses eco-friendly products to deliver exceptional results.
-              </p>
-              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                We provide comprehensive insurance coverage including third party/public liability insurance, employer's liability, workman's compensation, and insurance against loss and damage to property. Our operations are fully OHS compliant, and we maintain regular supervision with quality inspections to ensure consistent, high-standard results.
+              <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5 leading-relaxed">
+                Our trained Kenyan staff use modern equipment and eco-friendly products to deliver exceptional results every day. You get comprehensive insurance coverage, full OHS compliance, and regular quality inspections ensuring your facility always looks its best. We handle everything so you can focus on your core business.
               </p>
             </div>
             <div className="w-full md:w-1/2 flex justify-center md:pr-8 mb-8 md:mb-0 hidden md:flex">
@@ -478,7 +385,7 @@ export default function ContractCleaningPage() {
               <MdAutoAwesome className="w-3.5 h-3.5" />
               Benefits of Our Services
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide">
               <span className="block mb-1">Benefits of Our</span>
               <span className="inline-block block mb-1 ml-2">
                 <span className="text-add8e6 relative inline-block">Contract
@@ -494,8 +401,8 @@ export default function ContractCleaningPage() {
                 Cleaning Services
               </span>
             </h2>
-            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide">
-              Experience the difference that professional contract cleaning can make in your facility. From improved hygiene to enhanced professional image, discover why leading institutions choose our services.
+            <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide leading-relaxed">
+              Professional contract cleaning that improves hygiene and enhances your facility's image.
             </p>
           </motion.div>
           <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 space-y-3 md:space-y-4">
@@ -588,10 +495,10 @@ export default function ContractCleaningPage() {
                     </div>
                   </motion.div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-add8e6 text-xs md:text-sm mb-1.5 group-hover:text-add8e6/80 transition-colors leading-tight">
+                    <h3 className="font-heading font-semibold text-add8e6 text-sm md:text-base mb-1.5 group-hover:text-add8e6/80 transition-colors leading-tight">
                       {para.title}
                     </h3>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                       {para.content}
                     </p>
                   </div>
@@ -668,7 +575,7 @@ export default function ContractCleaningPage() {
                   What's Included
                 </span>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide w-full">
                 <span className="mb-1">What's Included in Our</span>
                 <span className="ml-2">
                   <span className="text-add8e6 relative inline-block block mb-4">
@@ -735,138 +642,37 @@ export default function ContractCleaningPage() {
                   </div>
                 </div>
               </div>
-              <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-5">
-                Our contract cleaning services cover comprehensive maintenance of your facility. We handle all aspects of cleaning to keep your space spotless and professional.
+              <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 tracking-wide mb-5 leading-relaxed">
+                Comprehensive facility maintenance to keep your space spotless and professional.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-                <li>General housekeeping</li>
-                <li>Sweeping and mopping floors</li>
-                <li>Damp dusting of fixtures, woodworks, electrical plugs, and light switches</li>
-                <li>Spot cleaning metal, paintworks, and internal glazing</li>
-                <li>Hand basin, soap dispenser, and tissue holder maintenance</li>
-                <li>Waste separation and disposal</li>
-                <li>Carpet vacuuming</li>
-                <li>Window and window seal cleaning</li>
-                <li>Telephone sanitizing</li>
+              <ul className="font-body list-disc pl-5 space-y-2 text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8">
+                <li>General housekeeping and floor maintenance</li>
+                <li>Dusting fixtures, woodworks, and surfaces</li>
                 <li>Bathroom and toilet cleaning with disinfection</li>
-                <li>Passages and corridors cleaning</li>
-                <li>Store rooms maintenance</li>
-                <li>Kitchen and tea rooms cleaning</li>
-                <li>Office plants care</li>
-                <li>Floor scrubbing, polishing, and shining</li>
-                <li>Interior and exterior window cleaning</li>
+                <li>Waste separation and disposal</li>
+                <li>Carpet vacuuming and floor polishing</li>
+                <li>Window and glass cleaning</li>
+                <li>Kitchen and tea room cleaning</li>
+                <li>High-touch point sanitization</li>
               </ul>
+              
+              {/* Get a Quote Button */}
+              <button
+                onClick={() => {
+                  const contactSection = document.getElementById('contact-form')
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }}
+                className="font-body inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm md:text-base tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+              >
+                Get a Free Quote
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
             </div>
           </div>
         </div>
       </section>
-
-      <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
-
-      {/* Pricing Section */}
-      <div id="pricing" className="relative py-12 md:py-20 scroll-mt-24">
-        <div className="absolute inset-0 bg-gray-50 dark:bg-gray-800/50">
-          <div className="absolute inset-0 bg-[radial-gradient(#add8e6_1px,transparent_1px)] [background-size:16px_16px] opacity-5" />
-        </div>
-        <div className="container mx-auto px-4 relative">
-          <ScrollAnimation>
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-8 md:mb-16">
-                <motion.div 
-                  className="inline-block mb-3 sm:mb-4 md:mb-6 mt-0 !mt-0"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="bg-add8e6/10 text-add8e6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium flex items-center gap-2 shadow-sm mt-0 !mt-0">
-                    <Phone className="w-3.5 h-3.5" />
-                    Pricing & Packages
-                  </span>
-                </motion.div>
-                <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight tracking-wide mt-0 !mt-0"
-                >
-                  <span className="text-add8e6 relative inline-block tracking-wider">
-                    Contract
-                    <motion.span 
-                      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/20 rounded-full origin-left block"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, ease: 'easeOut' }}
-                      style={{ display: 'block' }}
-                    />
-                  </span>{' '}
-                  Cleaning Plans
-                </motion.h2>
-                <motion.p 
-                  className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 tracking-wide mb-6 max-w-2xl mx-auto"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <strong>Note:</strong> Contract cleaning prices are customized based on the size of your facility, specific requirements, frequency of service, and number of staff required. Contact us for a detailed assessment and personalized quote.
-                </motion.p>
-              </div>
-
-              <div className="flex justify-center">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="group relative bg-white dark:bg-gray-900/50 rounded-lg p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-add8e6/30 focus:ring-offset-1 border border-gray-100 dark:border-gray-800/50 overflow-hidden flex flex-col w-full max-w-md"
-                >
-                  <div className="flex flex-col h-full relative z-10">
-                    <div className="p-3 bg-add8e6/10 rounded-lg group-hover:scale-105 transition-transform duration-300 mb-4">
-                      <h3 className="font-semibold text-sm md:text-base text-gray-800 dark:text-white group-hover:text-add8e6 transition-colors text-center">
-                        Contract Cleaning
-                      </h3>
-                    </div>
-                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 text-center mb-4">
-                      Day-to-day maintenance cleaning services for offices, hospitals, hotels, government offices, schools, banks, and industrial premises.
-                    </p>
-                    <ul className="space-y-2 flex-grow mb-6">
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <MdBusiness className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Trained and disciplined staff</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <MdBusiness className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Modern cleaning equipment</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <MdBusiness className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Regular supervision and quality inspections</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <MdBusiness className="w-3.5 h-3.5 text-add8e6 mt-0.5 flex-shrink-0" />
-                        <span>Comprehensive insurance coverage</span>
-                      </li>
-                    </ul>
-                    <button
-                      onClick={() => {
-                        const contactSection = document.getElementById('contact-form')
-                        if (contactSection) {
-                          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                        }
-                      }}
-                      className="mt-auto inline-flex items-center justify-center gap-2 bg-add8e6 text-white px-6 py-3 font-medium transition-all duration-300 text-center text-sm tracking-wide border-b-2 border-transparent hover:border-white/50 group rounded-lg"
-                    >
-                      Get a Quote
-                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </button>
-                  </div>
-                </motion.div>
-              </div>
-
-              <div className="max-w-3xl mx-auto mt-8 text-center">
-                <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-                  Our contract cleaning services include trained staff, equipment, supplies, supervision, and insurance coverage. For a personalized assessment and quote, please <Link href="/contact" className="text-add8e6 hover:underline">contact us</Link>.
-                </p>
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </div>
 
       <div className="h-1 bg-gradient-to-r from-transparent via-add8e6/50 to-transparent" />
 
@@ -881,15 +687,15 @@ export default function ContractCleaningPage() {
               <MessageCircle className="w-3.5 h-3.5" />
               Contact Us
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 md:mb-6 leading-tight">
               Get in{' '}
               <span className="text-add8e6 relative">
                 Touch
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-add8e6/20 rounded-full" />
               </span>
             </h2>
-            <p className="text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300">
-              Have questions about our contract cleaning services? Get a free assessment and quote today. We're here to help keep your facility clean and professional.
+            <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              Get a free assessment and quote for your facility today.
             </p>
           </div>
           <div className="max-w-2xl mx-auto">

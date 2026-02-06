@@ -33,8 +33,6 @@ export default function ContactForm({
     servicePackage: preselectedPackage,
     location: "",
     preferredDate: "",
-    referralSource: "",
-    message: "",
   })
 
   // Update form when preselected values change (e.g., from URL params)
@@ -52,11 +50,9 @@ export default function ContactForm({
   const [submittedData, setSubmittedData] = useState<{ name: string; service: string } | null>(null)
   const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false)
   const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false)
-  const [isReferralDropdownOpen, setIsReferralDropdownOpen] = useState(false)
   const [isPackageDropdownOpen, setIsPackageDropdownOpen] = useState(false)
   const serviceDropdownRef = useRef<HTMLDivElement>(null)
   const locationDropdownRef = useRef<HTMLDivElement>(null)
-  const referralDropdownRef = useRef<HTMLDivElement>(null)
   const packageDropdownRef = useRef<HTMLDivElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
   const [focusedField, setFocusedField] = useState<string | null>(null)
@@ -77,14 +73,6 @@ export default function ContactForm({
     "Kaimosi",
   ]
 
-  const referralSources = [
-    "Google Search",
-    "Social Media (Facebook/Instagram)",
-    "Friend/Family Referral",
-    "Website",
-    "Advertisement",
-    "Other",
-  ]
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -101,10 +89,6 @@ export default function ContactForm({
     setIsLocationDropdownOpen(false)
   }
 
-  const handleReferralSelect = (referralValue: string) => {
-    setFormData((prev) => ({ ...prev, referralSource: referralValue }))
-    setIsReferralDropdownOpen(false)
-  }
 
   const handlePackageSelect = (packageValue: string) => {
     setFormData((prev) => ({ ...prev, servicePackage: packageValue }))
@@ -150,8 +134,6 @@ export default function ContactForm({
       servicePackage: "",
       location: "",
       preferredDate: "",
-      referralSource: "",
-      message: "",
     })
 
     // Send emails in the background (fire and forget)
@@ -168,8 +150,6 @@ export default function ContactForm({
           servicePackage: formData.servicePackage,
           location: formData.location,
           preferredDate: formData.preferredDate,
-          referralSource: formData.referralSource,
-          message: formData.message,
         }),
     }).catch((error) => {
       // Silently handle errors in background (emails will retry or be logged server-side)
@@ -186,16 +166,13 @@ export default function ContactForm({
       if (locationDropdownRef.current && !locationDropdownRef.current.contains(event.target as Node)) {
         setIsLocationDropdownOpen(false)
       }
-      if (referralDropdownRef.current && !referralDropdownRef.current.contains(event.target as Node)) {
-        setIsReferralDropdownOpen(false)
-      }
     }
 
     document.addEventListener("mousedown", handleClickOutside)
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [serviceDropdownRef, locationDropdownRef, referralDropdownRef, packageDropdownRef])
+  }, [serviceDropdownRef, locationDropdownRef, packageDropdownRef])
 
   const selectedServiceLabel = services.find(s => s.value === submittedData?.service)?.label || submittedData?.service || "your service"
 
@@ -484,87 +461,13 @@ export default function ContactForm({
             </div>
           </div>
         </div>
-        <div className="group">
-          <label htmlFor="message" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-200 group-focus-within:text-add8e6">
-            Specific Requirements
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            onFocus={() => setFocusedField('message')}
-            onBlur={() => setFocusedField(null)}
-            required
-            rows={4}
-            className="w-full px-3 py-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6/30 focus:border-add8e6/50 transition-all duration-200 resize-none placeholder-gray-400 dark:placeholder-gray-500 text-xs"
-            placeholder="Tell us about your specific cleaning requirements..."
-          ></textarea>
-        </div>
-        <div className="relative group" ref={referralDropdownRef}>
-          <label htmlFor="referralSource" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-200 group-focus-within:text-add8e6">
-            How did you hear about us? <span className="text-gray-500 text-xs">(Optional)</span>
-          </label>
-          <button
-            type="button"
-            id="referralSource"
-            aria-haspopup="listbox"
-            aria-expanded={isReferralDropdownOpen}
-            className={`w-full flex items-center justify-between px-3 py-2 rounded-md border bg-white dark:bg-gray-900/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-add8e6/30 transition-all duration-200 text-left text-xs ${
-              isReferralDropdownOpen || focusedField === 'referralSource'
-                ? 'ring-2 ring-add8e6/30 border-add8e6/50' 
-                : 'border-gray-200 dark:border-gray-700'
-            }`}
-            onClick={() => {
-              setIsReferralDropdownOpen(!isReferralDropdownOpen)
-              setFocusedField(isReferralDropdownOpen ? null : 'referralSource')
-            }}
-            onBlur={() => setTimeout(() => {
-              setIsReferralDropdownOpen(false)
-              setFocusedField(null)
-            }, 100)}
-          >
-            {formData.referralSource ? (
-              <span className="text-xs">{formData.referralSource}</span>
-            ) : (
-              <span className="text-gray-400 dark:text-gray-500 text-xs">Select an option</span>
-            )}
-            <svg className="w-3 h-3 ml-2 text-gray-400 dark:text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
-          </button>
-          {isReferralDropdownOpen && (
-            <ul
-              tabIndex={-1}
-              role="listbox"
-              className="absolute z-10 mt-1 w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg py-1 max-h-60 overflow-auto"
-            >
-              {referralSources.map((source) => (
-                <li
-                  key={source}
-                  role="option"
-                  aria-selected={formData.referralSource === source}
-                  className={`px-3 py-1.5 cursor-pointer text-xs hover:bg-add8e6/10 dark:hover:bg-add8e6/20 transition-colors ${
-                    formData.referralSource === source 
-                      ? 'bg-add8e6/10 dark:bg-add8e6/20 text-add8e6 font-medium' 
-                      : 'text-gray-900 dark:text-white'
-                  }`}
-                  onClick={() => {
-                    handleReferralSelect(source)
-                    setFocusedField(null)
-                  }}
-                >
-                  {source}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
         <div className="flex justify-center">
           <button
             type="submit"
-            className="inline-flex items-center gap-1.5 bg-add8e6 text-white px-5 py-2 font-medium rounded-md transition-all duration-200 group text-xs hover:bg-add8e6/90"
+            className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 font-semibold rounded-lg transition-all duration-300 group text-sm shadow-md hover:shadow-lg"
           >
-            <Send className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-            <span>Send Message</span>
+            <span>Get Your Free Quote</span>
+            <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </div>
       </form>

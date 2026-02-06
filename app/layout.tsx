@@ -7,6 +7,7 @@ import Footer from "@/components/footer"
 import StickyMobileCTA from "@/components/sticky-mobile-cta"
 import { ThemeProvider } from "@/components/theme-provider"
 import { PageTransition } from "@/components/ui/page-transition"
+import { MobileMenuProvider } from "@/contexts/mobile-menu-context"
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -113,12 +114,14 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${playfair.variable} ${nunito.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <Header />
-          <PageTransition>
-            <main className="pt-14 md:pt-20">{children}</main>
-          </PageTransition>
-          <Footer />
-          <StickyMobileCTA />
+          <MobileMenuProvider>
+            <Header />
+            <PageTransition>
+              <main className="pt-14 md:pt-20">{children}</main>
+            </PageTransition>
+            <Footer />
+            <StickyMobileCTA />
+          </MobileMenuProvider>
         </ThemeProvider>
       </body>
     </html>
