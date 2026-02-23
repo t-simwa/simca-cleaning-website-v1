@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, Clock, Youtube, Sparkles, ArrowRight } from "lucide-react"
+import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, Clock, Youtube, Sparkles, ArrowRight, Download } from "lucide-react"
 import Logo from "./logo"
 import WhatsAppWidget from "./whatsapp-widget"
 import NewsletterSignup from "./newsletter-signup"
@@ -29,23 +29,37 @@ export default function Footer() {
       </div> */}
 
       <div className="container mx-auto px-4 py-6 md:py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
           {/* Company Info */}
-          <div className="space-y-3 md:space-y-5">
+          <div className="lg:col-span-2 space-y-3 md:space-y-5">
             <div className="flex items-center gap-3 md:gap-4">
               <Logo className="w-60 h-12 md:w-60 md:h-30 transition-transform duration-300 group-hover:scale-105" variant="white" />
             </div>
-            <div className="flex gap-3 md:gap-4">
+            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+              Kenya's trusted professional cleaning company since 2005. We serve hospitals, hotels, government offices, and industrial facilities with trained teams and modern equipment.
+            </p>
+            {/* Download Company Profile */}
+            <a
+              href="/company-profile.pdf"
+              download
+              className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-gray-800 px-4 py-2 font-semibold transition-all duration-300 text-sm tracking-wide rounded-lg shadow-md hover:shadow-lg"
+            >
+              <Download className="w-4 h-4" />
+              Download Company Profile
+            </a>
+            <div className="flex gap-3 md:gap-4 pt-2">
               {[
-                { icon: Facebook, href: "#", label: "Facebook" },
-                { icon: Twitter, href: "#", label: "Twitter" },
-                { icon: Instagram, href: "#", label: "Instagram" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Youtube, href: "#", label: "YouTube" },
+                { icon: Facebook, href: "https://facebook.com/simcaagencies", label: "Facebook" },
+                { icon: Twitter, href: "https://twitter.com/simcaagencies", label: "Twitter" },
+                { icon: Instagram, href: "https://instagram.com/simcaagencies", label: "Instagram" },
+                { icon: Linkedin, href: "https://linkedin.com/company/simcaagencies", label: "LinkedIn" },
+                { icon: Youtube, href: "https://youtube.com/simcaagencies", label: "YouTube" },
               ].map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-gray-800 hover:bg-add8e6/20 p-2 md:p-2 rounded-xl text-gray-400 hover:text-add8e6 transition-all duration-300 hover:scale-110 transform group"
                   aria-label={social.label}
                 >
@@ -109,71 +123,59 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact & Hours */}
           <div className="space-y-3 md:space-y-5">
             <h3 className="text-base md:text-lg font-semibold text-white">
               Contact Us
             </h3>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-3 md:gap-4 group">
-                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+            <ul className="space-y-4 md:space-y-5">
+              <li className="flex items-start gap-3 md:gap-4 group">
+                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300 flex-shrink-0 mt-0.5">
                   <MapPin className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
                 </div>
-                <span className="text-gray-400 group-hover:text-gray-300 transition-colors text-xs md:text-sm">
-                  New Canon Towers, Moi Avenue, Mombasa
-                </span>
-              </li>
-              <li className="flex items-center gap-3 md:gap-4 group">
-                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
-                  <MapPin className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
+                <div className="text-gray-400 group-hover:text-gray-300 transition-colors text-xs md:text-sm flex flex-col gap-1">
+                  <p>New Canon Towers,</p>
+                  <p>Moi Avenue, Mombasa</p>
+                  <p className="mt-1">P.O. Box 93169-80102</p>
                 </div>
-                <span className="text-gray-400 group-hover:text-gray-300 transition-colors text-xs md:text-sm">
-                  P.O. Box 93169-80102, Mombasa
-                </span>
               </li>
               <li className="flex items-center gap-3 md:gap-4 group">
-                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300 flex-shrink-0">
                   <Phone className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
                 </div>
-                <a
-                  href="tel:+254721525901"
-                  className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm"
-                >
-                  +254 721 525 901
-                </a>
-              </li>
-              <li className="flex items-center gap-3 md:gap-4 group">
-                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
-                  <Phone className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
+                <div className="flex flex-col gap-1">
+                  <a href="tel:+254721525901" className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm">
+                    +254 721 525 901
+                  </a>
+                  <a href="tel:+254412316600" className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm">
+                    041-2316600
+                  </a>
                 </div>
-                <a
-                  href="tel:+254412316600"
-                  className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm"
-                >
-                  041-2316600
-                </a>
               </li>
               <li className="flex items-center gap-3 md:gap-4 group">
-                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
+                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300 flex-shrink-0">
                   <Mail className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
                 </div>
-                <a
-                  href="mailto:info@simca-agencies.com"
-                  className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm"
-                >
-                  info@simca-agencies.com
-                </a>
-              </li>
-              <li className="flex items-center gap-3 md:gap-4 group">
-                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300">
-                  <Mail className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
+                <div className="flex flex-col gap-1">
+                  <a href="mailto:info@simca-agencies.com" className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm">
+                    info@simca-agencies.com
+                  </a>
+                  <a href="mailto:simka1974@hotmail.com" className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm">
+                    simka1974@hotmail.com
+                  </a>
                 </div>
-                <a
-                  href="mailto:simka1974@hotmail.com"
-                  className="text-gray-400 hover:text-add8e6 transition-colors text-xs md:text-sm"
-                >
-                  simka1974@hotmail.com
-                </a>
+              </li>
+              {/* Operating Hours */}
+              <li className="flex items-start gap-3 md:gap-4 group pt-2">
+                <div className="bg-gray-800 p-2 md:p-2.5 rounded-xl group-hover:bg-add8e6/20 transition-all duration-300 flex-shrink-0 mt-0.5">
+                  <Clock className="h-4 w-4 md:h-4 md:w-4 text-add8e6" />
+                </div>
+                <div className="text-gray-400 group-hover:text-gray-300 transition-colors text-xs md:text-sm flex flex-col gap-1">
+                  <p className="font-medium text-white">Operating Hours</p>
+                  <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
+                  <p>Sat: 8:00 AM - 2:00 PM</p>
+                  <p>24/7 Emergency Services</p>
+                </div>
               </li>
             </ul>
           </div>
