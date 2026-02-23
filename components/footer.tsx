@@ -220,7 +220,7 @@ export default function Footer() {
           <p className="text-gray-400 text-sm text-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
             Proudly powered by{" "}
             <a
-              href="https://tedsimwa.com"
+              href="https://portfolio-website-flax-sigma-29.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-add8e6 transition-colors font-medium uppercase"
