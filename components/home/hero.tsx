@@ -7,6 +7,12 @@ import { motion } from "framer-motion"
 
 const MotionImage = motion(Image)
 
+const stats = [
+  { value: "19+", label: "YEARS IN SERVICE" },
+  { value: "6+", label: "SECTORS SERVED" },
+  { value: "100%", label: "KENYAN OWNED" },
+]
+
 export default function Hero() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   
@@ -73,9 +79,9 @@ export default function Hero() {
               variants={itemVariants}
               className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-white mb-6 md:mb-8 leading-loose"
             >
-              Professional Cleaning{" "}
+              Kenya's Leading{" "}
               <span className="text-white relative inline-block">
-                You Can Trust
+                Professional Cleaners
                 <motion.span
                   className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-add8e6/30 rounded-full origin-left block"
                   initial={{ scaleX: 0 }}
@@ -86,12 +92,35 @@ export default function Hero() {
               </span>
             </motion.h1>
 
-            {/* Short tagline */}
+            {/* Stronger tagline */}
             <p 
               className="font-body text-base md:text-lg lg:text-xl text-gray-200 tracking-wide mb-8 md:mb-10 max-w-2xl mx-auto"
             >
-              Kenya's trusted professional cleaners for hospitals, hotels, offices, and industrial facilities.
+              Trusted by Kenya's top hospitals, hotels, and industrial facilities. Fully insured, OHS compliant, and delivering exceptional cleaning standards since 2006.
             </p>
+
+            {/* Stats Row */}
+            <motion.div 
+              variants={itemVariants}
+              className="grid grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto mb-10 md:mb-12"
+            >
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  className="text-center"
+                >
+                  <div className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-3 tracking-tight">
+                    {stat.value}
+                  </div>
+                  <div className="font-body text-xs md:text-sm text-gray-300 uppercase tracking-wider font-medium pb-1 border-b border-add8e6/30 inline-block">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
 
             {/* Dual CTA Buttons */}
             <motion.div 
