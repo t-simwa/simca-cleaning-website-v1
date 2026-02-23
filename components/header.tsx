@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { Menu, X, Phone, Moon, Sun, Sparkles, Mail, ChevronDown, ArrowRight, Globe } from "lucide-react"
+import { Menu, X, Phone, Moon, Sun, Sparkles, Mail, ChevronDown, ArrowRight, Globe, Download } from "lucide-react"
 import Logo from "./logo"
 import { useTheme } from "next-themes"
 import SocialIcons from "./social-icons"
@@ -274,6 +274,16 @@ export default function Header() {
 
           {/* Dual CTA Buttons - Desktop */}
           <div className="hidden md:flex items-center gap-2">
+            {/* Company Profile Download */}
+            <a
+              href="/company-profile.pdf"
+              download
+              className="font-body inline-flex items-center justify-center gap-1.5 bg-add8e6/10 hover:bg-add8e6/20 text-add8e6 border border-add8e6/30 px-3 py-2.5 font-semibold transition-all duration-300 text-sm tracking-wide rounded-lg"
+              aria-label="Download Company Profile"
+            >
+              <Download className="w-4 h-4" />
+              <span className="hidden lg:inline">Profile</span>
+            </a>
             {/* Secondary - Call Now (matches hero style) */}
             <a
               href="tel:+254721525901"
@@ -396,6 +406,17 @@ export default function Header() {
                     Quick Actions
                   </h3>
                   <div className="space-y-2">
+                    <a
+                      href="/company-profile.pdf"
+                      download
+                      className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-add8e6 hover:text-add8e6/80 transition-colors font-medium rounded-lg hover:bg-add8e6/5 dark:hover:bg-add8e6/10 group"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span className="flex items-center">
+                        <Download className="h-4 w-4 mr-2" />
+                        Download Company Profile
+                      </span>
+                    </a>
                     <a
                       href="tel:+254721525901"
                       className="font-body flex items-center justify-between py-2.5 px-4 text-sm text-gray-600 dark:text-gray-300 hover:text-add8e6 dark:hover:text-add8e6 transition-colors font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 group"

@@ -2,7 +2,7 @@
 
 import React from "react"
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Download } from "lucide-react"
 // Unique icons from different icon libraries - matching home page style
 import { FaUserFriends } from "react-icons/fa" // Font Awesome - Personal Touch
 import { FaTags } from "react-icons/fa" // Font Awesome - Honest & Fair
@@ -235,6 +235,21 @@ export default function AboutPage() {
 
               {/* Minimalist Stats Section */}
               <StatsSectionWithAnimation />
+
+              {/* Download Company Profile Button */}
+              <motion.div 
+                variants={itemVariants}
+                className="mt-8"
+              >
+                <a
+                  href="/company-profile.pdf"
+                  download
+                  className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-800 px-6 md:px-8 py-3 md:py-3.5 font-semibold transition-all duration-300 group text-sm tracking-wide rounded-lg shadow-lg hover:shadow-xl"
+                >
+                  <Download className="w-4 h-4" />
+                  Download Company Profile
+                </a>
+              </motion.div>
             </motion.div>
           </div>
         </div>
